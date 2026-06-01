@@ -42,19 +42,19 @@ const itensPortfolio = [
     to:"#312e81",
     tab:"#a78bfa",
     fullWidth:true,
-    iconFolder:"../icons/softwares/",
+    iconFolder:"icons/softwares/",
     iconPills:[
-      { img:"../icons/softwares/photshop.png",      texto:"Photoshop"      },
-      { img:"../icons/softwares/illustrator.png",   texto:"Illustrator"    },
-      { img:"../icons/softwares/indesign.png",      texto:"InDesign"       },
-      { img:"../icons/softwares/aftereffects.png",  texto:"After Effects"  },
-      { img:"../icons/softwares/premire.png",       texto:"Premiere"       },
-      { img:"../icons/softwares/audition.png",      texto:"Audition"       },
-      { img:"../icons/softwares/canva.png",         texto:"Canva"          },
-      { img:"../icons/softwares/capcut.png",        texto:"CapCut"         },
-      { img:"../icons/softwares/inkscape.png",      texto:"Inkscape"       },
-      { img:"../icons/softwares/affinity.png",      texto:"Affinity"       },
-      { img:"../icons/softwares/Moho.png",          texto:"Moho Studio"    },
+      { img:"icons/softwares/photshop.png",      texto:"Photoshop"      },
+      { img:"icons/softwares/illustrator.png",   texto:"Illustrator"    },
+      { img:"icons/softwares/indesign.png",      texto:"InDesign"       },
+      { img:"icons/softwares/aftereffects.png",  texto:"After Effects"  },
+      { img:"icons/softwares/premire.png",       texto:"Premiere"       },
+      { img:"icons/softwares/audition.png",      texto:"Audition"       },
+      { img:"icons/softwares/canva.png",         texto:"Canva"          },
+      { img:"icons/softwares/capcut.png",        texto:"CapCut"         },
+      { img:"icons/softwares/inkscape.png",      texto:"Inkscape"       },
+      { img:"icons/softwares/affinity.png",      texto:"Affinity"       },
+      { img:"icons/softwares/Moho.png",          texto:"Moho Studio"    },
     ],
     socialAnim:true,
     pillCorner:"top-right",
@@ -526,17 +526,17 @@ function montarAudioPlayer(el){
 
 // Lista de fallback quando aberto via file:// ou sem listagem de diretório
 const ICONS_FALLBACK = {
-  "../icons/softwares/":[
-    "../icons/softwares/photshop.png",
-    "../icons/softwares/canva.png",
-    "../icons/softwares/capcut.png",
-    "../icons/softwares/aftereffects.png",
-    "../icons/softwares/premire.png"
+  "icons/softwares/":[
+    "icons/softwares/photshop.png",
+    "icons/softwares/canva.png",
+    "icons/softwares/capcut.png",
+    "icons/softwares/aftereffects.png",
+    "icons/softwares/premire.png"
   ],
-  "../icons/ia/":[
-    "../icons/ia/chatgpt.png",
-    "../icons/ia/claude.png",
-    "../icons/ia/gemini.png"
+  "icons/ia/":[
+    "icons/ia/chatgpt.png",
+    "icons/ia/claude.png",
+    "icons/ia/gemini.png"
   ]
 };
 
@@ -965,12 +965,12 @@ Promise.all([
   }),
 ]).then(embaralharGrid);
 
-// ── BUSCA (../search/search.json) ──
+// ── BUSCA (search/search.json) ──
 const searchWrap    = document.querySelector(".search-wrap");
 const searchInput   = document.getElementById("searchInput");
 const searchResults = document.getElementById("searchResults");
 const searchBtn     = document.getElementById("searchBtn");
-// Fonte dos dados: ../search/search-data.js (window.SEARCH_DATA)
+// Fonte dos dados: search/search-data.js (window.SEARCH_DATA)
 let searchData = Array.isArray(window.SEARCH_DATA) ? window.SEARCH_DATA : [];
 
 function textoDoItem(item){
