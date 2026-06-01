@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Portfólio</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="min-h-screen bg-[#0b0b0f] text-white font-sans">
+
+  <main class="mx-auto max-w-6xl px-3 pb-28 sm:px-6">
+
+    <div class="top-bg">
+    <section class="flex min-h-[250px] flex-col items-center justify-center gap-7 pt-20 text-center">
+      <h2 class="gradient-text text-5xl font-black leading-none tracking-tighter md:text-8xl">
+        Mateus Alves, <br /> 27 anos.
+      </h2>
+      <p class="intro-text max-w-2xl text-lg leading-relaxed">
+        Editor de Vídeos, Social Média, Filmaker e Programador.
+      </p>
+
+      <div class="search-wrap">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-ico"></i>
+          <input
+            id="searchInput"
+            type="text"
+            autocomplete="off"
+            placeholder="o que você precisa saber?"
+            class="search-input"
+          >
+          <button id="searchBtn" type="button" class="search-btn">
+            <span class="search-btn-inner">
+              <i class="fa-solid fa-magnifying-glass search-btn-ico"></i>
+              <span class="search-btn-rings">
+                <span></span><span></span><span></span>
+              </span>
+            </span>
+            <span class="search-btn-label">Pesquisar</span>
+          </button>
+        </div>
+        <div class="search-suggestions" id="searchSuggestions"></div>
+        <div id="searchResults" class="search-results"></div>
+      </div>
+    </section>
+
+    <!-- CARDS ESTILO PASTA -->
+    <section class="mt-16">
+
+      <div id="portfolioArea">
+        <div
+          id="portfolioGrid"
+          class="grid grid-cols-2 gap-x-4 gap-y-6 sm:gap-x-6 sm:gap-y-8 lg:gap-y-10"
+        ></div>
+
+        <!-- PAINEL EXPANDIDO (overlay absoluto) -->
+        <div id="folderPanel"></div>
+      </div>
+    </section>
+    </div>
+
+    <!-- GRID 4x3 ABAIXO DOS CARDS -->
+    <section class="mt-20">
+      <h2 class="mb-8 text-center text-2xl font-black uppercase tracking-tight text-white sm:text-4xl">
+        Conteúdos por Plataforma
+      </h2>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="todos" aria-label="Todos"><i class="fa-solid fa-grip"></i></button>
+        <button class="filter-btn" data-filter="youtube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></button>
+        <button class="filter-btn" data-filter="instagram" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></button>
+        <button class="filter-btn" data-filter="tiktok" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></button>
+        <button class="filter-btn" data-filter="facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></button>
+      </div>
+
+      <div
+        id="photoGrid"
+        class="mx-auto grid w-full grid-cols-3 gap-2 sm:gap-3 md:gap-4 lg:grid-cols-4"
+      ></div>
+
+      <div class="mt-8 mb-24 flex justify-center">
+        <button id="mostrarMais" type="button" class="show-more-btn">
+          Mostrar mais
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- OVERLAY MENU SOCIAL -->
+  <div id="socialOverlay"></div>
+
+  <!-- ÍCONES FLUTUANTES -->
+  <div id="floatContainer" class="fixed bottom-7 left-7 z-[60]">
+
+    <div id="fi-instagram" class="float-item">
+      <button class="fi-btn bg-gradient-to-tr from-purple-600 via-pink-500 to-orange-400 text-white">
+        <i class="fa-brands fa-instagram"></i>
+      </button>
+      <span class="contact-tag">@mateusalvesdzn</span>
+    </div>
+
+    <div id="fi-linkedin" class="float-item">
+      <button class="fi-btn bg-[#0A66C2] text-white">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </button>
+      <span class="contact-tag">Mateus Alves</span>
+    </div>
+
+    <div id="fi-gmail" class="float-item">
+      <button class="fi-btn bg-white text-[#EA4335]">
+        <i class="fa-solid fa-envelope"></i>
+      </button>
+      <span class="contact-tag">mateusalves.flu@gmail.com</span>
+    </div>
+
+    <div id="fi-facebook" class="float-item">
+      <button class="fi-btn bg-[#1877F2] text-white">
+        <i class="fa-brands fa-facebook-f"></i>
+      </button>
+      <span class="contact-tag">Mateus Alves</span>
+    </div>
+
+    <div id="fi-whatsapp" class="float-item">
+      <button id="socialToggle" class="fi-btn bg-[#25D366] text-white" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+      </button>
+      <span class="contact-tag">21973042881</span>
+    </div>
+
+  </div>
+
+  <script>
+    // cache-busting: forca browser buscar JS fresco a cada load (mata cache)
+    (function () {
+      var v = Date.now();
+      var srcs = [
+        "media-manifest.js",
+        "../search/search-data.js",
+        "../search/search-suggestions.js",
+        "script.js"
+      ];
+      srcs.forEach(function (s) {
+        document.write('<script src="' + s + '?v=' + v + '"><\/script>');
+      });
+    })();
+  </script>
+
+</body>
+</html>
