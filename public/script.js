@@ -817,6 +817,16 @@ if (btnMostrarMais) {
 let filtroAtivo = "todas";
 
 document.querySelectorAll(".filter-btn").forEach(btn => {
+  // botões com data-popup-titulo abrem um popup (igual às sugestões de
+  // busca) em vez de filtrar a grade — não entram na lógica de "aba".
+  if (btn.dataset.popupTitulo) {
+    btn.addEventListener("click", () => {
+      const item = (window.SEARCH_DATA || []).find(it => it.titulo === btn.dataset.popupTitulo);
+      if (item && item.conteudo) abrirPasta(item);
+    });
+    return;
+  }
+
   btn.addEventListener("click", () => {
     filtroAtivo = btn.dataset.filter;
     document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
