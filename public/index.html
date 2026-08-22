@@ -20,13 +20,23 @@
   <main class="mx-auto max-w-6xl px-3 pb-28 sm:px-6">
 
     <div class="top-bg">
-    <section class="flex min-h-[250px] flex-col items-center justify-center gap-7 pt-20 text-center">
-      <h2 class="gradient-text text-5xl font-black leading-none tracking-tighter md:text-8xl">
-        <span id="heroTitleLine1">Mateus Alves,</span> <br /> <span id="heroTitleLine2">27 anos.</span>
-      </h2>
-      <p id="heroSubtitle" class="intro-text max-w-2xl text-lg leading-relaxed">
-        Editor de Vídeos, Social Média, Filmaker e Programador.
-      </p>
+    <section class="flex min-h-[250px] flex-col items-center gap-7 pt-20 text-center">
+      <div class="flex w-full max-w-2xl items-start gap-4 text-left">
+        <img
+          id="heroProfilePhoto"
+          src="img/foto-perfil.png"
+          alt="Foto de perfil"
+          class="h-16 w-16 shrink-0 rounded-full object-cover ring-2 ring-white/10 sm:h-20 sm:w-20"
+        />
+        <div class="flex flex-col pt-1">
+          <h2 class="gradient-text text-2xl font-black leading-tight tracking-tight sm:text-3xl">
+            <span id="heroTitleLine1">Mateus Alves,</span> <span id="heroTitleLine2">27 anos.</span>
+          </h2>
+          <p id="heroSubtitle" class="intro-text mt-1 max-w-md text-sm leading-snug sm:text-base">
+            Editor de Vídeos, Social Média, Filmaker e Programador.
+          </p>
+        </div>
+      </div>
 
       <div class="search-wrap">
         <div class="search-box">
@@ -70,10 +80,6 @@
 
     <!-- GRID 4x3 ABAIXO DOS CARDS -->
     <section class="mt-20">
-      <h2 id="sectionHeading" class="mb-8 text-center text-2xl font-black uppercase tracking-tight text-white sm:text-4xl">
-        Conteúdos por Plataforma
-      </h2>
-
       <div class="filter-bar">
         <button class="filter-btn active" data-filter="todos" aria-label="Todos"><i class="fa-solid fa-grip"></i></button>
         <button class="filter-btn" data-filter="youtube" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></button>
@@ -185,7 +191,6 @@
         var l1 = document.getElementById("heroTitleLine1");
         var l2 = document.getElementById("heroTitleLine2");
         var sub = document.getElementById("heroSubtitle");
-        var heading = document.getElementById("sectionHeading");
         var searchInput = document.getElementById("searchInput");
         var searchLabel = document.querySelector(".search-btn-label");
         var showMore = document.getElementById("mostrarMais");
@@ -193,7 +198,6 @@
         if (l1 && c.heroTitleLine1) l1.textContent = c.heroTitleLine1;
         if (l2 && c.heroTitleLine2) l2.textContent = c.heroTitleLine2;
         if (sub && c.heroSubtitle) sub.textContent = c.heroSubtitle;
-        if (heading && c.sectionHeading) heading.textContent = c.sectionHeading;
         if (searchInput && c.searchPlaceholder) searchInput.placeholder = c.searchPlaceholder;
         if (searchLabel && c.searchButtonLabel) searchLabel.textContent = c.searchButtonLabel;
         if (showMore && c.showMoreLabel) showMore.textContent = c.showMoreLabel;
@@ -215,6 +219,10 @@
       function applyBio(bio) {
         if (!bio) return;
         window.ADMIN_BIO = bio;
+        if (bio.imagem) {
+          var heroPhoto = document.getElementById("heroProfilePhoto");
+          if (heroPhoto) heroPhoto.src = bio.imagem;
+        }
       }
 
       function applyBioToSearchData() {

@@ -826,7 +826,6 @@ function ConteudoTab() {
     ["heroTitleLine1", "Título — linha 1"],
     ["heroTitleLine2", "Título — linha 2"],
     ["heroSubtitle", "Subtítulo"],
-    ["sectionHeading", "Título da seção de conteúdos"],
     ["searchPlaceholder", "Texto de exemplo na busca"],
     ["searchButtonLabel", "Texto do botão de busca"],
     ["showMoreLabel", "Texto do botão \"mostrar mais\""],

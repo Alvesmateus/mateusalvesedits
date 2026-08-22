@@ -12,7 +12,6 @@ export type SiteContent = {
   facebookName: string;
   whatsappNumber: string;
   siteTitle: string;
-  sectionHeading: string;
   searchPlaceholder: string;
   searchButtonLabel: string;
   showMoreLabel: string;
@@ -28,7 +27,6 @@ export const DEFAULT_CONTENT: SiteContent = {
   facebookName: "Mateus Alves",
   whatsappNumber: "21973042881",
   siteTitle: "Meu Portfólio",
-  sectionHeading: "Conteúdos por Plataforma",
   searchPlaceholder: "o que você precisa saber?",
   searchButtonLabel: "Pesquisar",
   showMoreLabel: "Mostrar mais",
