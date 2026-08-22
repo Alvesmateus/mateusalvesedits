@@ -632,21 +632,12 @@ const typeConfig = {
   'Carrossel Horizontal': { col: 'col-span-2', row: 'row-span-1' },
 };
 
-function filterKey(rede, tipo) {
-  const r = rede.toLowerCase();
-  if (r === "youtube")   return "youtube";
-  if (r === "instagram") return "instagram";
-  if (r === "tiktok")    return "tiktok";
-  if (r === "facebook")  return "facebook";
-  return r;
-}
-
 function criarCard(item) {
   const spans = typeConfig[item.tipo] || { col: 'col-span-1', row: 'row-span-1' };
   const card = document.createElement("div");
 
   const slug = item.tipo.toLowerCase().replace(/\s+/g, "-");
-  card.dataset.filter = filterKey(item.rede, item.tipo);
+  card.dataset.filter = item.categoria || "filmagens";
   card.className = `
     ${spans.col} ${spans.row} type-${slug}
     group relative overflow-hidden rounded-xl border border-white/10
@@ -677,7 +668,7 @@ function criarCard(item) {
     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
     <div class="absolute inset-x-1.5 bottom-1.5 flex items-end justify-end gap-2 sm:inset-x-3 sm:bottom-3">
       <a href="#" aria-label="${item.rede}" class="grid-social" style="color:${item.cor}">
-        <i class="fa-brands ${item.icone}"></i>
+        <i class="${item.icone}"></i>
       </a>
     </div>
   `;
@@ -735,7 +726,7 @@ let limiteVisivel = LIMITE_PAGINA;
 const btnMostrarMais = document.getElementById("mostrarMais");
 
 function cardCombina(card) {
-  return filtroAtivo === "todos" || card.dataset.filter === filtroAtivo;
+  return filtroAtivo === "todas" || card.dataset.filter === filtroAtivo;
 }
 
 // vídeo só toca quando visível (evita travar o decode do navegador)
@@ -804,7 +795,7 @@ filterBar.addEventListener("mousemove",  e => {
 });
 
 // FILTROS
-let filtroAtivo = "todos";
+let filtroAtivo = "todas";
 
 document.querySelectorAll(".filter-btn").forEach(btn => {
   btn.addEventListener("click", () => {
@@ -885,12 +876,13 @@ async function carregarCarrosseisNoGrid(parentDir, config) {
     if (!imagens.length) continue;
     const nome = pasta.split("/").filter(Boolean).pop();
     const card = criarCard({
-      titulo:  config.titulo || nome,
+      titulo:    config.titulo || nome,
       imagens,
-      rede:    config.rede,
-      tipo:    config.tipo,
-      icone:   config.icone,
-      cor:     config.cor,
+      rede:      config.rede,
+      tipo:      config.tipo,
+      icone:     config.icone,
+      cor:       config.cor,
+      categoria: config.categoria,
     });
     photoGrid.appendChild(card);
   }
@@ -901,12 +893,13 @@ async function carregarPastaNoGrid(dir, config) {
   arquivos.forEach((src, i) => {
     const nome = src.split("/").pop().replace(/\.[^.]+$/, "");
     const card = criarCard({
-      titulo: config.titulo || nome,
-      imagem: src,
-      rede:   config.rede,
-      tipo:   config.tipo,
-      icone:  config.icone,
-      cor:    config.cor,
+      titulo:    config.titulo || nome,
+      imagem:    src,
+      rede:      config.rede,
+      tipo:      config.tipo,
+      icone:     config.icone,
+      cor:       config.cor,
+      categoria: config.categoria,
     });
     photoGrid.appendChild(card);
   });
@@ -921,57 +914,73 @@ Promise.all([
     titulo: "YouTube - Thumbnail",
     rede:   "YouTube",
     tipo:   "Thumbnail",
-    icone:  "fa-youtube",
+    icone:  "fa-brands fa-youtube",
     cor:    "#FF0000",
+    categoria: "filmagens",
   }),
   carregarPastaNoGrid("youtube-videos/", {
     titulo: "YouTube - Horizontal",
     rede:   "YouTube",
     tipo:   "Horizontal",
-    icone:  "fa-youtube",
+    icone:  "fa-brands fa-youtube",
     cor:    "#FF0000",
+    categoria: "top-edicoes",
   }),
   carregarPastaNoGrid("youtube-shorts/", {
     titulo: "YouTube - Shorts",
     rede:   "YouTube",
     tipo:   "Shorts",
-    icone:  "fa-youtube",
+    icone:  "fa-brands fa-youtube",
     cor:    "#FF0000",
+    categoria: "top-edicoes",
   }),
   carregarPastaNoGrid("instagram-feed/", {
     titulo: "Instagram - Feed",
     rede:   "Instagram",
     tipo:   "Feed",
-    icone:  "fa-instagram",
+    icone:  "fa-brands fa-instagram",
     cor:    "#E1306C",
+    categoria: "filmagens",
   }),
   carregarPastaNoGrid("instagram-post/", {
     titulo: "Instagram - Post",
     rede:   "Instagram",
     tipo:   "Post",
-    icone:  "fa-instagram",
+    icone:  "fa-brands fa-instagram",
     cor:    "#E1306C",
+    categoria: "filmagens",
+  }),
+  carregarPastaNoGrid("artes/", {
+    titulo: "Arte",
+    rede:   "Instagram",
+    tipo:   "Post",
+    icone:  "fa-brands fa-instagram",
+    cor:    "#E1306C",
+    categoria: "arts",
   }),
   carregarCarrosseisNoGrid("carrossel-square/", {
     titulo: "Instagram - Carrossel",
     rede:   "Instagram",
     tipo:   "Carrossel Square",
-    icone:  "fa-instagram",
+    icone:  "fa-brands fa-instagram",
     cor:    "#E1306C",
+    categoria: "filmagens",
   }),
   carregarCarrosseisNoGrid("carrossel-vertical/", {
     titulo: "Instagram - Carrossel",
     rede:   "Instagram",
     tipo:   "Carrossel Vertical",
-    icone:  "fa-instagram",
+    icone:  "fa-brands fa-instagram",
     cor:    "#E1306C",
+    categoria: "filmagens",
   }),
   carregarCarrosseisNoGrid("carrossel-horizontal/", {
     titulo: "YouTube - Horizontal",
     rede:   "YouTube",
     tipo:   "Horizontal",
-    icone:  "fa-youtube",
+    icone:  "fa-brands fa-youtube",
     cor:    "#FF0000",
+    categoria: "filmagens",
   }),
 ]).then(embaralharGrid);
 

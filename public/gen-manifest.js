@@ -10,6 +10,7 @@ const FILE_DIRS = [
   "youtube-shorts/",
   "instagram-feed/",
   "instagram-post/",
+  "artes/",
 ];
 
 // pastas que contêm subpastas (cada subpasta = carrossel/galeria)

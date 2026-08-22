@@ -49,18 +49,32 @@ window.MEDIA_MANIFEST = {
       "instagram-post/img7.jpg",
       "instagram-post/img8.jpg"
     ],
+    "artes/": [
+      "artes/img1.jpg",
+      "artes/img10.jpg",
+      "artes/img11.jpg",
+      "artes/img12.jpg",
+      "artes/img13.jpg",
+      "artes/img14.jpg",
+      "artes/img2.jpg",
+      "artes/img3.jpg",
+      "artes/img4.jpg",
+      "artes/img5.jpg",
+      "artes/img6.jpg",
+      "artes/img7.jpg",
+      "artes/img8.jpg",
+      "artes/img9.jpg"
+    ],
     "carrossel-square/image1/": [
       "carrossel-square/image1/img2 copy 2.jpg",
       "carrossel-square/image1/img2 copy.jpg",
       "carrossel-square/image1/img2.jpg"
     ],
-    "carrossel-square/image2/": [],
     "carrossel-vertical/image1/": [
       "carrossel-vertical/image1/670074538_18077355908537098_9217676397164307827_n.jpg",
       "carrossel-vertical/image1/670304144_18077290079537098_2433732863026071099_n.jpg",
       "carrossel-vertical/image1/670653872_18077352326537098_3607175384672271427_n.jpg"
     ],
-    "carrossel-vertical/image2/": [],
     "carrossel-horizontal/pasta/": [
       "carrossel-horizontal/pasta/img1.jpg",
       "carrossel-horizontal/pasta/img10.jpg",
@@ -92,24 +106,20 @@ window.MEDIA_MANIFEST = {
       "youtube-tumbnail/image1/img7.jpg",
       "youtube-tumbnail/image1/img8.jpg",
       "youtube-tumbnail/image1/img9.jpg"
-    ],
-    "youtube-tumbnail/image2/": []
+    ]
   },
   "subdirs": {
     "carrossel-square/": [
-      "carrossel-square/image1/",
-      "carrossel-square/image2/"
+      "carrossel-square/image1/"
     ],
     "carrossel-vertical/": [
-      "carrossel-vertical/image1/",
-      "carrossel-vertical/image2/"
+      "carrossel-vertical/image1/"
     ],
     "carrossel-horizontal/": [
       "carrossel-horizontal/pasta/"
     ],
     "youtube-tumbnail/": [
-      "youtube-tumbnail/image1/",
-      "youtube-tumbnail/image2/"
+      "youtube-tumbnail/image1/"
     ]
   }
 };

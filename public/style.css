@@ -1082,10 +1082,13 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  font-size:1.15rem;
+  height:40px;
+  padding:0 18px;
+  border-radius:999px;
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:.01em;
+  white-space:nowrap;
   cursor:pointer;
   border:1px solid rgba(255,255,255,.15);
   background:rgba(255,255,255,.06);
@@ -1105,23 +1108,6 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   color:#fff;
   box-shadow:0 0 16px rgba(255,255,255,.08);
 }
-
-/* cores por plataforma */
-.filter-btn[data-filter="youtube"] { color:#FF0000; }
-.filter-btn[data-filter="youtube"]:hover { color:#FF4444; }
-.filter-btn[data-filter="youtube"].active { color:#FF0000; box-shadow:0 0 16px rgba(255,0,0,.35); }
-
-.filter-btn[data-filter="instagram"] { color:#E1306C; }
-.filter-btn[data-filter="instagram"]:hover { color:#FF4488; }
-.filter-btn[data-filter="instagram"].active { color:#E1306C; box-shadow:0 0 16px rgba(225,48,108,.35); }
-
-.filter-btn[data-filter="tiktok"] { color:#25F4EE; }
-.filter-btn[data-filter="tiktok"]:hover { color:#25F4EE; }
-.filter-btn[data-filter="tiktok"].active { color:#25F4EE; box-shadow:0 0 16px rgba(37,244,238,.35); }
-
-.filter-btn[data-filter="facebook"] { color:#1877F2; }
-.filter-btn[data-filter="facebook"]:hover { color:#4488FF; }
-.filter-btn[data-filter="facebook"].active { color:#1877F2; box-shadow:0 0 16px rgba(24,119,242,.35); }
 
 @keyframes cardExit{
   from{ opacity:1; transform:scale(1) translateY(0); }
