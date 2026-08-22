@@ -10,6 +10,4 @@ window.SEARCH_SUGGESTIONS = [
   { label: "Filmagens",     titulo: "Filmagens"           },
   { label: "Artes",     titulo: "Artes"           },
   { label: "Narrações", titulo: "Narrações" },
-  { label: "Meus Apps",         titulo: "Meus Apps"         },
-  { label: "como gerencio tudo?", titulo: "O segredo para Gerenciar tudo" },
 ];
