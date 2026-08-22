@@ -120,7 +120,9 @@ export async function getPortfolioCards(): Promise<PortfolioCard[]> {
   if (!res.ok) return DEFAULT_PORTFOLIO_CARDS;
 
   const data = await res.json();
-  return Array.isArray(data.cards) && data.cards.length ? data.cards : DEFAULT_PORTFOLIO_CARDS;
+  // Uma lista vazia salva de propósito (ex: remover todos os cards) deve
+  // ser respeitada — só cai no padrão se o arquivo nunca foi salvo.
+  return Array.isArray(data.cards) ? data.cards : DEFAULT_PORTFOLIO_CARDS;
 }
 
 export async function savePortfolioCards(cards: PortfolioCard[]): Promise<void> {

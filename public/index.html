@@ -235,7 +235,8 @@
       }
 
       function applyPortfolioCards(data) {
-        if (data && Array.isArray(data.cards) && data.cards.length) {
+        // lista vazia salva de propósito também é respeitada (remove os cards)
+        if (data && Array.isArray(data.cards)) {
           window.ADMIN_PORTFOLIO_CARDS = data.cards;
         }
       }

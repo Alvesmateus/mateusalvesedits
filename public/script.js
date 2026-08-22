@@ -132,7 +132,7 @@ function normalizarCardPortfolio(c) {
   });
 }
 
-const itensPortfolio = (window.ADMIN_PORTFOLIO_CARDS && window.ADMIN_PORTFOLIO_CARDS.length)
+const itensPortfolio = Array.isArray(window.ADMIN_PORTFOLIO_CARDS)
   ? window.ADMIN_PORTFOLIO_CARDS.map(normalizarCardPortfolio)
   : itensPortfolioDefault.map(normalizarCardPortfolio);
 
