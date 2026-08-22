@@ -22,9 +22,9 @@
     <div class="top-bg">
     <section class="flex min-h-[250px] flex-col items-center justify-center gap-7 pt-20 text-center">
       <h2 class="gradient-text text-5xl font-black leading-none tracking-tighter md:text-8xl">
-        Mateus Alves, <br /> 27 anos.
+        <span id="heroTitleLine1">Mateus Alves,</span> <br /> <span id="heroTitleLine2">27 anos.</span>
       </h2>
-      <p class="intro-text max-w-2xl text-lg leading-relaxed">
+      <p id="heroSubtitle" class="intro-text max-w-2xl text-lg leading-relaxed">
         Editor de Vídeos, Social Média, Filmaker e Programador.
       </p>
 
@@ -139,19 +139,86 @@
 
   </div>
 
+  <!--
+    Base pública do Vercel Blob usado pelo painel admin (admin/).
+    Preenchido após o primeiro deploy do admin — até lá, o site funciona
+    normalmente ignorando o conteúdo/mídia adicionados por lá.
+  -->
+  <script>window.ADMIN_BLOB_BASE = "https://dbt8fnpuzx1hypkf.public.blob.vercel-storage.com";</script>
+
   <script>
     // cache-busting: forca browser buscar JS fresco a cada load (mata cache)
     (function () {
       var v = Date.now();
-      var srcs = [
-        "media-manifest.js",
-        "search/search-data.js",
-        "search/search-suggestions.js",
-        "script.js"
-      ];
-      srcs.forEach(function (s) {
-        document.write('<script src="' + s + '?v=' + v + '"><\/script>');
-      });
+
+      function loadScript(src) {
+        return new Promise(function (resolve) {
+          var s = document.createElement("script");
+          s.src = src + (src.indexOf("?") === -1 ? "?v=" + v : "&v=" + v);
+          s.onload = resolve;
+          s.onerror = resolve;
+          document.body.appendChild(s);
+        });
+      }
+
+      function mergeManifest(extra) {
+        window.MEDIA_MANIFEST = window.MEDIA_MANIFEST || { files: {}, subdirs: {} };
+        var files = window.MEDIA_MANIFEST.files;
+        var subdirs = window.MEDIA_MANIFEST.subdirs;
+        Object.keys(extra.files || {}).forEach(function (dir) {
+          files[dir] = (files[dir] || []).concat(extra.files[dir]);
+        });
+        Object.keys(extra.subdirs || {}).forEach(function (dir) {
+          var existing = subdirs[dir] || [];
+          extra.subdirs[dir].forEach(function (sub) {
+            if (existing.indexOf(sub) === -1) existing.push(sub);
+          });
+          subdirs[dir] = existing;
+        });
+      }
+
+      function applyContent(c) {
+        var l1 = document.getElementById("heroTitleLine1");
+        var l2 = document.getElementById("heroTitleLine2");
+        var sub = document.getElementById("heroSubtitle");
+        if (l1 && c.heroTitleLine1) l1.textContent = c.heroTitleLine1;
+        if (l2 && c.heroTitleLine2) l2.textContent = c.heroTitleLine2;
+        if (sub && c.heroSubtitle) sub.textContent = c.heroSubtitle;
+
+        var map = {
+          "fi-instagram": c.instagramHandle,
+          "fi-linkedin": c.linkedinName,
+          "fi-gmail": c.email,
+          "fi-facebook": c.facebookName,
+          "fi-whatsapp": c.whatsappNumber
+        };
+        Object.keys(map).forEach(function (id) {
+          if (!map[id]) return;
+          var el = document.querySelector("#" + id + " .contact-tag");
+          if (el) el.textContent = map[id];
+        });
+      }
+
+      async function fetchAdminData() {
+        var base = window.ADMIN_BLOB_BASE;
+        if (!base) return;
+        try {
+          var mRes = await fetch(base + "/manifest/admin-manifest.json", { cache: "no-store" });
+          if (mRes.ok) mergeManifest(await mRes.json());
+        } catch (e) {}
+        try {
+          var cRes = await fetch(base + "/content/site-content.json", { cache: "no-store" });
+          if (cRes.ok) applyContent(await cRes.json());
+        } catch (e) {}
+      }
+
+      (async function () {
+        await loadScript("media-manifest.js");
+        await fetchAdminData();
+        await loadScript("search/search-data.js");
+        await loadScript("search/search-suggestions.js");
+        await loadScript("script.js");
+      })();
     })();
   </script>
 
