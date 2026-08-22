@@ -682,7 +682,7 @@ function criarCard(item) {
 
   card.innerHTML = `
     ${mediaTag}
-    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none"></div>
     <div class="absolute inset-x-1.5 bottom-1.5 flex items-end justify-end gap-2 sm:inset-x-3 sm:bottom-3">
       <a href="#" aria-label="${item.rede}" class="grid-social" style="color:${item.cor}">
         <i class="${item.icone}"></i>
