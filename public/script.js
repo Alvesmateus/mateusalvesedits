@@ -1126,9 +1126,6 @@ if (searchInput){
 
   const sugWrap = document.getElementById("searchSuggestions");
   if (sugWrap && Array.isArray(window.SEARCH_SUGGESTIONS)){
-    const VISIVEIS = 5;
-    const todas = window.SEARCH_SUGGESTIONS;
-
     const criarChip = ({ label, titulo }) => {
       const btn = document.createElement("button");
       btn.className = "search-sug";
@@ -1140,36 +1137,6 @@ if (searchInput){
       return btn;
     };
 
-    const visiveis = todas.slice(0, VISIVEIS);
-    const ocultas  = todas.slice(VISIVEIS);
-
-    visiveis.forEach(sug => sugWrap.appendChild(criarChip(sug)));
-
-    if (ocultas.length){
-      // popup com as pesquisas restantes
-      const modal = document.createElement("div");
-      modal.className = "search-modal sug-modal";
-      modal.innerHTML = `
-        <div class="search-modal-box">
-          <div class="search-modal-header">
-            <span class="search-modal-titulo"></span>
-            <button class="search-modal-close" type="button" aria-label="Fechar">✕</button>
-          </div>
-          <div class="search-modal-list sug-modal-chips"></div>
-        </div>`;
-      document.body.appendChild(modal);
-
-      const chipsWrap = modal.querySelector(".sug-modal-chips");
-      const fechar = () => modal.classList.remove("is-open");
-      ocultas.forEach(sug => chipsWrap.appendChild(criarChip(sug)));
-      modal.querySelector(".search-modal-close").addEventListener("click", fechar);
-      modal.addEventListener("click", e => { if (e.target === modal) fechar(); });
-
-      const mais = document.createElement("button");
-      mais.className = "search-sug search-sug-more";
-      mais.textContent = "Mostrar mais";
-      mais.addEventListener("click", () => modal.classList.add("is-open"));
-      sugWrap.appendChild(mais);
-    }
+    window.SEARCH_SUGGESTIONS.forEach(sug => sugWrap.appendChild(criarChip(sug)));
   }
 }
