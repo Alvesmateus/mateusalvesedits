@@ -1257,6 +1257,36 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   box-shadow:0 0 18px rgba(168,85,247,.5);
 }
 
+/* CARD DE VÍDEO DO YOUTUBE (link real, aba Top Edições) */
+.grid-youtube-link{
+  position:absolute;
+  inset:0;
+  display:block;
+}
+
+.grid-youtube-play{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  display:grid;
+  place-items:center;
+  width:52px;
+  height:52px;
+  border-radius:9999px;
+  border:1px solid rgba(255,255,255,.35);
+  background:rgba(0,0,0,.45);
+  backdrop-filter:blur(6px);
+  color:#fff;
+  font-size:1.1rem;
+  transition:transform .2s ease, background .2s ease;
+}
+
+.grid-youtube-link:hover .grid-youtube-play{
+  transform:translate(-50%,-50%) scale(1.1);
+  background:rgba(255,0,0,.85);
+}
+
 /* ── BUSCA (Fluent) ── */
 @property --ang{ syntax:'<angle>'; initial-value:0deg; inherits:false; }
 

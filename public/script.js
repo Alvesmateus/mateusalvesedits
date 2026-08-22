@@ -647,6 +647,7 @@ function criarCard(item) {
 
   const ehCarrossel = Array.isArray(item.imagens) && item.imagens.length > 0;
   const ehAudio = !ehCarrossel && /\.(mp3|wav|m4a)$/i.test(item.imagem || "");
+  const ehYoutube = !ehCarrossel && !ehAudio && !!item.ytId;
   let mediaTag;
   if (ehCarrossel) {
     const slides = item.imagens
@@ -666,6 +667,12 @@ function criarCard(item) {
         </button>
         <audio src="${item.imagem}" preload="metadata"></audio>
       </div>`;
+  } else if (ehYoutube) {
+    mediaTag = `
+      <a href="${item.youtubeUrl}" target="_blank" rel="noopener noreferrer" class="grid-youtube-link">
+        <img class="h-full w-full object-cover transition duration-500 group-hover:scale-110" src="https://img.youtube.com/vi/${item.ytId}/hqdefault.jpg" alt="${item.titulo}" loading="lazy">
+        <span class="grid-youtube-play"><i class="fa-solid fa-play"></i></span>
+      </a>`;
   } else {
     const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(item.imagem);
     mediaTag = isVideo
@@ -917,6 +924,35 @@ async function carregarPastaNoGrid(dir, config) {
   });
 }
 
+// "Top Edições" usa os links reais do YouTube (mesma lista do card
+// "Top Vídeos" da busca), em vez de arquivos de vídeo locais.
+function obterTopVideosYoutube() {
+  const item = (window.SEARCH_DATA || []).find(it => it.titulo === "Top Vídeos");
+  const videos = (item && item.conteudo && item.conteudo.videos) || [];
+  return videos
+    .map(v => (typeof v === "string" ? v : v.youtube || v.src))
+    .filter(Boolean);
+}
+
+function carregarYoutubeTopNoGrid(config) {
+  const urls = obterTopVideosYoutube();
+  urls.forEach(url => {
+    const id = youtubeId(url);
+    if (!id) return;
+    const card = criarCard({
+      titulo:     config.titulo || "Vídeo",
+      youtubeUrl: url,
+      ytId:       id,
+      rede:       config.rede,
+      tipo:       config.tipo,
+      icone:      config.icone,
+      cor:        config.cor,
+      categoria:  config.categoria,
+    });
+    photoGrid.appendChild(card);
+  });
+}
+
 // Renderiza itens estáticos
 imagensGrid.forEach(item => photoGrid.appendChild(criarCard(item)));
 
@@ -930,18 +966,10 @@ Promise.all([
     cor:    "#FF0000",
     categoria: "filmagens-1",
   }),
-  carregarPastaNoGrid("youtube-videos/", {
-    titulo: "YouTube - Horizontal",
+  carregarYoutubeTopNoGrid({
+    titulo: "Vídeo",
     rede:   "YouTube",
     tipo:   "Horizontal",
-    icone:  "fa-brands fa-youtube",
-    cor:    "#FF0000",
-    categoria: "top-edicoes",
-  }),
-  carregarPastaNoGrid("youtube-shorts/", {
-    titulo: "YouTube - Shorts",
-    rede:   "YouTube",
-    tipo:   "Shorts",
     icone:  "fa-brands fa-youtube",
     cor:    "#FF0000",
     categoria: "top-edicoes",
