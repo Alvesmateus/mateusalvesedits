@@ -782,7 +782,7 @@ let limiteVisivel = LIMITE_PAGINA;
 const btnMostrarMais = document.getElementById("mostrarMais");
 
 function cardCombina(card) {
-  return filtroAtivo === "todas" || card.dataset.filter === filtroAtivo;
+  return filtroAtivo === "todas" || filtroAtivo === "completa" || card.dataset.filter === filtroAtivo;
 }
 
 // vídeo só toca quando visível (evita travar o decode do navegador)
@@ -850,7 +850,8 @@ document.querySelectorAll(".filter-btn").forEach(btn => {
     filtroAtivo = btn.dataset.filter;
     document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
-    limiteVisivel = LIMITE_PAGINA;
+    // "Visualização Completa" mostra tudo de uma vez, sem paginação
+    limiteVisivel = filtroAtivo === "completa" ? Infinity : LIMITE_PAGINA;
 
     const cards = [...photoGrid.children];
 
