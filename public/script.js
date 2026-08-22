@@ -776,24 +776,6 @@ if (btnMostrarMais) {
   });
 }
 
-// DRAG-TO-SCROLL filter bar
-const filterBar = document.querySelector(".filter-bar");
-let drag = { active: false, startX: 0, scrollLeft: 0 };
-
-filterBar.addEventListener("mousedown", e => {
-  drag.active = true;
-  drag.startX = e.pageX - filterBar.offsetLeft;
-  drag.scrollLeft = filterBar.scrollLeft;
-  filterBar.classList.add("is-dragging");
-});
-filterBar.addEventListener("mouseleave", () => { drag.active = false; filterBar.classList.remove("is-dragging"); });
-filterBar.addEventListener("mouseup",    () => { drag.active = false; filterBar.classList.remove("is-dragging"); });
-filterBar.addEventListener("mousemove",  e => {
-  if (!drag.active) return;
-  e.preventDefault();
-  filterBar.scrollLeft = drag.scrollLeft - (e.pageX - filterBar.offsetLeft - drag.startX);
-});
-
 // FILTROS
 let filtroAtivo = "todas";
 

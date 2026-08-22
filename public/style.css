@@ -1062,25 +1062,17 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
 /* ── FILTROS ── */
 .filter-bar{
   display:flex;
-  flex-wrap:nowrap;
+  flex-wrap:wrap;
+  justify-content:center;
   gap:8px;
   margin-bottom:20px;
-  overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
-  scroll-snap-type:x mandatory;
-  cursor:grab;
-  user-select:none;
-  /* overflow-x:auto força overflow-y a cortar também; sem esse respiro em
-     cima e embaixo, o hover/active (que sobe/aumenta o botão e adiciona
-     brilho e o anel giratório) fica "comido" nas bordas */
-  padding-top:22px;
-  padding-bottom:16px;
+  /* respiro pro hover/active (que sobe/aumenta o botão e adiciona brilho
+     e o anel giratório) não cortar nas bordas */
+  padding-top:10px;
+  padding-bottom:6px;
 }
-.filter-bar.is-dragging{ cursor:grabbing; }
-.filter-bar::-webkit-scrollbar{ display:none; }
-.filter-bar{ scrollbar-width:none; }
 
-.filter-btn{ scroll-snap-align:start; flex-shrink:0; }
+.filter-btn{ flex-shrink:0; }
 
 .filter-btn{
   display:inline-flex;
