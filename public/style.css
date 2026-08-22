@@ -1526,6 +1526,26 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   margin-top:0;
   justify-content:start;
 }
+
+/* botões fixos no topo (não rolam com a página) */
+.top-fixed-buttons{
+  position:fixed;
+  top:14px;
+  left:0;
+  right:0;
+  z-index:65;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  padding:0 12px;
+  pointer-events:none;
+}
+.top-fixed-buttons .search-sug{
+  pointer-events:auto;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
 .search-sug{
   border:1px solid rgba(255,255,255,.18);
   background:rgba(0,0,0,.42);

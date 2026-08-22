@@ -1134,7 +1134,8 @@ if (searchInput){
   searchInput.addEventListener("keydown", e => { if (e.key === "Enter") executarBusca(); });
   if (searchBtn) searchBtn.addEventListener("click", executarBusca);
 
-  const sugWrap = document.getElementById("searchSuggestions");
+  // "quem sou eu?" e "currículo" ficam fixos no topo da página
+  const sugWrap = document.getElementById("topFixedButtons");
   if (sugWrap && Array.isArray(window.SEARCH_SUGGESTIONS)){
     const criarChip = ({ label, titulo }) => {
       const btn = document.createElement("button");
