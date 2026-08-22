@@ -154,6 +154,7 @@
 
   <!-- BOTÃO BAIXAR CURRÍCULO -->
   <a
+    id="downloadCvBtn"
     href="pdf/curriculo.pdf"
     download
     class="download-cv-btn fixed bottom-7 right-7 z-[60]"
@@ -162,6 +163,14 @@
     <i class="fa-solid fa-file-arrow-down"></i>
     <span>Baixar Currículo</span>
   </a>
+
+  <!-- EFEITO DE BLUR AO BAIXAR -->
+  <div id="downloadOverlay" class="download-overlay">
+    <div class="download-overlay-box">
+      <i class="fa-solid fa-circle-notch fa-spin"></i>
+      <span>Baixando arquivo...</span>
+    </div>
+  </div>
 
   <!--
     Base pública do Vercel Blob usado pelo painel admin (admin/).

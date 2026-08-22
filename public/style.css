@@ -318,6 +318,34 @@
 }
 .download-cv-btn i{ font-size:1rem; }
 
+/* overlay com blur mostrado por 3s ao clicar em "Baixar Currículo" */
+.download-overlay{
+  position:fixed;
+  inset:0;
+  z-index:200;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background:rgba(11,11,15,.55);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+.download-overlay.is-open{ display:flex; }
+.download-overlay-box{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:20px 32px;
+  border-radius:16px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+  color:#fff;
+  font-weight:800;
+  font-size:1.1rem;
+  box-shadow:0 10px 40px rgba(0,0,0,.5);
+}
+.download-overlay-box i{ font-size:1.3rem; color:#60cdff; }
+
 .show-more-btn{
   display:inline-flex;
   align-items:center;

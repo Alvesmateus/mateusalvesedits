@@ -1,3 +1,22 @@
+// BOTÃO BAIXAR CURRÍCULO — efeito de blur por 3s
+const downloadCvBtn   = document.getElementById("downloadCvBtn");
+const downloadOverlay = document.getElementById("downloadOverlay");
+if (downloadCvBtn && downloadOverlay) {
+  downloadCvBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    downloadOverlay.classList.add("is-open");
+
+    const link = document.createElement("a");
+    link.href = downloadCvBtn.href;
+    link.download = "curriculo.pdf";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(() => downloadOverlay.classList.remove("is-open"), 3000);
+  });
+}
+
 // SOCIAL MENU TOGGLE
 const floatContainer  = document.getElementById("floatContainer");
 const socialOverlay   = document.getElementById("socialOverlay");
