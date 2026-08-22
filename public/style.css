@@ -1071,9 +1071,10 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   cursor:grab;
   user-select:none;
   /* overflow-x:auto força overflow-y a cortar também; sem esse respiro em
-     cima, o hover/active (que sobe o botão e adiciona glow) fica "comido" */
-  padding-top:8px;
-  padding-bottom:4px;
+     cima, o hover/active (que sobe/aumenta o botão e adiciona brilho e o
+     anel giratório) fica "comido" */
+  padding-top:14px;
+  padding-bottom:8px;
 }
 .filter-bar.is-dragging{ cursor:grabbing; }
 .filter-bar::-webkit-scrollbar{ display:none; }
@@ -1093,23 +1094,57 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   letter-spacing:.01em;
   white-space:nowrap;
   cursor:pointer;
+  position:relative;
   border:1px solid rgba(255,255,255,.15);
   background:rgba(255,255,255,.06);
   color:rgba(255,255,255,.65);
-  transition:background .2s, color .2s, border-color .2s, transform .15s;
+  transform:scale(.92);
+  transition:background .2s, color .2s, border-color .2s, transform .25s ease, box-shadow .25s;
 }
 
 .filter-btn:hover{
   background:rgba(255,255,255,.12);
   color:#fff;
-  transform:translateY(-2px);
+  transform:translateY(-2px) scale(.97);
 }
 
 .filter-btn.active{
   background:rgba(255,255,255,.18);
   border-color:rgba(255,255,255,.4);
   color:#fff;
-  box-shadow:0 0 16px rgba(255,255,255,.08);
+  transform:scale(1.08);
+  box-shadow:0 0 22px rgba(255,255,255,.35), 0 0 6px rgba(255,255,255,.55);
+}
+
+.filter-btn.active:hover{
+  transform:translateY(-2px) scale(1.08);
+}
+
+/* anel "cometa" girando na borda do botão selecionado, indicando que a
+   barra inteira é clicável/selecionável */
+.filter-btn.active::before{
+  content:'';
+  position:absolute;
+  inset:-3px;
+  border-radius:inherit;
+  padding:2px;
+  background:conic-gradient(from 0deg,
+    transparent 0deg,
+    transparent 255deg,
+    rgba(168,85,247,.85) 300deg,
+    rgba(255,255,255,1) 335deg,
+    rgba(96,205,255,.9) 350deg,
+    transparent 360deg
+  );
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  animation:filterCometSpin 2.4s linear infinite;
+  pointer-events:none;
+}
+
+@keyframes filterCometSpin{
+  to{ transform:rotate(360deg); }
 }
 
 @keyframes cardExit{
