@@ -2,7 +2,7 @@
 const floatContainer  = document.getElementById("floatContainer");
 const socialOverlay   = document.getElementById("socialOverlay");
 const contactTags     = document.querySelectorAll(".contact-tag");
-const allFiBtns       = document.querySelectorAll(".fi-btn");
+const allFiBtns       = document.querySelectorAll("#floatContainer .fi-btn");
 let menuOpen = false;
 
 function openMenu(){

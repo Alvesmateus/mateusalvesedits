@@ -296,6 +296,28 @@
 }
 
 /* ── BOTÃO MOSTRAR MAIS ── */
+.download-cv-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  height:46px;
+  padding:0 20px;
+  border-radius:999px;
+  cursor:pointer;
+  background:#fff;
+  color:#0b0b0f;
+  font-size:.85rem;
+  font-weight:800;
+  text-decoration:none;
+  box-shadow:0 6px 18px rgba(0,0,0,.35);
+  transition:transform .15s ease, box-shadow .2s ease;
+}
+.download-cv-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(0,0,0,.45);
+}
+.download-cv-btn i{ font-size:1rem; }
+
 .show-more-btn{
   display:inline-flex;
   align-items:center;
