@@ -1212,6 +1212,51 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   }
 }
 
+/* CARD DE ÁUDIO (aba Narrações) */
+.grid-audio-card{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  background:radial-gradient(120% 120% at 50% 0%, rgba(168,85,247,.35), rgba(24,10,36,.9) 70%);
+}
+
+.grid-audio-icon{
+  font-size:1.8rem;
+  color:rgba(255,255,255,.55);
+}
+
+.grid-audio-play{
+  display:grid;
+  place-items:center;
+  width:52px;
+  height:52px;
+  border-radius:9999px;
+  border:1px solid rgba(255,255,255,.25);
+  background:rgba(255,255,255,.12);
+  backdrop-filter:blur(8px);
+  color:#fff;
+  font-size:1.1rem;
+  cursor:pointer;
+  transition:transform .15s ease, background .2s ease, box-shadow .2s ease;
+}
+.grid-audio-play:hover{
+  transform:scale(1.08);
+  background:rgba(255,255,255,.2);
+}
+
+.grid-audio-card.is-playing,
+.is-playing .grid-audio-card{
+  background:radial-gradient(120% 120% at 50% 0%, rgba(168,85,247,.55), rgba(24,10,36,.9) 70%);
+}
+.is-playing .grid-audio-play{
+  border-color:rgba(168,85,247,.6);
+  box-shadow:0 0 18px rgba(168,85,247,.5);
+}
+
 /* ── BUSCA (Fluent) ── */
 @property --ang{ syntax:'<angle>'; initial-value:0deg; inherits:false; }
 

@@ -19,7 +19,7 @@ export async function POST(request: Request) {
           throw new Error("Categoria inválida para upload");
         }
         return {
-          allowedContentTypes: ["image/*", "video/*"],
+          allowedContentTypes: ["image/*", "video/*", "audio/*"],
           addRandomSuffix: true,
           allowOverwrite: false,
         };

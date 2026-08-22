@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = __dirname;
-const EXT = /\.(png|jpe?g|svg|webp|gif|avif|mp4|webm|ogg|mov)$/i;
+const EXT = /\.(png|jpe?g|svg|webp|gif|avif|mp4|webm|ogg|mov|mp3|wav|m4a)$/i;
 
 // pastas que contêm arquivos diretamente
 const FILE_DIRS = [
@@ -11,6 +11,7 @@ const FILE_DIRS = [
   "instagram-feed/",
   "instagram-post/",
   "artes/",
+  "audio/",
 ];
 
 // pastas que contêm subpastas (cada subpasta = carrossel/galeria)

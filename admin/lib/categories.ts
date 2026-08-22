@@ -12,6 +12,7 @@ export const FILE_CATEGORIES: Category[] = [
   { key: "instagram-feed/", label: "Instagram - Feed", rede: "Instagram", accept: "image/*,video/*" },
   { key: "instagram-post/", label: "Instagram - Post", rede: "Instagram", accept: "image/*,video/*" },
   { key: "artes/", label: "Arte / Design (aba Arts)", rede: "Instagram", accept: "image/*" },
+  { key: "audio/", label: "Narração (aba Narrações)", rede: "Narração", accept: "audio/*" },
 ];
 
 // Categorias que agrupam mídias em galerias/carrosséis (subpastas)

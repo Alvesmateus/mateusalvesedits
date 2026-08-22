@@ -65,6 +65,9 @@ window.MEDIA_MANIFEST = {
       "artes/img8.jpg",
       "artes/img9.jpg"
     ],
+    "audio/": [
+      "audio/audio1.mp3"
+    ],
     "carrossel-square/image1/": [
       "carrossel-square/image1/img2 copy 2.jpg",
       "carrossel-square/image1/img2 copy.jpg",

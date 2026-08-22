@@ -646,6 +646,7 @@ function criarCard(item) {
   `;
 
   const ehCarrossel = Array.isArray(item.imagens) && item.imagens.length > 0;
+  const ehAudio = !ehCarrossel && /\.(mp3|wav|m4a)$/i.test(item.imagem || "");
   let mediaTag;
   if (ehCarrossel) {
     const slides = item.imagens
@@ -656,6 +657,15 @@ function criarCard(item) {
       ? `<img src="${item.imagens[0]}" alt="" aria-hidden="true">`
       : "";
     mediaTag = `<div class="ig-carousel"><div class="ig-carousel-track">${slides}${clone}</div></div>`;
+  } else if (ehAudio) {
+    mediaTag = `
+      <div class="grid-audio-card">
+        <i class="fa-solid fa-waveform-lines grid-audio-icon"></i>
+        <button type="button" class="grid-audio-play" aria-label="Reproduzir">
+          <i class="fa-solid fa-play"></i>
+        </button>
+        <audio src="${item.imagem}" preload="metadata"></audio>
+      </div>`;
   } else {
     const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(item.imagem);
     mediaTag = isVideo
@@ -675,6 +685,26 @@ function criarCard(item) {
 
   if (ehCarrossel && item.imagens.length > 1) {
     iniciarCarrossel(card.querySelector(".ig-carousel-track"), item.imagens.length);
+  }
+
+  if (ehAudio) {
+    const audio  = card.querySelector("audio");
+    const btn    = card.querySelector(".grid-audio-play");
+    const icon   = btn.querySelector("i");
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (audio.paused) {
+        document.querySelectorAll(".grid-audio-card audio, .audio-player audio").forEach(a => {
+          if (a !== audio) a.pause();
+        });
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    });
+    audio.addEventListener("play",  () => { icon.className = "fa-solid fa-pause"; card.classList.add("is-playing"); });
+    audio.addEventListener("pause", () => { icon.className = "fa-solid fa-play";  card.classList.remove("is-playing"); });
+    audio.addEventListener("ended", () => { icon.className = "fa-solid fa-play";  card.classList.remove("is-playing"); });
   }
 
   // vídeo que não carregar → manda pro final do grid
@@ -814,7 +844,7 @@ const SUBS  = (window.MEDIA_MANIFEST && window.MEDIA_MANIFEST.subdirs) || {};
 
 async function descobrirMedia(dir) {
   if (MEDIA[dir] && MEDIA[dir].length) return MEDIA[dir];
-  const exts = /\.(png|jpe?g|svg|webp|gif|avif|mp4|webm|ogg|mov)$/i;
+  const exts = /\.(png|jpe?g|svg|webp|gif|avif|mp4|webm|ogg|mov|mp3|wav|m4a)$/i;
   try {
     const res = await fetch(dir, { cache: "no-store" });
     if (!res.ok) throw 0;
@@ -898,7 +928,7 @@ Promise.all([
     tipo:   "Thumbnail",
     icone:  "fa-brands fa-youtube",
     cor:    "#FF0000",
-    categoria: "filmagens",
+    categoria: "filmagens-1",
   }),
   carregarPastaNoGrid("youtube-videos/", {
     titulo: "YouTube - Horizontal",
@@ -922,7 +952,7 @@ Promise.all([
     tipo:   "Feed",
     icone:  "fa-brands fa-instagram",
     cor:    "#E1306C",
-    categoria: "filmagens",
+    categoria: "filmagens-1",
   }),
   carregarPastaNoGrid("instagram-post/", {
     titulo: "Instagram - Post",
@@ -930,7 +960,7 @@ Promise.all([
     tipo:   "Post",
     icone:  "fa-brands fa-instagram",
     cor:    "#E1306C",
-    categoria: "filmagens",
+    categoria: "filmagens-1",
   }),
   carregarPastaNoGrid("artes/", {
     titulo: "Arte",
@@ -940,13 +970,21 @@ Promise.all([
     cor:    "#E1306C",
     categoria: "arts",
   }),
+  carregarPastaNoGrid("audio/", {
+    titulo: "Narração",
+    rede:   "Narração",
+    tipo:   "Post",
+    icone:  "fa-solid fa-microphone",
+    cor:    "#a855f7",
+    categoria: "narracoes",
+  }),
   carregarCarrosseisNoGrid("carrossel-square/", {
     titulo: "Instagram - Carrossel",
     rede:   "Instagram",
     tipo:   "Carrossel Square",
     icone:  "fa-brands fa-instagram",
     cor:    "#E1306C",
-    categoria: "filmagens",
+    categoria: "filmagens-2",
   }),
   carregarCarrosseisNoGrid("carrossel-vertical/", {
     titulo: "Instagram - Carrossel",
@@ -954,7 +992,7 @@ Promise.all([
     tipo:   "Carrossel Vertical",
     icone:  "fa-brands fa-instagram",
     cor:    "#E1306C",
-    categoria: "filmagens",
+    categoria: "filmagens-2",
   }),
   carregarCarrosseisNoGrid("carrossel-horizontal/", {
     titulo: "YouTube - Horizontal",
@@ -962,7 +1000,7 @@ Promise.all([
     tipo:   "Horizontal",
     icone:  "fa-brands fa-youtube",
     cor:    "#FF0000",
-    categoria: "filmagens",
+    categoria: "filmagens-2",
   }),
 ]).then(embaralharGrid);
 
