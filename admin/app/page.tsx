@@ -6,7 +6,19 @@ import { ALL_CATEGORIES, FILE_CATEGORIES, GALLERY_CATEGORIES, isGalleryCategory,
 import { DEFAULT_CONTENT, type SiteContent } from "@/lib/content";
 import { DEFAULT_BIO, type Bio } from "@/lib/bio";
 import { DEFAULT_PORTFOLIO_CARDS, type PortfolioCard, type PortfolioPill } from "@/lib/portfolio";
+import { uploadWithProgress } from "@/lib/uploadWithProgress";
 import type { Manifest } from "@/lib/manifest";
+
+function ProgressBar({ percent }: { percent: number }) {
+  return (
+    <div className="h-2 w-full overflow-hidden rounded-full bg-white/10">
+      <div
+        className="h-full rounded-full bg-violet-600 transition-all"
+        style={{ width: `${percent}%` }}
+      />
+    </div>
+  );
+}
 
 type Tab = "upload" | "arquivos" | "conteudo" | "bio" | "cards";
 
@@ -71,6 +83,7 @@ function UploadTab() {
     type: "idle",
     msg: "",
   });
+  const [progress, setProgress] = useState(0);
 
   const isGallery = isGalleryCategory(category);
 
@@ -86,24 +99,27 @@ function UploadTab() {
     }
 
     setStatus({ type: "loading", msg: "Enviando..." });
+    setProgress(0);
 
     const form = new FormData();
     form.set("category", category);
     if (isGallery) form.set("galleryName", galleryName);
     for (const file of Array.from(files)) form.append("files", file);
 
-    const res = await fetch("/api/upload", { method: "POST", body: form });
-    const data = await res.json();
+    const fileCount = files.length;
+    const res = await uploadWithProgress("/api/upload", form, setProgress);
 
     if (res.ok) {
-      setStatus({ type: "ok", msg: `${files.length} arquivo(s) enviado(s) com sucesso.` });
+      setStatus({ type: "ok", msg: `${fileCount} arquivo(s) enviado(s) com sucesso.` });
       setFiles(null);
       setGalleryName("");
       const input = document.getElementById("file-input") as HTMLInputElement | null;
       if (input) input.value = "";
     } else {
-      setStatus({ type: "error", msg: data.error || "Erro ao enviar." });
+      const data = res.data as { error?: string } | null;
+      setStatus({ type: "error", msg: data?.error || "Erro ao enviar." });
     }
+    setProgress(0);
   }
 
   const categoryDef = ALL_CATEGORIES.find((c) => c.key === category);
@@ -161,14 +177,15 @@ function UploadTab() {
         />
       </div>
 
-      {status.type !== "idle" && (
-        <p
-          className={
-            status.type === "error" ? "text-sm text-red-400" : status.type === "ok" ? "text-sm text-green-400" : "text-sm text-white/60"
-          }
-        >
-          {status.msg}
-        </p>
+      {status.type === "loading" && (
+        <div className="space-y-1">
+          <ProgressBar percent={progress} />
+          <p className="text-xs text-white/50">{progress}%</p>
+        </div>
+      )}
+
+      {status.type !== "idle" && status.type !== "loading" && (
+        <p className={status.type === "error" ? "text-sm text-red-400" : "text-sm text-green-400"}>{status.msg}</p>
       )}
 
       <button
@@ -176,7 +193,7 @@ function UploadTab() {
         disabled={status.type === "loading"}
         className="rounded-lg bg-violet-600 px-5 py-2 font-semibold text-white transition hover:bg-violet-500 disabled:opacity-50"
       >
-        {status.type === "loading" ? "Enviando..." : "Enviar"}
+        {status.type === "loading" ? `Enviando... ${progress}%` : "Enviar"}
       </button>
     </form>
   );
@@ -186,6 +203,7 @@ function ArquivosTab() {
   const [manifest, setManifest] = useState<Manifest | null>(null);
   const [loading, setLoading] = useState(true);
   const [busy, setBusy] = useState<string | null>(null);
+  const [addProgress, setAddProgress] = useState<Record<string, number>>({});
   const fileInputs = useRefMap<HTMLInputElement>();
 
   async function load() {
@@ -241,8 +259,16 @@ function ArquivosTab() {
     for (const file of Array.from(files)) form.append("files", file);
 
     setBusy(dir);
-    await fetch("/api/upload", { method: "POST", body: form });
+    setAddProgress((prev) => ({ ...prev, [dir]: 0 }));
+    await uploadWithProgress("/api/upload", form, (percent) =>
+      setAddProgress((prev) => ({ ...prev, [dir]: percent }))
+    );
     setBusy(null);
+    setAddProgress((prev) => {
+      const next = { ...prev };
+      delete next[dir];
+      return next;
+    });
     load();
     const input = fileInputs.get(dir);
     if (input) input.value = "";
@@ -279,6 +305,13 @@ function ArquivosTab() {
                 onChange={(e) => handleAdd(dir, e.target.files)}
               />
             </div>
+
+            {dir in addProgress && (
+              <div className="mb-3 space-y-1">
+                <ProgressBar percent={addProgress[dir]} />
+                <p className="text-xs text-white/50">Enviando... {addProgress[dir]}%</p>
+              </div>
+            )}
 
             {items.length === 0 ? (
               <p className="text-xs text-white/40">Vazio.</p>
