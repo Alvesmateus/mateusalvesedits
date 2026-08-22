@@ -72,7 +72,7 @@ export async function getBio(): Promise<Partial<Bio>> {
   const found = blobs.find((b) => b.pathname === BIO_PATH);
   if (!found) return {};
 
-  const res = await fetch(found.url, { cache: "no-store" });
+  const res = await fetch(`${found.url}?t=${Date.now()}`, { cache: "no-store" });
   if (!res.ok) return {};
 
   return res.json();
@@ -84,5 +84,6 @@ export async function saveBio(bio: Bio): Promise<void> {
     contentType: "application/json",
     addRandomSuffix: false,
     allowOverwrite: true,
+    cacheControlMaxAge: 60,
   });
 }

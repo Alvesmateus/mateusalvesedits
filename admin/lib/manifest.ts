@@ -14,7 +14,10 @@ export async function getManifest(): Promise<Manifest> {
   const found = blobs.find((b) => b.pathname === MANIFEST_PATH);
   if (!found) return { files: {}, subdirs: {} };
 
-  const res = await fetch(found.url, { cache: "no-store" });
+  // cache-busting: o CDN do Blob cacheia por URL exata, então uma leitura logo
+  // após uma escrita pode retornar uma versão velha e causar corrida entre
+  // operações (ex: apagar A, depois apagar B, e B "ressuscitar" A).
+  const res = await fetch(`${found.url}?t=${Date.now()}`, { cache: "no-store" });
   if (!res.ok) return { files: {}, subdirs: {} };
 
   const data = await res.json();
@@ -30,6 +33,9 @@ export async function saveManifest(manifest: Manifest): Promise<void> {
     contentType: "application/json",
     addRandomSuffix: false,
     allowOverwrite: true,
+    // mínimo permitido pela Blob; sem isso o padrão é 30 dias e edições
+    // (apagar/reordenar/adicionar) demoram a aparecer.
+    cacheControlMaxAge: 60,
   });
 }
 

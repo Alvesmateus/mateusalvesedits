@@ -6,7 +6,7 @@ import { ALL_CATEGORIES, FILE_CATEGORIES, GALLERY_CATEGORIES, isGalleryCategory,
 import { DEFAULT_CONTENT, type SiteContent } from "@/lib/content";
 import { DEFAULT_BIO, type Bio } from "@/lib/bio";
 import { DEFAULT_PORTFOLIO_CARDS, type PortfolioCard, type PortfolioPill } from "@/lib/portfolio";
-import { uploadWithProgress } from "@/lib/uploadWithProgress";
+import { uploadFilesToBlob } from "@/lib/clientUpload";
 import type { Manifest } from "@/lib/manifest";
 
 function ProgressBar({ percent }: { percent: number }) {
@@ -101,13 +101,8 @@ function UploadTab() {
     setStatus({ type: "loading", msg: "Enviando..." });
     setProgress(0);
 
-    const form = new FormData();
-    form.set("category", category);
-    if (isGallery) form.set("galleryName", galleryName);
-    for (const file of Array.from(files)) form.append("files", file);
-
     const fileCount = files.length;
-    const res = await uploadWithProgress("/api/upload", form, setProgress);
+    const res = await uploadFilesToBlob(Array.from(files), category, isGallery ? galleryName : "", setProgress);
 
     if (res.ok) {
       setStatus({ type: "ok", msg: `${fileCount} arquivo(s) enviado(s) com sucesso.` });
@@ -116,8 +111,7 @@ function UploadTab() {
       const input = document.getElementById("file-input") as HTMLInputElement | null;
       if (input) input.value = "";
     } else {
-      const data = res.data as { error?: string } | null;
-      setStatus({ type: "error", msg: data?.error || "Erro ao enviar." });
+      setStatus({ type: "error", msg: res.error || "Erro ao enviar." });
     }
     setProgress(0);
   }
@@ -221,13 +215,16 @@ function ArquivosTab() {
   async function handleDelete(dir: string, url: string) {
     if (!confirm("Excluir este arquivo?")) return;
     setBusy(url);
-    await fetch("/api/files", {
+    const res = await fetch("/api/files", {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ dir, url }),
     });
     setBusy(null);
-    load();
+    if (res.ok) {
+      const data = await res.json();
+      setManifest(data.manifest);
+    }
   }
 
   async function handleMove(dir: string, index: number, delta: number) {
@@ -240,27 +237,25 @@ function ArquivosTab() {
     [newOrder[index], newOrder[target]] = [newOrder[target], newOrder[index]];
 
     setBusy(dir);
-    await fetch("/api/files", {
+    const res = await fetch("/api/files", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ dir, order: newOrder }),
     });
     setBusy(null);
-    load();
+    if (res.ok) {
+      const data = await res.json();
+      setManifest(data.manifest);
+    }
   }
 
   async function handleAdd(dir: string, files: FileList | null) {
     if (!files || files.length === 0) return;
     const { category, galleryName } = resolveDirTarget(dir);
 
-    const form = new FormData();
-    form.set("category", category);
-    if (galleryName) form.set("galleryName", galleryName);
-    for (const file of Array.from(files)) form.append("files", file);
-
     setBusy(dir);
     setAddProgress((prev) => ({ ...prev, [dir]: 0 }));
-    await uploadWithProgress("/api/upload", form, (percent) =>
+    const res = await uploadFilesToBlob(Array.from(files), category, galleryName || "", (percent) =>
       setAddProgress((prev) => ({ ...prev, [dir]: percent }))
     );
     setBusy(null);
@@ -269,7 +264,11 @@ function ArquivosTab() {
       delete next[dir];
       return next;
     });
-    load();
+    if (res.ok && res.manifest) {
+      setManifest(res.manifest);
+    } else {
+      load();
+    }
     const input = fileInputs.get(dir);
     if (input) input.value = "";
   }

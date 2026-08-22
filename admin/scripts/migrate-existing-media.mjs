@@ -61,6 +61,7 @@ async function saveManifest(manifest) {
     contentType: "application/json",
     addRandomSuffix: false,
     allowOverwrite: true,
+    cacheControlMaxAge: 60,
   });
 }
 

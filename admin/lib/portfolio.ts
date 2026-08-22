@@ -116,7 +116,7 @@ export async function getPortfolioCards(): Promise<PortfolioCard[]> {
   const found = blobs.find((b) => b.pathname === PORTFOLIO_PATH);
   if (!found) return DEFAULT_PORTFOLIO_CARDS;
 
-  const res = await fetch(found.url, { cache: "no-store" });
+  const res = await fetch(`${found.url}?t=${Date.now()}`, { cache: "no-store" });
   if (!res.ok) return DEFAULT_PORTFOLIO_CARDS;
 
   const data = await res.json();
@@ -129,5 +129,6 @@ export async function savePortfolioCards(cards: PortfolioCard[]): Promise<void> 
     contentType: "application/json",
     addRandomSuffix: false,
     allowOverwrite: true,
+    cacheControlMaxAge: 60,
   });
 }
