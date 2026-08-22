@@ -1504,6 +1504,9 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
 }
 
 .search-box{ display:none; }
+/* caixa escondida e sugestões foram pro topo fixo: nada visível aqui sobra,
+   então tira o wrapper inteiro da árvore de layout pra não deixar resíduo */
+.search-wrap{ display:none; }
 
 /* pequeno indicativo do que os botões fazem (popup vs aba) */
 .section-hint{
