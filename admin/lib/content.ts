@@ -11,6 +11,11 @@ export type SiteContent = {
   email: string;
   facebookName: string;
   whatsappNumber: string;
+  siteTitle: string;
+  sectionHeading: string;
+  searchPlaceholder: string;
+  searchButtonLabel: string;
+  showMoreLabel: string;
 };
 
 export const DEFAULT_CONTENT: SiteContent = {
@@ -22,6 +27,11 @@ export const DEFAULT_CONTENT: SiteContent = {
   email: "mateusalves.flu@gmail.com",
   facebookName: "Mateus Alves",
   whatsappNumber: "21973042881",
+  siteTitle: "Meu Portfólio",
+  sectionHeading: "Conteúdos por Plataforma",
+  searchPlaceholder: "o que você precisa saber?",
+  searchButtonLabel: "Pesquisar",
+  showMoreLabel: "Mostrar mais",
 };
 
 export async function getContent(): Promise<Partial<SiteContent>> {

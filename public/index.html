@@ -70,7 +70,7 @@
 
     <!-- GRID 4x3 ABAIXO DOS CARDS -->
     <section class="mt-20">
-      <h2 class="mb-8 text-center text-2xl font-black uppercase tracking-tight text-white sm:text-4xl">
+      <h2 id="sectionHeading" class="mb-8 text-center text-2xl font-black uppercase tracking-tight text-white sm:text-4xl">
         Conteúdos por Plataforma
       </h2>
 
@@ -162,11 +162,13 @@
       }
 
       function mergeManifest(extra) {
+        // O painel admin manda: uma vez que ele gerencia uma pasta, ela substitui
+        // (não soma) a lista estática, permitindo apagar/reordenar itens antigos.
         window.MEDIA_MANIFEST = window.MEDIA_MANIFEST || { files: {}, subdirs: {} };
         var files = window.MEDIA_MANIFEST.files;
         var subdirs = window.MEDIA_MANIFEST.subdirs;
         Object.keys(extra.files || {}).forEach(function (dir) {
-          files[dir] = (files[dir] || []).concat(extra.files[dir]);
+          files[dir] = extra.files[dir];
         });
         Object.keys(extra.subdirs || {}).forEach(function (dir) {
           var existing = subdirs[dir] || [];
@@ -178,12 +180,23 @@
       }
 
       function applyContent(c) {
+        if (c.siteTitle) document.title = c.siteTitle;
+
         var l1 = document.getElementById("heroTitleLine1");
         var l2 = document.getElementById("heroTitleLine2");
         var sub = document.getElementById("heroSubtitle");
+        var heading = document.getElementById("sectionHeading");
+        var searchInput = document.getElementById("searchInput");
+        var searchLabel = document.querySelector(".search-btn-label");
+        var showMore = document.getElementById("mostrarMais");
+
         if (l1 && c.heroTitleLine1) l1.textContent = c.heroTitleLine1;
         if (l2 && c.heroTitleLine2) l2.textContent = c.heroTitleLine2;
         if (sub && c.heroSubtitle) sub.textContent = c.heroSubtitle;
+        if (heading && c.sectionHeading) heading.textContent = c.sectionHeading;
+        if (searchInput && c.searchPlaceholder) searchInput.placeholder = c.searchPlaceholder;
+        if (searchLabel && c.searchButtonLabel) searchLabel.textContent = c.searchButtonLabel;
+        if (showMore && c.showMoreLabel) showMore.textContent = c.showMoreLabel;
 
         var map = {
           "fi-instagram": c.instagramHandle,
@@ -199,6 +212,34 @@
         });
       }
 
+      function applyBio(bio) {
+        if (!bio) return;
+        window.ADMIN_BIO = bio;
+      }
+
+      function applyBioToSearchData() {
+        var bio = window.ADMIN_BIO;
+        if (!bio || !Array.isArray(window.SEARCH_DATA)) return;
+        var item = window.SEARCH_DATA.find(function (it) {
+          return it.titulo === "Quem é Mateus Alves?";
+        });
+        if (!item) return;
+        item.conteudo = item.conteudo || {};
+        if (bio.markdown) item.conteudo.markdown = bio.markdown;
+        if (bio.imagem) item.conteudo.imagens = [bio.imagem];
+        if (bio.botaoLabel && bio.botaoUrl) {
+          item.conteudo.botoes = [
+            { label: bio.botaoLabel, url: bio.botaoUrl, icone: "fa-brands fa-instagram", cor: "#e1306c" }
+          ];
+        }
+      }
+
+      function applyPortfolioCards(data) {
+        if (data && Array.isArray(data.cards) && data.cards.length) {
+          window.ADMIN_PORTFOLIO_CARDS = data.cards;
+        }
+      }
+
       async function fetchAdminData() {
         var base = window.ADMIN_BLOB_BASE;
         if (!base) return;
@@ -210,12 +251,21 @@
           var cRes = await fetch(base + "/content/site-content.json", { cache: "no-store" });
           if (cRes.ok) applyContent(await cRes.json());
         } catch (e) {}
+        try {
+          var bRes = await fetch(base + "/content/bio.json", { cache: "no-store" });
+          if (bRes.ok) applyBio(await bRes.json());
+        } catch (e) {}
+        try {
+          var pRes = await fetch(base + "/content/portfolio-cards.json", { cache: "no-store" });
+          if (pRes.ok) applyPortfolioCards(await pRes.json());
+        } catch (e) {}
       }
 
       (async function () {
         await loadScript("media-manifest.js");
         await fetchAdminData();
         await loadScript("search/search-data.js");
+        applyBioToSearchData();
         await loadScript("search/search-suggestions.js");
         await loadScript("script.js");
       })();

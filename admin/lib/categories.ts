@@ -30,3 +30,19 @@ export function isGalleryCategory(key: string): boolean {
 export function findCategory(key: string): Category | undefined {
   return ALL_CATEGORIES.find((c) => c.key === key);
 }
+
+// Dado um diretório de manifesto (ex: "carrossel-square/minha-galeria/"),
+// descobre a categoria de upload e o nome de galeria (se houver) para
+// permitir adicionar mais itens diretamente a essa pasta.
+export function resolveDirTarget(dir: string): { category: string; galleryName: string | null } {
+  const direct = FILE_CATEGORIES.find((c) => c.key === dir);
+  if (direct) return { category: direct.key, galleryName: null };
+
+  const gallery = GALLERY_CATEGORIES.find((c) => dir.startsWith(c.key) && dir !== c.key);
+  if (gallery) {
+    const galleryName = dir.slice(gallery.key.length).replace(/\/$/, "");
+    return { category: gallery.key, galleryName };
+  }
+
+  return { category: dir, galleryName: null };
+}

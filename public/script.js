@@ -33,7 +33,7 @@ allFiBtns.forEach(btn => {
 
 socialOverlay.addEventListener("click", closeMenu);
 
-const itensPortfolio = [
+const itensPortfolioDefault = [
   {
     titulo:"Apps e Skils",
     subtitulo:"Softwares que utilizo no meu dia-dia.",
@@ -125,6 +125,16 @@ const itensPortfolio = [
     }
   },
 ];
+
+function normalizarCardPortfolio(c) {
+  return Object.assign({}, c, {
+    conteudo: { markdown: c.markdown || (c.conteudo && c.conteudo.markdown) || "" }
+  });
+}
+
+const itensPortfolio = (window.ADMIN_PORTFOLIO_CARDS && window.ADMIN_PORTFOLIO_CARDS.length)
+  ? window.ADMIN_PORTFOLIO_CARDS.map(normalizarCardPortfolio)
+  : itensPortfolioDefault.map(normalizarCardPortfolio);
 
 const portfolioGrid = document.getElementById("portfolioGrid");
 
