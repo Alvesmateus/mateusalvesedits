@@ -782,7 +782,7 @@ let limiteVisivel = LIMITE_PAGINA;
 const btnMostrarMais = document.getElementById("mostrarMais");
 
 function cardCombina(card) {
-  return filtroAtivo === "todas" || filtroAtivo === "completa" || card.dataset.filter === filtroAtivo;
+  return filtroAtivo === "todas" || card.dataset.filter === filtroAtivo;
 }
 
 // vídeo só toca quando visível (evita travar o decode do navegador)
@@ -836,6 +836,9 @@ if (btnMostrarMais) {
 let filtroAtivo = "todas";
 
 document.querySelectorAll(".filter-btn").forEach(btn => {
+  // "Visualização Completa" abre o modal próprio, não entra na lógica de aba
+  if (btn.id === "fullViewBtn") return;
+
   // botões com data-popup-titulo abrem um popup (igual às sugestões de
   // busca) em vez de filtrar a grade — não entram na lógica de "aba".
   if (btn.dataset.popupTitulo) {
@@ -850,8 +853,7 @@ document.querySelectorAll(".filter-btn").forEach(btn => {
     filtroAtivo = btn.dataset.filter;
     document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
-    // "Visualização Completa" mostra tudo de uma vez, sem paginação
-    limiteVisivel = filtroAtivo === "completa" ? Infinity : LIMITE_PAGINA;
+    limiteVisivel = LIMITE_PAGINA;
 
     const cards = [...photoGrid.children];
 
@@ -875,6 +877,38 @@ document.querySelectorAll(".filter-btn").forEach(btn => {
     }, 220);
   });
 });
+
+// MODAL "VISUALIZAÇÃO COMPLETA" — abre em tela cheia com fundo desfocado,
+// mostrando todos os itens da grade (move os cards de verdade, preservando
+// players de áudio/vídeo e carrosséis já montados).
+const fullViewBtn    = document.getElementById("fullViewBtn");
+const fullViewModal  = document.getElementById("fullViewModal");
+const fullViewGrid   = document.getElementById("fullViewGrid");
+const fullViewClose  = document.getElementById("fullViewClose");
+
+if (fullViewBtn && fullViewModal && fullViewGrid && fullViewClose) {
+  fullViewBtn.addEventListener("click", () => {
+    [...photoGrid.children].forEach(card => {
+      card.style.display = "";
+      controlarVideo(card, true);
+      fullViewGrid.appendChild(card);
+    });
+    fullViewModal.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+  });
+
+  function fecharVisualizacaoCompleta() {
+    [...fullViewGrid.children].forEach(card => photoGrid.appendChild(card));
+    fullViewModal.classList.remove("is-open");
+    document.body.style.overflow = "";
+    aplicarVisibilidade();
+  }
+
+  fullViewClose.addEventListener("click", fecharVisualizacaoCompleta);
+  fullViewModal.addEventListener("click", (e) => {
+    if (e.target === fullViewModal) fecharVisualizacaoCompleta();
+  });
+}
 
 const MEDIA = (window.MEDIA_MANIFEST && window.MEDIA_MANIFEST.files)   || {};
 const SUBS  = (window.MEDIA_MANIFEST && window.MEDIA_MANIFEST.subdirs) || {};

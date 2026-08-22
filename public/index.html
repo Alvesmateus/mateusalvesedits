@@ -89,11 +89,10 @@
       <span class="section-hint"><i class="fa-solid fa-table-cells"></i> Aba</span>
       <div class="filter-bar">
         <button class="filter-btn active" data-filter="todas">Todas</button>
-        <button class="filter-btn" data-filter="completa">Visualização Completa</button>
+        <button class="filter-btn" id="fullViewBtn">Visualização Completa</button>
         <button class="filter-btn" data-popup-titulo="Filmagens">Filmagens</button>
         <button class="filter-btn" data-popup-titulo="Top Vídeos">Top Edições</button>
         <button class="filter-btn" data-popup-titulo="Artes">Artes</button>
-        <button class="filter-btn" data-popup-titulo="Narrações">Narrações</button>
       </div>
 
       <div
@@ -110,7 +109,27 @@
 
   </main>
 
+  <!-- MODAL VISUALIZAÇÃO COMPLETA -->
+  <div id="fullViewModal" class="full-view-modal">
+    <div class="full-view-header">
+      <div class="flex items-center gap-3">
+        <span class="full-view-title">Visualização Completa</span>
+        <button class="filter-btn" data-popup-titulo="Narrações">Narrações</button>
+      </div>
+      <button id="fullViewClose" class="full-view-close" aria-label="Fechar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div
+      id="fullViewGrid"
+      class="full-view-grid mx-auto grid w-full grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 md:gap-4 lg:grid-cols-4"
+    ></div>
+  </div>
+
   <!-- OVERLAY MENU SOCIAL -->
+  <div id="socialOverlay"></div>
+
+  <!-- ÍCONES FLUTUANTES -->
   <div id="socialOverlay"></div>
 
   <!-- ÍCONES FLUTUANTES -->
