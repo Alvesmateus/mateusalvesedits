@@ -6,7 +6,8 @@ import { ALL_CATEGORIES, FILE_CATEGORIES, GALLERY_CATEGORIES, isGalleryCategory,
 import { DEFAULT_CONTENT, type SiteContent } from "@/lib/content";
 import { DEFAULT_BIO, type Bio } from "@/lib/bio";
 import { DEFAULT_PORTFOLIO_CARDS, type PortfolioCard, type PortfolioPill } from "@/lib/portfolio";
-import { uploadFilesToBlob } from "@/lib/clientUpload";
+import { uploadFilesToBlob, uploadBackground } from "@/lib/clientUpload";
+import { DEFAULT_BACKGROUND, type BackgroundConfig } from "@/lib/background";
 import type { Manifest } from "@/lib/manifest";
 
 function ProgressBar({ percent }: { percent: number }) {
@@ -837,7 +838,10 @@ function ConteudoTab() {
   ];
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-xl space-y-4">
+    <div className="max-w-xl space-y-10">
+      <BackgroundSection />
+
+      <form onSubmit={handleSubmit} className="space-y-4">
       {fields.map(([key, label]) => (
         <div key={key}>
           <label className="mb-1 block text-sm text-white/70">{label}</label>
@@ -866,6 +870,80 @@ function ConteudoTab() {
       >
         {status.type === "loading" ? "Salvando..." : "Salvar"}
       </button>
-    </form>
+      </form>
+    </div>
+  );
+}
+
+function BackgroundSection() {
+  const [background, setBackground] = useState<BackgroundConfig>(DEFAULT_BACKGROUND);
+  const [loading, setLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const [status, setStatus] = useState<{ type: "idle" | "loading" | "ok" | "error"; msg: string }>({
+    type: "idle",
+    msg: "",
+  });
+
+  useEffect(() => {
+    fetch("/api/background", { cache: "no-store" })
+      .then((r) => r.json())
+      .then((data) => {
+        setBackground(data);
+        setLoading(false);
+      });
+  }, []);
+
+  async function handleFile(file: File | null) {
+    if (!file) return;
+    setStatus({ type: "loading", msg: "Enviando..." });
+    setProgress(0);
+
+    const res = await uploadBackground(file, setProgress);
+
+    if (res.ok && res.background) {
+      setBackground(res.background);
+      setStatus({ type: "ok", msg: "Fundo atualizado! O site já reflete a mudança." });
+    } else {
+      setStatus({ type: "error", msg: res.error || "Erro ao enviar." });
+    }
+    setProgress(0);
+  }
+
+  if (loading) return <p className="text-white/60">Carregando...</p>;
+
+  return (
+    <div>
+      <h3 className="mb-1 text-sm font-semibold text-white/70">Fundo do site</h3>
+      <p className="mb-3 text-xs text-white/40">
+        Aparece atrás do cabeçalho, no topo do site. Aceita imagem, WEBP, GIF animado ou vídeo.
+      </p>
+
+      <div className="mb-3 overflow-hidden rounded-lg border border-white/10 bg-black/30" style={{ maxWidth: 320 }}>
+        {background.type === "video" ? (
+          <video src={background.url} className="h-40 w-full object-cover" autoPlay muted loop playsInline />
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={background.url} alt="" className="h-40 w-full object-cover" />
+        )}
+      </div>
+
+      <input
+        type="file"
+        accept="image/*,video/*"
+        onChange={(e) => handleFile(e.target.files?.[0] || null)}
+        className="text-sm text-white/80 file:mr-3 file:rounded-md file:border-0 file:bg-violet-600 file:px-3 file:py-1.5 file:text-white"
+      />
+
+      {status.type === "loading" && (
+        <div className="mt-3 max-w-xs space-y-1">
+          <ProgressBar percent={progress} />
+          <p className="text-xs text-white/50">{progress}%</p>
+        </div>
+      )}
+
+      {status.type !== "idle" && status.type !== "loading" && (
+        <p className={`mt-3 text-sm ${status.type === "error" ? "text-red-400" : "text-green-400"}`}>{status.msg}</p>
+      )}
+    </div>
   );
 }

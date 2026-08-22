@@ -13,8 +13,9 @@ export async function POST(request: Request) {
       body,
       request,
       onBeforeGenerateToken: async (pathname) => {
+        const isBackground = pathname.startsWith("content/background-");
         const category = ALL_CATEGORIES.find((c) => pathname.startsWith(c.key));
-        if (!category) {
+        if (!isBackground && !category) {
           throw new Error("Categoria inválida para upload");
         }
         return {

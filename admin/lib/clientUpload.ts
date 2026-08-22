@@ -58,3 +58,42 @@ export async function uploadFilesToBlob(
     return { ok: false, error: error instanceof Error ? error.message : "Erro ao enviar arquivos" };
   }
 }
+
+export type BackgroundUploadResult = {
+  ok: boolean;
+  error?: string;
+  background?: { url: string; type: "image" | "video" };
+};
+
+// Fundo do site: imagem, webp, gif animado ou vídeo — mesmo caminho de upload
+// direto pro Blob, seguido de um POST pequeno para salvar a URL/tipo.
+export async function uploadBackground(
+  file: File,
+  onProgress: (percent: number) => void
+): Promise<BackgroundUploadResult> {
+  const type: "image" | "video" = file.type.startsWith("video/") ? "video" : "image";
+  const pathname = `content/background-${sanitizeFilename(file.name)}`;
+
+  try {
+    const result = await upload(pathname, file, {
+      access: "public",
+      handleUploadUrl: "/api/upload",
+      onUploadProgress: (event) => onProgress(event.percentage),
+    });
+
+    const res = await fetch("/api/background", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url: result.url, type }),
+    });
+
+    const data = await res.json().catch(() => null);
+    if (!res.ok) {
+      return { ok: false, error: data?.error || "Erro ao salvar fundo" };
+    }
+
+    return { ok: true, background: data?.background };
+  } catch (error) {
+    return { ok: false, error: error instanceof Error ? error.message : "Erro ao enviar fundo" };
+  }
+}

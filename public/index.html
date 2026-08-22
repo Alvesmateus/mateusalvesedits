@@ -20,6 +20,9 @@
   <main class="mx-auto max-w-6xl px-3 pb-28 sm:px-6">
 
     <div class="top-bg">
+    <div class="top-bg-media" id="topBgMedia">
+      <img src="img/foto-perfil.png" alt="" />
+    </div>
     <section class="flex min-h-[250px] flex-col items-center gap-7 pt-20 text-center">
       <div class="flex w-full max-w-2xl items-start gap-4 text-left">
         <img
@@ -249,6 +252,27 @@
         }
       }
 
+      function applyBackground(bg) {
+        if (!bg || !bg.url) return;
+        var container = document.getElementById("topBgMedia");
+        if (!container) return;
+        container.innerHTML = "";
+        var el;
+        if (bg.type === "video") {
+          el = document.createElement("video");
+          el.src = bg.url;
+          el.autoplay = true;
+          el.muted = true;
+          el.loop = true;
+          el.playsInline = true;
+        } else {
+          el = document.createElement("img");
+          el.src = bg.url;
+          el.alt = "";
+        }
+        container.appendChild(el);
+      }
+
       async function fetchAdminData() {
         var base = window.ADMIN_BLOB_BASE;
         if (!base) return;
@@ -267,6 +291,10 @@
         try {
           var pRes = await fetch(base + "/content/portfolio-cards.json", { cache: "no-store" });
           if (pRes.ok) applyPortfolioCards(await pRes.json());
+        } catch (e) {}
+        try {
+          var bgRes = await fetch(base + "/content/background.json", { cache: "no-store" });
+          if (bgRes.ok) applyBackground(await bgRes.json());
         } catch (e) {}
       }
 
