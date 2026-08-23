@@ -374,35 +374,21 @@
 }
 .show-more-btn:active{ transform:translateY(.5px); }
 
-/* ── WALLPAPER DE FUNDO (topo até a grade de conteúdos) ── */
-/* imagem, webp, gif animado ou vídeo — controlado pelo painel admin via #topBgMedia */
 .top-bg{
   position:relative;
 }
-.top-bg-media{
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:50%;
-  width:100vw;
-  transform:translateX(-50%);
-  z-index:-2;
-  overflow:hidden;
-  pointer-events:none;
+
+/* anel gradiente estilo Instagram ao redor da foto de perfil */
+.ig-ring{
+  display:inline-flex;
+  padding:3px;
+  border-radius:9999px;
+  background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7);
 }
-.top-bg-media img,
-.top-bg-media video{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center top;
-}
-.top-bg-media::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to bottom, rgba(11,11,15,.45), rgba(11,11,15,.65) 70%, rgba(11,11,15,1));
-  z-index:1;
+.ig-ring img{
+  display:block;
+  border:2.5px solid #0b0b0f;
+  border-radius:9999px;
 }
 
 /* CARD ESTILO PASTA */
@@ -1162,7 +1148,7 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   transform:translateY(-2px) scale(1.08);
 }
 
-/* anel "cometa" girando na borda do botão selecionado, indicando que a
+/* bolinha brilhante andando na borda do botão selecionado, indicando que a
    barra inteira é clicável/selecionável */
 .filter-btn.active::before{
   content:'';
@@ -1172,17 +1158,16 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   padding:2px;
   background:conic-gradient(from 0deg,
     transparent 0deg,
-    transparent 255deg,
-    rgba(168,85,247,.85) 300deg,
-    rgba(255,255,255,1) 335deg,
-    rgba(96,205,255,.9) 350deg,
-    transparent 360deg
+    transparent 352deg,
+    #fff 356deg,
+    #60cdff 360deg
   );
   -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite:xor;
   mask-composite:exclude;
   animation:filterCometSpin 2.4s linear infinite;
   pointer-events:none;
+  filter:drop-shadow(0 0 4px rgba(96,205,255,.9));
 }
 
 @keyframes filterCometSpin{
