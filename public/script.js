@@ -1068,6 +1068,22 @@ Promise.all([
     cor:    "#FF0000",
     categoria: "top-edicoes",
   }),
+  carregarPastaNoGrid("youtube-videos/", {
+    titulo: "YouTube - Horizontal",
+    rede:   "YouTube",
+    tipo:   "Horizontal",
+    icone:  "fa-brands fa-youtube",
+    cor:    "#FF0000",
+    categoria: "top-edicoes",
+  }),
+  carregarPastaNoGrid("youtube-shorts/", {
+    titulo: "YouTube - Shorts",
+    rede:   "YouTube",
+    tipo:   "Shorts",
+    icone:  "fa-brands fa-youtube",
+    cor:    "#FF0000",
+    categoria: "top-edicoes",
+  }),
   carregarPastaNoGrid("instagram-feed/", {
     titulo: "Instagram - Feed",
     rede:   "Instagram",
