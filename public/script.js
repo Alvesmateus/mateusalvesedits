@@ -93,6 +93,21 @@ if (closeSocialBtn) {
 }
 if (socialOverlay) socialOverlay.addEventListener("click", closeMenu);
 
+// botões "Contato" e "Currículo" ao lado de "Quem sou eu?" abrem os
+// mesmos menus laterais dos botões flutuantes
+const headerContatoBtn   = document.getElementById("headerContatoBtn");
+const headerCurriculoBtn = document.getElementById("headerCurriculoBtn");
+if (headerContatoBtn) {
+  headerContatoBtn.addEventListener("click", () => {
+    if (!menuOpen) openMenu();
+  });
+}
+if (headerCurriculoBtn) {
+  headerCurriculoBtn.addEventListener("click", () => {
+    if (!cvMenuOpen) openCvMenu();
+  });
+}
+
 // ícone do botão de contato trocando em fade entre as redes sociais
 document.querySelectorAll(".icon-fade-cycle").forEach(container => {
   const icones = [...container.querySelectorAll("i")];
