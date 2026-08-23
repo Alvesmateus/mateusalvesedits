@@ -99,12 +99,6 @@ const itensPortfolioDefault = [
 
 ---
 
-## Edição de Áudio - Aumentar músicas
-
-* **Audition** — Edição e tratamento de áudio para vídeos e podcasts
-
----
-
 ## Posts Automáticos
 
 * **Buffer**
@@ -124,18 +118,6 @@ const itensPortfolioDefault = [
 
 
 *(Nota: Como o Canva é uma ferramenta híbrida que hoje integra automações e ferramentas fortes de IA para criação rápida, ele foi encaixado nesta última categoria para atender à sua divisão!).*
-
-## **Programação** — \`Python\` e \`JavaScript\` para criar ferramentas próprias
-
-* **SóPapiro Questões (em desenvolvimento)** — Alternativa ao Qconcursos.
-* **RenderWebKit Uso Particular)** — Criação rápida de imagens, carrosseis e vídeos em lote com html, css e javascript.
-* **Img To Zoom Uso Particular)** — Criação de vídeos com efeito de zoom automaticamente a partir de uma imagem.
-* **RenderMaps (Uso Particular)** — Criação de mapas animados para ser usado em vídeos.
-* **Remoção de fundo de Vídeos (Uso Particular)** — Utilizo essa ferramenta para remover fundo de videos. Muito usado para criar rodapé de vídeos e nomes e títulos animados.
-* **Teleprompter(uso particular)** 
- Utilizado para leitura de roteiros.
-
-
 
 ---
 
