@@ -34,7 +34,14 @@ window.MEDIA_MANIFEST = {
       "instagram-feed/Fundada em 1957 e inspirada no SBS britânico, essa unidade é famosa mundialmente por seu treinam.jpg",
       "instagram-feed/O caminho pode ser árduo, mas a glória de servir à pátria é imensa! 🇧🇷 Não deixe o desânimo ve.jpg",
       "instagram-feed/img6.jpg",
-      "instagram-feed/🚨 HOJE TEM EPISÓDIO PESADO NO SOPAPIROCAST 🚨Recebemos ninguém menos que Maicon Menegucci, do c.jpg"
+      "instagram-feed/🚨 HOJE TEM EPISÓDIO PESADO NO SOPAPIROCAST 🚨Recebemos ninguém menos que Maicon Menegucci, do c.jpg",
+      "instagram-feed/Obrigado, Deus! Sem você nada disso seria possível.  Obrigado por confiar em mim @gabrielsrk_ Qu.mp4",
+      "instagram-feed/WhatsApp Video 2026-08-23 at 13.26.43 (1).mp4",
+      "instagram-feed/WhatsApp Video 2026-08-23 at 13.26.44.mp4",
+      "instagram-feed/WhatsApp Video 2026-08-23 at 13.26.58.mp4",
+      "instagram-feed/WhatsApp Video 2026-08-23 at 13.27.34 (1).mp4",
+      "instagram-feed/WhatsApp Video 2026-08-23 at 13.27.34.mp4",
+      "instagram-feed/WhatsApp Video 2026-08-23 at 13.29.35.mp4"
     ],
     "instagram-post/": [
       "instagram-post/Adsumus é uma palavra em latim que significa “aqui estamos” ou “estamos presentes”. É uma expres.jpg",
