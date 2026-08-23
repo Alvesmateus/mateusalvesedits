@@ -1,6 +1,5 @@
-// BOTÃO FLUTUANTE CURRÍCULO — abre um menu lateral (empurra a tela) com
+// MENU LATERAL DE CURRÍCULO (empurra a tela) com
 // "Currículo Virtual" (popup), "Baixar Currículo" (PDF) e afins
-const downloadCvBtn = document.getElementById("downloadCvBtn");
 const cvSidebar     = document.getElementById("cvSidebar");
 const mainContent   = document.getElementById("mainContent");
 const cvOverlay     = document.getElementById("cvOverlay");
@@ -15,7 +14,6 @@ function openCvMenu(){
   mainContent.classList.add("cv-pushed");
   cvOverlay.classList.add("active");
   document.body.style.overflow = "hidden";
-  if (socialToggle) socialToggle.classList.add("is-hidden"); // some o botão de redes sociais
 }
 
 function closeCvMenu(){
@@ -24,14 +22,8 @@ function closeCvMenu(){
   mainContent.classList.remove("cv-pushed");
   cvOverlay.classList.remove("active");
   document.body.style.overflow = "";
-  if (socialToggle) socialToggle.classList.remove("is-hidden");
 }
 
-if (downloadCvBtn) {
-  downloadCvBtn.addEventListener("click", () => {
-    if (!cvMenuOpen) openCvMenu();
-  });
-}
 if (closeCvBtn) {
   closeCvBtn.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -54,8 +46,7 @@ if (cvTrabalhosBtn) {
 }
 if (cvOverlay) cvOverlay.addEventListener("click", closeCvMenu);
 
-// BOTÃO FLUTUANTE REDES SOCIAIS — abre um menu lateral (empurra a tela)
-const socialToggle   = document.getElementById("socialToggle");
+// MENU LATERAL DE REDES SOCIAIS (empurra a tela)
 const socialSidebar  = document.getElementById("socialSidebar");
 const socialOverlay  = document.getElementById("socialOverlay");
 const closeSocialBtn = document.getElementById("closeSocialMenu");
@@ -68,7 +59,6 @@ function openMenu(){
   mainContent.classList.add("social-pushed");
   socialOverlay.classList.add("active");
   document.body.style.overflow = "hidden";
-  if (downloadCvBtn) downloadCvBtn.classList.add("is-hidden");
 }
 
 function closeMenu(){
@@ -77,14 +67,8 @@ function closeMenu(){
   mainContent.classList.remove("social-pushed");
   socialOverlay.classList.remove("active");
   document.body.style.overflow = "";
-  if (downloadCvBtn) downloadCvBtn.classList.remove("is-hidden");
 }
 
-if (socialToggle) {
-  socialToggle.addEventListener("click", () => {
-    if (!menuOpen) openMenu();
-  });
-}
 if (closeSocialBtn) {
   closeSocialBtn.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -108,17 +92,29 @@ if (headerCurriculoBtn) {
   });
 }
 
-// ícone do botão de contato trocando em fade entre as redes sociais
-document.querySelectorAll(".icon-fade-cycle").forEach(container => {
-  const icones = [...container.querySelectorAll("i")];
-  if (icones.length < 2) return;
-  let atual = 0;
+// ícone do botão "Contato" trocando de ícone e cor entre as redes sociais
+const CONTATO_PLATAFORMAS = [
+  { icone: "fa-brands fa-whatsapp",   cor: "#25D366" },
+  { icone: "fa-brands fa-facebook-f", cor: "#1877F2" },
+  { icone: "fa-brands fa-instagram",  cor: "linear-gradient(135deg,#7c3aed,#ec4899,#f97316)" },
+  { icone: "fa-solid fa-envelope",    cor: "#EA4335" },
+  { icone: "fa-brands fa-linkedin-in",cor: "#0A66C2" },
+];
+const contatoCycleIcon = document.getElementById("contatoCycleIcon");
+if (contatoCycleIcon) {
+  const iconeEl = contatoCycleIcon.querySelector("i");
+  let contatoIdx = 0;
   setInterval(() => {
-    icones[atual].classList.remove("is-active");
-    atual = (atual + 1) % icones.length;
-    icones[atual].classList.add("is-active");
+    contatoCycleIcon.style.opacity = "0";
+    setTimeout(() => {
+      contatoIdx = (contatoIdx + 1) % CONTATO_PLATAFORMAS.length;
+      const p = CONTATO_PLATAFORMAS[contatoIdx];
+      iconeEl.className = p.icone;
+      contatoCycleIcon.style.background = p.cor;
+      contatoCycleIcon.style.opacity = "1";
+    }, 300);
   }, 1800);
-});
+}
 
 // botões dentro de popups (painel/bio/currículo) que abrem OUTRO popup
 // (data-popup-titulo), em vez de link externo — delegado pois são inseridos

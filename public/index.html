@@ -59,7 +59,7 @@
             <span class="ver-mais-label">Quem sou eu?</span>
           </a>
           <button type="button" id="headerContatoBtn" class="ver-mais-link">
-            <span class="ver-mais-icon"><i class="fa-brands fa-whatsapp"></i></span>
+            <span class="ver-mais-icon" id="contatoCycleIcon"><i class="fa-brands fa-whatsapp"></i></span>
             <span class="ver-mais-label">Contato</span>
           </button>
           <button type="button" id="headerCurriculoBtn" class="ver-mais-link">
@@ -164,21 +164,6 @@
     </div>
   </div>
 
-  <!-- BARRA BLUR ATRÁS DOS BOTÕES FLUTUANTES -->
-  <div id="bottomBarBlur"></div>
-
-  <!-- BOTÃO FLUTUANTE REDES SOCIAIS (abre o menu lateral) -->
-  <button id="socialToggle" type="button" class="download-cv-btn fixed bottom-7 left-7 z-[70]" aria-label="Redes Sociais">
-    <span class="icon-fade-cycle">
-      <i class="fa-brands fa-whatsapp is-active"></i>
-      <i class="fa-brands fa-facebook-f"></i>
-      <i class="fa-brands fa-instagram"></i>
-      <i class="fa-solid fa-envelope"></i>
-      <i class="fa-brands fa-linkedin-in"></i>
-    </span>
-    <span>Contato</span>
-  </button>
-
   <!-- OVERLAY MENU SOCIAL -->
   <div id="socialOverlay"></div>
 
@@ -221,12 +206,6 @@
       </a>
     </div>
   </aside>
-
-  <!-- BOTÃO FLUTUANTE CURRÍCULO (abre o menu lateral) -->
-  <button id="downloadCvBtn" type="button" class="download-cv-btn fixed bottom-7 right-7 z-[70]" aria-label="Currículo">
-    <i class="fa-solid fa-download"></i>
-    <span>Currículo</span>
-  </button>
 
   <!-- OVERLAY MENU CURRÍCULO -->
   <div id="cvOverlay"></div>
