@@ -1568,7 +1568,6 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   align-items:center;
   align-self:flex-start;
   gap:5px;
-  margin-top:8px;
   padding:6px 14px;
   border-radius:999px;
   font-size:.75rem;
@@ -1594,6 +1593,17 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
 .ver-mais-link i{ font-size:.65rem; }
 .ver-mais-link:hover{
   gap:8px;
+  transform:translateY(-1px);
+}
+
+/* botão "Trabalhos" ao lado do "Ver mais": mesmo tamanho/altura */
+#fullViewBtn{
+  height:auto;
+  padding:6px 14px;
+  font-size:.75rem;
+  transform:none;
+}
+#fullViewBtn:hover{
   transform:translateY(-1px);
 }
 
