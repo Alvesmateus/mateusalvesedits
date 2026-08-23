@@ -1150,7 +1150,8 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
 
 /* bolinha brilhante andando na borda do botão selecionado, indicando que a
    barra inteira é clicável/selecionável */
-.filter-btn.active::before{
+.filter-btn.active::before,
+#fullViewBtn::before{
   content:'';
   position:absolute;
   inset:-3px;
