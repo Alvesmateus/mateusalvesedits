@@ -97,14 +97,14 @@
     <!-- GRID 4x3 ABAIXO DOS CARDS -->
     <section class="mt-2">
       <div class="filter-bar">
-        <button class="filter-btn active" data-filter="todas">Grid Dinâmico</button>
-        <button class="filter-btn" id="instafaceBtn" data-filter="todas">Grid 3x3</button>
-        <button class="filter-btn" id="grid2x2Btn" data-filter="todas">Grid 2x2</button>
+        <button class="filter-btn hidden" data-filter="todas">Grid Dinâmico</button>
+        <button class="filter-btn hidden" id="instafaceBtn" data-filter="todas">Grid 3x3</button>
+        <button class="filter-btn active hidden" id="grid2x2Btn" data-filter="todas">Grid 2x2</button>
       </div>
 
       <div
         id="photoGrid"
-        class="mx-auto grid w-full grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 md:gap-4 lg:grid-cols-4"
+        class="mx-auto grid w-full grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 md:gap-4 lg:grid-cols-4 grid-2x2"
       ></div>
 
       <div class="mt-8 mb-24 flex justify-center">

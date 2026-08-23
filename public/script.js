@@ -863,7 +863,7 @@ function embaralharGrid() {
 
 // ── PAGINAÇÃO (mostrar 8, carregar +8 ao clicar) ──
 const LIMITE_PAGINA = 8;
-let limiteVisivel = LIMITE_PAGINA;
+let limiteVisivel = Infinity; // padrão inicial: aba "Grid 2x2" (mostra tudo)
 const btnMostrarMais = document.getElementById("mostrarMais");
 
 function cardCombina(card) {
