@@ -891,7 +891,9 @@ document.querySelectorAll(".filter-btn").forEach(btn => {
     filtroAtivo = btn.dataset.filter;
     document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
-    limiteVisivel = LIMITE_PAGINA;
+    const ehInstaface = btn.id === "instafaceBtn";
+    limiteVisivel = ehInstaface ? Infinity : LIMITE_PAGINA;
+    photoGrid.classList.toggle("grid-instaface", ehInstaface);
 
     const cards = [...photoGrid.children];
 

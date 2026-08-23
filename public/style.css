@@ -1203,6 +1203,16 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   grid-auto-rows: auto;
 }
 
+/* ── INSTAFACE: tudo em quadrado, 3 colunas fixas ── */
+#photoGrid.grid-instaface{
+  grid-template-columns: repeat(3, 1fr);
+}
+#photoGrid.grid-instaface > div{
+  grid-column: span 1;
+  grid-row: span 1;
+  aspect-ratio: 1/1;
+}
+
 /* proporções por tipo */
 .type-horizontal, .type-thumbnail { aspect-ratio: 16/9; }
 .type-post,       .type-carrossel { aspect-ratio: 1/1; }
