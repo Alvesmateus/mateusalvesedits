@@ -17,6 +17,14 @@
 
 <body class="min-h-screen bg-[#0b0b0f] text-white font-sans">
 
+  <!-- SPLASH SCREEN — cobre a tela enquanto o site carrega -->
+  <div id="splashScreen">
+    <div class="splash-inner">
+      <div class="splash-spinner"></div>
+      <div class="splash-text">Mateus Alves</div>
+    </div>
+  </div>
+
   <!-- Botões fixos no topo (não rolam com a página) -->
   <div id="topFixedButtons" class="top-fixed-buttons"></div>
 
@@ -210,29 +218,61 @@
       </button>
     </div>
     <div class="cv-sidebar-body">
-      <button id="cvVirtualBtn" type="button" class="cv-pill-btn" style="background:#7c3aed">
-        <i class="fa-solid fa-address-card"></i><span>Currículo Virtual</span>
+      <button id="cvVirtualBtn" type="button" class="cv-card">
+        <span class="cv-card-icon" style="background:#7c3aed"><i class="fa-solid fa-address-card"></i></span>
+        <span class="cv-card-text">
+          <span class="cv-card-title">Currículo Virtual</span>
+          <span class="cv-card-desc">Veja o currículo em formato interativo</span>
+        </span>
       </button>
-      <a id="cvBaixarBtn" href="pdf/curriculo.pdf" target="_blank" rel="noopener noreferrer" class="cv-pill-btn" style="background:#dc2626">
-        <i class="fa-solid fa-file-arrow-down"></i><span>Baixar Currículo</span>
+      <a id="cvBaixarBtn" href="pdf/curriculo.pdf" target="_blank" rel="noopener noreferrer" class="cv-card">
+        <span class="cv-card-icon" style="background:#dc2626"><i class="fa-solid fa-file-arrow-down"></i></span>
+        <span class="cv-card-text">
+          <span class="cv-card-title">Baixar Currículo</span>
+          <span class="cv-card-desc">Baixe o arquivo em PDF</span>
+        </span>
       </a>
-      <button type="button" class="cv-pill-btn cv-popup-btn" style="background:#991b1b" data-popup-titulo="Filmagens">
-        <i class="fa-solid fa-medal"></i><span>Filmagens</span>
+      <button type="button" class="cv-card cv-popup-btn" data-popup-titulo="Filmagens">
+        <span class="cv-card-icon" style="background:#991b1b"><i class="fa-solid fa-medal"></i></span>
+        <span class="cv-card-text">
+          <span class="cv-card-title">Filmagens</span>
+          <span class="cv-card-desc">Vídeos de filmagens e produções</span>
+        </span>
       </button>
-      <button type="button" class="cv-pill-btn cv-popup-btn" style="background:#f97316" data-popup-titulo="Narrações">
-        <i class="fa-solid fa-star"></i><span>Narrações</span>
+      <button type="button" class="cv-card cv-popup-btn" data-popup-titulo="Narrações">
+        <span class="cv-card-icon" style="background:#f97316"><i class="fa-solid fa-star"></i></span>
+        <span class="cv-card-text">
+          <span class="cv-card-title">Narrações</span>
+          <span class="cv-card-desc">Trabalhos de narração e locução</span>
+        </span>
       </button>
-      <button type="button" class="cv-pill-btn cv-popup-btn" style="background:#0891b2" data-popup-titulo="Clientes">
-        <i class="fa-solid fa-handshake"></i><span>Clientes</span>
+      <button type="button" class="cv-card cv-popup-btn" data-popup-titulo="Clientes">
+        <span class="cv-card-icon" style="background:#0891b2"><i class="fa-solid fa-handshake"></i></span>
+        <span class="cv-card-text">
+          <span class="cv-card-title">Clientes</span>
+          <span class="cv-card-desc">Marcas e canais que já atendi</span>
+        </span>
       </button>
-      <button type="button" class="cv-pill-btn cv-inert" disabled>
-        <i class="fa-solid fa-image"></i><span>Thumbnails</span>
+      <button type="button" class="cv-card cv-inert" disabled>
+        <span class="cv-card-icon" style="background:#52525b"><i class="fa-solid fa-image"></i></span>
+        <span class="cv-card-text">
+          <span class="cv-card-title">Thumbnails</span>
+          <span class="cv-card-desc">Em breve</span>
+        </span>
       </button>
-      <button type="button" class="cv-pill-btn cv-inert" disabled>
-        <i class="fa-solid fa-images"></i><span>Posts</span>
+      <button type="button" class="cv-card cv-inert" disabled>
+        <span class="cv-card-icon" style="background:#52525b"><i class="fa-solid fa-images"></i></span>
+        <span class="cv-card-text">
+          <span class="cv-card-title">Posts</span>
+          <span class="cv-card-desc">Em breve</span>
+        </span>
       </button>
-      <button type="button" id="cvTrabalhosBtn" class="cv-pill-btn" style="background:#334155">
-        <i class="fa-solid fa-briefcase"></i><span>Meus Trabalhos</span>
+      <button type="button" id="cvTrabalhosBtn" class="cv-card">
+        <span class="cv-card-icon" style="background:#334155"><i class="fa-solid fa-briefcase"></i></span>
+        <span class="cv-card-text">
+          <span class="cv-card-title">Meus Trabalhos</span>
+          <span class="cv-card-desc">Filmagens, edições e artes completos</span>
+        </span>
       </button>
     </div>
   </aside>
@@ -386,6 +426,13 @@
         } catch (e) {}
       }
 
+      function esconderSplash() {
+        var splash = document.getElementById("splashScreen");
+        if (splash) splash.classList.add("hide");
+      }
+      // segurança: some com o splash mesmo se algo travar (ex: Blob do admin fora do ar)
+      setTimeout(esconderSplash, 6000);
+
       (async function () {
         await loadScript("media-manifest.js");
         await fetchAdminData();
@@ -393,6 +440,7 @@
         applyBioToSearchData();
         await loadScript("search/search-suggestions.js");
         await loadScript("script.js");
+        esconderSplash();
       })();
     })();
   </script>
