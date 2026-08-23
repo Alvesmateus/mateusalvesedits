@@ -300,17 +300,37 @@ folderPanel.addEventListener("click", (e) => {
   if (e.target === folderPanel) fecharPasta();
 });
 
-// Abre imagem em tela cheia
-function abrirLightbox(src){
+// Abre imagem/vídeo em tela cheia
+function abrirLightbox(src, tipo){
   let lb = document.getElementById("panelLightbox");
   if(!lb){
     lb = document.createElement("div");
     lb.id = "panelLightbox";
-    lb.innerHTML = `<img alt=""><button class="lightbox-close">✕</button>`;
-    lb.addEventListener("click", () => lb.classList.remove("open"));
+    lb.innerHTML = `<img alt=""><video controls playsinline></video><button class="lightbox-close">✕</button>`;
+    const fechar = () => {
+      lb.classList.remove("open");
+      lb.querySelector("video").pause();
+    };
+    lb.addEventListener("click", (e) => { if (e.target === lb) fechar(); });
+    lb.querySelector("img").addEventListener("click", fechar);
+    lb.querySelector(".lightbox-close").addEventListener("click", fechar);
     document.body.appendChild(lb);
   }
-  lb.querySelector("img").src = src;
+  const img = lb.querySelector("img");
+  const video = lb.querySelector("video");
+  const ehVideo = tipo === "video" || /\.(mp4|webm|ogg|mov)$/i.test(src);
+  if (ehVideo) {
+    img.style.display = "none";
+    video.style.display = "";
+    video.src = src;
+    video.play().catch(() => {});
+  } else {
+    video.pause();
+    video.removeAttribute("src");
+    video.style.display = "none";
+    img.style.display = "";
+    img.src = src;
+  }
   lb.classList.add("open");
 }
 
@@ -727,7 +747,7 @@ function criarCard(item) {
   } else {
     const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(item.imagem);
     mediaTag = isVideo
-      ? `<video class="h-full w-full object-cover transition duration-500 group-hover:scale-110" src="${item.imagem}" muted loop playsinline preload="metadata"></video>`
+      ? `<video class="h-full w-full object-cover transition duration-500 group-hover:scale-110 grid-lightbox-video" src="${item.imagem}" muted loop playsinline preload="metadata"></video>`
       : `<img class="h-full w-full object-cover transition duration-500 group-hover:scale-110 grid-lightbox-img" src="${item.imagem}" alt="${item.titulo}" loading="lazy">`;
   }
 
@@ -769,6 +789,12 @@ function criarCard(item) {
   const lightboxImg = card.querySelector(".grid-lightbox-img");
   if (lightboxImg) {
     lightboxImg.addEventListener("click", () => abrirLightbox(lightboxImg.src));
+  }
+
+  // clica no vídeo → abre em tela cheia, com controles e som
+  const lightboxVideo = card.querySelector(".grid-lightbox-video");
+  if (lightboxVideo) {
+    lightboxVideo.addEventListener("click", () => abrirLightbox(lightboxVideo.currentSrc || lightboxVideo.src, "video"));
   }
 
   // vídeo que não carregar → manda pro final do grid
