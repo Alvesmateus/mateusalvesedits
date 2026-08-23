@@ -54,7 +54,7 @@ socialOverlay.addEventListener("click", closeMenu);
 
 const itensPortfolioDefault = [
   {
-    titulo:"Apps e Skils",
+    titulo:"Habilidades e Formação",
     subtitulo:"Softwares que utilizo no meu dia-dia.",
     icone:"fa-solid fa-screwdriver-wrench",
     from:"#7c3aed",

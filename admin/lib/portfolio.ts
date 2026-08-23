@@ -23,7 +23,7 @@ export type PortfolioCard = {
 export const DEFAULT_PORTFOLIO_CARDS: PortfolioCard[] = [
   {
     id: "apps-e-skils",
-    titulo: "Apps e Skils",
+    titulo: "Habilidades e Formação",
     subtitulo: "Softwares que utilizo no meu dia-dia.",
     icone: "fa-solid fa-screwdriver-wrench",
     from: "#7c3aed",
