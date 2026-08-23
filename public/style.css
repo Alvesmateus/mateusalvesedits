@@ -1719,13 +1719,21 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
 .bio-clamp-wrap.is-expanded{
   position:relative;
   z-index:66;
+  width:100vw;
+  left:50%;
+  margin-left:-50vw;
+  padding:0 24px;
+  box-sizing:border-box;
 }
 #heroTopRow.bio-is-expanded{
   position:relative;
   z-index:66;
 }
+#heroTopRow.bio-is-expanded .ig-ring{
+  display:none;
+}
 #heroTopRow.bio-is-expanded #heroSubtitle{
-  text-align:center;
+  text-align:justify;
 }
 
 #bioOverlay{
@@ -1772,10 +1780,7 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   padding:0 2px;
 }
 .bio-clamp-wrap.is-expanded .bio-fade-overlay{
-  position:static;
-  background:none;
-  justify-content:center;
-  margin-top:2px;
+  display:none;
 }
 
 /* "Quem sou eu?" — ícone circular com brilho, texto abaixo */

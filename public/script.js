@@ -108,17 +108,25 @@ const heroTopRow      = document.getElementById("heroTopRow");
 if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
   function expandirBio(){
     bioClampWrap.classList.add("is-expanded");
-    heroSubtitleEl.style.maxHeight = heroSubtitleEl.scrollHeight + "px";
-    bioMostrarMais.textContent = "Mostrar menos";
-    if (bioOverlay) bioOverlay.classList.add("active");
     if (heroTopRow) heroTopRow.classList.add("bio-is-expanded");
+    // lê depois de trocar as classes, já mede no layout largo (evita flicker)
+    heroSubtitleEl.style.maxHeight = heroSubtitleEl.scrollHeight + "px";
+    if (bioOverlay) bioOverlay.classList.add("active");
   }
   function recolherBio(){
-    bioClampWrap.classList.remove("is-expanded");
-    heroSubtitleEl.style.maxHeight = "";
-    bioMostrarMais.textContent = "Mostrar mais";
+    if (!bioClampWrap.classList.contains("is-expanded")) return;
+    // anima a altura de volta ainda no layout largo; só troca de
+    // classe/largura depois que a transição termina, sem "piscar"
+    heroSubtitleEl.style.maxHeight = "5.5em";
     if (bioOverlay) bioOverlay.classList.remove("active");
-    if (heroTopRow) heroTopRow.classList.remove("bio-is-expanded");
+    const finalizarColapso = (e) => {
+      if (e.target !== heroSubtitleEl || e.propertyName !== "max-height") return;
+      bioClampWrap.classList.remove("is-expanded");
+      if (heroTopRow) heroTopRow.classList.remove("bio-is-expanded");
+      heroSubtitleEl.style.maxHeight = "";
+      heroSubtitleEl.removeEventListener("transitionend", finalizarColapso);
+    };
+    heroSubtitleEl.addEventListener("transitionend", finalizarColapso);
   }
   bioMostrarMais.addEventListener("click", () => {
     bioClampWrap.classList.contains("is-expanded") ? recolherBio() : expandirBio();
