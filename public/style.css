@@ -1762,6 +1762,24 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   transform:translateY(-1px);
 }
 
+.ver-mais-link.is-inert{
+  cursor:not-allowed;
+  color:rgba(255,255,255,.45);
+}
+.ver-mais-link.is-inert .ver-mais-icon{
+  background:rgba(255,255,255,.1);
+  border-color:rgba(255,255,255,.15);
+  animation:none;
+}
+.ver-mais-link.is-inert .ver-mais-icon::after{
+  animation:none;
+  display:none;
+}
+.ver-mais-link.is-inert:hover{
+  color:rgba(255,255,255,.45);
+  transform:none;
+}
+
 /* botões "Trabalhos"/"Clientes" ao lado do "Quem sou eu?": mesmo tamanho/altura */
 .header-action-btn{
   height:auto;
