@@ -47,9 +47,8 @@ Meu nome é **Mateus Alves**, tenho 27 anos e atuo de forma integrada nas áreas
 
 * **Audiovisual:** 
 Edição de vídeos horizontais (YouTube e documentários) e verticais (Reels/Shorts/TikTok), criação de thumbnails, roteirização, narração, filmagem, Edição de imagens e criação de carrosséis. Além disso, também sou responsável pelo calendário editorial, agendamentos e publicações.
-* **Tecnologia:** 
-Para uso particular, desenvolvolvo  aplicações simples para automação e suporte aos projetos como: postagens automáticas,
-criação de imagens em massa, remover fundo de vídeos e criação de imagens e videos via código. .
+* **Tecnologia:**
+Para uso particular, desenvolvo aplicações para automação e suporte a processos, tais como: postagens automáticas, geração de imagens em massa, remoção de fundo de vídeos e criação de conteúdos visuais via código.
 
 ---
 
@@ -66,7 +65,7 @@ Atualmente, sou o responsável por toda a presença digital e linha de produçã
 Gerenciamento completo de redes sociais, criação de materiais educativos visuais e edição do conteúdo audiovisual do canal.
 
 ---
-> **Como eu trabalho?:**  Sou o profissional que faz o canal rodar nos bastidores. Crio o roteiros, faço filmagens, narrações, edito o vídeo, crio tumbnails, planejo o calendário de postagens e publico o material final por meio de automação.
+> **Como eu trabalho?:**  Sou o profissional que faz o canal rodar nos bastidores. Crio roteiros, faço filmagens, narrações, edito o vídeo, crio thumbnails, planejo o calendário de postagens e publico o material final por meio de automação.
 
 `,
 
