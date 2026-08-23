@@ -57,8 +57,7 @@
           <a href="#" data-popup-titulo="Quem é Mateus Alves?" class="ver-mais-link">
             Quem sou eu? <i class="fa-solid fa-arrow-right"></i>
           </a>
-          <button class="filter-btn header-action-btn" id="fullViewBtn">Trabalhos</button>
-          <button class="filter-btn header-action-btn" data-popup-titulo="Clientes">Clientes</button>
+          <button class="filter-btn header-action-btn hidden" id="fullViewBtn">Trabalhos</button>
         </div>
       </div>
 
@@ -156,9 +155,18 @@
     </div>
   </div>
 
+  <!-- BARRA BLUR ATRÁS DOS BOTÕES FLUTUANTES -->
+  <div id="bottomBarBlur"></div>
+
   <!-- BOTÃO FLUTUANTE REDES SOCIAIS (abre o menu lateral) -->
   <button id="socialToggle" type="button" class="download-cv-btn fixed bottom-7 left-7 z-[70]" aria-label="Redes Sociais">
-    <i class="fa-brands fa-whatsapp"></i>
+    <span class="icon-fade-cycle">
+      <i class="fa-brands fa-whatsapp is-active"></i>
+      <i class="fa-brands fa-facebook-f"></i>
+      <i class="fa-brands fa-instagram"></i>
+      <i class="fa-solid fa-envelope"></i>
+      <i class="fa-brands fa-linkedin-in"></i>
+    </span>
     <span>Contato</span>
   </button>
 

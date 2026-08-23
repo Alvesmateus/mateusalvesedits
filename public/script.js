@@ -93,6 +93,18 @@ if (closeSocialBtn) {
 }
 if (socialOverlay) socialOverlay.addEventListener("click", closeMenu);
 
+// ícone do botão de contato trocando em fade entre as redes sociais
+document.querySelectorAll(".icon-fade-cycle").forEach(container => {
+  const icones = [...container.querySelectorAll("i")];
+  if (icones.length < 2) return;
+  let atual = 0;
+  setInterval(() => {
+    icones[atual].classList.remove("is-active");
+    atual = (atual + 1) % icones.length;
+    icones[atual].classList.add("is-active");
+  }, 1800);
+});
+
 // botões dentro de popups (painel/bio/currículo) que abrem OUTRO popup
 // (data-popup-titulo), em vez de link externo — delegado pois são inseridos
 // dinamicamente toda vez que um painel abre.
