@@ -1275,9 +1275,14 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   aspect-ratio: 1/1;
 }
 
-/* ── GRID 2x2: tudo em quadrado, 2 colunas fixas ── */
+/* ── GRID 2x2: quadrado, responsivo (mín. 2 colunas, máx. 3) ── */
 #photoGrid.grid-2x2{
   grid-template-columns: repeat(2, 1fr);
+}
+@media(min-width:640px){
+  #photoGrid.grid-2x2{
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 #photoGrid.grid-2x2 > div{
   grid-column: span 1;
