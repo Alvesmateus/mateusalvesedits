@@ -57,6 +57,17 @@ if (closeSocialBtn) {
 
 socialOverlay.addEventListener("click", closeMenu);
 
+// botões dentro de popups (painel/bio/currículo) que abrem OUTRO popup
+// (data-popup-titulo), em vez de link externo — delegado pois são inseridos
+// dinamicamente toda vez que um painel abre.
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".panel-btn[data-popup-titulo]");
+  if (!btn) return;
+  e.preventDefault();
+  const item = (window.SEARCH_DATA || []).find(it => it.titulo === btn.dataset.popupTitulo);
+  if (item && item.conteudo) abrirPasta(item);
+});
+
 const itensPortfolioDefault = [
   {
     titulo:"Habilidades e Formação",
@@ -442,10 +453,14 @@ const BLOCOS = {
   },
 
   botoes: v => `<div class="panel-buttons">${
-    v.map(b => `<a class="panel-btn" href="${b.url || b.href || "#"}"
-      target="_blank" rel="noopener noreferrer"${b.cor ? ` style="background:${b.cor}"` : ""}>
-      ${b.icone ? `<i class="${b.icone}"></i>` : ""}<span>${b.label || b.texto || "Abrir"}</span>
-    </a>`).join("")
+    v.map(b => {
+      const attrs = b.popupTitulo
+        ? `href="#" data-popup-titulo="${b.popupTitulo}"`
+        : `href="${b.url || b.href || "#"}" target="_blank" rel="noopener noreferrer"`;
+      return `<a class="panel-btn" ${attrs}${b.cor ? ` style="background:${b.cor}"` : ""}>
+        ${b.icone ? `<i class="${b.icone}"></i>` : ""}<span>${b.label || b.texto || "Abrir"}</span>
+      </a>`;
+    }).join("")
   }</div>`
 };
 
