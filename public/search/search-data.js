@@ -39,7 +39,7 @@ window.SEARCH_DATA = [
       imagens: ["img/foto-perfil.png"],
       markdown: `
 
-# Social Media, Editor de vídeo e Dev Front-End
+# Social Media e Editor de vídeo
 
 Meu nome é **Mateus Alves**, tenho 27 anos e atuo de forma integrada nas áreas de **Social Media, Produção Audiovisual e Programação**.
 
