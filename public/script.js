@@ -80,6 +80,36 @@ const itensPortfolioDefault = [
     conteudo:{
    markdown: `
 
+## Formação Acadêmica
+
+* Ensino Médio Completo
+* Cursando Análise e Desenvolvimento de Sistemas
+
+---
+
+## Funções e Competências Práticas
+
+* Planejamento de Postagens e Gerenciamento de Instagram e YouTube
+* Roteirista e Narração de Vídeos
+* Edição de Imagens e Edição de Vídeos Verticais e Horizontais
+* Filmagem de documentários
+* Criação de Landing Pages e Loja Virtual
+
+---
+
+## Experiências Profissionais
+
+**Exército Brasileiro**
+Função: Gerenciamento de instagram e filmagens de formaturas.
+
+**Fuzileiro Real**
+Função: Narração, Produção de Podcasts, Cortes e documentários.
+
+**SóPapiro Podcast**
+Funções: Produção de Podcasts, Cortes e documentários.
+
+---
+
 ## Edição de Imagem - posts, capas e thumbnails
 
 * **Photoshop** — Edição e composição de imagens
