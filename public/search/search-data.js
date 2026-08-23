@@ -43,8 +43,6 @@ window.SEARCH_DATA = [
 
 Meu nome é **Mateus Alves**, tenho 27 anos e atuo de forma integrada nas áreas de **Social Media, Produção Audiovisual e Programação**.
 
-youtube: [@fuzileiroreal](https://www.youtube.com/@fuzileiroreal) e [@sopapirocast](https://www.youtube.com/@sopapirocast)
-
 ## Minhas Principais Habilidades
 
 * **Audiovisual:** 
@@ -74,9 +72,11 @@ Gerenciamento completo de redes sociais, criação de materiais educativos visua
 
       botoes: [
         { label: "Instagram", url: "https://instagram.com/mateusalvesdzn", icone: "fa-brands fa-instagram", cor: "#e1306c" },
+        { label: "@fuzileiroreal", url: "https://www.youtube.com/@fuzileiroreal", icone: "fa-solid fa-link", cor: "#FF0000" },
+        { label: "@sopapirocast", url: "https://www.youtube.com/@sopapirocast", icone: "fa-solid fa-link", cor: "#FF0000" },
       ]
     }
-  
+
   },
  
 
