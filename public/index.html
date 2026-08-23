@@ -90,9 +90,6 @@
       <div class="filter-bar">
         <button class="filter-btn active" data-filter="todas">Todas</button>
         <button class="filter-btn" id="fullViewBtn">Visualização Completa</button>
-        <button class="filter-btn" data-popup-titulo="Filmagens">Filmagens</button>
-        <button class="filter-btn" data-popup-titulo="Top Vídeos">Top Edições</button>
-        <button class="filter-btn" data-popup-titulo="Artes">Artes</button>
       </div>
 
       <div
@@ -112,8 +109,11 @@
   <!-- MODAL VISUALIZAÇÃO COMPLETA -->
   <div id="fullViewModal" class="full-view-modal">
     <div class="full-view-header">
-      <div class="flex items-center gap-3">
+      <div class="flex flex-wrap items-center gap-3">
         <span class="full-view-title">Visualização Completa</span>
+        <button class="filter-btn" data-popup-titulo="Filmagens">Filmagens</button>
+        <button class="filter-btn" data-popup-titulo="Top Vídeos">Top Edições</button>
+        <button class="filter-btn" data-popup-titulo="Artes">Artes</button>
         <button class="filter-btn" data-popup-titulo="Narrações">Narrações</button>
       </div>
       <button id="fullViewClose" class="full-view-close" aria-label="Fechar">
