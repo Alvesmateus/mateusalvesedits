@@ -103,12 +103,24 @@ if (headerExperienciaBtn) {
 const bioClampWrap    = document.getElementById("bioClampWrap");
 const bioMostrarMais  = document.getElementById("bioMostrarMaisBtn");
 const heroSubtitleEl  = document.getElementById("heroSubtitle");
+const bioOverlay      = document.getElementById("bioOverlay");
 if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
+  function expandirBio(){
+    bioClampWrap.classList.add("is-expanded");
+    heroSubtitleEl.style.maxHeight = heroSubtitleEl.scrollHeight + "px";
+    bioMostrarMais.textContent = "Mostrar menos";
+    if (bioOverlay) bioOverlay.classList.add("active");
+  }
+  function recolherBio(){
+    bioClampWrap.classList.remove("is-expanded");
+    heroSubtitleEl.style.maxHeight = "";
+    bioMostrarMais.textContent = "Mostrar mais";
+    if (bioOverlay) bioOverlay.classList.remove("active");
+  }
   bioMostrarMais.addEventListener("click", () => {
-    const expandido = bioClampWrap.classList.toggle("is-expanded");
-    heroSubtitleEl.style.maxHeight = expandido ? heroSubtitleEl.scrollHeight + "px" : "";
-    bioMostrarMais.textContent = expandido ? "Mostrar menos" : "Mostrar mais";
+    bioClampWrap.classList.contains("is-expanded") ? recolherBio() : expandirBio();
   });
+  if (bioOverlay) bioOverlay.addEventListener("click", recolherBio);
 }
 
 // ícone do botão "Contato" trocando de ícone e cor entre as redes sociais
