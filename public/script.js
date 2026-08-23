@@ -29,6 +29,7 @@ function openMenu(){
   floatContainer.classList.add("menu-open");
   socialOverlay.classList.add("active");
   document.body.style.overflow = "hidden";
+  if (downloadCvBtn) downloadCvBtn.classList.add("is-hidden");
   const tags = [...contactTags].reverse();
   tags.forEach((tag, i) => {
     tag.style.transitionDelay = (0.3 + i * 0.07) + "s";
@@ -41,6 +42,7 @@ function closeMenu(){
   floatContainer.classList.remove("menu-open");
   socialOverlay.classList.remove("active");
   document.body.style.overflow = "";
+  if (downloadCvBtn) downloadCvBtn.classList.remove("is-hidden");
 }
 
 allFiBtns.forEach(btn => {

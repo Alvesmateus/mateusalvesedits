@@ -310,11 +310,16 @@
   font-weight:800;
   text-decoration:none;
   box-shadow:0 6px 18px rgba(0,0,0,.35);
-  transition:transform .15s ease, box-shadow .2s ease;
+  transition:transform .15s ease, box-shadow .2s ease, opacity .2s ease;
 }
 .download-cv-btn:hover{
   transform:translateY(-2px);
   box-shadow:0 10px 24px rgba(0,0,0,.45);
+}
+.download-cv-btn.is-hidden{
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(8px);
 }
 .download-cv-btn i{ font-size:1rem; }
 
