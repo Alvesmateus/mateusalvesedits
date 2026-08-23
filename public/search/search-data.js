@@ -68,26 +68,6 @@ Gerenciamento completo de redes sociais, criação de materiais educativos visua
 ---
 > **Como eu trabalho?:**  Sou o profissional que faz o canal rodar nos bastidores. Crio o roteiros, faço filmagens, narrações, edito o vídeo, drio tumbnails, planejo o calendário de postagens e publico o material final por meio de automação.
 
----
-
-## Ferramentas Criadas
-
-Unindo minha experiência em programação e produção de conteúdo, desenvolvi as seguintes ferramentas:
-
-* **SóPapiroQuestões (em desenvolvimento):** 
-Uma plataforma robusta focada em simulados e questões, criada com o objetivo de ser uma alternativa direta e rival de grandes portais do mercado, como o QConcursos.
-* **renderWebKit (uso particular):** 
-Uma aplicação inovadora voltada para a automação visual, desenvolvida para gerar produções de imagens e vídeos totalmente a partir de linhas de código.
-* **Img To Zoom (uso particular)** 
-Usada para converter imagem em vídeos com efeito de zoom. Ideal para acelerar a produção de vídeos estilo documentário onde há
-um número elevado de imagens.
-* **WebKitMaps(uso particular)** 
-Usado para criar animações de mapas nos documentários que produzo.
-* **SplitSceneXML(uso particular)** 
-Utilizado para cortar cenas automaticamente e organiza-las por camadas. Utilizo com Adobe premiere para criar cortes de podcasts.
-* **Teleprompter(uso particular)** 
- Utilizado para leitura de roteiros.
-
 `,
 
       botoes: [
