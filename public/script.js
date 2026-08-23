@@ -480,16 +480,29 @@ const BLOCOS = {
     }).join("");
   },
 
-  botoes: v => `<div class="panel-buttons">${
-    v.map(b => {
-      const attrs = b.popupTitulo
-        ? `href="#" data-popup-titulo="${b.popupTitulo}"`
-        : `href="${b.url || b.href || "#"}" target="_blank" rel="noopener noreferrer"`;
-      return `<a class="panel-btn${b.classe ? ` ${b.classe}` : ""}" ${attrs}${b.cor ? ` style="background:${b.cor}"` : ""}>
-        ${b.icone ? `<i class="${b.icone}"></i>` : ""}<span>${b.label || b.texto || "Abrir"}</span>
-      </a>`;
-    }).join("")
-  }</div>`
+  botoes: v => {
+    const temLista = v.some(b => b.desc || b.badge);
+    return `<div class="panel-buttons${temLista ? " panel-buttons-list" : ""}">${
+      v.map(b => {
+        const attrs = b.popupTitulo
+          ? `href="#" data-popup-titulo="${b.popupTitulo}"`
+          : `href="${b.url || b.href || "#"}" target="_blank" rel="noopener noreferrer"`;
+        if (b.desc || b.badge) {
+          return `<a class="panel-btn panel-link-row" ${attrs}>
+            <span class="panel-link-row-text">
+              <span class="panel-link-row-title">
+                ${b.label || b.texto || "Abrir"}${b.badge ? `<span class="panel-link-row-dot">•</span><span class="panel-link-row-badge">${b.badge}</span>` : ""}
+              </span>
+              ${b.desc ? `<span class="panel-link-row-desc">${b.desc}</span>` : ""}
+            </span>
+          </a>`;
+        }
+        return `<a class="panel-btn${b.classe ? ` ${b.classe}` : ""}" ${attrs}${b.cor ? ` style="background:${b.cor}"` : ""}>
+          ${b.icone ? `<i class="${b.icone}"></i>` : ""}<span>${b.label || b.texto || "Abrir"}</span>
+        </a>`;
+      }).join("")
+    }</div>`;
+  }
 };
 
 // Aceita nomes alternativos (singular) apontando pro mesmo renderizador
@@ -926,8 +939,10 @@ document.querySelectorAll(".filter-btn").forEach(btn => {
     document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
     const ehInstaface = btn.id === "instafaceBtn";
-    limiteVisivel = ehInstaface ? Infinity : LIMITE_PAGINA;
+    const ehGrid2x2 = btn.id === "grid2x2Btn";
+    limiteVisivel = (ehInstaface || ehGrid2x2) ? Infinity : LIMITE_PAGINA;
     photoGrid.classList.toggle("grid-instaface", ehInstaface);
+    photoGrid.classList.toggle("grid-2x2", ehGrid2x2);
 
     const cards = [...photoGrid.children];
 

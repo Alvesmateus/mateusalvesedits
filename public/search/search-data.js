@@ -386,14 +386,14 @@ Tenho experiência em gestão de redes sociais, criação de vídeos, criação 
     to: "#164e63",
     conteudo: {
       botoes: [
-        { label: "SóPapiro Podcast", url: "https://www.youtube.com/@sopapirocast", icone: "fa-brands fa-youtube", cor: "#ff0000" },
-        { label: "Fuzileiro Real", url: "https://www.youtube.com/@fuzileiroreal/videos", icone: "fa-brands fa-youtube", cor: "#ff0000" },
-        { label: "Marcus Naval", url: "https://www.instagram.com/marcus_naval/", icone: "fa-brands fa-instagram", cor: "#e1306c" },
-        { label: "Marcus Almeida", url: "https://www.instagram.com/marcos.almeida.pr1/", icone: "fa-brands fa-instagram", cor: "#e1306c" },
-        { label: "Papodesargentoo", url: "https://www.instagram.com/papodesargentoo/", icone: "fa-brands fa-instagram", cor: "#e1306c" },
-        { label: "sgtRabello", url: "https://www.instagram.com/sgtrabello/", icone: "fa-brands fa-instagram", cor: "#e1306c" },
-        { label: "Pedro Junior", url: "https://www.instagram.com/pedrojuniorfzrl/", icone: "fa-brands fa-instagram", cor: "#e1306c" },
-        { label: "Shoowmann", url: "https://www.instagram.com/shoowmann/", icone: "fa-brands fa-instagram", cor: "#e1306c" }
+        { label: "SóPapiro Podcast", url: "https://www.youtube.com/@sopapirocast", desc: "Entretenimento educacional", badge: "20 mil inscritos" },
+        { label: "Fuzileiro Real", url: "https://www.youtube.com/@fuzileiroreal/videos", desc: "Entretenimento militar", badge: "328 mil inscritos" },
+        { label: "Marcus Naval", url: "https://www.instagram.com/marcus_naval/", desc: "Candidato a Deputado Estadual" },
+        { label: "Marcos Almeida", url: "https://www.instagram.com/marcos.almeida.pr1/", desc: "Candidato a Deputado Federal" },
+        { label: "Papodesargentoo", url: "https://www.instagram.com/papodesargentoo/", badge: "220 mil seguidores" },
+        { label: "sgtRabello", url: "https://www.instagram.com/sgtrabello/", badge: "105 mil seguidores" },
+        { label: "Pedro Junior", url: "https://www.instagram.com/pedrojuniorfzrl/", badge: "12 mil seguidores" },
+        { label: "Shoowmann", url: "https://www.instagram.com/shoowmann/", badge: "13 mil seguidores" }
       ]
     }
   }

@@ -1071,6 +1071,48 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
 }
 .panel-btn i{ font-size:.9em; }
 
+.panel-buttons-list{
+  flex-direction:column;
+  flex-wrap:nowrap;
+}
+
+.panel-link-row{
+  display:flex;
+  width:100%;
+  padding:12px 16px;
+  border-radius:12px;
+  text-align:left;
+}
+.panel-link-row-text{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  min-width:0;
+}
+.panel-link-row-title{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:6px;
+  font-size:.9rem;
+  font-weight:700;
+}
+.panel-link-row-dot{
+  font-size:.6rem;
+  color:rgba(255,255,255,.4);
+}
+.panel-link-row-badge{
+  font-size:.75rem;
+  font-weight:600;
+  color:rgba(255,255,255,.6);
+}
+.panel-link-row-desc{
+  font-size:.78rem;
+  font-weight:500;
+  line-height:1.3;
+  color:rgba(255,255,255,.6);
+}
+
 .panel-btn-curriculo{
   width:100%;
   justify-content:center;
@@ -1228,6 +1270,16 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   grid-template-columns: repeat(3, 1fr);
 }
 #photoGrid.grid-instaface > div{
+  grid-column: span 1;
+  grid-row: span 1;
+  aspect-ratio: 1/1;
+}
+
+/* ── GRID 2x2: tudo em quadrado, 2 colunas fixas ── */
+#photoGrid.grid-2x2{
+  grid-template-columns: repeat(2, 1fr);
+}
+#photoGrid.grid-2x2 > div{
   grid-column: span 1;
   grid-row: span 1;
   aspect-ratio: 1/1;
