@@ -66,7 +66,7 @@ Atualmente, sou o responsável por toda a presença digital e linha de produçã
 Gerenciamento completo de redes sociais, criação de materiais educativos visuais e edição do conteúdo audiovisual do canal.
 
 ---
-> **Como eu trabalho?:**  Sou o profissional que faz o canal rodar nos bastidores. Crio o roteiros, faço filmagens, narrações, edito o vídeo, drio tumbnails, planejo o calendário de postagens e publico o material final por meio de automação.
+> **Como eu trabalho?:**  Sou o profissional que faz o canal rodar nos bastidores. Crio o roteiros, faço filmagens, narrações, edito o vídeo, crio tumbnails, planejo o calendário de postagens e publico o material final por meio de automação.
 
 `,
 
