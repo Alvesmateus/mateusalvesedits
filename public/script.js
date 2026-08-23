@@ -109,22 +109,26 @@ if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
   function expandirBio(){
     bioClampWrap.classList.add("is-expanded");
     if (heroTopRow) heroTopRow.classList.add("bio-is-expanded");
-    // lê depois de trocar as classes, já mede no layout largo (evita flicker)
     heroSubtitleEl.style.maxHeight = heroSubtitleEl.scrollHeight + "px";
     if (bioOverlay) bioOverlay.classList.add("active");
+    // espera pintar em opacity:0 antes de acender (fade suave, sem "salto")
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      bioClampWrap.classList.add("is-visible");
+    }));
   }
   function recolherBio(){
     if (!bioClampWrap.classList.contains("is-expanded")) return;
-    // anima a altura de volta ainda no layout largo; só troca de
-    // classe/largura depois que a transição termina, sem "piscar"
     heroSubtitleEl.style.maxHeight = "5.5em";
     if (bioOverlay) bioOverlay.classList.remove("active");
     const finalizarColapso = (e) => {
       if (e.target !== heroSubtitleEl || e.propertyName !== "max-height") return;
-      bioClampWrap.classList.remove("is-expanded");
-      if (heroTopRow) heroTopRow.classList.remove("bio-is-expanded");
-      heroSubtitleEl.style.maxHeight = "";
       heroSubtitleEl.removeEventListener("transitionend", finalizarColapso);
+      bioClampWrap.classList.remove("is-visible"); // dispara o fade-out
+      setTimeout(() => {
+        bioClampWrap.classList.remove("is-expanded");
+        if (heroTopRow) heroTopRow.classList.remove("bio-is-expanded");
+        heroSubtitleEl.style.maxHeight = "";
+      }, 260);
     };
     heroSubtitleEl.addEventListener("transitionend", finalizarColapso);
   }
