@@ -137,7 +137,7 @@ document.addEventListener("click", (e) => {
 
 const itensPortfolioDefault = [
   {
-    titulo:"Habilidades e Formação",
+    titulo:"Apps, habilidades e formação.",
     subtitulo:"",
     icone:"fa-solid fa-screwdriver-wrench",
     from:"#7c3aed",
