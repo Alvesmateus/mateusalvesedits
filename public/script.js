@@ -104,18 +104,21 @@ const bioClampWrap    = document.getElementById("bioClampWrap");
 const bioMostrarMais  = document.getElementById("bioMostrarMaisBtn");
 const heroSubtitleEl  = document.getElementById("heroSubtitle");
 const bioOverlay      = document.getElementById("bioOverlay");
+const heroTopRow      = document.getElementById("heroTopRow");
 if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
   function expandirBio(){
     bioClampWrap.classList.add("is-expanded");
     heroSubtitleEl.style.maxHeight = heroSubtitleEl.scrollHeight + "px";
     bioMostrarMais.textContent = "Mostrar menos";
     if (bioOverlay) bioOverlay.classList.add("active");
+    if (heroTopRow) heroTopRow.classList.add("bio-is-expanded");
   }
   function recolherBio(){
     bioClampWrap.classList.remove("is-expanded");
     heroSubtitleEl.style.maxHeight = "";
     bioMostrarMais.textContent = "Mostrar mais";
     if (bioOverlay) bioOverlay.classList.remove("active");
+    if (heroTopRow) heroTopRow.classList.remove("bio-is-expanded");
   }
   bioMostrarMais.addEventListener("click", () => {
     bioClampWrap.classList.contains("is-expanded") ? recolherBio() : expandirBio();
