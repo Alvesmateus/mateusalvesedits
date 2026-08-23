@@ -47,6 +47,12 @@
   width:120px;
   height:120px;
   z-index:56;
+  transition:opacity .2s ease, transform .2s ease;
+}
+#floatContainer.is-hidden{
+  opacity:0;
+  pointer-events:none;
+  transform:translateY(8px);
 }
 
 /* Wrapper WhatsApp (ancora no bottom:0 left:0 quando recolhido) */
@@ -211,8 +217,26 @@
 #cvFloatContainer.menu-open #cv-virtual{ bottom:128px; opacity:1; pointer-events:auto; }
 #cvFloatContainer.menu-open #cv-baixar { bottom:192px; opacity:1; pointer-events:auto; }
 
-#cvFloatContainer .contact-tag{ transform:translateX(6px); }
-#cvFloatContainer.menu-open .contact-tag{ transform:translateX(0); }
+.cv-pill-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  height:46px;
+  padding:0 20px;
+  border-radius:999px;
+  color:#fff;
+  font-size:.85rem;
+  font-weight:800;
+  text-decoration:none;
+  white-space:nowrap;
+  box-shadow:0 8px 26px rgba(0,0,0,.45);
+  transition:transform .15s ease, box-shadow .2s ease;
+}
+.cv-pill-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 32px rgba(0,0,0,.55);
+}
+.cv-pill-btn i{ font-size:1rem; }
 
 /* MENU REDUZIDO */
 #topbar.is-collapsed #topbarInner{

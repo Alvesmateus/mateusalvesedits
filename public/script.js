@@ -13,6 +13,7 @@ function openCvMenu(){
   cvFloatContainer.classList.add("menu-open");
   cvOverlay.classList.add("active");
   document.body.style.overflow = "hidden";
+  floatContainer.classList.add("is-hidden"); // some os ícones de redes sociais
 }
 
 function closeCvMenu(){
@@ -20,6 +21,7 @@ function closeCvMenu(){
   cvFloatContainer.classList.remove("menu-open");
   cvOverlay.classList.remove("active");
   document.body.style.overflow = "";
+  floatContainer.classList.remove("is-hidden");
 }
 
 if (downloadCvBtn) {
