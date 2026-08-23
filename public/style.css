@@ -213,11 +213,16 @@
 #cv-close{ opacity:0; pointer-events:none; }
 #cvFloatContainer.menu-open #cv-close{ opacity:1; pointer-events:auto; }
 
-#cv-virtual, #cv-baixar, #cv-filmagens, #cv-narracoes{ opacity:0; pointer-events:none; }
+#cv-virtual, #cv-baixar, #cv-filmagens, #cv-narracoes,
+#cv-clientes, #cv-tumbnails, #cv-posts, #cv-trabalhos{ opacity:0; pointer-events:none; }
 #cvFloatContainer.menu-open #cv-virtual   { bottom:128px; opacity:1; pointer-events:auto; }
 #cvFloatContainer.menu-open #cv-baixar    { bottom:192px; opacity:1; pointer-events:auto; }
 #cvFloatContainer.menu-open #cv-filmagens { bottom:256px; opacity:1; pointer-events:auto; }
 #cvFloatContainer.menu-open #cv-narracoes { bottom:320px; opacity:1; pointer-events:auto; }
+#cvFloatContainer.menu-open #cv-clientes  { bottom:384px; opacity:1; pointer-events:auto; }
+#cvFloatContainer.menu-open #cv-tumbnails { bottom:448px; opacity:1; pointer-events:auto; }
+#cvFloatContainer.menu-open #cv-posts     { bottom:512px; opacity:1; pointer-events:auto; }
+#cvFloatContainer.menu-open #cv-trabalhos { bottom:576px; opacity:1; pointer-events:auto; }
 
 .cv-pill-btn{
   display:inline-flex;
@@ -239,6 +244,16 @@
   box-shadow:0 10px 32px rgba(0,0,0,.55);
 }
 .cv-pill-btn i{ font-size:1rem; }
+
+.cv-inert{
+  background:rgba(255,255,255,.12);
+  color:rgba(255,255,255,.45);
+  cursor:not-allowed;
+}
+.cv-inert:hover{
+  transform:none;
+  box-shadow:0 8px 26px rgba(0,0,0,.45);
+}
 
 /* MENU REDUZIDO */
 #topbar.is-collapsed #topbarInner{

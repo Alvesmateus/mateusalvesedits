@@ -42,6 +42,13 @@ if (cvVirtualBtn) {
     if (item && item.conteudo) abrirPasta(item);
   });
 }
+const cvTrabalhosBtn = document.getElementById("cvTrabalhosBtn");
+if (cvTrabalhosBtn) {
+  cvTrabalhosBtn.addEventListener("click", () => {
+    closeCvMenu();
+    document.getElementById("fullViewBtn")?.click();
+  });
+}
 if (cvOverlay) cvOverlay.addEventListener("click", closeCvMenu);
 
 // SOCIAL MENU TOGGLE
