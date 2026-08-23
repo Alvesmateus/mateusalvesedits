@@ -74,7 +74,6 @@ Gerenciamento completo de redes sociais, criação de materiais educativos visua
         { label: "Instagram", url: "https://instagram.com/mateusalvesdzn", icone: "fa-brands fa-instagram", cor: "#e1306c" },
         { label: "@fuzileiroreal", url: "https://www.youtube.com/@fuzileiroreal", icone: "fa-solid fa-link", cor: "#FF0000" },
         { label: "@sopapirocast", url: "https://www.youtube.com/@sopapirocast", icone: "fa-solid fa-link", cor: "#FF0000" },
-        { label: "Ver mais", popupTitulo: "Currículo", icone: "fa-solid fa-arrow-right", cor: "#7c3aed" },
       ]
     }
 
