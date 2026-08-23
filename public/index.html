@@ -20,7 +20,7 @@
   <!-- Botões fixos no topo (não rolam com a página) -->
   <div id="topFixedButtons" class="top-fixed-buttons"></div>
 
-  <main class="mx-auto max-w-6xl px-3 pb-28 sm:px-6">
+  <main id="mainContent" class="mx-auto max-w-6xl px-3 pb-28 sm:px-6">
 
     <div class="top-bg">
     <section class="flex flex-col items-center gap-2 pt-6 pb-3 text-center">
@@ -192,72 +192,50 @@
 
   </div>
 
+  <!-- BOTÃO FLUTUANTE CURRÍCULO (abre o menu lateral) -->
+  <button id="downloadCvBtn" type="button" class="download-cv-btn fixed bottom-7 right-7 z-[70]" aria-label="Currículo">
+    <i class="fa-solid fa-download"></i>
+    <span>Currículo</span>
+  </button>
+
   <!-- OVERLAY MENU CURRÍCULO -->
   <div id="cvOverlay"></div>
 
-  <!-- BOTÃO/MENU FLUTUANTE CURRÍCULO -->
-  <div id="cvFloatContainer" class="fixed bottom-7 right-7 z-[60]">
-    <div id="cv-main" class="cv-float-item">
-      <button id="downloadCvBtn" type="button" class="download-cv-btn" aria-label="Currículo">
-        <i class="fa-solid fa-download"></i>
-        <span>Currículo</span>
-      </button>
-    </div>
-
-    <div id="cv-close" class="cv-float-item">
-      <button id="closeCvMenu" type="button" class="fi-btn bg-[#1c1c22] text-white" aria-label="Fechar">
+  <!-- MENU LATERAL CURRÍCULO (empurra a tela, entra pela direita) -->
+  <aside id="cvSidebar">
+    <div class="cv-sidebar-header">
+      <span class="cv-sidebar-title">Currículo</span>
+      <button id="closeCvMenu" type="button" class="cv-sidebar-close" aria-label="Fechar">
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>
-
-    <div id="cv-virtual" class="cv-float-item">
-      <button id="cvVirtualBtn" type="button" class="cv-pill-btn" style="background:#7c3aed" aria-label="Currículo Virtual">
+    <div class="cv-sidebar-body">
+      <button id="cvVirtualBtn" type="button" class="cv-pill-btn" style="background:#7c3aed">
         <i class="fa-solid fa-address-card"></i><span>Currículo Virtual</span>
       </button>
-    </div>
-
-    <div id="cv-baixar" class="cv-float-item">
-      <a id="cvBaixarBtn" href="pdf/curriculo.pdf" target="_blank" rel="noopener noreferrer" class="cv-pill-btn" style="background:#dc2626" aria-label="Baixar Currículo">
+      <a id="cvBaixarBtn" href="pdf/curriculo.pdf" target="_blank" rel="noopener noreferrer" class="cv-pill-btn" style="background:#dc2626">
         <i class="fa-solid fa-file-arrow-down"></i><span>Baixar Currículo</span>
       </a>
-    </div>
-
-    <div id="cv-filmagens" class="cv-float-item">
-      <button type="button" class="cv-pill-btn cv-popup-btn" style="background:#991b1b" data-popup-titulo="Filmagens" aria-label="Filmagens">
+      <button type="button" class="cv-pill-btn cv-popup-btn" style="background:#991b1b" data-popup-titulo="Filmagens">
         <i class="fa-solid fa-medal"></i><span>Filmagens</span>
       </button>
-    </div>
-
-    <div id="cv-narracoes" class="cv-float-item">
-      <button type="button" class="cv-pill-btn cv-popup-btn" style="background:#f97316" data-popup-titulo="Narrações" aria-label="Narrações">
+      <button type="button" class="cv-pill-btn cv-popup-btn" style="background:#f97316" data-popup-titulo="Narrações">
         <i class="fa-solid fa-star"></i><span>Narrações</span>
       </button>
-    </div>
-
-    <div id="cv-clientes" class="cv-float-item">
-      <button type="button" class="cv-pill-btn cv-popup-btn" style="background:#0891b2" data-popup-titulo="Clientes" aria-label="Clientes">
+      <button type="button" class="cv-pill-btn cv-popup-btn" style="background:#0891b2" data-popup-titulo="Clientes">
         <i class="fa-solid fa-handshake"></i><span>Clientes</span>
       </button>
-    </div>
-
-    <div id="cv-tumbnails" class="cv-float-item">
-      <button type="button" class="cv-pill-btn cv-inert" aria-label="Thumbnails" disabled>
+      <button type="button" class="cv-pill-btn cv-inert" disabled>
         <i class="fa-solid fa-image"></i><span>Thumbnails</span>
       </button>
-    </div>
-
-    <div id="cv-posts" class="cv-float-item">
-      <button type="button" class="cv-pill-btn cv-inert" aria-label="Posts" disabled>
+      <button type="button" class="cv-pill-btn cv-inert" disabled>
         <i class="fa-solid fa-images"></i><span>Posts</span>
       </button>
-    </div>
-
-    <div id="cv-trabalhos" class="cv-float-item">
-      <button type="button" id="cvTrabalhosBtn" class="cv-pill-btn" style="background:#334155" aria-label="Meus Trabalhos">
+      <button type="button" id="cvTrabalhosBtn" class="cv-pill-btn" style="background:#334155">
         <i class="fa-solid fa-briefcase"></i><span>Meus Trabalhos</span>
       </button>
     </div>
-  </div>
+  </aside>
 
   <!--
     Base pública do Vercel Blob usado pelo painel admin (admin/).

@@ -1,16 +1,18 @@
-// BOTÃO FLUTUANTE CURRÍCULO — abre um mini-menu (igual ao de redes sociais)
-// com "Currículo Virtual" (popup) e "Baixar Currículo" (PDF)
-const downloadCvBtn    = document.getElementById("downloadCvBtn");
-const cvFloatContainer = document.getElementById("cvFloatContainer");
-const cvOverlay        = document.getElementById("cvOverlay");
-const closeCvBtn       = document.getElementById("closeCvMenu");
-const cvVirtualBtn     = document.getElementById("cvVirtualBtn");
+// BOTÃO FLUTUANTE CURRÍCULO — abre um menu lateral (empurra a tela) com
+// "Currículo Virtual" (popup), "Baixar Currículo" (PDF) e afins
+const downloadCvBtn = document.getElementById("downloadCvBtn");
+const cvSidebar     = document.getElementById("cvSidebar");
+const mainContent   = document.getElementById("mainContent");
+const cvOverlay     = document.getElementById("cvOverlay");
+const closeCvBtn    = document.getElementById("closeCvMenu");
+const cvVirtualBtn  = document.getElementById("cvVirtualBtn");
 let cvMenuOpen = false;
 
 function openCvMenu(){
   closeMenu(); // fecha o menu social se estiver aberto, evita os dois juntos
   cvMenuOpen = true;
-  cvFloatContainer.classList.add("menu-open");
+  cvSidebar.classList.add("open");
+  mainContent.classList.add("cv-pushed");
   cvOverlay.classList.add("active");
   document.body.style.overflow = "hidden";
   floatContainer.classList.add("is-hidden"); // some os ícones de redes sociais
@@ -18,7 +20,8 @@ function openCvMenu(){
 
 function closeCvMenu(){
   cvMenuOpen = false;
-  cvFloatContainer.classList.remove("menu-open");
+  cvSidebar.classList.remove("open");
+  mainContent.classList.remove("cv-pushed");
   cvOverlay.classList.remove("active");
   document.body.style.overflow = "";
   floatContainer.classList.remove("is-hidden");
