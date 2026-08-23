@@ -99,9 +99,10 @@ socialOverlay.addEventListener("click", closeMenu);
 // (data-popup-titulo), em vez de link externo — delegado pois são inseridos
 // dinamicamente toda vez que um painel abre.
 document.addEventListener("click", (e) => {
-  const btn = e.target.closest(".panel-btn[data-popup-titulo], .ver-mais-link[data-popup-titulo]");
+  const btn = e.target.closest(".panel-btn[data-popup-titulo], .ver-mais-link[data-popup-titulo], .cv-popup-btn[data-popup-titulo]");
   if (!btn) return;
   e.preventDefault();
+  if (btn.classList.contains("cv-popup-btn")) closeCvMenu();
   const item = (window.SEARCH_DATA || []).find(it => it.titulo === btn.dataset.popupTitulo);
   if (item && item.conteudo) abrirPasta(item);
 });

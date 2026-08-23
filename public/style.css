@@ -213,9 +213,11 @@
 #cv-close{ opacity:0; pointer-events:none; }
 #cvFloatContainer.menu-open #cv-close{ opacity:1; pointer-events:auto; }
 
-#cv-virtual, #cv-baixar{ opacity:0; pointer-events:none; }
-#cvFloatContainer.menu-open #cv-virtual{ bottom:128px; opacity:1; pointer-events:auto; }
-#cvFloatContainer.menu-open #cv-baixar { bottom:192px; opacity:1; pointer-events:auto; }
+#cv-virtual, #cv-baixar, #cv-filmagens, #cv-narracoes{ opacity:0; pointer-events:none; }
+#cvFloatContainer.menu-open #cv-virtual   { bottom:128px; opacity:1; pointer-events:auto; }
+#cvFloatContainer.menu-open #cv-baixar    { bottom:192px; opacity:1; pointer-events:auto; }
+#cvFloatContainer.menu-open #cv-filmagens { bottom:256px; opacity:1; pointer-events:auto; }
+#cvFloatContainer.menu-open #cv-narracoes { bottom:320px; opacity:1; pointer-events:auto; }
 
 .cv-pill-btn{
   display:inline-flex;
