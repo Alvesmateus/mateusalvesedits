@@ -1106,6 +1106,15 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   box-shadow:0 20px 60px rgba(0,0,0,.6);
 }
 #panelLightbox video{ cursor:default; }
+
+/* pequena animação de atraso ao trocar de vídeo/imagem na lightbox */
+.lightbox-media-in{
+  animation:lightboxFadeIn .45s ease .12s both;
+}
+@keyframes lightboxFadeIn{
+  from{ opacity:0; transform:scale(.94); }
+  to  { opacity:1; transform:scale(1); }
+}
 #panelLightbox .lightbox-close{
   position:absolute;top:18px;right:22px;
   width:42px;height:42px;

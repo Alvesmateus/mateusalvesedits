@@ -319,17 +319,25 @@ function abrirLightbox(src, tipo){
   const img = lb.querySelector("img");
   const video = lb.querySelector("video");
   const ehVideo = tipo === "video" || /\.(mp4|webm|ogg|mov)$/i.test(src);
+  // reinicia a animação de entrada (pequeno atraso) toda vez que troca de mídia
+  const tocarEntrada = (el) => {
+    el.classList.remove("lightbox-media-in");
+    void el.offsetWidth;
+    el.classList.add("lightbox-media-in");
+  };
   if (ehVideo) {
     img.style.display = "none";
     video.style.display = "";
     video.src = src;
     video.play().catch(() => {});
+    tocarEntrada(video);
   } else {
     video.pause();
     video.removeAttribute("src");
     video.style.display = "none";
     img.style.display = "";
     img.src = src;
+    tocarEntrada(img);
   }
   lb.classList.add("open");
 }
