@@ -1613,14 +1613,14 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   transform:translateY(-1px);
 }
 
-/* botão "Trabalhos" ao lado do "Ver mais": mesmo tamanho/altura */
-#fullViewBtn{
+/* botões "Trabalhos"/"Clientes" ao lado do "Quem sou eu?": mesmo tamanho/altura */
+.header-action-btn{
   height:auto;
   padding:6px 14px;
   font-size:.75rem;
   transform:none;
 }
-#fullViewBtn:hover{
+.header-action-btn:hover{
   transform:translateY(-1px);
 }
 
