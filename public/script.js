@@ -728,7 +728,7 @@ function criarCard(item) {
     const isVideo = /\.(mp4|webm|ogg|mov)$/i.test(item.imagem);
     mediaTag = isVideo
       ? `<video class="h-full w-full object-cover transition duration-500 group-hover:scale-110" src="${item.imagem}" muted loop playsinline preload="metadata"></video>`
-      : `<img class="h-full w-full object-cover transition duration-500 group-hover:scale-110" src="${item.imagem}" alt="${item.titulo}" loading="lazy">`;
+      : `<img class="h-full w-full object-cover transition duration-500 group-hover:scale-110 grid-lightbox-img" src="${item.imagem}" alt="${item.titulo}" loading="lazy">`;
   }
 
   card.innerHTML = `
@@ -763,6 +763,12 @@ function criarCard(item) {
     audio.addEventListener("play",  () => { icon.className = "fa-solid fa-pause"; card.classList.add("is-playing"); });
     audio.addEventListener("pause", () => { icon.className = "fa-solid fa-play";  card.classList.remove("is-playing"); });
     audio.addEventListener("ended", () => { icon.className = "fa-solid fa-play";  card.classList.remove("is-playing"); });
+  }
+
+  // clica na imagem → abre em tela cheia (mesma lightbox usada nos popups)
+  const lightboxImg = card.querySelector(".grid-lightbox-img");
+  if (lightboxImg) {
+    lightboxImg.addEventListener("click", () => abrirLightbox(lightboxImg.src));
   }
 
   // vídeo que não carregar → manda pro final do grid
