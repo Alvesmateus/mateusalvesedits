@@ -878,30 +878,22 @@ document.querySelectorAll(".filter-btn").forEach(btn => {
   });
 });
 
-// MODAL "VISUALIZAÇÃO COMPLETA" — abre em tela cheia com fundo desfocado,
-// mostrando todos os itens da grade (move os cards de verdade, preservando
-// players de áudio/vídeo e carrosséis já montados).
+// MODAL "VISUALIZAÇÃO COMPLETA" — painel centralizado com fundo desfocado
+// reunindo os botões popup (Filmagens/Top Edições/Artes/Narrações). Não
+// mostra a grade de mídia, cada botão abre seu próprio popup de texto.
 const fullViewBtn    = document.getElementById("fullViewBtn");
 const fullViewModal  = document.getElementById("fullViewModal");
-const fullViewGrid   = document.getElementById("fullViewGrid");
 const fullViewClose  = document.getElementById("fullViewClose");
 
-if (fullViewBtn && fullViewModal && fullViewGrid && fullViewClose) {
+if (fullViewBtn && fullViewModal && fullViewClose) {
   fullViewBtn.addEventListener("click", () => {
-    [...photoGrid.children].forEach(card => {
-      card.style.display = "";
-      controlarVideo(card, true);
-      fullViewGrid.appendChild(card);
-    });
     fullViewModal.classList.add("is-open");
     document.body.style.overflow = "hidden";
   });
 
   function fecharVisualizacaoCompleta() {
-    [...fullViewGrid.children].forEach(card => photoGrid.appendChild(card));
     fullViewModal.classList.remove("is-open");
     document.body.style.overflow = "";
-    aplicarVisibilidade();
   }
 
   fullViewClose.addEventListener("click", fecharVisualizacaoCompleta);
