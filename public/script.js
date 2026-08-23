@@ -1104,6 +1104,15 @@ Promise.all([
     cor:    "#FF0000",
     categoria: "top-edicoes",
   }),
+  carregarYoutubeTopNoGrid({
+    titulo: "Filmagem",
+    popupTitulo: "Filmagens",
+    rede:   "YouTube",
+    tipo:   "Horizontal",
+    icone:  "fa-brands fa-youtube",
+    cor:    "#FF0000",
+    categoria: "filmagens-1",
+  }),
   carregarPastaNoGrid("youtube-shorts/", {
     titulo: "YouTube - Shorts",
     rede:   "YouTube",
