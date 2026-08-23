@@ -105,12 +105,16 @@ const bioMostrarMais  = document.getElementById("bioMostrarMaisBtn");
 const heroSubtitleEl  = document.getElementById("heroSubtitle");
 const bioOverlay      = document.getElementById("bioOverlay");
 const heroTopRow      = document.getElementById("heroTopRow");
+const heroNameHeading = document.getElementById("heroNameHeading");
+const heroNameOriginalParent = heroNameHeading ? heroNameHeading.parentNode : null;
 if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
   function expandirBio(){
     bioClampWrap.classList.add("is-expanded");
     if (heroTopRow) heroTopRow.classList.add("bio-is-expanded");
+    if (heroNameHeading) bioClampWrap.insertBefore(heroNameHeading, bioClampWrap.firstChild);
     heroSubtitleEl.style.maxHeight = heroSubtitleEl.scrollHeight + "px";
     if (bioOverlay) bioOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
     // espera pintar em opacity:0 antes de acender (fade suave, sem "salto")
     requestAnimationFrame(() => requestAnimationFrame(() => {
       bioClampWrap.classList.add("is-visible");
@@ -127,7 +131,11 @@ if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
       setTimeout(() => {
         bioClampWrap.classList.remove("is-expanded");
         if (heroTopRow) heroTopRow.classList.remove("bio-is-expanded");
+        if (heroNameHeading && heroNameOriginalParent) {
+          heroNameOriginalParent.insertBefore(heroNameHeading, bioClampWrap);
+        }
         heroSubtitleEl.style.maxHeight = "";
+        document.body.style.overflow = "";
       }, 260);
     };
     heroSubtitleEl.addEventListener("transitionend", finalizarColapso);

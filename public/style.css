@@ -1737,16 +1737,13 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
 .bio-clamp-wrap.is-expanded.is-visible{
   opacity:1;
 }
+.bio-clamp-wrap.is-expanded #heroNameHeading{
+  display:block;
+  margin-bottom:10px;
+}
 #heroTopRow.bio-is-expanded{
   position:relative;
   z-index:66;
-}
-#heroTopRow .ig-ring{
-  transition:opacity .3s ease;
-}
-#heroTopRow.bio-is-expanded .ig-ring{
-  opacity:0;
-  pointer-events:none;
 }
 #heroTopRow.bio-is-expanded #heroSubtitle{
   text-align:justify;
