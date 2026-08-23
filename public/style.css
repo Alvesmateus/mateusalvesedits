@@ -1059,6 +1059,14 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
 }
 .panel-btn i{ font-size:.9em; }
 
+.panel-btn-curriculo{
+  width:100%;
+  justify-content:center;
+  padding:16px 24px;
+  border-radius:12px;
+  font-size:1rem;
+}
+
 /* ── LIGHTBOX DE IMAGEM ── */
 #panelLightbox{
   position:fixed;inset:0;z-index:9999;

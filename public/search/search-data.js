@@ -292,7 +292,7 @@ Gerenciamento completo de redes sociais, criação de materiais educativos visua
     to: "#1e1b4b",
     conteudo: {
       botoes: [
-        { label: "Baixar currículo", url: "pdf/curriculo.pdf", icone: "fa-solid fa-file-arrow-down", cor: "#7c3aed" },
+        { label: "Baixar currículo", url: "pdf/curriculo.pdf", icone: "fa-solid fa-file-arrow-down", cor: "#7c3aed", classe: "panel-btn-curriculo" },
         { label: "LinkedIn", url: "https://linkedin.com/", icone: "fa-brands fa-linkedin", cor: "#0a66c2" }
       ],
 

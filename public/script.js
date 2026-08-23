@@ -457,7 +457,7 @@ const BLOCOS = {
       const attrs = b.popupTitulo
         ? `href="#" data-popup-titulo="${b.popupTitulo}"`
         : `href="${b.url || b.href || "#"}" target="_blank" rel="noopener noreferrer"`;
-      return `<a class="panel-btn" ${attrs}${b.cor ? ` style="background:${b.cor}"` : ""}>
+      return `<a class="panel-btn${b.classe ? ` ${b.classe}` : ""}" ${attrs}${b.cor ? ` style="background:${b.cor}"` : ""}>
         ${b.icone ? `<i class="${b.icone}"></i>` : ""}<span>${b.label || b.texto || "Abrir"}</span>
       </a>`;
     }).join("")
