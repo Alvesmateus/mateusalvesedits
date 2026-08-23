@@ -168,25 +168,16 @@
 
   </div>
 
-  <!-- BOTÃO BAIXAR CURRÍCULO -->
-  <a
+  <!-- BOTÃO BAIXAR CURRÍCULO (abre o popup "Currículo") -->
+  <button
     id="downloadCvBtn"
-    href="pdf/curriculo.pdf"
-    download
+    type="button"
     class="download-cv-btn fixed bottom-7 right-7 z-[60]"
-    aria-label="Baixar currículo"
+    aria-label="Ver currículo"
   >
     <i class="fa-solid fa-file-arrow-down"></i>
     <span>Baixar Currículo</span>
-  </a>
-
-  <!-- EFEITO DE BLUR AO BAIXAR -->
-  <div id="downloadOverlay" class="download-overlay">
-    <div class="download-overlay-box">
-      <i class="fa-solid fa-circle-notch fa-spin"></i>
-      <span>Baixando arquivo...</span>
-    </div>
-  </div>
+  </button>
 
   <!--
     Base pública do Vercel Blob usado pelo painel admin (admin/).
