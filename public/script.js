@@ -21,7 +21,8 @@ if (downloadCvBtn && downloadOverlay) {
 const floatContainer  = document.getElementById("floatContainer");
 const socialOverlay   = document.getElementById("socialOverlay");
 const contactTags     = document.querySelectorAll(".contact-tag");
-const allFiBtns       = document.querySelectorAll("#floatContainer .fi-btn");
+const allFiBtns       = document.querySelectorAll("#floatContainer .fi-btn:not(#closeSocialMenu)");
+const closeSocialBtn  = document.getElementById("closeSocialMenu");
 let menuOpen = false;
 
 function openMenu(){
@@ -47,10 +48,22 @@ function closeMenu(){
 
 allFiBtns.forEach(btn => {
   btn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    menuOpen ? closeMenu() : openMenu();
+    // recolhido: o clique só abre o menu, não segue o link ainda
+    if (!menuOpen) {
+      e.preventDefault();
+      e.stopPropagation();
+      openMenu();
+    }
+    // já aberto: deixa o link funcionar normalmente (navega de verdade)
   });
 });
+
+if (closeSocialBtn) {
+  closeSocialBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    closeMenu();
+  });
+}
 
 socialOverlay.addEventListener("click", closeMenu);
 

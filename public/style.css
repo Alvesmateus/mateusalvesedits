@@ -90,25 +90,36 @@
 /* sociais semi-transparentes até o 1º clique (whatsapp sempre normal) */
 #fi-instagram .fi-btn,
 #fi-linkedin  .fi-btn,
-#fi-gmail     .fi-btn,
-#fi-facebook  .fi-btn{
+#fi-gmail     .fi-btn{
   opacity:.45;
 }
 #floatContainer.menu-open #fi-instagram .fi-btn,
 #floatContainer.menu-open #fi-linkedin  .fi-btn,
-#floatContainer.menu-open #fi-gmail     .fi-btn,
-#floatContainer.menu-open #fi-facebook  .fi-btn{
+#floatContainer.menu-open #fi-gmail     .fi-btn{
   opacity:1;
+}
+
+/* botão de fechar (X) — só existe/aparece com o menu aberto */
+#fi-close{
+  bottom:0;
+  left:0;
+  opacity:0;
+  pointer-events:none;
+  transition:bottom .4s cubic-bezier(.4,0,.2,1), left .4s cubic-bezier(.4,0,.2,1), opacity .25s ease;
+}
+#floatContainer.menu-open #fi-close{
+  bottom:68px;
+  left:0;
+  opacity:1;
+  pointer-events:auto;
 }
 
 /* Posições de órbita (estado padrão) */
 #fi-instagram{ bottom:34px; left:34px; animation:floatIcon1 2.8s ease-in-out infinite }
 #fi-linkedin { bottom:24px; left:42px; animation:floatIcon2 3.4s ease-in-out infinite }
 #fi-gmail    { bottom:14px; left:32px; animation:floatIcon3 4s   ease-in-out infinite }
-#fi-facebook { bottom:26px; left:14px; animation:floatIcon4 3.1s ease-in-out infinite }
 
 /* Posições verticais (menu aberto) — gap 12px entre todos */
-#floatContainer.menu-open #fi-facebook { bottom:68px;  left:0; animation:none }
 #floatContainer.menu-open #fi-gmail    { bottom:124px; left:0; animation:none }
 #floatContainer.menu-open #fi-linkedin { bottom:180px; left:0; animation:none }
 #floatContainer.menu-open #fi-instagram{ bottom:236px; left:0; animation:none }
