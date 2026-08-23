@@ -91,6 +91,12 @@ if (headerCurriculoBtn) {
     if (!cvMenuOpen) openCvMenu();
   });
 }
+const headerExperienciaBtn = document.getElementById("headerExperienciaBtn");
+if (headerExperienciaBtn) {
+  headerExperienciaBtn.addEventListener("click", () => {
+    if (!cvMenuOpen) openCvMenu();
+  });
+}
 
 // ícone do botão "Contato" trocando de ícone e cor entre as redes sociais
 const CONTATO_PLATAFORMAS = [
