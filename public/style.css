@@ -45,31 +45,11 @@
 }
 
 
-@keyframes floatIcon1{
-  0%,100%{transform:translate(0,0) rotate(0)}
-  50%{transform:translate(5px,-10px) rotate(8deg)}
-}
-
-@keyframes floatIcon2{
-  0%,100%{transform:translate(0,0) rotate(0)}
-  50%{transform:translate(-6px,-16px) rotate(-10deg)}
-}
-
-@keyframes floatIcon3{
-  0%,100%{transform:translate(0,0) rotate(0)}
-  50%{transform:translate(7px,-8px) rotate(12deg)}
-}
-
-@keyframes floatIcon4{
-  0%,100%{transform:translate(0,0) rotate(0)}
-  50%{transform:translate(-5px,-14px) rotate(-8deg)}
-}
-
-/* ── OVERLAY ── */
+/* ── OVERLAY MENU SOCIAL ── */
 #socialOverlay{
   position:fixed;
   inset:0;
-  z-index:55;
+  z-index:65;
   background:rgba(0,0,0,0);
   backdrop-filter:blur(0px);
   -webkit-backdrop-filter:blur(0px);
@@ -83,134 +63,29 @@
   pointer-events:auto;
 }
 
-/* ── FLOAT CONTAINER ── */
-#floatContainer{
-  width:120px;
-  height:120px;
-  z-index:56;
-  transition:opacity .2s ease, transform .2s ease;
+/* Botão flutuante que abre o menu lateral de redes sociais */
+.social-toggle-btn{
+  width:56px;height:56px;
+  border-radius:50%;
+  display:grid;place-items:center;
+  font-size:1.5rem;
+  color:#fff;
+  background:#25D366;
+  border:none;
+  cursor:pointer;
+  box-shadow:0 8px 26px rgba(0,0,0,.55);
+  animation:floatMain 3.5s ease-in-out infinite;
+  transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease;
 }
-#floatContainer.is-hidden{
+.social-toggle-btn:hover{
+  transform:scale(1.08);
+  box-shadow:0 10px 32px rgba(0,0,0,.65);
+}
+.social-toggle-btn.is-hidden{
   opacity:0;
   pointer-events:none;
   transform:translateY(8px);
 }
-
-/* Wrapper WhatsApp (ancora no bottom:0 left:0 quando recolhido) */
-#fi-whatsapp{
-  bottom:0;
-  left:0;
-  animation:floatMain 3.5s ease-in-out infinite;
-}
-#floatContainer.menu-open #fi-whatsapp{
-  bottom:64px;
-  left:0;
-  animation:none;
-}
-
-/* Botão principal WhatsApp */
-#socialToggle{
-  width:56px;height:56px;
-  font-size:1.5rem;
-  box-shadow:0 4px 30px rgba(0,0,0,.4);
-  z-index:10;
-}
-
-/* Ícones menores */
-.float-item{
-  position:absolute;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  transition:bottom .4s cubic-bezier(.4,0,.2,1), left .4s cubic-bezier(.4,0,.2,1);
-}
-
-.fi-btn{
-  width:44px;height:44px;
-  border-radius:50%;
-  display:grid;place-items:center;
-  font-size:1.1rem;
-  box-shadow:0 8px 26px rgba(0,0,0,.55);
-  flex-shrink:0;
-  cursor:pointer;
-  border:none;
-  transition:width .3s ease, height .3s ease, font-size .3s ease, transform .2s, box-shadow .2s ease;
-}
-.fi-btn:hover{
-  transform:scale(1.08);
-  box-shadow:0 10px 32px rgba(0,0,0,.65);
-}
-
-/* sociais semi-transparentes até o 1º clique (whatsapp sempre normal) */
-#fi-instagram .fi-btn,
-#fi-linkedin  .fi-btn,
-#fi-gmail     .fi-btn{
-  opacity:.45;
-}
-#floatContainer.menu-open #fi-instagram .fi-btn,
-#floatContainer.menu-open #fi-linkedin  .fi-btn,
-#floatContainer.menu-open #fi-gmail     .fi-btn{
-  opacity:1;
-}
-
-/* botão de fechar (X) — só existe/aparece com o menu aberto */
-#fi-close{
-  bottom:0;
-  left:0;
-  opacity:0;
-  pointer-events:none;
-  transition:bottom .4s cubic-bezier(.4,0,.2,1), left .4s cubic-bezier(.4,0,.2,1), opacity .25s ease;
-}
-#floatContainer.menu-open #fi-close{
-  bottom:0;
-  left:0;
-  opacity:1;
-  pointer-events:auto;
-}
-
-/* Posições de órbita (estado padrão) */
-#fi-instagram{ bottom:34px; left:34px; animation:floatIcon1 2.8s ease-in-out infinite }
-#fi-linkedin { bottom:24px; left:42px; animation:floatIcon2 3.4s ease-in-out infinite }
-#fi-gmail    { bottom:14px; left:32px; animation:floatIcon3 4s   ease-in-out infinite }
-
-/* Posições verticais (menu aberto) — gap 12px entre todos, X e WhatsApp inclusos */
-#floatContainer.menu-open #fi-gmail    { bottom:136px; left:0; animation:none }
-#floatContainer.menu-open #fi-linkedin { bottom:200px; left:0; animation:none }
-#floatContainer.menu-open #fi-instagram{ bottom:264px; left:0; animation:none }
-
-/* Ícones maiores no estado aberto */
-#floatContainer.menu-open .fi-btn{
-  width:52px;height:52px;
-  font-size:1.3rem;
-}
-#floatContainer.menu-open #socialToggle{
-  width:60px;height:60px;
-  font-size:1.6rem;
-}
-
-/* Label contact */
-.contact-tag{
-  opacity:0;
-  pointer-events:none;
-  transform:translateX(-6px);
-  transition:opacity .25s ease, transform .25s ease;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.2);
-  background:rgba(255,255,255,.1);
-  backdrop-filter:blur(8px);
-  padding:7px 16px;
-  font-size:.875rem;
-  font-weight:500;
-  color:#fff;
-  white-space:nowrap;
-}
-#floatContainer.menu-open .contact-tag{
-  opacity:1;
-  pointer-events:auto;
-  transform:translateX(0);
-}
-
-.float-main{animation:floatMain 3.5s ease-in-out infinite}
 
 /* ── MENU LATERAL CURRÍCULO (empurra a tela) ── */
 :root{ --cv-sidebar-w: min(320px, 85vw); }
@@ -222,6 +97,9 @@ html, body{ overflow-x:hidden; }
 }
 #mainContent.cv-pushed{
   transform:translateX(calc(-1 * var(--cv-sidebar-w)));
+}
+#mainContent.social-pushed{
+  transform:translateX(var(--cv-sidebar-w));
 }
 
 #cvOverlay{
@@ -241,23 +119,34 @@ html, body{ overflow-x:hidden; }
   pointer-events:auto;
 }
 
-#cvSidebar{
+#cvSidebar, #socialSidebar{
   position:fixed;
   top:0;
-  right:0;
   bottom:0;
   width:var(--cv-sidebar-w);
   z-index:70;
   display:flex;
   flex-direction:column;
   background:#131318;
-  border-left:1px solid rgba(255,255,255,.1);
-  box-shadow:-24px 0 60px rgba(0,0,0,.5);
-  transform:translateX(100%);
   transition:transform .4s cubic-bezier(.4,0,.2,1);
   overflow-y:auto;
 }
+
+#cvSidebar{
+  right:0;
+  border-left:1px solid rgba(255,255,255,.1);
+  box-shadow:-24px 0 60px rgba(0,0,0,.5);
+  transform:translateX(100%);
+}
 #cvSidebar.open{ transform:translateX(0); }
+
+#socialSidebar{
+  left:0;
+  border-right:1px solid rgba(255,255,255,.1);
+  box-shadow:24px 0 60px rgba(0,0,0,.5);
+  transform:translateX(-100%);
+}
+#socialSidebar.open{ transform:translateX(0); }
 
 .cv-sidebar-header{
   display:flex;
@@ -884,6 +773,7 @@ html, body{ overflow-x:hidden; }
 }
 
 .panel-inner{
+  position:relative;
   width:100%;
   max-width:560px;
   max-height:85vh;
@@ -896,6 +786,21 @@ html, body{ overflow-x:hidden; }
   box-shadow:0 24px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.04) inset;
   transform:scale(.95) translateY(12px);
   transition:transform .38s cubic-bezier(.4,0,.2,1);
+}
+
+.panel-loading-overlay{
+  position:absolute;
+  inset:0;
+  z-index:5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(8,8,14,.92);
+  transition:opacity .3s ease;
+}
+.panel-loading-overlay.hide{
+  opacity:0;
+  pointer-events:none;
 }
 #folderPanel.panel-open .panel-inner{
   transform:scale(1) translateY(0);

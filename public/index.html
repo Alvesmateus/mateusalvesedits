@@ -156,49 +156,53 @@
     </div>
   </div>
 
+  <!-- BOTÃO FLUTUANTE REDES SOCIAIS (abre o menu lateral) -->
+  <button id="socialToggle" type="button" class="social-toggle-btn fixed bottom-7 left-7 z-[70]" aria-label="Redes Sociais">
+    <i class="fa-brands fa-whatsapp"></i>
+  </button>
+
   <!-- OVERLAY MENU SOCIAL -->
   <div id="socialOverlay"></div>
 
-  <!-- ÍCONES FLUTUANTES -->
-  <div id="floatContainer" class="fixed bottom-7 left-7 z-[60]">
-
-    <!-- WhatsApp fica primeiro no HTML (embaixo na pilha visual) pra não
-         roubar clique dos outros ícones quando estão sobrepostos/recolhidos -->
-    <div id="fi-whatsapp" class="float-item">
-      <a id="socialToggle" href="https://wa.me/5521973042881" target="_blank" rel="noopener noreferrer" class="fi-btn bg-[#25D366] text-white" aria-label="WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-      </a>
-      <span class="contact-tag">21973042881</span>
-    </div>
-
-    <div id="fi-close" class="float-item">
-      <button id="closeSocialMenu" class="fi-btn bg-[#1c1c22] text-white" aria-label="Fechar">
+  <!-- MENU LATERAL REDES SOCIAIS (empurra a tela, entra pela esquerda) -->
+  <aside id="socialSidebar">
+    <div class="cv-sidebar-header">
+      <span class="cv-sidebar-title">Redes Sociais</span>
+      <button id="closeSocialMenu" type="button" class="cv-sidebar-close" aria-label="Fechar">
         <i class="fa-solid fa-xmark"></i>
       </button>
     </div>
-
-    <div id="fi-instagram" class="float-item">
-      <a href="https://instagram.com/mateusalvesdzn" target="_blank" rel="noopener noreferrer" class="fi-btn bg-gradient-to-tr from-purple-600 via-pink-500 to-orange-400 text-white">
-        <i class="fa-brands fa-instagram"></i>
+    <div class="cv-sidebar-body">
+      <a id="fi-whatsapp" href="https://wa.me/5521973042881" target="_blank" rel="noopener noreferrer" class="cv-card">
+        <span class="cv-card-icon" style="background:#25D366"><i class="fa-brands fa-whatsapp"></i></span>
+        <span class="cv-card-text">
+          <span class="cv-card-title">WhatsApp</span>
+          <span class="cv-card-desc contact-tag">21973042881</span>
+        </span>
       </a>
-      <span class="contact-tag">@mateusalvesdzn</span>
-    </div>
-
-    <div id="fi-linkedin" class="float-item">
-      <button class="fi-btn bg-[#0A66C2] text-white">
-        <i class="fa-brands fa-linkedin-in"></i>
+      <a id="fi-instagram" href="https://instagram.com/mateusalvesdzn" target="_blank" rel="noopener noreferrer" class="cv-card">
+        <span class="cv-card-icon" style="background:linear-gradient(135deg,#7c3aed,#ec4899,#f97316)"><i class="fa-brands fa-instagram"></i></span>
+        <span class="cv-card-text">
+          <span class="cv-card-title">Instagram</span>
+          <span class="cv-card-desc contact-tag">@mateusalvesdzn</span>
+        </span>
+      </a>
+      <button id="fi-linkedin" type="button" class="cv-card">
+        <span class="cv-card-icon" style="background:#0A66C2"><i class="fa-brands fa-linkedin-in"></i></span>
+        <span class="cv-card-text">
+          <span class="cv-card-title">LinkedIn</span>
+          <span class="cv-card-desc contact-tag">Mateus Alves</span>
+        </span>
       </button>
-      <span class="contact-tag">Mateus Alves</span>
-    </div>
-
-    <div id="fi-gmail" class="float-item">
-      <a href="mailto:mateusalves.flu@gmail.com" class="fi-btn bg-white text-[#EA4335]">
-        <i class="fa-solid fa-envelope"></i>
+      <a id="fi-gmail" href="mailto:mateusalves.flu@gmail.com" class="cv-card">
+        <span class="cv-card-icon" style="background:#fff"><i class="fa-solid fa-envelope" style="color:#EA4335"></i></span>
+        <span class="cv-card-text">
+          <span class="cv-card-title">Gmail</span>
+          <span class="cv-card-desc contact-tag">mateusalves.flu@gmail.com</span>
+        </span>
       </a>
-      <span class="contact-tag">mateusalves.flu@gmail.com</span>
     </div>
-
-  </div>
+  </aside>
 
   <!-- BOTÃO FLUTUANTE CURRÍCULO (abre o menu lateral) -->
   <button id="downloadCvBtn" type="button" class="download-cv-btn fixed bottom-7 right-7 z-[70]" aria-label="Currículo">

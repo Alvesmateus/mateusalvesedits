@@ -15,7 +15,7 @@ function openCvMenu(){
   mainContent.classList.add("cv-pushed");
   cvOverlay.classList.add("active");
   document.body.style.overflow = "hidden";
-  floatContainer.classList.add("is-hidden"); // some os ícones de redes sociais
+  if (socialToggle) socialToggle.classList.add("is-hidden"); // some o botão de redes sociais
 }
 
 function closeCvMenu(){
@@ -24,7 +24,7 @@ function closeCvMenu(){
   mainContent.classList.remove("cv-pushed");
   cvOverlay.classList.remove("active");
   document.body.style.overflow = "";
-  floatContainer.classList.remove("is-hidden");
+  if (socialToggle) socialToggle.classList.remove("is-hidden");
 }
 
 if (downloadCvBtn) {
@@ -54,56 +54,44 @@ if (cvTrabalhosBtn) {
 }
 if (cvOverlay) cvOverlay.addEventListener("click", closeCvMenu);
 
-// SOCIAL MENU TOGGLE
-const floatContainer  = document.getElementById("floatContainer");
-const socialOverlay   = document.getElementById("socialOverlay");
-const contactTags     = document.querySelectorAll(".contact-tag");
-const allFiBtns       = document.querySelectorAll("#floatContainer .fi-btn:not(#closeSocialMenu)");
-const closeSocialBtn  = document.getElementById("closeSocialMenu");
+// BOTÃO FLUTUANTE REDES SOCIAIS — abre um menu lateral (empurra a tela)
+const socialToggle   = document.getElementById("socialToggle");
+const socialSidebar  = document.getElementById("socialSidebar");
+const socialOverlay  = document.getElementById("socialOverlay");
+const closeSocialBtn = document.getElementById("closeSocialMenu");
 let menuOpen = false;
 
 function openMenu(){
-  if (cvMenuOpen) closeCvMenu(); // evita os dois menus flutuantes abertos juntos
+  if (cvMenuOpen) closeCvMenu(); // evita os dois menus laterais abertos juntos
   menuOpen = true;
-  floatContainer.classList.add("menu-open");
+  socialSidebar.classList.add("open");
+  mainContent.classList.add("social-pushed");
   socialOverlay.classList.add("active");
   document.body.style.overflow = "hidden";
   if (downloadCvBtn) downloadCvBtn.classList.add("is-hidden");
-  const tags = [...contactTags].reverse();
-  tags.forEach((tag, i) => {
-    tag.style.transitionDelay = (0.3 + i * 0.07) + "s";
-  });
 }
 
 function closeMenu(){
   menuOpen = false;
-  contactTags.forEach(tag => tag.style.transitionDelay = "0s");
-  floatContainer.classList.remove("menu-open");
+  socialSidebar.classList.remove("open");
+  mainContent.classList.remove("social-pushed");
   socialOverlay.classList.remove("active");
   document.body.style.overflow = "";
   if (downloadCvBtn) downloadCvBtn.classList.remove("is-hidden");
 }
 
-allFiBtns.forEach(btn => {
-  btn.addEventListener("click", (e) => {
-    // recolhido: o clique só abre o menu, não segue o link ainda
-    if (!menuOpen) {
-      e.preventDefault();
-      e.stopPropagation();
-      openMenu();
-    }
-    // já aberto: deixa o link funcionar normalmente (navega de verdade)
+if (socialToggle) {
+  socialToggle.addEventListener("click", () => {
+    if (!menuOpen) openMenu();
   });
-});
-
+}
 if (closeSocialBtn) {
   closeSocialBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     closeMenu();
   });
 }
-
-socialOverlay.addEventListener("click", closeMenu);
+if (socialOverlay) socialOverlay.addEventListener("click", closeMenu);
 
 // botões dentro de popups (painel/bio/currículo) que abrem OUTRO popup
 // (data-popup-titulo), em vez de link externo — delegado pois são inseridos
@@ -587,6 +575,7 @@ function abrirPasta(item, clickedWrapper){
 
   folderPanel.innerHTML = `
     <div class="panel-inner">
+      <div class="panel-loading-overlay"><div class="splash-spinner"></div></div>
       <div class="panel-header" style="background:${corFundo}">
         <div class="panel-header-left">
           <div>
@@ -621,6 +610,15 @@ function abrirPasta(item, clickedWrapper){
 
   document.body.style.overflow = "hidden";
   requestAnimationFrame(() => folderPanel.classList.add("panel-open"));
+
+  // tela de carregamento breve, dá tempo do conteúdo (imagens/vídeos) aparecer
+  const loadingOverlay = folderPanel.querySelector(".panel-loading-overlay");
+  if (loadingOverlay) {
+    setTimeout(() => {
+      loadingOverlay.classList.add("hide");
+      setTimeout(() => loadingOverlay.remove(), 300);
+    }, 450);
+  }
 }
 
 // Player de áudio customizado
