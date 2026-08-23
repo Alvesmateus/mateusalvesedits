@@ -1212,20 +1212,24 @@ if (searchInput){
   searchInput.addEventListener("keydown", e => { if (e.key === "Enter") executarBusca(); });
   if (searchBtn) searchBtn.addEventListener("click", executarBusca);
 
-  // "quem sou eu?" e "currículo" ficam fixos no topo da página
+  // sugestões fixas no topo da página (se houver alguma configurada)
   const sugWrap = document.getElementById("topFixedButtons");
   if (sugWrap && Array.isArray(window.SEARCH_SUGGESTIONS)){
-    const criarChip = ({ label, titulo }) => {
-      const btn = document.createElement("button");
-      btn.className = "search-sug";
-      btn.textContent = label;
-      btn.addEventListener("click", () => {
-        const item = searchData.find(it => it.titulo === titulo);
-        if (item && item.conteudo) abrirPasta(item);
-      });
-      return btn;
-    };
+    if (!window.SEARCH_SUGGESTIONS.length){
+      sugWrap.style.display = "none";
+    } else {
+      const criarChip = ({ label, titulo }) => {
+        const btn = document.createElement("button");
+        btn.className = "search-sug";
+        btn.textContent = label;
+        btn.addEventListener("click", () => {
+          const item = searchData.find(it => it.titulo === titulo);
+          if (item && item.conteudo) abrirPasta(item);
+        });
+        return btn;
+      };
 
-    window.SEARCH_SUGGESTIONS.forEach(sug => sugWrap.appendChild(criarChip(sug)));
+      window.SEARCH_SUGGESTIONS.forEach(sug => sugWrap.appendChild(criarChip(sug)));
+    }
   }
 }

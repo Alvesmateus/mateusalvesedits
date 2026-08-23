@@ -4,5 +4,4 @@
    titulo  → deve bater exatamente com o campo "titulo" em search-data.js
    ════════════════════════════════════════════════════════════════ */
 window.SEARCH_SUGGESTIONS = [
-  { label: "quem sou eu?",                   titulo: "Quem é Mateus Alves?"             },
 ];
