@@ -1529,6 +1529,24 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   text-shadow:0 2px 12px rgba(0,0,0,.7), 0 1px 3px rgba(0,0,0,.9);
 }
 
+/* link discreto "Ver mais" abaixo do subtítulo */
+.ver-mais-link{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  margin-top:8px;
+  font-size:.75rem;
+  font-weight:600;
+  color:rgba(255,255,255,.55);
+  text-decoration:none;
+  transition:color .2s ease, gap .2s ease;
+}
+.ver-mais-link i{ font-size:.65rem; }
+.ver-mais-link:hover{
+  color:rgba(255,255,255,.9);
+  gap:8px;
+}
+
 .search-box{ display:none; }
 /* caixa escondida e sugestões foram pro topo fixo: nada visível aqui sobra,
    então tira o wrapper inteiro da árvore de layout pra não deixar resíduo */
