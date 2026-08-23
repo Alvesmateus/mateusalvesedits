@@ -1765,23 +1765,14 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   transform:none;
 }
 
-.full-view-item-photo{
-  flex-shrink:0;
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  font-size:1.2rem;
-  color:#fff;
-  box-shadow:0 4px 12px rgba(0,0,0,.35);
-}
-
 .full-view-item-text{
   display:flex;
   flex-direction:column;
+  align-items:flex-start;
+  text-align:left;
   gap:2px;
   min-width:0;
+  width:100%;
 }
 
 .full-view-item-title{
