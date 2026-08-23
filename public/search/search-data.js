@@ -36,7 +36,7 @@ window.SEARCH_DATA = [
     from: "#7c3aed",
     to: "#312e81",
     conteudo: {
-      imagens: ["img/foto-perfil.png"],
+      imagens: ["img/foto-perfil.jpg", "img/foto-perfil.png"],
       markdown: `
 
 # Social Media e Editor de vídeo
