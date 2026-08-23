@@ -5,5 +5,4 @@
    ════════════════════════════════════════════════════════════════ */
 window.SEARCH_SUGGESTIONS = [
   { label: "quem sou eu?",                   titulo: "Quem é Mateus Alves?"             },
-  { label: "currículo",                     titulo: "Currículo"      },
 ];
