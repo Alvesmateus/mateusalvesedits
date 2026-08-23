@@ -1744,7 +1744,10 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   padding:0 2px;
 }
 .bio-clamp-wrap.is-expanded .bio-fade-overlay{
-  display:none;
+  position:static;
+  background:none;
+  justify-content:flex-start;
+  margin-top:2px;
 }
 
 /* "Quem sou eu?" — ícone circular com brilho, texto abaixo */

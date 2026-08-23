@@ -105,8 +105,9 @@ const bioMostrarMais  = document.getElementById("bioMostrarMaisBtn");
 const heroSubtitleEl  = document.getElementById("heroSubtitle");
 if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
   bioMostrarMais.addEventListener("click", () => {
-    heroSubtitleEl.style.maxHeight = heroSubtitleEl.scrollHeight + "px";
-    bioClampWrap.classList.add("is-expanded");
+    const expandido = bioClampWrap.classList.toggle("is-expanded");
+    heroSubtitleEl.style.maxHeight = expandido ? heroSubtitleEl.scrollHeight + "px" : "";
+    bioMostrarMais.textContent = expandido ? "Mostrar menos" : "Mostrar mais";
   });
 }
 
