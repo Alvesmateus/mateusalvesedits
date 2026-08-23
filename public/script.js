@@ -1,11 +1,46 @@
-// BOTÃO BAIXAR CURRÍCULO — abre o popup "Currículo" (que já tem o link de download dentro)
-const downloadCvBtn = document.getElementById("downloadCvBtn");
+// BOTÃO FLUTUANTE CURRÍCULO — abre um mini-menu (igual ao de redes sociais)
+// com "Currículo Virtual" (popup) e "Baixar Currículo" (PDF)
+const downloadCvBtn    = document.getElementById("downloadCvBtn");
+const cvFloatContainer = document.getElementById("cvFloatContainer");
+const cvOverlay        = document.getElementById("cvOverlay");
+const closeCvBtn       = document.getElementById("closeCvMenu");
+const cvVirtualBtn     = document.getElementById("cvVirtualBtn");
+let cvMenuOpen = false;
+
+function openCvMenu(){
+  closeMenu(); // fecha o menu social se estiver aberto, evita os dois juntos
+  cvMenuOpen = true;
+  cvFloatContainer.classList.add("menu-open");
+  cvOverlay.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeCvMenu(){
+  cvMenuOpen = false;
+  cvFloatContainer.classList.remove("menu-open");
+  cvOverlay.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
 if (downloadCvBtn) {
   downloadCvBtn.addEventListener("click", () => {
+    if (!cvMenuOpen) openCvMenu();
+  });
+}
+if (closeCvBtn) {
+  closeCvBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    closeCvMenu();
+  });
+}
+if (cvVirtualBtn) {
+  cvVirtualBtn.addEventListener("click", () => {
+    closeCvMenu();
     const item = (window.SEARCH_DATA || []).find(it => it.titulo === "Currículo");
     if (item && item.conteudo) abrirPasta(item);
   });
 }
+if (cvOverlay) cvOverlay.addEventListener("click", closeCvMenu);
 
 // SOCIAL MENU TOGGLE
 const floatContainer  = document.getElementById("floatContainer");
@@ -16,6 +51,7 @@ const closeSocialBtn  = document.getElementById("closeSocialMenu");
 let menuOpen = false;
 
 function openMenu(){
+  if (cvMenuOpen) closeCvMenu(); // evita os dois menus flutuantes abertos juntos
   menuOpen = true;
   floatContainer.classList.add("menu-open");
   socialOverlay.classList.add("active");

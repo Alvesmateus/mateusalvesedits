@@ -165,6 +165,55 @@
 
 .float-main{animation:floatMain 3.5s ease-in-out infinite}
 
+/* ── MENU FLUTUANTE CURRÍCULO ── */
+#cvOverlay{
+  position:fixed;
+  inset:0;
+  z-index:55;
+  background:rgba(0,0,0,0);
+  backdrop-filter:blur(0px);
+  -webkit-backdrop-filter:blur(0px);
+  pointer-events:none;
+  transition:background .35s ease, backdrop-filter .35s ease;
+}
+#cvOverlay.active{
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  pointer-events:auto;
+}
+
+#cvFloatContainer{
+  width:180px;
+  height:120px;
+  z-index:56;
+}
+
+.cv-float-item{
+  position:absolute;
+  bottom:0;
+  right:0;
+  display:flex;
+  flex-direction:row-reverse;
+  align-items:center;
+  gap:12px;
+  opacity:1;
+  pointer-events:auto;
+  transition:bottom .4s cubic-bezier(.4,0,.2,1), opacity .25s ease;
+}
+#cv-main{ z-index:10; }
+#cvFloatContainer.menu-open #cv-main{ bottom:64px; }
+
+#cv-close{ opacity:0; pointer-events:none; }
+#cvFloatContainer.menu-open #cv-close{ opacity:1; pointer-events:auto; }
+
+#cv-virtual, #cv-baixar{ opacity:0; pointer-events:none; }
+#cvFloatContainer.menu-open #cv-virtual{ bottom:128px; opacity:1; pointer-events:auto; }
+#cvFloatContainer.menu-open #cv-baixar { bottom:192px; opacity:1; pointer-events:auto; }
+
+#cvFloatContainer .contact-tag{ transform:translateX(6px); }
+#cvFloatContainer.menu-open .contact-tag{ transform:translateX(0); }
+
 /* MENU REDUZIDO */
 #topbar.is-collapsed #topbarInner{
   padding-top:12px !important;

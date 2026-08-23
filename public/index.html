@@ -192,16 +192,38 @@
 
   </div>
 
-  <!-- BOTÃO BAIXAR CURRÍCULO (abre o popup "Currículo") -->
-  <button
-    id="downloadCvBtn"
-    type="button"
-    class="download-cv-btn fixed bottom-7 right-7 z-[60]"
-    aria-label="Ver currículo"
-  >
-    <i class="fa-solid fa-download"></i>
-    <span>Currículo</span>
-  </button>
+  <!-- OVERLAY MENU CURRÍCULO -->
+  <div id="cvOverlay"></div>
+
+  <!-- BOTÃO/MENU FLUTUANTE CURRÍCULO -->
+  <div id="cvFloatContainer" class="fixed bottom-7 right-7 z-[60]">
+    <div id="cv-main" class="cv-float-item">
+      <button id="downloadCvBtn" type="button" class="download-cv-btn" aria-label="Currículo">
+        <i class="fa-solid fa-download"></i>
+        <span>Currículo</span>
+      </button>
+    </div>
+
+    <div id="cv-close" class="cv-float-item">
+      <button id="closeCvMenu" type="button" class="fi-btn bg-[#1c1c22] text-white" aria-label="Fechar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <div id="cv-virtual" class="cv-float-item">
+      <button id="cvVirtualBtn" type="button" class="fi-btn bg-[#7c3aed] text-white" aria-label="Currículo Virtual">
+        <i class="fa-solid fa-address-card"></i>
+      </button>
+      <span class="contact-tag">Currículo Virtual</span>
+    </div>
+
+    <div id="cv-baixar" class="cv-float-item">
+      <a id="cvBaixarBtn" href="pdf/curriculo.pdf" target="_blank" rel="noopener noreferrer" class="fi-btn bg-[#dc2626] text-white" aria-label="Baixar Currículo">
+        <i class="fa-solid fa-file-arrow-down"></i>
+      </a>
+      <span class="contact-tag">Baixar Currículo</span>
+    </div>
+  </div>
 
   <!--
     Base pública do Vercel Blob usado pelo painel admin (admin/).
