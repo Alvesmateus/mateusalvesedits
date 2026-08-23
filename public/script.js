@@ -449,10 +449,13 @@ const BLOCOS = {
       const yt = youtubeId(o.youtube || o.yt || (/youtu/.test(o.src||"") ? o.src : ""));
 
       const midia = yt
-        ? `<div class="panel-video-wrap"><iframe class="panel-video"
-            src="https://www.youtube.com/embed/${yt}" loading="lazy"
-            allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
-            allowfullscreen></iframe></div>`
+        ? `<div class="panel-video-wrap is-loading">
+            <div class="media-skeleton"></div>
+            <iframe class="panel-video"
+              src="https://www.youtube.com/embed/${yt}" loading="lazy"
+              allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+              allowfullscreen></iframe>
+          </div>`
         : `<video class="panel-video-file" src="${o.src}" controls preload="metadata"
             ${o.poster ? `poster="${o.poster}"` : ""}></video>`;
 
@@ -556,6 +559,13 @@ function abrirPasta(item, clickedWrapper){
   // Lightbox ao clicar nas imagens do painel
   folderPanel.querySelectorAll(".panel-media-img").forEach(img => {
     img.addEventListener("click", () => abrirLightbox(img.src));
+  });
+
+  // remove o skeleton de "carregando" de cada vídeo do YouTube quando ele terminar de carregar
+  folderPanel.querySelectorAll(".panel-video-wrap.is-loading iframe.panel-video").forEach(iframe => {
+    iframe.addEventListener("load", () => {
+      iframe.closest(".panel-video-wrap").classList.remove("is-loading");
+    }, { once: true });
   });
 
   folderPanel.querySelectorAll(".audio-player").forEach(montarAudioPlayer);
