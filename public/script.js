@@ -71,7 +71,7 @@ document.addEventListener("click", (e) => {
 const itensPortfolioDefault = [
   {
     titulo:"Habilidades e Formação",
-    subtitulo:"Softwares que utilizo no meu dia-dia.",
+    subtitulo:"",
     icone:"fa-solid fa-screwdriver-wrench",
     from:"#7c3aed",
     to:"#312e81",
@@ -1020,8 +1020,8 @@ async function carregarPastaNoGrid(dir, config) {
 
 // "Top Edições" usa os links reais do YouTube (mesma lista do card
 // "Top Vídeos" da busca), em vez de arquivos de vídeo locais.
-function obterTopVideosYoutube() {
-  const item = (window.SEARCH_DATA || []).find(it => it.titulo === "Top Vídeos");
+function obterVideosYoutubeDoPopup(titulo) {
+  const item = (window.SEARCH_DATA || []).find(it => it.titulo === titulo);
   const videos = (item && item.conteudo && item.conteudo.videos) || [];
   return videos
     .map(v => (typeof v === "string" ? v : v.youtube || v.src))
@@ -1029,7 +1029,7 @@ function obterTopVideosYoutube() {
 }
 
 function carregarYoutubeTopNoGrid(config) {
-  const urls = obterTopVideosYoutube();
+  const urls = obterVideosYoutubeDoPopup(config.popupTitulo || "Top Vídeos");
   urls.forEach(url => {
     const id = youtubeId(url);
     if (!id) return;
@@ -1112,6 +1112,15 @@ Promise.all([
     titulo: "Narração",
     rede:   "Narração",
     tipo:   "Post",
+    icone:  "fa-solid fa-microphone",
+    cor:    "#a855f7",
+    categoria: "narracoes",
+  }),
+  carregarYoutubeTopNoGrid({
+    titulo: "Narração",
+    popupTitulo: "Narrações",
+    rede:   "Narração",
+    tipo:   "Shorts",
     icone:  "fa-solid fa-microphone",
     cor:    "#a855f7",
     categoria: "narracoes",
