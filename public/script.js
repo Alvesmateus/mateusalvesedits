@@ -88,7 +88,8 @@ if (headerContatoBtn) {
 }
 if (headerCurriculoBtn) {
   headerCurriculoBtn.addEventListener("click", () => {
-    if (!cvMenuOpen) openCvMenu();
+    const item = (window.SEARCH_DATA || []).find(it => it.titulo === "Currículo");
+    if (item && item.conteudo) abrirPasta(item);
   });
 }
 const headerExperienciaBtn = document.getElementById("headerExperienciaBtn");
