@@ -530,6 +530,7 @@
 
 /* fade-cycle ocupa todo o card */
 .folder-icons-front.fade-cycle{
+  top:0;
   left:14px;
   right:14px;
   width:auto;
