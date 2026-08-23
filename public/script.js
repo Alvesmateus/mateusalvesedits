@@ -99,6 +99,17 @@ if (headerExperienciaBtn) {
   });
 }
 
+// bio: clamp de 4 linhas com fade + "mostrar mais" (teste)
+const bioClampWrap    = document.getElementById("bioClampWrap");
+const bioMostrarMais  = document.getElementById("bioMostrarMaisBtn");
+const heroSubtitleEl  = document.getElementById("heroSubtitle");
+if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
+  bioMostrarMais.addEventListener("click", () => {
+    heroSubtitleEl.style.maxHeight = heroSubtitleEl.scrollHeight + "px";
+    bioClampWrap.classList.add("is-expanded");
+  });
+}
+
 // ícone do botão "Contato" trocando de ícone e cor entre as redes sociais
 const CONTATO_PLATAFORMAS = [
   { icone: "fa-brands fa-whatsapp",   cor: "#25D366" },
