@@ -129,8 +129,11 @@ if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
     heroSubtitleEl.style.maxHeight = "5.5em";
     bioMostrarMais.textContent = "Mostrar mais";
     if (bioOverlay) bioOverlay.classList.remove("active");
-    const finalizarColapso = (e) => {
-      if (e.target !== heroSubtitleEl || e.propertyName !== "max-height") return;
+
+    let jaColapsou = false;
+    const colapsarDeVez = () => {
+      if (jaColapsou) return;
+      jaColapsou = true;
       heroSubtitleEl.removeEventListener("transitionend", finalizarColapso);
       bioClampWrap.classList.remove("is-visible"); // dispara o fade-out
       setTimeout(() => {
@@ -146,7 +149,14 @@ if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
         document.body.style.overflow = "";
       }, 260);
     };
+    const finalizarColapso = (e) => {
+      if (e.target !== heroSubtitleEl || e.propertyName !== "max-height") return;
+      colapsarDeVez();
+    };
     heroSubtitleEl.addEventListener("transitionend", finalizarColapso);
+    // se o texto já couber no clamp, o max-height não muda e o
+    // transitionend nunca dispara — este fallback garante que feche
+    setTimeout(colapsarDeVez, 500);
   }
   bioMostrarMais.addEventListener("click", () => {
     bioClampWrap.classList.contains("is-expanded") ? recolherBio() : expandirBio();
