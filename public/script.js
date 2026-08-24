@@ -107,12 +107,16 @@ const bioOverlay      = document.getElementById("bioOverlay");
 const heroTopRow      = document.getElementById("heroTopRow");
 const heroNameHeading = document.getElementById("heroNameHeading");
 const heroNameOriginalParent = heroNameHeading ? heroNameHeading.parentNode : null;
+const heroPhotoRing   = document.getElementById("heroPhotoRing");
+const heroPhotoOriginalParent = heroPhotoRing ? heroPhotoRing.parentNode : null;
 if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
   function expandirBio(){
     bioClampWrap.classList.add("is-expanded");
     if (heroTopRow) heroTopRow.classList.add("bio-is-expanded");
-    if (heroNameHeading) bioClampWrap.insertBefore(heroNameHeading, bioClampWrap.firstChild);
+    if (heroPhotoRing) bioClampWrap.insertBefore(heroPhotoRing, bioClampWrap.firstChild);
+    if (heroNameHeading) bioClampWrap.insertBefore(heroNameHeading, heroSubtitleEl);
     heroSubtitleEl.style.maxHeight = heroSubtitleEl.scrollHeight + "px";
+    bioMostrarMais.textContent = "Mostrar menos";
     if (bioOverlay) bioOverlay.classList.add("active");
     document.body.style.overflow = "hidden";
     // espera pintar em opacity:0 antes de acender (fade suave, sem "salto")
@@ -123,6 +127,7 @@ if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
   function recolherBio(){
     if (!bioClampWrap.classList.contains("is-expanded")) return;
     heroSubtitleEl.style.maxHeight = "5.5em";
+    bioMostrarMais.textContent = "Mostrar mais";
     if (bioOverlay) bioOverlay.classList.remove("active");
     const finalizarColapso = (e) => {
       if (e.target !== heroSubtitleEl || e.propertyName !== "max-height") return;
@@ -133,6 +138,9 @@ if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
         if (heroTopRow) heroTopRow.classList.remove("bio-is-expanded");
         if (heroNameHeading && heroNameOriginalParent) {
           heroNameOriginalParent.insertBefore(heroNameHeading, bioClampWrap);
+        }
+        if (heroPhotoRing && heroPhotoOriginalParent) {
+          heroPhotoOriginalParent.insertBefore(heroPhotoRing, heroPhotoOriginalParent.firstChild);
         }
         heroSubtitleEl.style.maxHeight = "";
         document.body.style.overflow = "";
