@@ -99,55 +99,28 @@ if (headerExperienciaBtn) {
   });
 }
 
-// bio: clamp de 4 linhas com fade + "mostrar mais" (teste)
-const bioClampWrap    = document.getElementById("bioClampWrap");
-const bioMostrarMais  = document.getElementById("bioMostrarMaisBtn");
-const heroSubtitleEl  = document.getElementById("heroSubtitle");
-const bioOverlay      = document.getElementById("bioOverlay");
-const heroTopRow      = document.getElementById("heroTopRow");
-const heroNameHeading = document.getElementById("heroNameHeading");
-const heroNameOriginalParent = heroNameHeading ? heroNameHeading.parentNode : null;
-const heroPhotoRing   = document.getElementById("heroPhotoRing");
-const heroPhotoOriginalParent = heroPhotoRing ? heroPhotoRing.parentNode : null;
+// bio: clamp de 4 linhas com fade + "mostrar mais" (revela em linha, sem popup)
+const bioClampWrap   = document.getElementById("bioClampWrap");
+const bioMostrarMais = document.getElementById("bioMostrarMaisBtn");
+const heroSubtitleEl = document.getElementById("heroSubtitle");
 if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
   function expandirBio(){
     bioClampWrap.classList.add("is-expanded");
-    if (heroTopRow) heroTopRow.classList.add("bio-is-expanded");
-    if (heroPhotoRing) bioClampWrap.insertBefore(heroPhotoRing, bioClampWrap.firstChild);
-    if (heroNameHeading) bioClampWrap.insertBefore(heroNameHeading, heroSubtitleEl);
     heroSubtitleEl.style.maxHeight = heroSubtitleEl.scrollHeight + "px";
     bioMostrarMais.textContent = "Mostrar menos";
-    if (bioOverlay) bioOverlay.classList.add("active");
-    document.body.style.overflow = "hidden";
-    // espera pintar em opacity:0 antes de acender (fade suave, sem "salto")
-    requestAnimationFrame(() => requestAnimationFrame(() => {
-      bioClampWrap.classList.add("is-visible");
-    }));
   }
   function recolherBio(){
     if (!bioClampWrap.classList.contains("is-expanded")) return;
     heroSubtitleEl.style.maxHeight = "5.5em";
     bioMostrarMais.textContent = "Mostrar mais";
-    if (bioOverlay) bioOverlay.classList.remove("active");
 
     let jaColapsou = false;
     const colapsarDeVez = () => {
       if (jaColapsou) return;
       jaColapsou = true;
       heroSubtitleEl.removeEventListener("transitionend", finalizarColapso);
-      bioClampWrap.classList.remove("is-visible"); // dispara o fade-out
-      setTimeout(() => {
-        bioClampWrap.classList.remove("is-expanded");
-        if (heroTopRow) heroTopRow.classList.remove("bio-is-expanded");
-        if (heroNameHeading && heroNameOriginalParent) {
-          heroNameOriginalParent.insertBefore(heroNameHeading, bioClampWrap);
-        }
-        if (heroPhotoRing && heroPhotoOriginalParent) {
-          heroPhotoOriginalParent.insertBefore(heroPhotoRing, heroPhotoOriginalParent.firstChild);
-        }
-        heroSubtitleEl.style.maxHeight = "";
-        document.body.style.overflow = "";
-      }, 260);
+      bioClampWrap.classList.remove("is-expanded");
+      heroSubtitleEl.style.maxHeight = "";
     };
     const finalizarColapso = (e) => {
       if (e.target !== heroSubtitleEl || e.propertyName !== "max-height") return;
@@ -161,7 +134,6 @@ if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
   bioMostrarMais.addEventListener("click", () => {
     bioClampWrap.classList.contains("is-expanded") ? recolherBio() : expandirBio();
   });
-  if (bioOverlay) bioOverlay.addEventListener("click", recolherBio);
 }
 
 // ícone do botão "Contato" trocando de ícone e cor entre as redes sociais

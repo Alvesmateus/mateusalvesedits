@@ -1712,62 +1712,9 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   text-shadow:0 2px 12px rgba(0,0,0,.7), 0 1px 3px rgba(0,0,0,.9);
 }
 
-/* bio com clamp de 4 linhas + fade + "mostrar mais" (teste) */
+/* bio com clamp de 4 linhas + fade + "mostrar mais" (revela em linha) */
 .bio-clamp-wrap{
   position:relative;
-}
-.bio-clamp-wrap.is-expanded{
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  z-index:66;
-  width:min(560px, calc(100vw - 32px));
-  max-height:80vh;
-  overflow-y:auto;
-  padding:20px 24px;
-  border-radius:20px;
-  background:rgba(8,8,14,.92);
-  border:1px solid rgba(255,255,255,.14);
-  box-shadow:0 24px 80px rgba(0,0,0,.6);
-  box-sizing:border-box;
-  opacity:0;
-  text-align:center;
-  transition:opacity .25s ease;
-}
-.bio-clamp-wrap.is-expanded.is-visible{
-  opacity:1;
-}
-.bio-clamp-wrap.is-expanded #heroNameHeading{
-  display:block;
-  margin-bottom:10px;
-}
-.bio-clamp-wrap.is-expanded #heroPhotoRing{
-  margin-bottom:12px;
-}
-#heroTopRow.bio-is-expanded{
-  position:relative;
-  z-index:66;
-}
-#heroTopRow.bio-is-expanded #heroSubtitle{
-  text-align:justify;
-}
-
-#bioOverlay{
-  position:fixed;
-  inset:0;
-  z-index:65;
-  background:rgba(0,0,0,0);
-  backdrop-filter:blur(0px);
-  -webkit-backdrop-filter:blur(0px);
-  pointer-events:none;
-  transition:background .35s ease, backdrop-filter .35s ease;
-}
-#bioOverlay.active{
-  background:rgba(0,0,0,.55);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-  pointer-events:auto;
 }
 #heroSubtitle.bio-clamp{
   max-height:5.5em;
