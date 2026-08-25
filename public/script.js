@@ -774,11 +774,13 @@ const typeConfig = {
   'Carrossel Horizontal': { col: 'col-span-2', row: 'row-span-1' },
 };
 
-// extrai só o nome do arquivo de um caminho/URL, pra identificar o post rapidamente
+// caminho completo (pasta + arquivo) pra identificar o post sem ambiguidade —
+// vários arquivos usam o mesmo nome (img1.jpg, img2.jpg...) em pastas diferentes
 function nomeDoArquivo(caminho) {
   if (!caminho) return "";
-  try { return decodeURIComponent(caminho.split("/").pop().split("?")[0]); }
-  catch (e) { return caminho.split("/").pop().split("?")[0]; }
+  const semQuery = caminho.split("?")[0];
+  try { return decodeURIComponent(semQuery); }
+  catch (e) { return semQuery; }
 }
 
 // Badges extras (ícone + texto) para itens específicos do grid, por arquivo.
