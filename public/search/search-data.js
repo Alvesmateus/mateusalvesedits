@@ -177,7 +177,6 @@ Funções: Produção de Podcasts, Cortes e documentários.
         { icone: "icons/softwares/indesign.png",     titulo: "InDesign",      desc: "Diagramação e materiais impressos" },
         { icone: "icons/softwares/aftereffects.png", titulo: "After Effects", desc: "Motion graphics e VFX" },
         { icone: "icons/softwares/premire.png",      titulo: "Premiere Pro",  desc: "Edição de vídeo profissional" },
-        { icone: "icons/softwares/audition.png",     titulo: "Audition",      desc: "Edição e tratamento de áudio" },
         { icone: "icons/softwares/canva.png",        titulo: "Canva",         desc: "Criação rápida e colaborativa" },
         { icone: "icons/softwares/capcut.png",        titulo: "CapCut",       desc: "Edição ágil para redes sociais" },
         { icone: "icons/softwares/inkscape.png",     titulo: "Inkscape",      desc: "Vetores e ilustrações, alternativa gratuita" },
@@ -461,7 +460,7 @@ Tenho experiência em gestão de redes sociais, criação de vídeos, criação 
 ---
 
 ## Formação Acadêmica
-* Ensino Médio Complexo
+* Ensino Médio Completo
 * Cursando Análise e Desenvolvimento de Sistemas
 
 ---

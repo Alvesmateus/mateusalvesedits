@@ -157,7 +157,6 @@ const SOFTWARE_CYCLE_ICONS = [
   "icons/softwares/indesign.png",
   "icons/softwares/aftereffects.png",
   "icons/softwares/premire.png",
-  "icons/softwares/audition.png",
   "icons/softwares/canva.png",
   "icons/softwares/capcut.png",
   "icons/softwares/inkscape.png",
@@ -1267,6 +1266,7 @@ let limiteVisivel = Infinity; // padrão inicial: aba "Grid 2x2" (mostra tudo)
 const btnMostrarMais = document.getElementById("mostrarMais");
 
 function cardCombina(card) {
+  if (filtrosSelecionados.size > 0) return filtrosSelecionados.has(card.dataset.filter);
   return filtroAtivo === "todas" || card.dataset.filter === filtroAtivo;
 }
 
@@ -1319,6 +1319,28 @@ if (btnMostrarMais) {
 
 // FILTROS
 let filtroAtivo = "todas";
+let filtrosSelecionados = new Set();
+
+// anima saída/entrada dos cards ao trocar o filtro (reaproveitada pelo
+// filtro de abas antigo e pelo popup "Filtrar posts")
+function atualizarGradeComAnimacao() {
+  const cards = [...photoGrid.children];
+  cards.forEach(card => {
+    if (card.style.display !== "none" && !cardCombina(card)) {
+      card.classList.add("card-exit");
+    }
+  });
+  setTimeout(() => {
+    cards.forEach(card => card.classList.remove("card-exit"));
+    aplicarVisibilidade();
+    [...photoGrid.children].forEach(card => {
+      if (card.style.display !== "none") {
+        card.classList.add("card-enter");
+        card.addEventListener("animationend", () => card.classList.remove("card-enter"), { once: true });
+      }
+    });
+  }, 220);
+}
 
 document.querySelectorAll(".filter-btn").forEach(btn => {
   // "Visualização Completa" abre o modal próprio, não entra na lógica de aba
@@ -1344,28 +1366,77 @@ document.querySelectorAll(".filter-btn").forEach(btn => {
     photoGrid.classList.toggle("grid-instaface", ehInstaface);
     photoGrid.classList.toggle("grid-2x2", ehGrid2x2);
 
-    const cards = [...photoGrid.children];
-
-    // anima saída dos visíveis que não combinam
-    cards.forEach(card => {
-      if (card.style.display !== "none" && !cardCombina(card)) {
-        card.classList.add("card-exit");
-      }
-    });
-
-    setTimeout(() => {
-      cards.forEach(card => card.classList.remove("card-exit"));
-      aplicarVisibilidade();
-      // anima entrada dos que ficaram visíveis
-      [...photoGrid.children].forEach(card => {
-        if (card.style.display !== "none") {
-          card.classList.add("card-enter");
-          card.addEventListener("animationend", () => card.classList.remove("card-enter"), { once: true });
-        }
-      });
-    }, 220);
+    atualizarGradeComAnimacao();
   });
 });
+
+// ── FILTRAR POSTS (popup de múltipla escolha por categoria) ──
+const FILTRO_CATEGORIAS = [
+  { valor: "filmagens-1", nome: "Filmagens" },
+  { valor: "filmagens-2", nome: "Carrosséis" },
+  { valor: "top-edicoes", nome: "Top Edições" },
+  { valor: "arts",        nome: "Artes" },
+  { valor: "narracoes",   nome: "Narração" },
+];
+
+const filtrarPostsBtn  = document.getElementById("filtrarPostsBtn");
+const filtroModal      = document.getElementById("filtroModal");
+const filtroModalClose = document.getElementById("filtroModalClose");
+const filtroModalBody  = document.getElementById("filtroModalBody");
+const filtroChips      = document.getElementById("filtroChips");
+
+function renderFiltroChips() {
+  if (!filtroChips) return;
+  filtroChips.innerHTML = [...filtrosSelecionados].map(valor => {
+    const cat = FILTRO_CATEGORIAS.find(c => c.valor === valor);
+    return `<button type="button" class="filtro-chip" data-valor="${valor}">
+      <span class="filtro-chip-x">✕</span>${cat ? cat.nome : valor}
+    </button>`;
+  }).join("");
+  filtroChips.querySelectorAll(".filtro-chip").forEach(chip => {
+    chip.addEventListener("click", () => {
+      filtrosSelecionados.delete(chip.dataset.valor);
+      renderFiltroChips();
+      renderFiltroModalBody();
+      atualizarGradeComAnimacao();
+    });
+  });
+}
+
+function renderFiltroModalBody() {
+  if (!filtroModalBody) return;
+  filtroModalBody.innerHTML = FILTRO_CATEGORIAS.map(c => `
+    <label class="filtro-modal-option">
+      <input type="checkbox" value="${c.valor}" ${filtrosSelecionados.has(c.valor) ? "checked" : ""}>
+      <span>${c.nome}</span>
+    </label>
+  `).join("");
+  filtroModalBody.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener("change", () => {
+      if (cb.checked) filtrosSelecionados.add(cb.value);
+      else filtrosSelecionados.delete(cb.value);
+      renderFiltroChips();
+      atualizarGradeComAnimacao();
+    });
+  });
+}
+
+function fecharFiltroModal() {
+  filtroModal.classList.remove("is-open");
+  document.body.style.overflow = "";
+}
+
+if (filtrarPostsBtn && filtroModal) {
+  filtrarPostsBtn.addEventListener("click", () => {
+    renderFiltroModalBody();
+    filtroModal.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+  });
+  if (filtroModalClose) filtroModalClose.addEventListener("click", fecharFiltroModal);
+  filtroModal.addEventListener("click", (e) => {
+    if (e.target === filtroModal) fecharFiltroModal();
+  });
+}
 
 // MODAL "VISUALIZAÇÃO COMPLETA" — painel centralizado com fundo desfocado
 // reunindo os botões popup (Filmagens/Top Edições/Artes/Narrações). Não
