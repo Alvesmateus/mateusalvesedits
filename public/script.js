@@ -795,8 +795,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-post/img4.webp": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-feed/🚨 HOJE TEM EPISÓDIO PESADO NO SOPAPIROCAST 🚨Recebemos ninguém menos que Maicon Menegucci, do c.jpg": [
@@ -854,21 +853,18 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-feed/De entregar panfletos na rua… a vestir a farda de Bombeiro Militar. 🚒A história do convidado de.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "artes/img10.jpg": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
   ],
   "instagram-feed/O caminho pode ser árduo, mas a glória de servir à pátria é imensa! 🇧🇷 Não deixe o desânimo ve.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-feed/670790978_18077368583537098_2765453715956229124_n.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
 
@@ -951,48 +947,39 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
 
   // Instagram + Feed + Canva
   "instagram-feed/670304144_18077290079537098_2433732863026071099_n.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-feed/671168997_18076837385537098_2121384986594193615_n.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-feed/670074538_18077355908537098_9217676397164307827_n.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-post/Hoje às 20-15 estaremos ao vivo 💪🏻Público feminino já aquece. A sargento está na área @caarolb.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-post/img7.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "carrossel-square/image1/img2 copy 2.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-post/img2.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-post/img3.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-post/img1.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
 
@@ -1016,6 +1003,14 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   "artes/img6.jpg": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "instagram-feed/670653872_18077352326537098_3607175384672271427_n.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Reels" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
+  "instagram-feed/Fundada em 1957 e inspirada no SBS britânico, essa unidade é famosa mundialmente por seu treinam.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Reels" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
   ],
 };
 
