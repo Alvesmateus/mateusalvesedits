@@ -809,6 +809,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   "artes/img14.jpg": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-post/Adsumus é uma palavra em latim que significa “aqui estamos” ou “estamos presentes”. É uma expres.mp4": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Carrossel" },
