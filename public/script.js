@@ -790,12 +790,8 @@ function nomeDoArquivo(caminho) {
 // icone = classe do Font Awesome (ex: "fa-brands fa-youtube")
 // img   = caminho de uma imagem/logo (ex: "icons/softwares/photshop.png")
 const BADGES_EXTRAS_POR_ARQUIVO = {
-  "carrossel-horizontal/pasta/img8.jpg": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
-    { img: "icons/softwares/photshop.png", label: "Photoshop" },
-  ],
-  "carrossel-horizontal/pasta/img6.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
+  "carrossel-horizontal/pasta/img1.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-post/img4.webp": [
@@ -811,6 +807,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "artes/img14.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
   ],
   "instagram-post/Adsumus é uma palavra em latim que significa “aqui estamos” ou “estamos presentes”. É uma expres.mp4": [
@@ -830,12 +827,13 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   ],
 };
 
+// olha só o arquivo que aparece na etiqueta preta (1ª imagem no carrossel),
+// pra não misturar badges de arquivos diferentes dentro do mesmo card
 function badgesExtrasDoItem(item) {
-  const arquivos = item.imagens || [item.imagem].filter(Boolean);
-  for (const arq of arquivos) {
-    for (const chave in BADGES_EXTRAS_POR_ARQUIVO) {
-      if (arq && arq.endsWith(chave)) return BADGES_EXTRAS_POR_ARQUIVO[chave];
-    }
+  const arq = item.imagens ? item.imagens[0] : item.imagem;
+  if (!arq) return null;
+  for (const chave in BADGES_EXTRAS_POR_ARQUIVO) {
+    if (arq.endsWith(chave)) return BADGES_EXTRAS_POR_ARQUIVO[chave];
   }
   return null;
 }
