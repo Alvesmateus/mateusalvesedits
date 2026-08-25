@@ -830,7 +830,9 @@ function criarCard(item) {
   }
 
   const nomeArquivo = ehYoutube ? "" : nomeDoArquivo(ehCarrossel ? item.imagens[0] : item.imagem);
-  const badgeHtml = nomeArquivo ? `<div class="grid-file-badge">${nomeArquivo}</div>` : "";
+  const badgeHtml = nomeArquivo
+    ? `<button type="button" class="grid-file-badge" title="Clique para copiar o nome do arquivo">${nomeArquivo}</button>`
+    : "";
 
   card.innerHTML = `
     ${mediaTag}
@@ -845,6 +847,23 @@ function criarCard(item) {
 
   if (ehCarrossel && item.imagens.length > 1) {
     iniciarCarrossel(card.querySelector(".ig-carousel-track"), item.imagens.length);
+  }
+
+  // clica na badge do nome do arquivo → copia pra área de transferência
+  const fileBadge = card.querySelector(".grid-file-badge");
+  if (fileBadge) {
+    fileBadge.addEventListener("click", (e) => {
+      e.stopPropagation();
+      navigator.clipboard.writeText(nomeArquivo).then(() => {
+        const original = fileBadge.textContent;
+        fileBadge.textContent = "Copiado!";
+        fileBadge.classList.add("is-copied");
+        setTimeout(() => {
+          fileBadge.textContent = original;
+          fileBadge.classList.remove("is-copied");
+        }, 1200);
+      });
+    });
   }
 
   if (ehAudio) {
