@@ -143,6 +143,34 @@ if (contatoCycleIcon) {
   }, 1800);
 }
 
+// ícone do botão "Softwares" trocando de logo em fade (Photoshop e outros)
+const SOFTWARE_CYCLE_ICONS = [
+  "icons/softwares/photshop.png",
+  "icons/softwares/illustrator.png",
+  "icons/softwares/indesign.png",
+  "icons/softwares/aftereffects.png",
+  "icons/softwares/premire.png",
+  "icons/softwares/audition.png",
+  "icons/softwares/canva.png",
+  "icons/softwares/capcut.png",
+  "icons/softwares/inkscape.png",
+  "icons/softwares/affinity.png",
+  "icons/softwares/Moho.png",
+];
+const softwaresCycleIcon = document.getElementById("softwaresCycleIcon");
+if (softwaresCycleIcon) {
+  const softwareImgEl = softwaresCycleIcon.querySelector("img");
+  let softwareIdx = 0;
+  setInterval(() => {
+    softwaresCycleIcon.style.opacity = "0";
+    setTimeout(() => {
+      softwareIdx = (softwareIdx + 1) % SOFTWARE_CYCLE_ICONS.length;
+      softwareImgEl.src = SOFTWARE_CYCLE_ICONS[softwareIdx];
+      softwaresCycleIcon.style.opacity = "1";
+    }, 300);
+  }, 1800);
+}
+
 // botões dentro de popups (painel/bio/currículo) que abrem OUTRO popup
 // (data-popup-titulo), em vez de link externo — delegado pois são inseridos
 // dinamicamente toda vez que um painel abre.
