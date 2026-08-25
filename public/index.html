@@ -127,6 +127,11 @@
     <!-- GRID 4x3 ABAIXO DOS CARDS -->
     <section class="mt-2">
       <div class="filter-bar">
+        <button type="button" id="filtrarPostsBtn" class="filtrar-posts-btn">
+          <i class="fa-solid fa-filter"></i>
+          <span>Filtrar posts</span>
+        </button>
+        <div id="filtroChips" class="filtro-chips"></div>
         <button class="filter-btn hidden" data-filter="todas">Grid Dinâmico</button>
         <button class="filter-btn hidden" id="instafaceBtn" data-filter="todas">Grid 3x3</button>
         <button class="filter-btn active hidden" id="grid2x2Btn" data-filter="todas">Grid 2x2</button>
@@ -175,6 +180,19 @@
           </span>
         </button>
       </div>
+    </div>
+  </div>
+
+  <!-- MODAL FILTRAR POSTS -->
+  <div id="filtroModal" class="filtro-modal">
+    <div class="filtro-modal-box">
+      <div class="filtro-modal-header">
+        <span class="filtro-modal-title">Filtrar posts</span>
+        <button id="filtroModalClose" type="button" class="filtro-modal-close" aria-label="Fechar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="filtroModalBody" class="filtro-modal-body"></div>
     </div>
   </div>
 
