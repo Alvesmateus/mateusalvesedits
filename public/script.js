@@ -1033,11 +1033,28 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
+  "instagram-post/Enquanto muitos escolhem o fácil, você segue na missão. A rotina pesa, mas é aí que os aprovados.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
+  "instagram-post/Adsumus é uma palavra em latim que significa “aqui estamos” ou “estamos presentes”. É uma expres.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Carrossel" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
 };
+
+// badges fixos pra todo item da categoria Narração (áudios locais e os
+// vídeos do YouTube puxados do popup "Narrações")
+const BADGES_NARRACAO = [
+  { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
+  { img: "icons/softwares/capcut.png", label: "Capcut" },
+  { icone: "fa-solid fa-microphone", cor: "#a855f7", label: "Narração" },
+];
 
 // olha só o arquivo que aparece na etiqueta preta (1ª imagem no carrossel),
 // pra não misturar badges de arquivos diferentes dentro do mesmo card
 function badgesExtrasDoItem(item) {
+  if (item.icone === "fa-solid fa-microphone") return BADGES_NARRACAO;
   const arq = item.imagens ? item.imagens[0] : item.imagem;
   if (!arq) return null;
   for (const chave in BADGES_EXTRAS_POR_ARQUIVO) {
@@ -1099,7 +1116,7 @@ function criarCard(item) {
     ? `<button type="button" class="grid-file-badge" title="Clique para copiar o nome do arquivo">${nomeArquivo}</button>`
     : "";
 
-  const badgesExtras = ehYoutube ? null : badgesExtrasDoItem(item);
+  const badgesExtras = (ehYoutube && item.icone !== "fa-solid fa-microphone") ? null : badgesExtrasDoItem(item);
   const cantoHtml = badgesExtras
     ? badgesExtras.map(b => `
         <span class="grid-tag">
