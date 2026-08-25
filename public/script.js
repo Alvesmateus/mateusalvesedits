@@ -818,33 +818,27 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/gemini.png", label: "Gemini" },
   ],
   "instagram-feed/Obrigado, Deus! Sem você nada disso seria possível.  Obrigado por confiar em mim @gabrielsrk_ Qu.mp4": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Reels" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.26.44.mp4": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Reels" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.26.43 (1).mp4": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Reels" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.27.34 (1).mp4": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Reels" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.26.58.mp4": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Reels" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.27.34.mp4": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Reels" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.29.35.mp4": [
