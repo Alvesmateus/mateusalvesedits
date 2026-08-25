@@ -1132,9 +1132,12 @@ function criarCard(item) {
       : `<img class="h-full w-full object-cover transition duration-500 group-hover:scale-110 grid-lightbox-img" src="${item.imagem}" alt="${item.titulo}" loading="lazy">`;
   }
 
-  const nomeArquivo = ehYoutube ? "" : nomeDoArquivo(ehCarrossel ? item.imagens[0] : item.imagem);
+  const nomeArquivo = ehYoutube
+    ? (item.youtubeUrl || "")
+    : nomeDoArquivo(ehCarrossel ? item.imagens[0] : item.imagem);
+  const rotuloCopiar = ehYoutube ? "Copiar link" : "Copiar nome";
   const badgeHtml = nomeArquivo
-    ? `<button type="button" class="grid-file-badge opacity-0 group-hover:opacity-100" title="${nomeArquivo}">Copiar nome</button>`
+    ? `<button type="button" class="grid-file-badge opacity-0 group-hover:opacity-100" title="${nomeArquivo}">${rotuloCopiar}</button>`
     : "";
 
   const badgesExtras = badgesExtrasDoItem(item);
