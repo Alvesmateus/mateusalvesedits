@@ -810,6 +810,9 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
+  "artes/img14.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
+  ],
 };
 
 function badgesExtrasDoItem(item) {
