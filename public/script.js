@@ -800,6 +800,10 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
+  "instagram-feed/🚨 HOJE TEM EPISÓDIO PESADO NO SOPAPIROCAST 🚨Recebemos ninguém menos que Maicon Menegucci, do c.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
 };
 
 function badgesExtrasDoItem(item) {
