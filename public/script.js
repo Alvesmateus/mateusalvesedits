@@ -791,19 +791,19 @@ function nomeDoArquivo(caminho) {
 // img   = caminho de uma imagem/logo (ex: "icons/softwares/photshop.png")
 const BADGES_EXTRAS_POR_ARQUIVO = {
   "carrossel-horizontal/pasta/img1.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-post/img4.webp": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-feed/🚨 HOJE TEM EPISÓDIO PESADO NO SOPAPIROCAST 🚨Recebemos ninguém menos que Maicon Menegucci, do c.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-feed/670727495_18077362148537098_4111886504108477283_n.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "artes/img14.jpg": [
@@ -818,35 +818,35 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/gemini.png", label: "Gemini" },
   ],
   "instagram-feed/Obrigado, Deus! Sem você nada disso seria possível.  Obrigado por confiar em mim @gabrielsrk_ Qu.mp4": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Reels" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.26.44.mp4": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Reels" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.26.43 (1).mp4": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Reels" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.27.34 (1).mp4": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Reels" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.26.58.mp4": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Reels" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.27.34.mp4": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Reels" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.29.35.mp4": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-feed/De entregar panfletos na rua… a vestir a farda de Bombeiro Militar. 🚒A história do convidado de.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "artes/img10.jpg": [
@@ -854,29 +854,29 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-feed/O caminho pode ser árduo, mas a glória de servir à pátria é imensa! 🇧🇷 Não deixe o desânimo ve.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-feed/670790978_18077368583537098_2765453715956229124_n.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
 
   // YouTube + Shorts + Capcut
   "youtube-shorts/RESGATE DO SOLDADO AMERICANO NO IRÃ-00.00.00.000-00.01.00.742.mp4": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "youtube-shorts/OPERAÇÃO GUNNERSIDE - O FIM DA BOMBA NUCLEAR DA ALEMANHA-00.00.00.000-00.01.20.717.mp4": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "youtube-shorts/O QUE ACONTECEU COM O WAGNER GROUP no Exército Russo_-00.00.00.000-00.01.14.392.mp4": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "youtube-shorts/cães robôs na ucrânia.mp4": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "youtube-videos/video1.mp4": [
@@ -920,45 +920,45 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/premire.png", label: "Adobe Premiere" },
   ],
   "youtube-shorts/O BLINDADO QUE FICOU PRESO NO COMPLEXO DO ALEMÃO.mp4": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
 
   // Instagram + Feed + Canva
   "instagram-feed/670304144_18077290079537098_2433732863026071099_n.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-feed/671168997_18076837385537098_2121384986594193615_n.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-feed/670074538_18077355908537098_9217676397164307827_n.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-post/Hoje às 20-15 estaremos ao vivo 💪🏻Público feminino já aquece. A sargento está na área @caarolb.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-post/img7.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "carrossel-square/image1/img2 copy 2.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-post/img2.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-post/img3.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-post/img1.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
 
@@ -984,11 +984,11 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-feed/670653872_18077352326537098_3607175384672271427_n.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Reels" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-feed/Fundada em 1957 e inspirada no SBS britânico, essa unidade é famosa mundialmente por seu treinam.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Reels" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
 
@@ -1004,31 +1004,31 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
 
   // Instagram Feed + Canva
   "carrossel-vertical/image1/670074538_18077355908537098_9217676397164307827_n.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
 
   // Instagram Feed + Photoshop
   "instagram-post/img8.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-post/img5.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-feed/img6.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
 
   // YouTube Shorts + Capcut
   "youtube-shorts/O BLINDADO QUE FICOU PRESO NO COMPLEXO DO ALEMÃO-00.00.00.000-00.01.08.194.mp4": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-post/Enquanto muitos escolhem o fácil, você segue na missão. A rotina pesa, mas é aí que os aprovados.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-post/Adsumus é uma palavra em latim que significa “aqui estamos” ou “estamos presentes”. É uma expres.jpg": [
@@ -1052,7 +1052,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "youtube-shorts/PQDT ALEMÃES na OPERAÇÃO CARVALHO - O RESGATE CINEMATOGRÁFICO-00.00.00.000-00.01.07.311.mp4": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
 };
@@ -1060,7 +1060,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
 // badges fixos pra todo item da categoria Narração (áudios locais e os
 // vídeos do YouTube puxados do popup "Narrações")
 const BADGES_NARRACAO = [
-  { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
+  { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
   { img: "icons/softwares/capcut.png", label: "Capcut" },
   { icone: "fa-solid fa-microphone", cor: "#a855f7", label: "Narração" },
 ];
