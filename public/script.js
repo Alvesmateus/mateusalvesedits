@@ -815,7 +815,9 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Carrossel" },
   ],
   "instagram-feed/Obrigado, Deus! Sem você nada disso seria possível.  Obrigado por confiar em mim @gabrielsrk_ Qu.mp4": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.26.44.mp4": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
