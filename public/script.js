@@ -98,6 +98,13 @@ if (headerExperienciaBtn) {
     if (!cvMenuOpen) openCvMenu();
   });
 }
+const headerSoftwaresBtn = document.getElementById("headerSoftwaresBtn");
+if (headerSoftwaresBtn) {
+  headerSoftwaresBtn.addEventListener("click", () => {
+    const item = (window.SEARCH_DATA || []).find(it => it.titulo === "Softwares");
+    if (item && item.conteudo) abrirPasta(item);
+  });
+}
 
 // bio: clamp de 4 linhas com fade + "mostrar mais" (revela em linha, sem popup)
 const bioClampWrap   = document.getElementById("bioClampWrap");
@@ -549,6 +556,16 @@ const BLOCOS = {
   markdown: v => `<div class="panel-markdown">${parseMarkdown(Array.isArray(v) ? v.join("\n") : v)}</div>`,
 
   lista: v => `<ul class="panel-list">${v.map(l => `<li>${l}</li>`).join("")}</ul>`,
+
+  apps: v => `<div class="panel-app-list">${
+    v.map(a => `<div class="panel-app-item">
+      <span class="panel-app-icon"><img src="${a.icone || a.img}" alt="" loading="lazy"></span>
+      <span class="panel-app-text">
+        <span class="panel-app-title">${a.titulo || a.nome || ""}</span>
+        ${a.desc ? `<span class="panel-app-desc">${a.desc}</span>` : ""}
+      </span>
+    </div>`).join("")
+  }</div>`,
 
   imagens: v => {
     const arr = Array.isArray(v) ? v : [v];

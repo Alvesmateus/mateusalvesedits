@@ -165,6 +165,29 @@ Funções: Produção de Podcasts, Cortes e documentários.
   },
 
   {
+    titulo: "Softwares",
+    subtitulo: "",
+    icone: "fa-solid fa-screwdriver-wrench",
+    from: "#7c3aed",
+    to: "#312e81",
+    conteudo: {
+      apps: [
+        { icone: "icons/softwares/photshop.png",     titulo: "Photoshop",     desc: "Edição e composição de imagens" },
+        { icone: "icons/softwares/illustrator.png",  titulo: "Illustrator",   desc: "Vetores e ilustrações" },
+        { icone: "icons/softwares/indesign.png",     titulo: "InDesign",      desc: "Diagramação e materiais impressos" },
+        { icone: "icons/softwares/aftereffects.png", titulo: "After Effects", desc: "Motion graphics e VFX" },
+        { icone: "icons/softwares/premire.png",      titulo: "Premiere Pro",  desc: "Edição de vídeo profissional" },
+        { icone: "icons/softwares/audition.png",     titulo: "Audition",      desc: "Edição e tratamento de áudio" },
+        { icone: "icons/softwares/canva.png",        titulo: "Canva",         desc: "Criação rápida e colaborativa" },
+        { icone: "icons/softwares/capcut.png",        titulo: "CapCut",       desc: "Edição ágil para redes sociais" },
+        { icone: "icons/softwares/inkscape.png",     titulo: "Inkscape",      desc: "Vetores e ilustrações, alternativa gratuita" },
+        { icone: "icons/softwares/affinity.png",     titulo: "Affinity",      desc: "Photoshop + Illustrator + InDesign em um só" },
+        { icone: "icons/softwares/Moho.png",         titulo: "Moho Studio",   desc: "Animação 2D avançada com rigging e física" },
+      ]
+    }
+  },
+
+  {
     titulo: "Top Vídeos",
     subtitulo: "Empresa de entretenimento militar",
     icone: "fa-solid fa-medal",

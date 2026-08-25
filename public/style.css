@@ -1206,6 +1206,54 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
 }
 .panel-btn-curriculo i{ font-size:1.4em; }
 
+.panel-app-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.panel-app-item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  width:100%;
+  padding:14px 16px;
+  border-radius:16px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+}
+.panel-app-icon{
+  flex-shrink:0;
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  background:rgba(255,255,255,.08);
+  box-shadow:0 6px 16px rgba(0,0,0,.4);
+}
+.panel-app-icon img{
+  width:26px;
+  height:26px;
+  object-fit:contain;
+}
+.panel-app-text{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+  min-width:0;
+}
+.panel-app-title{
+  font-size:.9rem;
+  font-weight:800;
+  color:#fff;
+}
+.panel-app-desc{
+  font-size:.78rem;
+  font-weight:500;
+  line-height:1.3;
+  color:rgba(255,255,255,.6);
+}
+
 /* ── LIGHTBOX DE IMAGEM ── */
 #panelLightbox{
   position:fixed;inset:0;z-index:9999;
