@@ -795,6 +795,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-post/img4.webp": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
