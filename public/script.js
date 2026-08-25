@@ -1489,7 +1489,6 @@ if (chatFloatBtn && chatWidget) {
       }
       chatWidget.classList.add("is-open");
       chatFloatBtn.classList.add("is-open");
-      chatWidgetInput?.focus();
     } else {
       fecharChatWidget();
     }
