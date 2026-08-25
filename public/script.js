@@ -1377,16 +1377,22 @@ document.querySelectorAll(".filter-btn").forEach(btn => {
 // ── FILTRAR POSTS (popup de múltipla escolha por badge/ferramenta) ──
 // valor = label exato do badge (o que fica em card.dataset.badges)
 const FILTRO_CATEGORIAS = [
-  { valor: "Photoshop",            nome: "Photoshop" },
-  { valor: "Canva",                nome: "Canva" },
-  { valor: "YouTube",              nome: "YouTube" },
-  { valor: "Shorts",               nome: "YouTube Shorts" },
-  { valor: "Feed",                 nome: "Feed" },
-  { valor: "Instagram Carrossel",  nome: "Carrossel" },
-  { valor: "Gemini",               nome: "Gemini" },
-  { valor: "After Effects",        nome: "After Effects" },
-  { valor: "Premiere",             nome: "Premiere" },
+  { valor: "Photoshop",           nome: "Photoshop",     img: "icons/softwares/photshop.png" },
+  { valor: "Canva",               nome: "Canva",         img: "icons/softwares/canva.png" },
+  { valor: "YouTube",             nome: "YouTube",       icone: "fa-brands fa-youtube",   cor: "#FF0000" },
+  { valor: "Shorts",              nome: "YouTube Shorts",icone: "fa-brands fa-youtube",   cor: "#FF0000" },
+  { valor: "Feed",                nome: "Feed",          icone: "fa-brands fa-instagram", cor: "#E1306C" },
+  { valor: "Instagram Carrossel", nome: "Carrossel",     icone: "fa-brands fa-instagram", cor: "#E1306C" },
+  { valor: "Gemini",              nome: "Gemini",        img: "icons/softwares/gemini.png" },
+  { valor: "After Effects",       nome: "After Effects", img: "icons/softwares/aftereffects.png" },
+  { valor: "Premiere",            nome: "Premiere",      img: "icons/softwares/premire.png" },
 ];
+
+function iconeFiltroHtml(c) {
+  return c.img
+    ? `<img src="${c.img}" alt="">`
+    : `<i class="${c.icone}" style="color:${c.cor}"></i>`;
+}
 
 const filtrarPostsBtn  = document.getElementById("filtrarPostsBtn");
 const filtroModal      = document.getElementById("filtroModal");
@@ -1399,7 +1405,9 @@ function renderFiltroChips() {
   filtroChips.innerHTML = [...filtrosSelecionados].map(valor => {
     const cat = FILTRO_CATEGORIAS.find(c => c.valor === valor);
     return `<button type="button" class="filtro-chip" data-valor="${valor}">
-      <span class="filtro-chip-x">✕</span>${cat ? cat.nome : valor}
+      <span class="filtro-chip-x">✕</span>
+      ${cat ? iconeFiltroHtml(cat) : ""}
+      ${cat ? cat.nome : valor}
     </button>`;
   }).join("");
   filtroChips.querySelectorAll(".filtro-chip").forEach(chip => {
@@ -1417,6 +1425,7 @@ function renderFiltroModalBody() {
   filtroModalBody.innerHTML = FILTRO_CATEGORIAS.map(c => `
     <label class="filtro-modal-option">
       <input type="checkbox" value="${c.valor}" ${filtrosSelecionados.has(c.valor) ? "checked" : ""}>
+      <span class="filtro-modal-option-icon">${iconeFiltroHtml(c)}</span>
       <span>${c.nome}</span>
     </label>
   `).join("");
