@@ -811,7 +811,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-post/Adsumus é uma palavra em latim que significa “aqui estamos” ou “estamos presentes”. É uma expres.mp4": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Carrossel", url: "https://www.instagram.com/p/DUq6rLhkf0k/?img_index=1" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
     { img: "icons/softwares/aftereffects.png", label: "After Effects" },
     { img: "icons/softwares/gemini.png", label: "Gemini" },
@@ -1141,10 +1141,10 @@ function criarCard(item) {
   if (badgesExtras) card.dataset.badges = badgesExtras.map(b => b.label).join("|");
   const cantoHtml = badgesExtras
     ? badgesExtras.map(b => `
-        <span class="grid-tag">
+        <${b.url ? `a href="${b.url}" target="_blank" rel="noopener noreferrer"` : "span"} class="grid-tag">
           ${b.img ? `<img src="${b.img}" alt="">` : `<i class="${b.icone}"${b.cor ? ` style="color:${b.cor}"` : ""}></i>`}
           <span class="grid-tag-label">${b.label}</span>
-        </span>
+        </${b.url ? "a" : "span"}>
       `).join("")
     : `<a href="#" aria-label="${item.rede}" class="grid-social" style="color:${item.cor}">
         <i class="${item.icone}"></i>

@@ -1298,7 +1298,10 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   font-size:.68rem;
   font-weight:700;
   white-space:nowrap;
+  text-decoration:none;
 }
+a.grid-tag{ cursor:pointer; }
+a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 .grid-tag i{ font-size:.85em; }
 .grid-tag img{
   width:14px;
