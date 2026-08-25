@@ -825,6 +825,15 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   "instagram-feed/De entregar panfletos na rua… a vestir a farda de Bombeiro Militar. 🚒A história do convidado de.jpg": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
   ],
+  "artes/img10.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
+  ],
+  "instagram-feed/O caminho pode ser árduo, mas a glória de servir à pátria é imensa! 🇧🇷 Não deixe o desânimo ve.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
 };
 
 // olha só o arquivo que aparece na etiqueta preta (1ª imagem no carrossel),
