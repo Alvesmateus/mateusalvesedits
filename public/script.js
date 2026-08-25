@@ -1056,7 +1056,7 @@ function criarCard(item) {
     ${mediaTag}
     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none"></div>
     ${badgeHtml}
-    <div class="absolute inset-x-1.5 bottom-1.5 flex items-end justify-end gap-2 sm:inset-x-3 sm:bottom-3">
+    <div class="absolute inset-x-1.5 bottom-1.5 flex flex-wrap-reverse items-end justify-end gap-2 sm:inset-x-3 sm:bottom-3">
       ${cantoHtml}
     </div>
   `;
