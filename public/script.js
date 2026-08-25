@@ -199,7 +199,6 @@ const itensPortfolioDefault = [
     to:"#312e81",
     tab:"#a78bfa",
     fullWidth:true,
-    iconFolder:"icons/softwares/",
     iconPills:[
       { img:"icons/softwares/photshop.png",      texto:"Photoshop"      },
       { img:"icons/softwares/illustrator.png",   texto:"Illustrator"    },
