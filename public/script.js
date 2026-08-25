@@ -792,6 +792,10 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
+  "carrossel-horizontal/pasta/img6.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
 };
 
 function badgesExtrasDoItem(item) {
@@ -860,8 +864,8 @@ function criarCard(item) {
   const badgesExtras = ehYoutube ? null : badgesExtrasDoItem(item);
   const cantoHtml = badgesExtras
     ? badgesExtras.map(b => `
-        <span class="grid-tag"${b.cor ? ` style="color:${b.cor}"` : ""}>
-          ${b.img ? `<img src="${b.img}" alt="">` : `<i class="${b.icone}"></i>`}
+        <span class="grid-tag">
+          ${b.img ? `<img src="${b.img}" alt="">` : `<i class="${b.icone}"${b.cor ? ` style="color:${b.cor}"` : ""}></i>`}
           <span class="grid-tag-label">${b.label}</span>
         </span>
       `).join("")
