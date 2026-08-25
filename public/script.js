@@ -813,6 +813,18 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   "artes/img14.jpg": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
   ],
+  "instagram-post/Adsumus é uma palavra em latim que significa “aqui estamos” ou “estamos presentes”. É uma expres.mp4": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Carrossel" },
+  ],
+  "instagram-feed/Obrigado, Deus! Sem você nada disso seria possível.  Obrigado por confiar em mim @gabrielsrk_ Qu.mp4": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
+  ],
+  "instagram-feed/WhatsApp Video 2026-08-23 at 13.26.44.mp4": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
+  ],
+  "instagram-feed/WhatsApp Video 2026-08-23 at 13.29.35.mp4": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
+  ],
 };
 
 function badgesExtrasDoItem(item) {
