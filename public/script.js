@@ -774,6 +774,13 @@ const typeConfig = {
   'Carrossel Horizontal': { col: 'col-span-2', row: 'row-span-1' },
 };
 
+// extrai só o nome do arquivo de um caminho/URL, pra identificar o post rapidamente
+function nomeDoArquivo(caminho) {
+  if (!caminho) return "";
+  try { return decodeURIComponent(caminho.split("/").pop().split("?")[0]); }
+  catch (e) { return caminho.split("/").pop().split("?")[0]; }
+}
+
 function criarCard(item) {
   const spans = typeConfig[item.tipo] || { col: 'col-span-1', row: 'row-span-1' };
   const card = document.createElement("div");
@@ -822,9 +829,13 @@ function criarCard(item) {
       : `<img class="h-full w-full object-cover transition duration-500 group-hover:scale-110 grid-lightbox-img" src="${item.imagem}" alt="${item.titulo}" loading="lazy">`;
   }
 
+  const nomeArquivo = ehYoutube ? "" : nomeDoArquivo(ehCarrossel ? item.imagens[0] : item.imagem);
+  const badgeHtml = nomeArquivo ? `<div class="grid-file-badge">${nomeArquivo}</div>` : "";
+
   card.innerHTML = `
     ${mediaTag}
     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none"></div>
+    ${badgeHtml}
     <div class="absolute inset-x-1.5 bottom-1.5 flex items-end justify-end gap-2 sm:inset-x-3 sm:bottom-3">
       <a href="#" aria-label="${item.rede}" class="grid-social" style="color:${item.cor}">
         <i class="${item.icone}"></i>
