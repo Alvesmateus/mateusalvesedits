@@ -781,6 +781,29 @@ function nomeDoArquivo(caminho) {
   catch (e) { return caminho.split("/").pop().split("?")[0]; }
 }
 
+// Badges extras (ícone + texto) para itens específicos do grid, por arquivo.
+// Adicione aqui um item por vez: chave = final do caminho do arquivo (o nome
+// que aparece na etiqueta preta do card), valor = lista de badges a mostrar
+// no canto inferior direito no lugar do ícone único padrão.
+// icone = classe do Font Awesome (ex: "fa-brands fa-youtube")
+// img   = caminho de uma imagem/logo (ex: "icons/softwares/photshop.png")
+const BADGES_EXTRAS_POR_ARQUIVO = {
+  "carrossel-horizontal/pasta/img8.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+};
+
+function badgesExtrasDoItem(item) {
+  const arquivos = item.imagens || [item.imagem].filter(Boolean);
+  for (const arq of arquivos) {
+    for (const chave in BADGES_EXTRAS_POR_ARQUIVO) {
+      if (arq && arq.endsWith(chave)) return BADGES_EXTRAS_POR_ARQUIVO[chave];
+    }
+  }
+  return null;
+}
+
 function criarCard(item) {
   const spans = typeConfig[item.tipo] || { col: 'col-span-1', row: 'row-span-1' };
   const card = document.createElement("div");
@@ -834,14 +857,24 @@ function criarCard(item) {
     ? `<button type="button" class="grid-file-badge" title="Clique para copiar o nome do arquivo">${nomeArquivo}</button>`
     : "";
 
+  const badgesExtras = ehYoutube ? null : badgesExtrasDoItem(item);
+  const cantoHtml = badgesExtras
+    ? badgesExtras.map(b => `
+        <span class="grid-tag"${b.cor ? ` style="color:${b.cor}"` : ""}>
+          ${b.img ? `<img src="${b.img}" alt="">` : `<i class="${b.icone}"></i>`}
+          <span class="grid-tag-label">${b.label}</span>
+        </span>
+      `).join("")
+    : `<a href="#" aria-label="${item.rede}" class="grid-social" style="color:${item.cor}">
+        <i class="${item.icone}"></i>
+      </a>`;
+
   card.innerHTML = `
     ${mediaTag}
     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none"></div>
     ${badgeHtml}
     <div class="absolute inset-x-1.5 bottom-1.5 flex items-end justify-end gap-2 sm:inset-x-3 sm:bottom-3">
-      <a href="#" aria-label="${item.rede}" class="grid-social" style="color:${item.cor}">
-        <i class="${item.icone}"></i>
-      </a>
+      ${cantoHtml}
     </div>
   `;
 

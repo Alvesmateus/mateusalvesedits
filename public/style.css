@@ -1284,6 +1284,27 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
   color:#fff;
 }
 
+.grid-tag{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  padding:4px 10px;
+  border-radius:999px;
+  background:rgba(0,0,0,.6);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  color:#fff;
+  font-size:.68rem;
+  font-weight:700;
+  white-space:nowrap;
+}
+.grid-tag i{ font-size:.85em; }
+.grid-tag img{
+  width:14px;
+  height:14px;
+  object-fit:contain;
+}
+
 /* ── LIGHTBOX DE IMAGEM ── */
 #panelLightbox{
   position:fixed;inset:0;z-index:9999;
