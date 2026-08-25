@@ -946,7 +946,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   ],
   "carrossel-square/image1/img2 copy 2.jpg": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
-    { img: "icons/softwares/canva.png", label: "Canva" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-post/img2.jpg": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
