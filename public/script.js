@@ -808,8 +808,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "artes/img14.jpg": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-post/Adsumus é uma palavra em latim que significa “aqui estamos” ou “estamos presentes”. É uma expres.mp4": [
@@ -860,8 +859,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "artes/img10.jpg": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
   ],
   "instagram-feed/O caminho pode ser árduo, mas a glória de servir à pátria é imensa! 🇧🇷 Não deixe o desânimo ve.jpg": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
@@ -1000,28 +998,23 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
 
   // YouTube + Thumbnail + Photoshop
   "artes/img1.jpg": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "artes/img4.jpg": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "artes/img7.jpg": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "artes/img9.jpg": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "artes/img6.jpg": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
 };
