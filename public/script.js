@@ -821,10 +821,14 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.29.35.mp4": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
+    { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-feed/De entregar panfletos na rua… a vestir a farda de Bombeiro Militar. 🚒A história do convidado de.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "artes/img10.jpg": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
@@ -839,6 +843,112 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
+
+  // YouTube + Shorts + Capcut
+  "youtube-shorts/RESGATE DO SOLDADO AMERICANO NO IRÃ-00.00.00.000-00.01.00.742.mp4": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
+    { img: "icons/softwares/capcut.png", label: "Capcut" },
+  ],
+  "youtube-shorts/OPERAÇÃO GUNNERSIDE - O FIM DA BOMBA NUCLEAR DA ALEMANHA-00.00.00.000-00.01.20.717.mp4": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
+    { img: "icons/softwares/capcut.png", label: "Capcut" },
+  ],
+  "youtube-shorts/O QUE ACONTECEU COM O WAGNER GROUP no Exército Russo_-00.00.00.000-00.01.14.392.mp4": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
+    { img: "icons/softwares/capcut.png", label: "Capcut" },
+  ],
+  "youtube-shorts/cães robôs na ucrânia.mp4": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
+    { img: "icons/softwares/capcut.png", label: "Capcut" },
+  ],
+  "youtube-videos/video5.mp4": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
+    { img: "icons/softwares/capcut.png", label: "Capcut" },
+  ],
+  "youtube-shorts/O BLINDADO QUE FICOU PRESO NO COMPLEXO DO ALEMÃO.mp4": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
+    { img: "icons/softwares/capcut.png", label: "Capcut" },
+  ],
+
+  // Instagram + Feed + Canva
+  "instagram-feed/670304144_18077290079537098_2433732863026071099_n.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
+  "instagram-feed/671168997_18076837385537098_2121384986594193615_n.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
+  "instagram-feed/670074538_18077355908537098_9217676397164307827_n.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
+  "instagram-post/Hoje às 20-15 estaremos ao vivo 💪🏻Público feminino já aquece. A sargento está na área @caarolb.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
+  "instagram-post/img7.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
+  "carrossel-square/image1/img2 copy 2.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
+  "instagram-post/img2.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
+  "instagram-post/img3.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
+  "instagram-post/img1.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
+
+  // YouTube + Thumbnail + Photoshop
+  "artes/img1.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img4.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img7.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img9.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img6.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
 };
 
