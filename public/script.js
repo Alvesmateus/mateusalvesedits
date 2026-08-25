@@ -1138,6 +1138,7 @@ function criarCard(item) {
     : "";
 
   const badgesExtras = badgesExtrasDoItem(item);
+  if (badgesExtras) card.dataset.badges = badgesExtras.map(b => b.label).join("|");
   const cantoHtml = badgesExtras
     ? badgesExtras.map(b => `
         <span class="grid-tag">
@@ -1266,7 +1267,10 @@ let limiteVisivel = Infinity; // padrão inicial: aba "Grid 2x2" (mostra tudo)
 const btnMostrarMais = document.getElementById("mostrarMais");
 
 function cardCombina(card) {
-  if (filtrosSelecionados.size > 0) return filtrosSelecionados.has(card.dataset.filter);
+  if (filtrosSelecionados.size > 0) {
+    const badges = (card.dataset.badges || "").split("|");
+    return badges.some(b => filtrosSelecionados.has(b));
+  }
   return filtroAtivo === "todas" || card.dataset.filter === filtroAtivo;
 }
 
@@ -1370,13 +1374,18 @@ document.querySelectorAll(".filter-btn").forEach(btn => {
   });
 });
 
-// ── FILTRAR POSTS (popup de múltipla escolha por categoria) ──
+// ── FILTRAR POSTS (popup de múltipla escolha por badge/ferramenta) ──
+// valor = label exato do badge (o que fica em card.dataset.badges)
 const FILTRO_CATEGORIAS = [
-  { valor: "filmagens-1", nome: "Filmagens" },
-  { valor: "filmagens-2", nome: "Carrosséis" },
-  { valor: "top-edicoes", nome: "Top Edições" },
-  { valor: "arts",        nome: "Artes" },
-  { valor: "narracoes",   nome: "Narração" },
+  { valor: "Photoshop",            nome: "Photoshop" },
+  { valor: "Canva",                nome: "Canva" },
+  { valor: "YouTube",              nome: "YouTube" },
+  { valor: "Shorts",               nome: "YouTube Shorts" },
+  { valor: "Feed",                 nome: "Feed" },
+  { valor: "Instagram Carrossel",  nome: "Carrossel" },
+  { valor: "Gemini",               nome: "Gemini" },
+  { valor: "After Effects",        nome: "After Effects" },
+  { valor: "Premiere",             nome: "Premiere" },
 ];
 
 const filtrarPostsBtn  = document.getElementById("filtrarPostsBtn");
