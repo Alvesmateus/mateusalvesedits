@@ -987,7 +987,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-feed/Fundada em 1957 e inspirada no SBS britânico, essa unidade é famosa mundialmente por seu treinam.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
 
