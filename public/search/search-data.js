@@ -443,7 +443,7 @@ Tenho experiência em gestão de redes sociais, criação de vídeos, criação 
 * Canva - Imagens simples e automação
 * Indesign - Diagramação e criação de apostilas (Raramente usado)
 * Affinity Designer - Costumo usar para Upscale de Imagens
-* Illustrator (Raramente usado)
+* Illustrator e Corel (Raramente usado)
 * Inkscape - Utilizado para vetorizar imagens
 
 ### Edição de Vídeo e Efeitos
