@@ -791,7 +791,7 @@ function nomeDoArquivo(caminho) {
 // img   = caminho de uma imagem/logo (ex: "icons/softwares/photshop.png")
 const BADGES_EXTRAS_POR_ARQUIVO = {
   "carrossel-horizontal/pasta/img1.jpg": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-post/img4.webp": [
@@ -799,11 +799,11 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-feed/🚨 HOJE TEM EPISÓDIO PESADO NO SOPAPIROCAST 🚨Recebemos ninguém menos que Maicon Menegucci, do c.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-feed/670727495_18077362148537098_4111886504108477283_n.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "artes/img14.jpg": [
@@ -852,6 +852,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   ],
   "artes/img10.jpg": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-feed/O caminho pode ser árduo, mas a glória de servir à pátria é imensa! 🇧🇷 Não deixe o desânimo ve.jpg": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
@@ -948,7 +949,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   ],
   "instagram-post/img7.jpg": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
-    { img: "icons/softwares/canva.png", label: "Canva" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "carrossel-square/image1/img2 copy 2.jpg": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
@@ -964,7 +965,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   ],
   "instagram-post/img1.jpg": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
-    { img: "icons/softwares/canva.png", label: "Canva" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
 
   // YouTube + Thumbnail + Photoshop
@@ -995,6 +996,42 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   "instagram-feed/Fundada em 1957 e inspirada no SBS britânico, essa unidade é famosa mundialmente por seu treinam.jpg": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Reels" },
     { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
+
+  // Thumbnail YouTube + Photoshop
+  "artes/img13.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img2.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+
+  // Instagram Feed + Canva
+  "carrossel-vertical/image1/670074538_18077355908537098_9217676397164307827_n.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
+
+  // Instagram Feed + Photoshop
+  "instagram-post/img8.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "instagram-post/img5.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "instagram-feed/img6.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Feed" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+
+  // YouTube Shorts + Capcut
+  "youtube-shorts/O BLINDADO QUE FICOU PRESO NO COMPLEXO DO ALEMÃO-00.00.00.000-00.01.08.194.mp4": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
+    { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
 };
 
