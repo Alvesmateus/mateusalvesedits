@@ -2451,9 +2451,11 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 .chat-widget-close:hover{ background:rgba(255,255,255,.35); }
 .chat-widget-body{
   padding:16px;
-  min-height:64px;
+  min-height:140px;
   display:flex;
-  align-items:flex-end;
+  flex-direction:column;
+  justify-content:flex-end;
+  gap:8px;
 }
 .chat-bubble{
   max-width:90%;
@@ -2461,11 +2463,37 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   border-radius:14px;
   font-size:.85rem;
   line-height:1.4;
+  animation:chatBubbleIn .25s ease;
 }
 .chat-bubble-bot{
   background:rgba(255,255,255,.08);
   color:rgba(255,255,255,.9);
   border-bottom-left-radius:4px;
+}
+@keyframes chatBubbleIn{
+  from{ opacity:0; transform:translateY(6px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+.chat-suggestions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  padding:0 16px 12px;
+}
+.chat-suggestion{
+  border:1px solid rgba(167,139,250,.5);
+  background:rgba(124,58,237,.15);
+  color:#fff;
+  font-size:.75rem;
+  font-weight:600;
+  padding:6px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  transition:background .2s ease, transform .15s ease;
+}
+.chat-suggestion:hover{
+  background:rgba(124,58,237,.32);
+  transform:translateY(-1px);
 }
 .chat-widget-form{
   display:flex;

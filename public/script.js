@@ -1466,13 +1466,71 @@ const chatWidget      = document.getElementById("chatWidget");
 const chatWidgetClose = document.getElementById("chatWidgetClose");
 const chatWidgetForm  = document.getElementById("chatWidgetForm");
 const chatWidgetInput = document.getElementById("chatWidgetInput");
-const chatBotBubble   = document.getElementById("chatBotBubble");
+const chatMessages    = document.getElementById("chatMessages");
+const chatSuggestions = document.getElementById("chatSuggestions");
+
+const CHAT_SUGESTOES = [
+  "Sim, adorei! 🔥",
+  "Quero saber mais",
+  "Vamos conversar",
+];
 
 function saudacaoPorHorario() {
   const h = new Date().getHours();
   if (h < 12) return "Bom dia";
   if (h < 18) return "Boa tarde";
   return "Boa noite";
+}
+
+// bipe curto sintetizado (sem arquivo de áudio) pra cada mensagem do bot
+function tocarSomChat() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc  = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(880, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(660, ctx.currentTime + 0.12);
+    gain.gain.setValueAtTime(0.16, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.18);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.18);
+    osc.onended = () => ctx.close();
+  } catch (e) {}
+}
+
+function adicionarBolhaBot(texto) {
+  const bolha = document.createElement("div");
+  bolha.className = "chat-bubble chat-bubble-bot";
+  bolha.textContent = texto;
+  chatMessages.appendChild(bolha);
+  tocarSomChat();
+}
+
+function renderChatSugestoes() {
+  chatSuggestions.innerHTML = CHAT_SUGESTOES
+    .map(s => `<button type="button" class="chat-suggestion">${s}</button>`)
+    .join("");
+  chatSuggestions.querySelectorAll(".chat-suggestion").forEach(btn => {
+    btn.addEventListener("click", () => enviarMensagemWhatsapp(btn.textContent));
+  });
+}
+
+function iniciarConversaChat() {
+  if (chatMessages.dataset.iniciado) return;
+  chatMessages.dataset.iniciado = "1";
+  adicionarBolhaBot(`${saudacaoPorHorario()}!`);
+  setTimeout(() => {
+    adicionarBolhaBot("Queria saber se você gostou do meu portfólio?");
+    renderChatSugestoes();
+  }, 900);
+}
+
+function enviarMensagemWhatsapp(msg) {
+  msg = (msg || "").trim();
+  if (!msg) return;
+  window.open(`https://wa.me/5521973042881?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
 }
 
 function fecharChatWidget() {
@@ -1484,9 +1542,7 @@ if (chatFloatBtn && chatWidget) {
   chatFloatBtn.addEventListener("click", () => {
     const abrindo = !chatWidget.classList.contains("is-open");
     if (abrindo) {
-      if (chatBotBubble && !chatBotBubble.textContent) {
-        chatBotBubble.textContent = `${saudacaoPorHorario()}, gostou dos meus trabalhos?`;
-      }
+      iniciarConversaChat();
       chatWidget.classList.add("is-open");
       chatFloatBtn.classList.add("is-open");
     } else {
@@ -1499,9 +1555,7 @@ if (chatWidgetClose) chatWidgetClose.addEventListener("click", fecharChatWidget)
 if (chatWidgetForm) {
   chatWidgetForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const msg = (chatWidgetInput.value || "").trim();
-    if (!msg) return;
-    window.open(`https://wa.me/5521973042881?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+    enviarMensagemWhatsapp(chatWidgetInput.value);
     chatWidgetInput.value = "";
   });
 }
