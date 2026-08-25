@@ -1895,6 +1895,18 @@ h4.md-h,h5.md-h,h6.md-h{ font-size:.95rem; }
 #headerExperienciaBtn .ver-mais-icon i{
   color:#fff;
 }
+#headerQuemSouBtn .ver-mais-icon{
+  background:#fff;
+  color:#0b0b0f;
+  border-color:rgba(0,0,0,.1);
+}
+#headerQuemSouBtn .ver-mais-icon i{
+  color:#0b0b0f;
+}
+#headerSoftwaresBtn .ver-mais-icon{
+  background:#0b0b0f;
+  border-color:rgba(255,255,255,.2);
+}
 
 .ver-mais-link.is-inert{
   cursor:not-allowed;
