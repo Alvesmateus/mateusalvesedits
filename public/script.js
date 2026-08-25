@@ -1035,6 +1035,26 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Carrossel" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
+  "artes/img8.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img3.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img11.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img5.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "youtube-shorts/PQDT ALEMÃES na OPERAÇÃO CARVALHO - O RESGATE CINEMATOGRÁFICO-00.00.00.000-00.01.07.311.mp4": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
+    { img: "icons/softwares/capcut.png", label: "Capcut" },
+  ],
 };
 
 // badges fixos pra todo item da categoria Narração (áudios locais e os
