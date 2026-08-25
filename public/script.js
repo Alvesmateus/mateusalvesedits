@@ -1135,7 +1135,7 @@ function criarCard(item) {
 
   const nomeArquivo = ehYoutube ? "" : nomeDoArquivo(ehCarrossel ? item.imagens[0] : item.imagem);
   const badgeHtml = nomeArquivo
-    ? `<button type="button" class="grid-file-badge" title="Clique para copiar o nome do arquivo">${nomeArquivo}</button>`
+    ? `<button type="button" class="grid-file-badge opacity-0 group-hover:opacity-100" title="${nomeArquivo}">Copiar nome</button>`
     : "";
 
   const badgesExtras = badgesExtrasDoItem(item);
@@ -1176,7 +1176,7 @@ function criarCard(item) {
       e.stopPropagation();
       navigator.clipboard.writeText(nomeArquivo).then(() => {
         const original = fileBadge.textContent;
-        fileBadge.textContent = "Copiado!";
+        fileBadge.textContent = "Copiado";
         fileBadge.classList.add("is-copied");
         setTimeout(() => {
           fileBadge.textContent = original;
