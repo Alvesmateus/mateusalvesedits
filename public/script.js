@@ -842,8 +842,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.29.35.mp4": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "instagram-feed/De entregar panfletos na rua… a vestir a farda de Bombeiro Militar. 🚒A história do convidado de.jpg": [
@@ -865,23 +864,19 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
 
   // YouTube + Shorts + Capcut
   "youtube-shorts/RESGATE DO SOLDADO AMERICANO NO IRÃ-00.00.00.000-00.01.00.742.mp4": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "youtube-shorts/OPERAÇÃO GUNNERSIDE - O FIM DA BOMBA NUCLEAR DA ALEMANHA-00.00.00.000-00.01.20.717.mp4": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "youtube-shorts/O QUE ACONTECEU COM O WAGNER GROUP no Exército Russo_-00.00.00.000-00.01.14.392.mp4": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "youtube-shorts/cães robôs na ucrânia.mp4": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
   "youtube-videos/video1.mp4": [
@@ -925,8 +920,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/premire.png", label: "Adobe Premiere" },
   ],
   "youtube-shorts/O BLINDADO QUE FICOU PRESO NO COMPLEXO DO ALEMÃO.mp4": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube Shorts" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
 
