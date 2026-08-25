@@ -80,6 +80,91 @@ Gerenciamento completo de redes sociais, criação de materiais educativos visua
  
 
   {
+    titulo: "Habilidades e formação.",
+    subtitulo: "",
+    icone: "fa-solid fa-screwdriver-wrench",
+    from: "#7c3aed",
+    to: "#312e81",
+    conteudo: {
+      tags: [],
+      markdown: `
+
+## Formação Acadêmica
+
+* Ensino Médio Completo
+* Cursando Análise e Desenvolvimento de Sistemas
+
+---
+
+## Funções e Competências Práticas
+
+* Planejamento de Postagens e Gerenciamento de Instagram e YouTube
+* Roteirista e Narração de Vídeos
+* Edição de Imagens e Edição de Vídeos Verticais e Horizontais
+* Filmagem de documentários
+* Criação de Landing Pages e Loja Virtual
+
+---
+
+## Experiências Profissionais
+
+**Exército Brasileiro**
+Função: Gerenciamento de instagram e filmagens de formaturas.
+
+**Fuzileiro Real**
+Função: Narração, Produção de Podcasts, Cortes e documentários.
+
+**SóPapiro Podcast**
+Funções: Produção de Podcasts, Cortes e documentários.
+
+---
+
+## Edição de Imagem - posts, capas e thumbnails
+
+* **Photoshop** — Edição e composição de imagens
+* **InDesign** — Diagramação e materiais impressos
+* **Inkscape** — Vetores e ilustrações. Substitui Corel Draw e Illustrator.
+* **Affinity** — Photoshop + Illustrator + InDesign. Tudo em um!
+
+---
+
+## Edição de Vídeo - Reels, Shorts e cortes de podcast
+
+* **Premiere Pro** — Edição de vídeo profissional
+* **After Effects** — Motion graphics e VFX
+* **CapCut** — Edição ágil para redes sociais
+* **Moho Studio** — Animação 2D avançada com rigging e física
+* **Canva** — Criação rápida e colaborativa
+
+---
+
+## Posts Automáticos
+
+* **Buffer**
+* **Canva**
+---
+
+## Inteligência Artificial (IA) e Criação Rápida
+
+* **Canva** — Criação rápida e colaborativa
+* **Claude** — Programação
+* **Gemini** — Edição de imagem e programação simples
+* **Grok** — Geração de vídeos com áudio
+* **Meta I.A** — Geração de vídeos
+* **ChatGPT** — Edição de imagem e programação simples
+* **Codex** — Programação
+* **Antigravity** — Programação
+
+
+*(Nota: Como o Canva é uma ferramenta híbrida que hoje integra automações e ferramentas fortes de IA para criação rápida, ele foi encaixado nesta última categoria para atender à sua divisão!).*
+
+---
+
+`,
+    }
+  },
+
+  {
     titulo: "Top Vídeos",
     subtitulo: "Empresa de entretenimento militar",
     icone: "fa-solid fa-medal",
