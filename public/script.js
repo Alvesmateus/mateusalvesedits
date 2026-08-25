@@ -835,6 +835,11 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
+  "instagram-feed/670790978_18077368583537098_2765453715956229124_n.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
 };
 
 // olha só o arquivo que aparece na etiqueta preta (1ª imagem no carrossel),
