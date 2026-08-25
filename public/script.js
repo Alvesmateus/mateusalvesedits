@@ -825,6 +825,9 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.29.35.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
   ],
+  "instagram-feed/De entregar panfletos na rua… a vestir a farda de Bombeiro Militar. 🚒A história do convidado de.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+  ],
 };
 
 function badgesExtrasDoItem(item) {
