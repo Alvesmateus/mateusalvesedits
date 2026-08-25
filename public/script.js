@@ -1045,10 +1045,18 @@ const BADGES_NARRACAO = [
   { icone: "fa-solid fa-microphone", cor: "#a855f7", label: "Narração" },
 ];
 
+// badges fixos pros links externos de vídeo horizontal do YouTube
+// (Top Vídeos / Filmagens, puxados do popup e abertos em nova aba)
+const BADGES_VIDEO_HORIZONTAL_EXTERNO = [
+  { img: "icons/softwares/premire.png", label: "Adobe Premiere" },
+  { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
+];
+
 // olha só o arquivo que aparece na etiqueta preta (1ª imagem no carrossel),
 // pra não misturar badges de arquivos diferentes dentro do mesmo card
 function badgesExtrasDoItem(item) {
   if (item.icone === "fa-solid fa-microphone") return BADGES_NARRACAO;
+  if (item.youtubeUrl && item.tipo === "Horizontal") return BADGES_VIDEO_HORIZONTAL_EXTERNO;
   const arq = item.imagens ? item.imagens[0] : item.imagem;
   if (!arq) return null;
   for (const chave in BADGES_EXTRAS_POR_ARQUIVO) {
@@ -1110,7 +1118,7 @@ function criarCard(item) {
     ? `<button type="button" class="grid-file-badge" title="Clique para copiar o nome do arquivo">${nomeArquivo}</button>`
     : "";
 
-  const badgesExtras = (ehYoutube && item.icone !== "fa-solid fa-microphone") ? null : badgesExtrasDoItem(item);
+  const badgesExtras = badgesExtrasDoItem(item);
   const cantoHtml = badgesExtras
     ? badgesExtras.map(b => `
         <span class="grid-tag">
@@ -1122,10 +1130,16 @@ function criarCard(item) {
         <i class="${item.icone}"></i>
       </a>`;
 
+  // ícone discreto no topo indicando que o card abre um link externo
+  const externalBadgeHtml = ehYoutube
+    ? `<span class="grid-external-badge" title="Link externo"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>`
+    : "";
+
   card.innerHTML = `
     ${mediaTag}
     <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent pointer-events-none"></div>
     ${badgeHtml}
+    ${externalBadgeHtml}
     <div class="absolute inset-x-1.5 bottom-1.5 flex flex-wrap-reverse items-end justify-end gap-2 sm:inset-x-3 sm:bottom-3">
       ${cantoHtml}
     </div>
