@@ -1382,6 +1382,7 @@ const FILTRO_CATEGORIAS = [
   { valor: "YouTube",             nome: "YouTube",       icone: "fa-brands fa-youtube",   cor: "#FF0000" },
   { valor: "Shorts",              nome: "YouTube Shorts",icone: "fa-brands fa-youtube",   cor: "#FF0000" },
   { valor: "Feed",                nome: "Feed",          icone: "fa-brands fa-instagram", cor: "#E1306C" },
+  { valor: "Reels",               nome: "Reels",         icone: "fa-brands fa-instagram", cor: "#E1306C" },
   { valor: "Instagram Carrossel", nome: "Carrossel",     icone: "fa-brands fa-instagram", cor: "#E1306C" },
   { valor: "Gemini",              nome: "Gemini",        img: "icons/softwares/gemini.png" },
   { valor: "After Effects",       nome: "After Effects", img: "icons/softwares/aftereffects.png" },
