@@ -881,43 +881,43 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   ],
   "youtube-videos/video1.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { img: "icons/softwares/premire.png", label: "Adobe Premiere" },
+    { img: "icons/softwares/premire.png", label: "Premiere" },
   ],
   "youtube-videos/video2.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { img: "icons/softwares/premire.png", label: "Adobe Premiere" },
+    { img: "icons/softwares/premire.png", label: "Premiere" },
   ],
   "youtube-videos/video3.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { img: "icons/softwares/premire.png", label: "Adobe Premiere" },
+    { img: "icons/softwares/premire.png", label: "Premiere" },
   ],
   "youtube-videos/video4.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { img: "icons/softwares/premire.png", label: "Adobe Premiere" },
+    { img: "icons/softwares/premire.png", label: "Premiere" },
   ],
   "youtube-videos/video5.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { img: "icons/softwares/premire.png", label: "Adobe Premiere" },
+    { img: "icons/softwares/premire.png", label: "Premiere" },
   ],
   "youtube-videos/video6.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { img: "icons/softwares/premire.png", label: "Adobe Premiere" },
+    { img: "icons/softwares/premire.png", label: "Premiere" },
   ],
   "youtube-videos/video7.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { img: "icons/softwares/premire.png", label: "Adobe Premiere" },
+    { img: "icons/softwares/premire.png", label: "Premiere" },
   ],
   "youtube-videos/video8.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { img: "icons/softwares/premire.png", label: "Adobe Premiere" },
+    { img: "icons/softwares/premire.png", label: "Premiere" },
   ],
   "youtube-videos/video9.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { img: "icons/softwares/premire.png", label: "Adobe Premiere" },
+    { img: "icons/softwares/premire.png", label: "Premiere" },
   ],
   "youtube-videos/video10.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
-    { img: "icons/softwares/premire.png", label: "Adobe Premiere" },
+    { img: "icons/softwares/premire.png", label: "Premiere" },
   ],
   "youtube-shorts/O BLINDADO QUE FICOU PRESO NO COMPLEXO DO ALEMÃO.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
@@ -1068,7 +1068,7 @@ const BADGES_NARRACAO = [
 // badges fixos pros links externos de vídeo horizontal do YouTube
 // (Top Vídeos / Filmagens, puxados do popup e abertos em nova aba)
 const BADGES_VIDEO_HORIZONTAL_EXTERNO = [
-  { img: "icons/softwares/premire.png", label: "Adobe Premiere" },
+  { img: "icons/softwares/premire.png", label: "Premiere" },
   { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
 ];
 
