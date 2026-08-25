@@ -196,6 +196,32 @@
     </div>
   </div>
 
+  <!-- BOTÃO FLUTUANTE DE CHAT (fake chatbot → abre WhatsApp com a mensagem digitada) -->
+  <button type="button" id="chatFloatBtn" class="chat-float-btn" aria-label="Abrir chat">
+    <i class="fa-solid fa-comment-dots"></i>
+  </button>
+
+  <div id="chatWidget" class="chat-widget">
+    <div class="chat-widget-header">
+      <span class="chat-widget-title">
+        <span class="chat-widget-avatar"><i class="fa-solid fa-user"></i></span>
+        Mateus Alves
+      </span>
+      <button type="button" id="chatWidgetClose" class="chat-widget-close" aria-label="Fechar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="chat-widget-body">
+      <div class="chat-bubble chat-bubble-bot" id="chatBotBubble"></div>
+    </div>
+    <form id="chatWidgetForm" class="chat-widget-form">
+      <input type="text" id="chatWidgetInput" class="chat-widget-input" placeholder="Digite sua mensagem..." autocomplete="off">
+      <button type="submit" class="chat-widget-send" aria-label="Enviar">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </form>
+  </div>
+
   <!-- OVERLAY MENU SOCIAL -->
   <div id="socialOverlay"></div>
 

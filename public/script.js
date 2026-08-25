@@ -1460,6 +1460,53 @@ if (filtrarPostsBtn && filtroModal) {
   });
 }
 
+// ── BOTÃO FLUTUANTE DE CHAT (fake chatbot → abre WhatsApp com a mensagem) ──
+const chatFloatBtn    = document.getElementById("chatFloatBtn");
+const chatWidget      = document.getElementById("chatWidget");
+const chatWidgetClose = document.getElementById("chatWidgetClose");
+const chatWidgetForm  = document.getElementById("chatWidgetForm");
+const chatWidgetInput = document.getElementById("chatWidgetInput");
+const chatBotBubble   = document.getElementById("chatBotBubble");
+
+function saudacaoPorHorario() {
+  const h = new Date().getHours();
+  if (h < 12) return "Bom dia";
+  if (h < 18) return "Boa tarde";
+  return "Boa noite";
+}
+
+function fecharChatWidget() {
+  chatWidget.classList.remove("is-open");
+  chatFloatBtn.classList.remove("is-open");
+}
+
+if (chatFloatBtn && chatWidget) {
+  chatFloatBtn.addEventListener("click", () => {
+    const abrindo = !chatWidget.classList.contains("is-open");
+    if (abrindo) {
+      if (chatBotBubble && !chatBotBubble.textContent) {
+        chatBotBubble.textContent = `${saudacaoPorHorario()}, gostou dos meus trabalhos?`;
+      }
+      chatWidget.classList.add("is-open");
+      chatFloatBtn.classList.add("is-open");
+      chatWidgetInput?.focus();
+    } else {
+      fecharChatWidget();
+    }
+  });
+}
+if (chatWidgetClose) chatWidgetClose.addEventListener("click", fecharChatWidget);
+
+if (chatWidgetForm) {
+  chatWidgetForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const msg = (chatWidgetInput.value || "").trim();
+    if (!msg) return;
+    window.open(`https://wa.me/5521973042881?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+    chatWidgetInput.value = "";
+  });
+}
+
 // MODAL "VISUALIZAÇÃO COMPLETA" — painel centralizado com fundo desfocado
 // reunindo os botões popup (Filmagens/Top Edições/Artes/Narrações). Não
 // mostra a grade de mídia, cada botão abre seu próprio popup de texto.
