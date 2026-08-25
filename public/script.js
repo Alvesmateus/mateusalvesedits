@@ -760,18 +760,19 @@ const imagensGrid = [
 const photoGrid = document.getElementById("photoGrid");
 
 // Mapeamento tipo → spans do grid
+// todos os tipos ocupam 1 coluna x 1 linha, pra manter o card 4:5 uniforme
 const typeConfig = {
-  'Horizontal': { col: 'col-span-2', row: 'row-span-1' },
-  'Thumbnail':  { col: 'col-span-2', row: 'row-span-1' },
-  'Shorts':     { col: 'col-span-1', row: 'row-span-2' },
-  'Stories':    { col: 'col-span-1', row: 'row-span-2' },
-  'Reels':      { col: 'col-span-1', row: 'row-span-2' },
+  'Horizontal': { col: 'col-span-1', row: 'row-span-1' },
+  'Thumbnail':  { col: 'col-span-1', row: 'row-span-1' },
+  'Shorts':     { col: 'col-span-1', row: 'row-span-1' },
+  'Stories':    { col: 'col-span-1', row: 'row-span-1' },
+  'Reels':      { col: 'col-span-1', row: 'row-span-1' },
   'Post':       { col: 'col-span-1', row: 'row-span-1' },
   'Feed':       { col: 'col-span-1', row: 'row-span-1' },
   'Carrossel':  { col: 'col-span-1', row: 'row-span-1' },
   'Carrossel Square':   { col: 'col-span-1', row: 'row-span-1' },
   'Carrossel Vertical': { col: 'col-span-1', row: 'row-span-1' },
-  'Carrossel Horizontal': { col: 'col-span-2', row: 'row-span-1' },
+  'Carrossel Horizontal': { col: 'col-span-1', row: 'row-span-1' },
 };
 
 // caminho completo (pasta + arquivo) pra identificar o post sem ambiguidade —
