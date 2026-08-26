@@ -1513,7 +1513,7 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   border:1px solid rgba(255,255,255,.18);
   background:rgba(255,255,255,.06);
   color:rgba(255,255,255,.75);
-  transition:background .2s, border-color .2s, color .2s, transform .15s ease;
+  transition:background .2s, border-color .2s, color .2s, transform .15s ease, box-shadow .2s ease;
 }
 .filtro-atalho-btn:hover{
   background:rgba(255,255,255,.14);
@@ -1526,10 +1526,20 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   object-fit:contain;
 }
 .filtro-atalho-btn i{ font-size:.9em; }
-.filtro-atalho-btn.is-active{
-  border-color:rgba(96,205,255,.6);
-  background:rgba(96,205,255,.16);
-  color:#60cdff;
+.filtro-atalho-btn.is-active,
+.filtro-atalho-btn.is-active:hover{
+  height:34px;
+  padding:0 16px;
+  font-size:.78rem;
+  border-color:#fff;
+  background:#fff;
+  color:#0b0b0f;
+  box-shadow:0 0 18px rgba(255,255,255,.6), 0 4px 14px rgba(255,255,255,.3);
+  transform:scale(1.08);
+}
+.filtro-atalho-btn.is-active img{
+  width:16px;
+  height:16px;
 }
 .filtro-atalho-btn.is-hidden{
   display:none;
