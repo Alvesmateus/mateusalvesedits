@@ -909,6 +909,12 @@ function nomeDoArquivo(caminho) {
 // icone = classe do Font Awesome (ex: "fa-brands fa-youtube")
 // img   = caminho de uma imagem/logo (ex: "icons/softwares/photshop.png")
 const BADGES_EXTRAS_POR_ARQUIVO = {
+  "carrossel-square/adsumus/1.mp4": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Carrossel" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+    { img: "icons/softwares/aftereffects.png", label: "After Effects" },
+    { img: "icons/softwares/gemini.png", label: "Gemini" },
+  ],
   "carrossel-horizontal/pasta/img1.jpg": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
