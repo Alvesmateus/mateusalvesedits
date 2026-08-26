@@ -929,6 +929,11 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Carrossel" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
+  "carrossel-square/carrossel6/01.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Carrossel" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+    { img: "icons/softwares/canva.png", label: "Canva" },
+  ],
   "carrossel-horizontal/pasta/img1.jpg": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
