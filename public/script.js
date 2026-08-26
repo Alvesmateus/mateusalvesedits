@@ -909,6 +909,14 @@ function nomeDoArquivo(caminho) {
 // icone = classe do Font Awesome (ex: "fa-brands fa-youtube")
 // img   = caminho de uma imagem/logo (ex: "icons/softwares/photshop.png")
 const BADGES_EXTRAS_POR_ARQUIVO = {
+  "artes/img39.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Banner Youtube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img40.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Banner Youtube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
   "artes/img15.jpg": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
@@ -1651,6 +1659,7 @@ const FILTRO_CATEGORIAS = [
   { valor: "After Effects",       nome: "After Effects", img: "icons/softwares/aftereffects.png" },
   { valor: "Premiere",            nome: "Premiere",      img: "icons/softwares/premire.png" },
   { valor: "Capcut",              nome: "Capcut",        img: "icons/softwares/capcut.png" },
+  { valor: "Banner Youtube",      nome: "Banner Youtube",icone: "fa-brands fa-youtube",   cor: "#FF0000" },
 ];
 
 function iconeFiltroHtml(c) {
