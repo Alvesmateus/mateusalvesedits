@@ -1541,9 +1541,6 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   width:16px;
   height:16px;
 }
-.filtro-atalho-btn.is-hidden{
-  display:none;
-}
 
 .filtro-chips{
   display:flex;

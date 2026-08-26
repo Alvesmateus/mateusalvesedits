@@ -1642,10 +1642,6 @@ function sincronizarAtalhosFiltro() {
     btn.classList.toggle("is-active", ativo);
     if (ativo) algumAtivo = true;
   });
-  // com um atalho ativo, some com os outros — só volta se clicar de novo no ativo
-  filtroAtalhosEl.querySelectorAll(".filtro-atalho-btn").forEach(btn => {
-    btn.classList.toggle("is-hidden", algumAtivo && !btn.classList.contains("is-active"));
-  });
   if (filtrarPostsBtn) filtrarPostsBtn.disabled = algumAtivo;
 }
 
