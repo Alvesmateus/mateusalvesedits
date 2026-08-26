@@ -1001,9 +1001,8 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
 
-  // Instagram Feed + Canva
   "carrossel-vertical/image1/670074538_18077355908537098_9217676397164307827_n.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Carrossel" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
 
