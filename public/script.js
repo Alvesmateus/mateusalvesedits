@@ -1153,7 +1153,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   ],
 
   "instagram-post/img8.jpg": [
-    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-post/img5.jpg": [
