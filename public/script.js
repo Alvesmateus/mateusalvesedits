@@ -381,6 +381,12 @@ function atualizarCarouselLb(lb, animar) {
   });
   lb.querySelector(".carousel-lb-prev").style.visibility = carouselLbIndice === 0 ? "hidden" : "";
   lb.querySelector(".carousel-lb-next").style.visibility = carouselLbIndice === carouselLbImagens.length - 1 ? "hidden" : "";
+  // só o vídeo do slide atual toca; os demais pausam
+  [...track.children].forEach((el, i) => {
+    if (el.tagName !== "VIDEO") return;
+    if (i === carouselLbIndice) el.play().catch(() => {});
+    else el.pause();
+  });
 }
 
 function irParaSlideCarouselLb(lb, indice) {
@@ -405,7 +411,10 @@ function abrirLightboxCarrossel(imagens, indiceInicial) {
       </div>
       <div class="carousel-lb-dots"></div>
     `;
-    const fechar = () => lb.classList.remove("open");
+    const fechar = () => {
+      lb.classList.remove("open");
+      lb.querySelectorAll("video").forEach(v => v.pause());
+    };
     lb.addEventListener("click", (e) => { if (e.target === lb) fechar(); });
     lb.querySelector(".carousel-lb-close").addEventListener("click", fechar);
     lb.querySelector(".carousel-lb-prev").addEventListener("click", (e) => {
@@ -442,7 +451,10 @@ function abrirLightboxCarrossel(imagens, indiceInicial) {
   }
 
   const track = lb.querySelector(".carousel-lb-track");
-  track.innerHTML = carouselLbImagens.map(src => `<img src="${src}" alt="">`).join("");
+  track.innerHTML = carouselLbImagens.map(src => /\.(mp4|webm|ogg|mov)$/i.test(src)
+    ? `<video src="${src}" controls playsinline loop></video>`
+    : `<img src="${src}" alt="">`
+  ).join("");
 
   const dots = lb.querySelector(".carousel-lb-dots");
   dots.innerHTML = carouselLbImagens.length > 1
@@ -1198,12 +1210,16 @@ function criarCard(item) {
   const ehYoutube = !ehCarrossel && !ehAudio && !!item.ytId;
   let mediaTag;
   if (ehCarrossel) {
+    // slides podem ser imagem ou vídeo (ex: carrossel com um .mp4 no início)
+    const slideTag = (src, alt, extra) => /\.(mp4|webm|ogg|mov)$/i.test(src)
+      ? `<video src="${src}" muted loop playsinline preload="metadata"${extra || ""}></video>`
+      : `<img src="${src}" alt="${alt}"${extra || ""}>`;
     const slides = item.imagens
-      .map(src => `<img src="${src}" alt="${item.titulo}">`)
+      .map(src => slideTag(src, item.titulo))
       .join("");
     // clona o primeiro slide ao final p/ loop infinito sem salto
     const clone = item.imagens.length > 1
-      ? `<img src="${item.imagens[0]}" alt="" aria-hidden="true">`
+      ? slideTag(item.imagens[0], "", ' aria-hidden="true"')
       : "";
     mediaTag = `<div class="ig-carousel"><div class="ig-carousel-track">${slides}${clone}</div></div>`;
   } else if (ehAudio) {
