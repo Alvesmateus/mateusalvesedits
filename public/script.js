@@ -925,6 +925,10 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
     { img: "icons/softwares/aftereffects.png", label: "After Effects" },
   ],
+  "carrossel-square/carrossel5/1.jpg": [
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Carrossel" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
   "carrossel-horizontal/pasta/img1.jpg": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },

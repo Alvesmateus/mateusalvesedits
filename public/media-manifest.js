@@ -98,6 +98,17 @@ window.MEDIA_MANIFEST = {
       "carrossel-square/carrossel3/7.jpg",
       "carrossel-square/carrossel3/8.jpg"
     ],
+    "carrossel-square/carrossel5/": [
+      "carrossel-square/carrossel5/1.jpg",
+      "carrossel-square/carrossel5/2.jpg",
+      "carrossel-square/carrossel5/3.jpg",
+      "carrossel-square/carrossel5/4.jpg",
+      "carrossel-square/carrossel5/5.jpg",
+      "carrossel-square/carrossel5/6.jpg",
+      "carrossel-square/carrossel5/7.jpg",
+      "carrossel-square/carrossel5/8.jpg",
+      "carrossel-square/carrossel5/9.jpg"
+    ],
     "carrossel-square/image1/": [
       "carrossel-square/image1/img2 copy 2.jpg",
       "carrossel-square/image1/img2 copy.jpg",
@@ -146,6 +157,7 @@ window.MEDIA_MANIFEST = {
       "carrossel-square/adsumus/",
       "carrossel-square/carrossel2/",
       "carrossel-square/carrossel3/",
+      "carrossel-square/carrossel5/",
       "carrossel-square/image1/"
     ],
     "carrossel-vertical/": [
