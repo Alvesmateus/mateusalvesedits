@@ -909,6 +909,102 @@ function nomeDoArquivo(caminho) {
 // icone = classe do Font Awesome (ex: "fa-brands fa-youtube")
 // img   = caminho de uma imagem/logo (ex: "icons/softwares/photshop.png")
 const BADGES_EXTRAS_POR_ARQUIVO = {
+  "artes/img15.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img16.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img17.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img18.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img19.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img20.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img21.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img22.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img23.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img24.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img25.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img26.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img27.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img28.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img29.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img30.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img31.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img32.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img33.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img34.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img35.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img36.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img37.jpg": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img38.png": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
   "carrossel-square/adsumus/1.mp4": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Carrossel" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
