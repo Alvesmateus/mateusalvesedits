@@ -3,6 +3,7 @@ window.MEDIA_MANIFEST = {
     "youtube-videos/": [
       "youtube-videos/video1.mp4",
       "youtube-videos/video10.mp4",
+      "youtube-videos/video11.mp4",
       "youtube-videos/video2.mp4",
       "youtube-videos/video3.mp4",
       "youtube-videos/video4.mp4",
