@@ -1007,9 +1007,8 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
 
-  // Instagram Feed + Photoshop
   "instagram-post/img8.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Feed" },
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "instagram-post/img5.jpg": [
