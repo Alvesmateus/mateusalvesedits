@@ -1487,7 +1487,8 @@ if (filtroAtalhosEl) {
       const jaAtivo = btn.classList.contains("is-active");
       filtrosSelecionados.clear();
       if (!jaAtivo) filtrosSelecionados.add(btn.dataset.valor);
-      renderFiltroChips();
+      // atalho não gera chip (nome + x) — isso só aparece vindo do "Filtrar posts"
+      if (filtroChips) filtroChips.innerHTML = "";
       sincronizarAtalhosFiltro();
       atualizarGradeComAnimacao();
     });
