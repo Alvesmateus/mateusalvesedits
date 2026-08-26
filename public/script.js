@@ -912,18 +912,15 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   "carrossel-square/adsumus/1.mp4": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Carrossel" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
-    { img: "icons/softwares/aftereffects.png", label: "After Effects" },
     { img: "icons/softwares/gemini.png", label: "Gemini" },
   ],
   "carrossel-square/carrossel2/1.jpg": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Carrossel" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
-    { img: "icons/softwares/aftereffects.png", label: "After Effects" },
   ],
   "carrossel-square/carrossel3/1.jpg": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Carrossel" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
-    { img: "icons/softwares/aftereffects.png", label: "After Effects" },
   ],
   "carrossel-square/carrossel5/1.jpg": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Carrossel" },
