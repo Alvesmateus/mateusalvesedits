@@ -361,6 +361,104 @@ function abrirLightbox(src, tipo){
   lb.classList.add("open");
 }
 
+// Abre um carrossel (várias imagens) em tela cheia com navegação tipo Instagram:
+// arrastar (swipe), setas nas laterais, bolinhas indicadoras e setas do teclado.
+let carouselLbImagens = [];
+let carouselLbIndice = 0;
+
+function atualizarCarouselLb(lb, animar) {
+  const track = lb.querySelector(".carousel-lb-track");
+  if (!animar) {
+    track.style.transition = "none";
+    track.style.transform = `translateX(-${carouselLbIndice * 100}%)`;
+    void track.offsetWidth; // força reflow antes de reativar a transição
+    track.style.transition = "";
+  } else {
+    track.style.transform = `translateX(-${carouselLbIndice * 100}%)`;
+  }
+  lb.querySelectorAll(".carousel-lb-dot").forEach((dot, i) => {
+    dot.classList.toggle("is-active", i === carouselLbIndice);
+  });
+  lb.querySelector(".carousel-lb-prev").style.visibility = carouselLbIndice === 0 ? "hidden" : "";
+  lb.querySelector(".carousel-lb-next").style.visibility = carouselLbIndice === carouselLbImagens.length - 1 ? "hidden" : "";
+}
+
+function irParaSlideCarouselLb(lb, indice) {
+  carouselLbIndice = Math.max(0, Math.min(carouselLbImagens.length - 1, indice));
+  atualizarCarouselLb(lb, true);
+}
+
+function abrirLightboxCarrossel(imagens, indiceInicial) {
+  carouselLbImagens = imagens;
+  carouselLbIndice = indiceInicial || 0;
+
+  let lb = document.getElementById("carouselLightbox");
+  if (!lb) {
+    lb = document.createElement("div");
+    lb.id = "carouselLightbox";
+    lb.innerHTML = `
+      <button type="button" class="lightbox-close carousel-lb-close" aria-label="Fechar">✕</button>
+      <div class="carousel-lb-stage">
+        <button type="button" class="carousel-lb-arrow carousel-lb-prev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="carousel-lb-track"></div>
+        <button type="button" class="carousel-lb-arrow carousel-lb-next" aria-label="Próxima"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      <div class="carousel-lb-dots"></div>
+    `;
+    const fechar = () => lb.classList.remove("open");
+    lb.addEventListener("click", (e) => { if (e.target === lb) fechar(); });
+    lb.querySelector(".carousel-lb-close").addEventListener("click", fechar);
+    lb.querySelector(".carousel-lb-prev").addEventListener("click", (e) => {
+      e.stopPropagation();
+      irParaSlideCarouselLb(lb, carouselLbIndice - 1);
+    });
+    lb.querySelector(".carousel-lb-next").addEventListener("click", (e) => {
+      e.stopPropagation();
+      irParaSlideCarouselLb(lb, carouselLbIndice + 1);
+    });
+
+    // arrasta (swipe) — igual ao gesto do Instagram pra trocar de slide
+    const stage = lb.querySelector(".carousel-lb-stage");
+    let touchStartX = null;
+    stage.addEventListener("touchstart", (e) => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+    stage.addEventListener("touchend", (e) => {
+      if (touchStartX === null) return;
+      const delta = e.changedTouches[0].clientX - touchStartX;
+      touchStartX = null;
+      if (Math.abs(delta) < 40) return;
+      irParaSlideCarouselLb(lb, carouselLbIndice + (delta < 0 ? 1 : -1));
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (!lb.classList.contains("open")) return;
+      if (e.key === "ArrowLeft") irParaSlideCarouselLb(lb, carouselLbIndice - 1);
+      if (e.key === "ArrowRight") irParaSlideCarouselLb(lb, carouselLbIndice + 1);
+      if (e.key === "Escape") fechar();
+    });
+
+    document.body.appendChild(lb);
+  }
+
+  const track = lb.querySelector(".carousel-lb-track");
+  track.innerHTML = carouselLbImagens.map(src => `<img src="${src}" alt="">`).join("");
+
+  const dots = lb.querySelector(".carousel-lb-dots");
+  dots.innerHTML = carouselLbImagens.length > 1
+    ? carouselLbImagens.map((_, i) => `<span class="carousel-lb-dot" data-i="${i}"></span>`).join("")
+    : "";
+  dots.querySelectorAll(".carousel-lb-dot").forEach(dot => {
+    dot.addEventListener("click", (e) => {
+      e.stopPropagation();
+      irParaSlideCarouselLb(lb, Number(dot.dataset.i));
+    });
+  });
+
+  atualizarCarouselLb(lb, false);
+  lb.classList.add("open");
+}
+
 // Extrai ID do YouTube de qualquer formato de URL ou aceita ID puro
 function youtubeId(v){
   if(!v) return "";
@@ -1207,6 +1305,18 @@ function criarCard(item) {
     audio.addEventListener("ended", () => { icon.className = "fa-solid fa-play";  card.classList.remove("is-playing"); });
   }
 
+  // clica no carrossel → abre popup com navegação (arrastar/setas/bolinhas, como no Instagram)
+  if (ehCarrossel) {
+    const carouselEl = card.querySelector(".ig-carousel");
+    if (carouselEl) {
+      carouselEl.addEventListener("click", () => {
+        const track = card.querySelector(".ig-carousel-track");
+        const indiceAtual = track ? Number(track.dataset.current || 0) : 0;
+        abrirLightboxCarrossel(item.imagens, indiceAtual);
+      });
+    }
+  }
+
   // clica na imagem → abre em tela cheia (mesma lightbox usada nos popups)
   const lightboxImg = card.querySelector(".grid-lightbox-img");
   if (lightboxImg) {
@@ -1238,6 +1348,7 @@ function iniciarCarrossel(track, total) {
   const SLIDE = 2000; // duração da transição slide
   const HOLD  = 2000; // tempo parado em cada imagem
   let i = 0;
+  track.dataset.current = "0";
   setInterval(() => {
     i++;
     track.style.transition = `transform ${SLIDE}ms ease`;
@@ -1249,7 +1360,10 @@ function iniciarCarrossel(track, total) {
         i = 0;
         track.style.transform = "translateX(0)";
         void track.offsetWidth; // força reflow
+        track.dataset.current = "0";
       }, SLIDE);
+    } else {
+      track.dataset.current = String(i);
     }
   }, SLIDE + HOLD);
 }
