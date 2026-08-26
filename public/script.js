@@ -394,7 +394,14 @@ function irParaSlideCarouselLb(lb, indice) {
   atualizarCarouselLb(lb, true);
 }
 
-function abrirLightboxCarrossel(imagens, indiceInicial) {
+// proporção real de cada tipo de carrossel (imagens exportadas do Instagram)
+const CAROUSEL_LB_ASPECT = {
+  "Carrossel Square":     "1/1",
+  "Carrossel Vertical":   "4/5",
+  "Carrossel Horizontal": "4/3",
+};
+
+function abrirLightboxCarrossel(imagens, indiceInicial, tipo) {
   carouselLbImagens = imagens;
   carouselLbIndice = indiceInicial || 0;
 
@@ -466,6 +473,8 @@ function abrirLightboxCarrossel(imagens, indiceInicial) {
       irParaSlideCarouselLb(lb, Number(dot.dataset.i));
     });
   });
+
+  lb.querySelector(".carousel-lb-stage").style.aspectRatio = CAROUSEL_LB_ASPECT[tipo] || "1/1";
 
   atualizarCarouselLb(lb, false);
   lb.classList.add("open");
@@ -1328,7 +1337,7 @@ function criarCard(item) {
       carouselEl.addEventListener("click", () => {
         const track = card.querySelector(".ig-carousel-track");
         const indiceAtual = track ? Number(track.dataset.current || 0) : 0;
-        abrirLightboxCarrossel(item.imagens, indiceAtual);
+        abrirLightboxCarrossel(item.imagens, indiceAtual, item.tipo);
       });
     }
   }

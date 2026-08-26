@@ -1381,7 +1381,7 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   position:relative;
   width:min(92vw, 480px);
   max-height:80vh;
-  aspect-ratio:4/5;
+  aspect-ratio:1/1; /* ajustado por JS conforme o tipo real do carrossel */
   border-radius:12px;
   overflow:hidden;
   box-shadow:0 20px 60px rgba(0,0,0,.6);
