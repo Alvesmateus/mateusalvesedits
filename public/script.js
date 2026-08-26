@@ -1390,6 +1390,7 @@ const FILTRO_CATEGORIAS = [
   { valor: "Gemini",              nome: "Gemini",        img: "icons/softwares/gemini.png" },
   { valor: "After Effects",       nome: "After Effects", img: "icons/softwares/aftereffects.png" },
   { valor: "Premiere",            nome: "Premiere",      img: "icons/softwares/premire.png" },
+  { valor: "Capcut",              nome: "Capcut",        img: "icons/softwares/capcut.png" },
 ];
 
 function iconeFiltroHtml(c) {
@@ -1419,6 +1420,7 @@ function renderFiltroChips() {
       filtrosSelecionados.delete(chip.dataset.valor);
       renderFiltroChips();
       renderFiltroModalBody();
+      sincronizarAtalhosFiltro();
       atualizarGradeComAnimacao();
     });
   });
@@ -1438,6 +1440,7 @@ function renderFiltroModalBody() {
       if (cb.checked) filtrosSelecionados.add(cb.value);
       else filtrosSelecionados.delete(cb.value);
       renderFiltroChips();
+      sincronizarAtalhosFiltro();
       atualizarGradeComAnimacao();
     });
   });
@@ -1457,6 +1460,37 @@ if (filtrarPostsBtn && filtroModal) {
   if (filtroModalClose) filtroModalClose.addEventListener("click", fecharFiltroModal);
   filtroModal.addEventListener("click", (e) => {
     if (e.target === filtroModal) fecharFiltroModal();
+  });
+}
+
+// ── ATALHOS "SOMENTE X" (Photoshop/Canva/Capcut/After) ao lado de "Filtrar posts" ──
+// selecionar um atalho aplica um filtro único e desativa "Filtrar posts";
+// clicar de novo no atalho ativo limpa o filtro e reativa o botão.
+const filtroAtalhosEl = document.getElementById("filtroAtalhos");
+
+function sincronizarAtalhosFiltro() {
+  if (!filtroAtalhosEl) return;
+  const valores = [...filtrosSelecionados];
+  const valorUnico = valores.length === 1 ? valores[0] : null;
+  let algumAtivo = false;
+  filtroAtalhosEl.querySelectorAll(".filtro-atalho-btn").forEach(btn => {
+    const ativo = btn.dataset.valor === valorUnico;
+    btn.classList.toggle("is-active", ativo);
+    if (ativo) algumAtivo = true;
+  });
+  if (filtrarPostsBtn) filtrarPostsBtn.disabled = algumAtivo;
+}
+
+if (filtroAtalhosEl) {
+  filtroAtalhosEl.querySelectorAll(".filtro-atalho-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const jaAtivo = btn.classList.contains("is-active");
+      filtrosSelecionados.clear();
+      if (!jaAtivo) filtrosSelecionados.add(btn.dataset.valor);
+      renderFiltroChips();
+      sincronizarAtalhosFiltro();
+      atualizarGradeComAnimacao();
+    });
   });
 }
 

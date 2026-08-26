@@ -1400,6 +1400,52 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 }
 .filtrar-posts-btn i{ font-size:.85em; }
 
+.filtrar-posts-btn:disabled,
+.filtrar-posts-btn.is-disabled{
+  cursor:not-allowed;
+  opacity:.4;
+  pointer-events:none;
+  transform:none;
+}
+
+.filtro-atalhos{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  align-items:center;
+}
+.filtro-atalho-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  height:30px;
+  padding:0 12px;
+  border-radius:999px;
+  font-size:.72rem;
+  font-weight:700;
+  white-space:nowrap;
+  cursor:pointer;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.06);
+  color:rgba(255,255,255,.75);
+  transition:background .2s, border-color .2s, color .2s, transform .15s ease;
+}
+.filtro-atalho-btn:hover{
+  background:rgba(255,255,255,.14);
+  color:#fff;
+  transform:translateY(-1px);
+}
+.filtro-atalho-btn img{
+  width:14px;
+  height:14px;
+  object-fit:contain;
+}
+.filtro-atalho-btn.is-active{
+  border-color:rgba(96,205,255,.6);
+  background:rgba(96,205,255,.16);
+  color:#60cdff;
+}
+
 .filtro-chips{
   display:flex;
   flex-wrap:wrap;
