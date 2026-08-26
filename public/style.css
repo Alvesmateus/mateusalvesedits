@@ -1931,6 +1931,27 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   margin-top:10px;
 }
 
+/* flags de atuação (Designer Gráfico, Editor de Vídeos, Social Media...) */
+.role-flags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:2px;
+}
+.role-flag{
+  display:inline-flex;
+  align-items:center;
+  padding:3px 10px;
+  border-radius:999px;
+  font-size:.7rem;
+  font-weight:700;
+  line-height:1.2;
+  color:#60cdff;
+  background:rgba(96,205,255,.12);
+  border:1px solid rgba(96,205,255,.35);
+  white-space:nowrap;
+}
+
 /* "Quem sou eu?" — ícone circular com brilho, texto abaixo */
 .ver-mais-link{
   display:inline-flex;
