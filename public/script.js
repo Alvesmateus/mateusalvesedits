@@ -1154,7 +1154,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "instagram-post/Adsumus é uma palavra em latim que significa “aqui estamos” ou “estamos presentes”. É uma expres.jpg": [
-    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Instagram Carrossel" },
+    { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Carrossel" },
     { img: "icons/softwares/canva.png", label: "Canva" },
   ],
   "artes/img8.jpg": [
@@ -1529,7 +1529,7 @@ const FILTRO_CATEGORIAS = [
   { valor: "Shorts",              nome: "YouTube Shorts",icone: "fa-brands fa-youtube",   cor: "#FF0000" },
   { valor: "Feed",                nome: "Feed",          icone: "fa-brands fa-instagram", cor: "#E1306C" },
   { valor: "Reels",               nome: "Reels",         icone: "fa-brands fa-instagram", cor: "#E1306C" },
-  { valor: "Instagram Carrossel", nome: "Carrossel",     icone: "fa-brands fa-instagram", cor: "#E1306C" },
+  { valor: "Carrossel",           nome: "Carrossel",     icone: "fa-brands fa-instagram", cor: "#E1306C" },
   { valor: "Gemini",              nome: "Gemini",        img: "icons/softwares/gemini.png" },
   { valor: "After Effects",       nome: "After Effects", img: "icons/softwares/aftereffects.png" },
   { valor: "Premiere",            nome: "Premiere",      img: "icons/softwares/premire.png" },
