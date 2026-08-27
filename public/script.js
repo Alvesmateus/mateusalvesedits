@@ -930,6 +930,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   "artes/img41.png": [BADGE_VETOR, BADGE_IMPRESSAO_3D],
   "artes/img42.png": [BADGE_VETOR],
   "artes/img43.png": [BADGE_VETOR],
+  "artes/img44.png": [BADGE_VETOR, BADGE_IMPRESSAO_3D],
   "artes/img15.jpg": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
