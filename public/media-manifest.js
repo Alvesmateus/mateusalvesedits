@@ -93,6 +93,7 @@ window.MEDIA_MANIFEST = {
       "artes/img39.jpg",
       "artes/img4.jpg",
       "artes/img40.jpg",
+      "artes/img41.png",
       "artes/img5.jpg",
       "artes/img6.jpg",
       "artes/img7.jpg",

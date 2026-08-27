@@ -907,6 +907,10 @@ function nomeDoArquivo(caminho) {
 // links externos do YouTube puxados do popup "Filmagens"
 const BADGE_FILMAGENS = { icone: "fa-solid fa-video", cor: "#f97316", label: "Filmagens" };
 
+// badges fixos pra artes vetoriais e peças pensadas pra impressão 3D
+const BADGE_VETOR = { icone: "fa-solid fa-bezier-curve", cor: "#06b6d4", label: "Vetor" };
+const BADGE_IMPRESSAO_3D = { icone: "fa-solid fa-cube", cor: "#22c55e", label: "Impressão 3D" };
+
 // Badges extras (ícone + texto) para itens específicos do grid, por arquivo.
 // Adicione aqui um item por vez: chave = final do caminho do arquivo (o nome
 // que aparece na etiqueta preta do card), valor = lista de badges a mostrar
@@ -922,6 +926,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Banner Youtube" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
+  "artes/img41.png": [BADGE_VETOR, BADGE_IMPRESSAO_3D],
   "artes/img15.jpg": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Thumbnail YouTube" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
