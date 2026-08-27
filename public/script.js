@@ -1349,6 +1349,7 @@ const BADGES_VIDEO_HORIZONTAL_FILMAGENS = [...BADGES_VIDEO_HORIZONTAL_EXTERNO, B
 
 // badge fixo pra todo item da categoria Camisas
 const BADGES_CAMISAS = [
+  { icone: "fa-solid fa-shirt", cor: "#f8fafc", label: "Camisas" },
   { img: "icons/softwares/photshop.png", label: "Photoshop" },
 ];
 
