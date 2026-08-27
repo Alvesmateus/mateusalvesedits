@@ -12,6 +12,7 @@ const FILE_DIRS = [
   "instagram-post/",
   "artes/",
   "audio/",
+  "camisas/",
 ];
 
 // pastas que contêm subpastas (cada subpasta = carrossel/galeria)

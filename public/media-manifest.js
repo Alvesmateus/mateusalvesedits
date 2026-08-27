@@ -101,6 +101,28 @@ window.MEDIA_MANIFEST = {
       "artes/img9.jpg"
     ],
     "audio/": [],
+    "camisas/": [
+      "camisas/camisa1.webp",
+      "camisas/camisa10.webp",
+      "camisas/camisa11.webp",
+      "camisas/camisa12.webp",
+      "camisas/camisa13.webp",
+      "camisas/camisa14.webp",
+      "camisas/camisa15.webp",
+      "camisas/camisa16.webp",
+      "camisas/camisa17.webp",
+      "camisas/camisa18.webp",
+      "camisas/camisa19.jpg",
+      "camisas/camisa2.webp",
+      "camisas/camisa20.jpg",
+      "camisas/camisa3.webp",
+      "camisas/camisa4.webp",
+      "camisas/camisa5.webp",
+      "camisas/camisa6.webp",
+      "camisas/camisa7.webp",
+      "camisas/camisa8.webp",
+      "camisas/camisa9.webp"
+    ],
     "carrossel-square/adsumus/": [
       "carrossel-square/adsumus/1.mp4",
       "carrossel-square/adsumus/2.jpg",

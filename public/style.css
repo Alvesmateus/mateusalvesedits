@@ -1698,6 +1698,7 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 .type-feed                        { aspect-ratio: 4/5; }
 .type-stories, .type-reels { aspect-ratio: 4/5; }
 .type-shorts { aspect-ratio: 4/5; }
+.type-camisa { aspect-ratio: 4/5; }
 
 /* ── CARROSSEL SLIDE ── */
 .ig-carousel{

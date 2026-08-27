@@ -891,6 +891,7 @@ const typeConfig = {
   'Carrossel Square':   { col: 'col-span-1', row: 'row-span-1' },
   'Carrossel Vertical': { col: 'col-span-1', row: 'row-span-1' },
   'Carrossel Horizontal': { col: 'col-span-1', row: 'row-span-1' },
+  'Camisa':     { col: 'col-span-1', row: 'row-span-1' },
 };
 
 // caminho completo (pasta + arquivo) pra identificar o post sem ambiguidade —
@@ -1343,10 +1344,16 @@ const BADGES_VIDEO_HORIZONTAL_EXTERNO = [
 // (categoria "filmagens-1"), sem mexer nos de "Top Vídeos"
 const BADGES_VIDEO_HORIZONTAL_FILMAGENS = [...BADGES_VIDEO_HORIZONTAL_EXTERNO, BADGE_FILMAGENS];
 
+// badge fixo pra todo item da categoria Camisas
+const BADGES_CAMISAS = [
+  { img: "icons/softwares/photshop.png", label: "Photoshop" },
+];
+
 // olha só o arquivo que aparece na etiqueta preta (1ª imagem no carrossel),
 // pra não misturar badges de arquivos diferentes dentro do mesmo card
 function badgesExtrasDoItem(item) {
   if (item.icone === "fa-solid fa-microphone") return BADGES_NARRACAO;
+  if (item.categoria === "camisas") return BADGES_CAMISAS;
   if (item.youtubeUrl && item.tipo === "Horizontal") {
     return item.categoria === "filmagens-1"
       ? BADGES_VIDEO_HORIZONTAL_FILMAGENS
@@ -2100,6 +2107,14 @@ Promise.all([
     icone:  "fa-solid fa-microphone",
     cor:    "#a855f7",
     categoria: "narracoes",
+  }),
+  carregarPastaNoGrid("camisas/", {
+    titulo: "Camisa",
+    rede:   "Camisas",
+    tipo:   "Camisa",
+    icone:  "fa-solid fa-shirt",
+    cor:    "#f8fafc",
+    categoria: "camisas",
   }),
   carregarYoutubeTopNoGrid({
     titulo: "Narração",
