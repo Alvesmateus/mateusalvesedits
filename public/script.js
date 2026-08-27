@@ -1073,6 +1073,7 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.26.44.mp4": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
+    BADGE_FILMAGENS,
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.26.43 (1).mp4": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
@@ -1081,14 +1082,17 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.27.34 (1).mp4": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
+    BADGE_FILMAGENS,
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.26.58.mp4": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
+    BADGE_FILMAGENS,
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.27.34.mp4": [
     { icone: "fa-brands fa-instagram", cor: "#E1306C", label: "Reels" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
+    BADGE_FILMAGENS,
   ],
   "instagram-feed/WhatsApp Video 2026-08-23 at 13.29.35.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
@@ -1139,14 +1143,17 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   "youtube-videos/video3.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
     { img: "icons/softwares/premire.png", label: "Premiere" },
+    BADGE_FILMAGENS,
   ],
   "youtube-videos/video4.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
     { img: "icons/softwares/premire.png", label: "Premiere" },
+    BADGE_FILMAGENS,
   ],
   "youtube-videos/video5.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
     { img: "icons/softwares/premire.png", label: "Premiere" },
+    BADGE_FILMAGENS,
   ],
   "youtube-videos/video6.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
@@ -1155,14 +1162,17 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
   "youtube-videos/video7.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
     { img: "icons/softwares/premire.png", label: "Premiere" },
+    BADGE_FILMAGENS,
   ],
   "youtube-videos/video8.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
     { img: "icons/softwares/premire.png", label: "Premiere" },
+    BADGE_FILMAGENS,
   ],
   "youtube-videos/video9.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
     { img: "icons/softwares/premire.png", label: "Premiere" },
+    BADGE_FILMAGENS,
   ],
   "youtube-videos/video10.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
@@ -1307,18 +1317,6 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
-
-  // Filmagens (vídeos gravados, não editados a partir de material de terceiros)
-  "youtube-videos/video3.mp4": [BADGE_FILMAGENS],
-  "youtube-videos/video4.mp4": [BADGE_FILMAGENS],
-  "youtube-videos/video5.mp4": [BADGE_FILMAGENS],
-  "youtube-videos/video7.mp4": [BADGE_FILMAGENS],
-  "youtube-videos/video8.mp4": [BADGE_FILMAGENS],
-  "youtube-videos/video9.mp4": [BADGE_FILMAGENS],
-  "instagram-feed/WhatsApp Video 2026-08-23 at 13.26.44.mp4": [BADGE_FILMAGENS],
-  "instagram-feed/WhatsApp Video 2026-08-23 at 13.26.58.mp4": [BADGE_FILMAGENS],
-  "instagram-feed/WhatsApp Video 2026-08-23 at 13.27.34.mp4": [BADGE_FILMAGENS],
-  "instagram-feed/WhatsApp Video 2026-08-23 at 13.27.34 (1).mp4": [BADGE_FILMAGENS],
 };
 
 // badges fixos pra todo item da categoria Narração (áudios locais e os
