@@ -902,6 +902,11 @@ function nomeDoArquivo(caminho) {
   catch (e) { return semQuery; }
 }
 
+// badge fixo pra identificar filmagens (vídeo gravado, não editado a partir
+// de material de terceiros) — usado tanto em arquivos locais quanto nos
+// links externos do YouTube puxados do popup "Filmagens"
+const BADGE_FILMAGENS = { icone: "fa-solid fa-video", cor: "#f97316", label: "Filmagens" };
+
 // Badges extras (ícone + texto) para itens específicos do grid, por arquivo.
 // Adicione aqui um item por vez: chave = final do caminho do arquivo (o nome
 // que aparece na etiqueta preta do card), valor = lista de badges a mostrar
@@ -1302,6 +1307,18 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
   ],
+
+  // Filmagens (vídeos gravados, não editados a partir de material de terceiros)
+  "youtube-videos/video3.mp4": [BADGE_FILMAGENS],
+  "youtube-videos/video4.mp4": [BADGE_FILMAGENS],
+  "youtube-videos/video5.mp4": [BADGE_FILMAGENS],
+  "youtube-videos/video7.mp4": [BADGE_FILMAGENS],
+  "youtube-videos/video8.mp4": [BADGE_FILMAGENS],
+  "youtube-videos/video9.mp4": [BADGE_FILMAGENS],
+  "instagram-feed/WhatsApp Video 2026-08-23 at 13.26.44.mp4": [BADGE_FILMAGENS],
+  "instagram-feed/WhatsApp Video 2026-08-23 at 13.26.58.mp4": [BADGE_FILMAGENS],
+  "instagram-feed/WhatsApp Video 2026-08-23 at 13.27.34.mp4": [BADGE_FILMAGENS],
+  "instagram-feed/WhatsApp Video 2026-08-23 at 13.27.34 (1).mp4": [BADGE_FILMAGENS],
 };
 
 // badges fixos pra todo item da categoria Narração (áudios locais e os
@@ -1319,11 +1336,19 @@ const BADGES_VIDEO_HORIZONTAL_EXTERNO = [
   { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
 ];
 
+// mesmos badges acima + Filmagens, só pros vídeos do popup "Filmagens"
+// (categoria "filmagens-1"), sem mexer nos de "Top Vídeos"
+const BADGES_VIDEO_HORIZONTAL_FILMAGENS = [...BADGES_VIDEO_HORIZONTAL_EXTERNO, BADGE_FILMAGENS];
+
 // olha só o arquivo que aparece na etiqueta preta (1ª imagem no carrossel),
 // pra não misturar badges de arquivos diferentes dentro do mesmo card
 function badgesExtrasDoItem(item) {
   if (item.icone === "fa-solid fa-microphone") return BADGES_NARRACAO;
-  if (item.youtubeUrl && item.tipo === "Horizontal") return BADGES_VIDEO_HORIZONTAL_EXTERNO;
+  if (item.youtubeUrl && item.tipo === "Horizontal") {
+    return item.categoria === "filmagens-1"
+      ? BADGES_VIDEO_HORIZONTAL_FILMAGENS
+      : BADGES_VIDEO_HORIZONTAL_EXTERNO;
+  }
   const arq = item.imagens ? item.imagens[0] : item.imagem;
   if (!arq) return null;
   for (const chave in BADGES_EXTRAS_POR_ARQUIVO) {
