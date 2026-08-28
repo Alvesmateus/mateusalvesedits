@@ -892,6 +892,15 @@ const imagensGrid = [
     cor: "#f8fafc",
     categoria: "camisas",
   },
+  {
+    titulo: "Arte",
+    imagem: "novos/arte-periodos-literarios.jpeg",
+    rede: "Instagram",
+    tipo: "Post",
+    icone: "fa-brands fa-instagram",
+    cor: "#E1306C",
+    categoria: "arts",
+  },
 ];
 
 const photoGrid = document.getElementById("photoGrid");
@@ -940,6 +949,9 @@ const BADGE_IMPRESSAO_3D = { icone: "fa-solid fa-cube", cor: "#22c55e", label: "
 const BADGES_EXTRAS_POR_ARQUIVO = {
   "novos/filmagem-fuzileiro-real-01.mp4": [
     { img: "icons/softwares/aftereffects.png", label: "After Effects" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "novos/arte-periodos-literarios.jpeg": [
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
   "artes/img39.jpg": [
