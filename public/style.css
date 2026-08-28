@@ -2038,12 +2038,12 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   text-shadow:0 2px 12px rgba(0,0,0,.7), 0 1px 3px rgba(0,0,0,.9);
 }
 
-/* bio com clamp de 4 linhas + fade + "mostrar mais" (revela em linha) */
+/* bio oculta por padrão + "mostrar mais" (revela em linha) */
 .bio-clamp-wrap{
   position:relative;
 }
 #heroSubtitle.bio-clamp{
-  max-height:5.5em;
+  max-height:0;
   overflow:hidden;
   transition:max-height .45s ease;
 }
@@ -2051,12 +2051,12 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   position:absolute;
   left:0;
   right:0;
-  bottom:0;
+  top:0;
   height:2.75em;
   display:flex;
   align-items:flex-end;
   justify-content:center;
-  background:linear-gradient(to bottom, rgba(11,11,15,0), rgba(11,11,15,.92) 65%);
+  background:none;
   pointer-events:none;
 }
 .bio-mostrar-mais-btn{
