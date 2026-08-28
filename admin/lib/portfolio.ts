@@ -43,6 +43,7 @@ export const DEFAULT_PORTFOLIO_CARDS: PortfolioCard[] = [
       { texto: "Canva", img: "icons/softwares/canva.png" },
       { texto: "CapCut", img: "icons/softwares/capcut.png" },
       { texto: "Inkscape", img: "icons/softwares/inkscape.png" },
+      { texto: "CorelDraw", img: "icons/softwares/coreldraw-icon.svg" },
       { texto: "Affinity", img: "icons/softwares/affinity.png" },
       { texto: "Moho Studio", img: "icons/softwares/Moho.png" },
     ],

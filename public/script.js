@@ -871,8 +871,27 @@ async function carregarSoftwareIcons(container, dir, socialAnim = false){
   });
 }
 
+// Itens fixos (commitados direto no repo, fora do Blob) — usados enquanto o
+// Blob store estiver suspenso e o upload pelo painel admin não funcionar.
 const imagensGrid = [
-
+  {
+    titulo: "Filmagem",
+    imagem: "novos/filmagem-fuzileiro-real-01.mp4",
+    rede: "Filmagem",
+    tipo: "Horizontal",
+    icone: "fa-solid fa-video",
+    cor: "#f97316",
+    categoria: "filmagens-1",
+  },
+  {
+    titulo: "Camisa",
+    imagem: "novos/camisa-fuzileiro-real-running.jpeg",
+    rede: "Camisas",
+    tipo: "Camisa",
+    icone: "fa-solid fa-shirt",
+    cor: "#f8fafc",
+    categoria: "camisas",
+  },
 ];
 
 const photoGrid = document.getElementById("photoGrid");
@@ -919,6 +938,10 @@ const BADGE_IMPRESSAO_3D = { icone: "fa-solid fa-cube", cor: "#22c55e", label: "
 // icone = classe do Font Awesome (ex: "fa-brands fa-youtube")
 // img   = caminho de uma imagem/logo (ex: "icons/softwares/photshop.png")
 const BADGES_EXTRAS_POR_ARQUIVO = {
+  "novos/filmagem-fuzileiro-real-01.mp4": [
+    { img: "icons/softwares/aftereffects.png", label: "After Effects" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
   "artes/img39.jpg": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Banner Youtube" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
@@ -1699,6 +1722,7 @@ const FILTRO_CATEGORIAS = [
   { valor: "Premiere",            nome: "Premiere",      img: "icons/softwares/premire.png" },
   { valor: "Capcut",              nome: "Capcut",        img: "icons/softwares/capcut.png" },
   { valor: "Banner Youtube",      nome: "Banner Youtube",icone: "fa-brands fa-youtube",   cor: "#FF0000" },
+  { valor: "Filmagens",           nome: "Filmagens",     icone: "fa-solid fa-video",      cor: "#f97316" },
 ];
 
 function iconeFiltroHtml(c) {
