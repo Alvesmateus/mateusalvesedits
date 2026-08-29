@@ -2279,7 +2279,7 @@ const PRECISA_COMBOS = {
   efeitos: ["After Effects"],
   carrossel: ["Carrossel"],
   "youtube-videos": ["YouTube"],
-  "instagram-posts": ["Feed"],
+  "instagram-posts": ["Reels", "Carrossel", "Feed"],
 };
 
 const precisaModal      = document.getElementById("precisaModal");
