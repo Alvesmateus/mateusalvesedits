@@ -1543,10 +1543,7 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 }
 
 .filtro-chips{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  align-items:center;
+  display:none;
 }
 .filtro-chip{
   display:inline-flex;
