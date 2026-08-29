@@ -2509,6 +2509,9 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 
 .precisa-modal-box{
   width:380px;
+  background:none;
+  border:none;
+  box-shadow:none;
 }
 .precisa-modal-subtitle{
   margin:-8px 0 14px;
