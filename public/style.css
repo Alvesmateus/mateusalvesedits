@@ -2119,11 +2119,6 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   transform:skewX(-20deg);
   animation:verMaisShine 2.6s ease-in-out infinite;
 }
-.ver-mais-icon-img{
-  width:24px;
-  height:24px;
-  object-fit:contain;
-}
 .ver-mais-label{
   font-size:.75rem;
   font-weight:700;
@@ -2154,11 +2149,6 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 #headerQuemSouBtn .ver-mais-icon i{
   color:#0b0b0f;
 }
-#headerSoftwaresBtn .ver-mais-icon{
-  background:#0b0b0f;
-  border-color:rgba(255,255,255,.2);
-}
-
 .ver-mais-link.is-inert{
   cursor:not-allowed;
   color:rgba(255,255,255,.45);
@@ -2522,15 +2512,16 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 }
 .precisa-modal-body{
   display:flex;
-  flex-direction:column;
-  gap:10px;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
 }
 .precisa-opcao-btn{
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:14px 16px;
-  border-radius:16px;
+  padding:9px 12px;
+  border-radius:12px;
   border:1px solid transparent;
   text-align:center;
   cursor:pointer;
@@ -2541,7 +2532,7 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 }
 .precisa-opcao-title{
   color:#fff;
-  font-size:.9rem;
+  font-size:.76rem;
   font-weight:700;
   line-height:1.3;
 }
