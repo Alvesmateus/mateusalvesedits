@@ -2551,16 +2551,20 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   height:16px;
   object-fit:contain;
   border-radius:3px;
+  filter:drop-shadow(0 1px 2px rgba(0,0,0,.65));
 }
 .precisa-opcao-icons i{
   font-size:.85rem;
   color:#fff;
+  -webkit-text-stroke:.5px rgba(0,0,0,.6);
+  text-shadow:0 1px 3px rgba(0,0,0,.65);
 }
 .precisa-opcao-title{
   color:#fff;
   font-size:.76rem;
   font-weight:700;
   line-height:1.3;
+  text-shadow:0 1px 3px rgba(0,0,0,.5);
 }
 
 /* ── BOTÃO FLUTUANTE DE CHAT (fake chatbot → WhatsApp) ── */
