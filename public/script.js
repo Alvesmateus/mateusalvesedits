@@ -2271,7 +2271,8 @@ if (searchInput){
 // ainda não têm combo definido, então só fecham o popup.
 const PRECISA_COMBOS = {
   grafica: ["Impressão 3D", "Vetor", "Camisas"],
-  design: ["Photoshop", "Canva"],
+  photoshop: ["Photoshop"],
+  canva: ["Canva"],
   video: ["Capcut", "Premiere", "After Effects"],
   "camisas-canecas": ["Camisas"],
   banners: ["Banner Youtube"],
