@@ -2509,9 +2509,9 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 
 .precisa-modal-box{
   width:380px;
-  background:none;
-  border:none;
-  box-shadow:none;
+  background:rgba(0,0,0,.45);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 24px 60px rgba(0,0,0,.5);
 }
 .precisa-modal-subtitle{
   margin:-8px 0 14px;
@@ -2522,19 +2522,16 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 }
 .precisa-modal-body{
   display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:16px 12px;
+  flex-direction:column;
+  gap:10px;
 }
 .precisa-opcao-btn{
   display:flex;
-  flex:0 0 96px;
-  flex-direction:column;
   align-items:center;
-  gap:8px;
-  padding:6px 2px;
-  border:none;
-  background:none;
+  justify-content:center;
+  padding:14px 16px;
+  border-radius:16px;
+  border:1px solid transparent;
   text-align:center;
   cursor:pointer;
   transition:transform .15s ease;
@@ -2542,22 +2539,9 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 .precisa-opcao-btn:hover{
   transform:translateY(-2px);
 }
-.precisa-opcao-icon{
-  display:grid;
-  place-items:center;
-  width:52px;
-  height:52px;
-  flex-shrink:0;
-  color:rgba(255,255,255,.75);
-  font-size:1.5rem;
-  transition:color .15s ease;
-}
-.precisa-opcao-btn:hover .precisa-opcao-icon{
-  color:#fff;
-}
 .precisa-opcao-title{
   color:#fff;
-  font-size:.78rem;
+  font-size:.9rem;
   font-weight:700;
   line-height:1.3;
 }
