@@ -1534,7 +1534,6 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   border-color:#fff;
   background:#fff;
   color:#0b0b0f;
-  box-shadow:0 0 18px rgba(255,255,255,.6), 0 4px 14px rgba(255,255,255,.3);
   transform:scale(1.08);
 }
 .filtro-atalho-btn.is-active img{
