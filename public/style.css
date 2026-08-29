@@ -2457,6 +2457,15 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   background:rgba(255,255,255,.2);
   transform:scale(1.08);
 }
+
+#precisaModalClose{
+  background:#fff;
+  border-color:#fff;
+  color:#0b0b0f;
+}
+#precisaModalClose:hover{
+  background:#e5e5e5;
+}
 .filtro-modal-body{
   display:flex;
   flex-direction:column;
@@ -2520,6 +2529,7 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   display:flex;
   align-items:center;
   justify-content:center;
+  gap:7px;
   padding:9px 12px;
   border-radius:12px;
   border:1px solid transparent;
@@ -2529,6 +2539,22 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 }
 .precisa-opcao-btn:hover{
   transform:translateY(-2px);
+}
+.precisa-opcao-icons{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  flex-shrink:0;
+}
+.precisa-opcao-icons img{
+  width:16px;
+  height:16px;
+  object-fit:contain;
+  border-radius:3px;
+}
+.precisa-opcao-icons i{
+  font-size:.85rem;
+  color:#fff;
 }
 .precisa-opcao-title{
   color:#fff;
