@@ -2297,3 +2297,49 @@ if (searchInput){
     }
   }
 }
+
+// ── POPUP "O QUE VOCÊ PRECISA?" (abre toda vez que o site é aberto) ──
+// cada opção aplica um combo de filtros de atalho (mesmo Set usado pelos
+// botões de filtro e pelo popup "Filtrar posts"); Filmagens e Política
+// ainda não têm combo definido, então só fecham o popup.
+const PRECISA_COMBOS = {
+  grafica: ["Impressão 3D", "Vetor", "Camisas"],
+  design: ["Photoshop", "Canva"],
+  video: ["Capcut", "Premiere", "After Effects"],
+};
+
+const precisaModal      = document.getElementById("precisaModal");
+const precisaModalClose = document.getElementById("precisaModalClose");
+
+function fecharPrecisaModal() {
+  if (!precisaModal) return;
+  precisaModal.classList.remove("is-open");
+  document.body.style.overflow = "";
+}
+
+if (precisaModal) {
+  precisaModal.querySelectorAll(".precisa-opcao-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const combo = PRECISA_COMBOS[btn.dataset.precisa];
+      if (combo) {
+        filtrosSelecionados.clear();
+        combo.forEach(valor => filtrosSelecionados.add(valor));
+        renderFiltroChips();
+        sincronizarAtalhosFiltro();
+        atualizarGradeComAnimacao();
+        fecharPrecisaModal();
+        document.getElementById("photoGrid")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        fecharPrecisaModal();
+      }
+    });
+  });
+
+  if (precisaModalClose) precisaModalClose.addEventListener("click", fecharPrecisaModal);
+  precisaModal.addEventListener("click", (e) => {
+    if (e.target === precisaModal) fecharPrecisaModal();
+  });
+
+  precisaModal.classList.add("is-open");
+  document.body.style.overflow = "hidden";
+}

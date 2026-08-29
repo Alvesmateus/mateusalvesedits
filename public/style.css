@@ -2527,6 +2527,29 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   cursor:pointer;
 }
 
+.precisa-modal-body{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.precisa-opcao-btn{
+  padding:14px 16px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
+  color:#fff;
+  font-size:.92rem;
+  font-weight:700;
+  text-align:left;
+  cursor:pointer;
+  transition:background .15s ease, transform .15s ease, border-color .15s ease;
+}
+.precisa-opcao-btn:hover{
+  background:rgba(124,58,237,.18);
+  border-color:rgba(124,58,237,.5);
+  transform:translateX(2px);
+}
+
 /* ── BOTÃO FLUTUANTE DE CHAT (fake chatbot → WhatsApp) ── */
 .chat-float-btn{
   position:fixed;
