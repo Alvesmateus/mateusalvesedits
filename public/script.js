@@ -1808,31 +1808,24 @@ if (filtrarPostsBtn && filtroModal) {
 }
 
 // ── ATALHOS "SOMENTE X" (Photoshop/Canva/Capcut/After) ao lado de "Filtrar posts" ──
-// selecionar um atalho aplica um filtro único e desativa "Filtrar posts";
-// clicar de novo no atalho ativo limpa o filtro e reativa o botão.
+// cada atalho alterna (liga/desliga) seu valor no mesmo conjunto usado pelo
+// popup "Filtrar posts" — dá pra combinar vários atalhos, ou atalho + popup.
 const filtroAtalhosEl = document.getElementById("filtroAtalhos");
 
 function sincronizarAtalhosFiltro() {
   if (!filtroAtalhosEl) return;
-  const valores = [...filtrosSelecionados];
-  const valorUnico = valores.length === 1 ? valores[0] : null;
-  let algumAtivo = false;
   filtroAtalhosEl.querySelectorAll(".filtro-atalho-btn").forEach(btn => {
-    const ativo = btn.dataset.valor === valorUnico;
-    btn.classList.toggle("is-active", ativo);
-    if (ativo) algumAtivo = true;
+    btn.classList.toggle("is-active", filtrosSelecionados.has(btn.dataset.valor));
   });
-  if (filtrarPostsBtn) filtrarPostsBtn.disabled = algumAtivo;
 }
 
 if (filtroAtalhosEl) {
   filtroAtalhosEl.querySelectorAll(".filtro-atalho-btn").forEach(btn => {
     btn.addEventListener("click", () => {
-      const jaAtivo = btn.classList.contains("is-active");
-      filtrosSelecionados.clear();
-      if (!jaAtivo) filtrosSelecionados.add(btn.dataset.valor);
-      // atalho não gera chip (nome + x) — isso só aparece vindo do "Filtrar posts"
-      if (filtroChips) filtroChips.innerHTML = "";
+      const valor = btn.dataset.valor;
+      if (filtrosSelecionados.has(valor)) filtrosSelecionados.delete(valor);
+      else filtrosSelecionados.add(valor);
+      renderFiltroChips();
       sincronizarAtalhosFiltro();
       atualizarGradeComAnimacao();
     });
