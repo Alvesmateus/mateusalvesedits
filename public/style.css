@@ -2519,51 +2519,47 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 }
 .precisa-modal-body{
   display:flex;
-  flex-direction:column;
-  gap:8px;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:16px 12px;
 }
 .precisa-opcao-btn{
   display:flex;
+  flex:0 0 96px;
+  flex-direction:column;
   align-items:center;
-  gap:12px;
-  padding:12px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.1);
-  background:rgba(255,255,255,.04);
-  text-align:left;
+  gap:8px;
+  padding:6px 2px;
+  border:none;
+  background:none;
+  text-align:center;
   cursor:pointer;
-  transition:background .15s ease, transform .15s ease, border-color .15s ease;
+  transition:transform .15s ease;
 }
 .precisa-opcao-btn:hover{
-  background:rgba(255,255,255,.08);
-  border-color:rgba(255,255,255,.22);
-  transform:translateX(2px);
+  transform:translateY(-2px);
 }
 .precisa-opcao-icon{
   display:grid;
   place-items:center;
-  width:38px;
-  height:38px;
+  width:52px;
+  height:52px;
   flex-shrink:0;
-  border-radius:11px;
-  font-size:1rem;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.18);
+  color:rgba(255,255,255,.75);
+  font-size:1.15rem;
+  transition:border-color .15s ease, color .15s ease;
 }
-.precisa-opcao-text{
-  display:flex;
-  flex-direction:column;
-  gap:2px;
-  min-width:0;
+.precisa-opcao-btn:hover .precisa-opcao-icon{
+  border-color:rgba(255,255,255,.4);
+  color:#fff;
 }
 .precisa-opcao-title{
   color:#fff;
-  font-size:.88rem;
-  font-weight:800;
-}
-.precisa-opcao-desc{
-  color:rgba(255,255,255,.55);
-  font-size:.74rem;
-  font-weight:500;
-  line-height:1.35;
+  font-size:.78rem;
+  font-weight:700;
+  line-height:1.3;
 }
 
 /* ── BOTÃO FLUTUANTE DE CHAT (fake chatbot → WhatsApp) ── */
