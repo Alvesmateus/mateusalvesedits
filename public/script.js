@@ -2273,6 +2273,12 @@ const PRECISA_COMBOS = {
   grafica: ["Impressão 3D", "Vetor", "Camisas"],
   design: ["Photoshop", "Canva"],
   video: ["Capcut", "Premiere", "After Effects"],
+  "camisas-canecas": ["Camisas"],
+  banners: ["Banner Youtube"],
+  efeitos: ["After Effects"],
+  carrossel: ["Carrossel"],
+  "youtube-videos": ["YouTube"],
+  "instagram-posts": ["Feed"],
 };
 
 const precisaModal      = document.getElementById("precisaModal");
