@@ -138,8 +138,22 @@ if (roleFlagButtons.length && roleFlagTextEl) {
     roleFlagAtivo = null;
   }
 
+  // atalhos "Quem sou eu / Contato / Currículo / Experiência" no mesmo
+  // estilo de badge, mas só disparam os botões de sempre no topo
+  const ROLE_FLAG_ACTIONS = {
+    quemsou: "headerQuemSouBtn",
+    contato: "headerContatoBtn",
+    curriculo: "headerCurriculoBtn",
+    experiencia: "headerExperienciaBtn",
+  };
+
   roleFlagButtons.forEach(btn => {
     btn.addEventListener("click", () => {
+      const action = btn.dataset.action;
+      if (action) {
+        document.getElementById(ROLE_FLAG_ACTIONS[action])?.click();
+        return;
+      }
       const role = btn.dataset.role;
       if (roleFlagAtivo === role) { fecharRoleFlagText(); return; }
       roleFlagButtons.forEach(b => b.classList.remove("is-active"));
