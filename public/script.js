@@ -119,6 +119,39 @@ if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
   });
 }
 
+// badges de atuação (Designer Gráfico/Editor de Vídeos/Social Media):
+// cada um revela seu próprio texto abaixo, igual ao "Mostrar mais" da bio
+const ROLE_FLAG_TEXTS = {
+  grafico: "Crio artes, thumbnails, banners e materiais gráficos no Photoshop e Canva — de posts a produtos como camisas e canecas.",
+  video: "Edito vídeos horizontais e verticais no Capcut, Premiere e After Effects — roteiro, cortes, thumbnails e efeitos especiais.",
+  social: "Cuido da gestão de Instagram e YouTube: calendário editorial, criação de posts, carrosséis, reels e agendamento das publicações.",
+};
+const roleFlagButtons = document.querySelectorAll(".role-flag");
+const roleFlagTextEl  = document.getElementById("roleFlagText");
+if (roleFlagButtons.length && roleFlagTextEl) {
+  let roleFlagAtivo = null;
+
+  function fecharRoleFlagText(){
+    roleFlagTextEl.style.maxHeight = "";
+    roleFlagTextEl.classList.remove("is-open");
+    roleFlagButtons.forEach(b => b.classList.remove("is-active"));
+    roleFlagAtivo = null;
+  }
+
+  roleFlagButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const role = btn.dataset.role;
+      if (roleFlagAtivo === role) { fecharRoleFlagText(); return; }
+      roleFlagButtons.forEach(b => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      roleFlagTextEl.textContent = ROLE_FLAG_TEXTS[role] || "";
+      roleFlagTextEl.classList.add("is-open");
+      roleFlagTextEl.style.maxHeight = roleFlagTextEl.scrollHeight + "px";
+      roleFlagAtivo = role;
+    });
+  });
+}
+
 // ícone do botão "Contato" trocando de ícone e cor entre as redes sociais
 const CONTATO_PLATAFORMAS = [
   { icone: "fa-brands fa-whatsapp",   cor: "#25D366" },

@@ -2054,6 +2054,23 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   background:rgba(96,205,255,.12);
   border:1px solid rgba(96,205,255,.35);
   white-space:nowrap;
+  cursor:pointer;
+  transition:background .15s ease, border-color .15s ease;
+}
+.role-flag.is-active{
+  background:rgba(96,205,255,.28);
+  border-color:#60cdff;
+}
+.role-flag-text{
+  max-height:0;
+  overflow:hidden;
+  color:rgba(255,255,255,.7);
+  font-size:.76rem;
+  line-height:1.4;
+  transition:max-height .35s ease, margin-top .35s ease;
+}
+.role-flag-text.is-open{
+  margin-top:6px;
 }
 .bio-mostrar-mais-btn{
   display:inline-flex;
