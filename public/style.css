@@ -2027,21 +2027,9 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   text-shadow:0 2px 12px rgba(0,0,0,.7), 0 1px 3px rgba(0,0,0,.9);
 }
 
-/* bio oculta por padrão + "mostrar mais" (revela em linha) */
-.bio-clamp-wrap{
-  position:relative;
-}
-#heroSubtitle.bio-clamp{
-  max-height:0;
-  overflow:hidden;
-  transition:max-height .45s ease;
-}
 @keyframes textRevealSlideUp{
   from{ opacity:0; transform:translateY(10px); }
   to{ opacity:1; transform:translateY(0); }
-}
-.bio-clamp-wrap.is-expanded #heroSubtitle{
-  animation:textRevealSlideUp .45s ease;
 }
 /* flags de atuação (Designer Gráfico, Editor de Vídeos, Social Media...) */
 .role-flags{
@@ -2146,25 +2134,6 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   margin-top:6px;
   animation:textRevealSlideUp .45s ease;
 }
-.bio-mostrar-mais-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  padding:3px 10px;
-  border-radius:999px;
-  font-size:.7rem;
-  font-weight:700;
-  line-height:1.2;
-  color:#a78bfa;
-  background:rgba(167,139,250,.12);
-  border:1px solid rgba(167,139,250,.35);
-  white-space:nowrap;
-  cursor:pointer;
-}
-.bio-mostrar-mais-btn i{
-  font-size:.9em;
-}
-
 /* fundo escurecido atrás das dicas (balões flutuantes) */
 .hint-backdrop{
   position:fixed;
@@ -2179,10 +2148,9 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   opacity:1;
 }
 
-/* botões de atuação maiores no mobile (Designer Gráfico, Mostrar mais, etc.) */
+/* botões de atuação maiores no mobile (Designer Gráfico, etc.) */
 @media(max-width:639px){
-  .role-flag,
-  .bio-mostrar-mais-btn{
+  .role-flag{
     padding:6px 13px;
     font-size:.8rem;
     gap:7px;

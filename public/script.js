@@ -99,12 +99,8 @@ if (headerExperienciaBtn) {
   });
 }
 
-// bio ("Mostrar mais") + badges de atuação (Designer Gráfico/Editor de Vídeos/Social Media/...):
-// todos revelam texto em linha, no mesmo estilo, e só um fica aberto por vez
-const bioClampWrap   = document.getElementById("bioClampWrap");
-const bioMostrarMais = document.getElementById("bioMostrarMaisBtn");
-const bioMostrarMaisLabel = bioMostrarMais ? bioMostrarMais.querySelector(".bio-mostrar-mais-label") : null;
-const heroSubtitleEl = document.getElementById("heroSubtitle");
+// badges de atuação (Designer Gráfico/Editor de Vídeos/Social Media/...):
+// revelam texto em linha, no mesmo estilo, e só um fica aberto por vez
 const roleFlagButtons = document.querySelectorAll(".role-flag");
 const roleFlagTextEl  = document.getElementById("roleFlagText");
 const hintBackdropEl  = document.getElementById("hintBackdrop");
@@ -119,47 +115,21 @@ const ROLE_FLAG_TEXTS = {
   experiencia: "Já atuei com produção de conteúdo, gestão de redes sociais e edição de vídeo para criadores e marcas — os projetos e clientes estão no portfólio abaixo.",
 };
 
-let revelacaoAberta = null; // "bio" | data-role do badge | null
+let revelacaoAberta = null; // data-role do badge aberto | null
 
-function fecharBio(){
-  if (!bioClampWrap || !heroSubtitleEl || !bioMostrarMais) return;
-  bioClampWrap.classList.remove("is-expanded");
-  heroSubtitleEl.style.maxHeight = "";
-  if (bioMostrarMaisLabel) bioMostrarMaisLabel.textContent = "Mostrar mais";
-}
-function abrirBio(){
-  if (!bioClampWrap || !heroSubtitleEl || !bioMostrarMais) return;
-  // reflow forçado para a animação de slide up reiniciar mesmo trocando
-  // direto de um badge de atuação para a bio (ou vice-versa)
-  bioClampWrap.classList.remove("is-expanded");
-  void bioClampWrap.offsetWidth;
-  bioClampWrap.classList.add("is-expanded");
-  heroSubtitleEl.style.maxHeight = heroSubtitleEl.scrollHeight + "px";
-  if (bioMostrarMaisLabel) bioMostrarMaisLabel.textContent = "Mostrar menos";
-}
 function fecharRoleFlagText(){
   if (!roleFlagTextEl) return;
   roleFlagTextEl.style.maxHeight = "";
   roleFlagTextEl.classList.remove("is-open");
   roleFlagButtons.forEach(b => {
     b.classList.remove("is-active");
-    const label = b.querySelector(".role-flag-label");
-    if (label && b.dataset.label) label.textContent = b.dataset.label;
+    const icone = b.querySelector("i");
+    if (icone && b.dataset.icon) icone.className = b.dataset.icon;
   });
 }
 function fecharTudo(){
-  fecharBio();
   fecharRoleFlagText();
   revelacaoAberta = null;
-}
-
-if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
-  bioMostrarMais.addEventListener("click", () => {
-    if (revelacaoAberta === "bio") { fecharTudo(); return; }
-    fecharTudo();
-    abrirBio();
-    revelacaoAberta = "bio";
-  });
 }
 
 // fundo escurecido atrás das dicas (balões) enquanto pelo menos uma estiver visível
@@ -197,14 +167,14 @@ atualizarHintBackdrop();
 
 if (roleFlagButtons.length && roleFlagTextEl) {
   roleFlagButtons.forEach(btn => {
-    const label = btn.querySelector(".role-flag-label");
-    btn.dataset.label = label ? label.textContent : btn.textContent;
+    const icone = btn.querySelector("i");
+    if (icone) btn.dataset.icon = icone.className;
     btn.addEventListener("click", () => {
       const role = btn.dataset.role;
       if (revelacaoAberta === role) { fecharTudo(); return; }
       fecharTudo();
       btn.classList.add("is-active");
-      if (label) label.textContent = "Mostrar menos";
+      if (icone) icone.className = "fa-solid fa-chevron-down";
       roleFlagTextEl.textContent = ROLE_FLAG_TEXTS[role] || "";
       // reflow forçado: garante que a animação de slide up rode de novo
       // mesmo trocando direto de um badge pro outro (sem passar por "fechado")
