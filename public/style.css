@@ -2061,6 +2061,25 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   background:rgba(96,205,255,.28);
   border-color:#60cdff;
 }
+.role-flag-hint{
+  margin:4px 0 0;
+  font-size:.7rem;
+  color:rgba(255,255,255,.5);
+  font-style:italic;
+  animation:roleFlagHintPulse 1.8s ease-in-out infinite;
+  transition:opacity .3s ease, max-height .3s ease;
+  max-height:20px;
+  overflow:hidden;
+}
+.role-flag-hint.is-hidden{
+  opacity:0;
+  max-height:0;
+  margin-top:0;
+}
+@keyframes roleFlagHintPulse{
+  0%,100%{opacity:.5;}
+  50%{opacity:1;}
+}
 .role-flag-text{
   max-height:0;
   overflow:hidden;

@@ -130,6 +130,13 @@ const ROLE_FLAG_TEXTS = {
   curriculo: "Formação e experiência em Social Media, Design Gráfico e Edição de Vídeos. Baixe o currículo em PDF ou confira o perfil no LinkedIn nos links de contato.",
   experiencia: "Já atuei com produção de conteúdo, gestão de redes sociais e edição de vídeo para criadores e marcas — os projetos e clientes estão no portfólio abaixo.",
 };
+const roleFlagHintEl = document.getElementById("roleFlagHint");
+if (roleFlagHintEl) {
+  document.addEventListener("click", () => {
+    roleFlagHintEl.classList.add("is-hidden");
+  }, { once: true });
+}
+
 const roleFlagButtons = document.querySelectorAll(".role-flag");
 const roleFlagTextEl  = document.getElementById("roleFlagText");
 if (roleFlagButtons.length && roleFlagTextEl) {
