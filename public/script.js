@@ -99,28 +99,14 @@ if (headerExperienciaBtn) {
   });
 }
 
-// bio: clamp de 4 linhas com fade + "mostrar mais" (revela em linha, sem popup)
+// bio ("Mostrar mais") + badges de atuação (Designer Gráfico/Editor de Vídeos/Social Media/...):
+// todos revelam texto em linha, no mesmo estilo, e só um fica aberto por vez
 const bioClampWrap   = document.getElementById("bioClampWrap");
 const bioMostrarMais = document.getElementById("bioMostrarMaisBtn");
 const heroSubtitleEl = document.getElementById("heroSubtitle");
-if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
-  function expandirBio(){
-    bioClampWrap.classList.add("is-expanded");
-    heroSubtitleEl.style.maxHeight = heroSubtitleEl.scrollHeight + "px";
-    bioMostrarMais.textContent = "Mostrar menos";
-  }
-  function recolherBio(){
-    bioClampWrap.classList.remove("is-expanded");
-    heroSubtitleEl.style.maxHeight = "";
-    bioMostrarMais.textContent = "Mostrar mais";
-  }
-  bioMostrarMais.addEventListener("click", () => {
-    bioClampWrap.classList.contains("is-expanded") ? recolherBio() : expandirBio();
-  });
-}
+const roleFlagButtons = document.querySelectorAll(".role-flag");
+const roleFlagTextEl  = document.getElementById("roleFlagText");
 
-// badges de atuação (Designer Gráfico/Editor de Vídeos/Social Media):
-// cada um revela seu próprio texto abaixo, igual ao "Mostrar mais" da bio
 const ROLE_FLAG_TEXTS = {
   grafico: "Crio artes, thumbnails, banners e materiais gráficos no Photoshop e Canva — de posts a produtos como camisas e canecas.",
   video: "Edito vídeos horizontais e verticais no Capcut, Premiere e After Effects — roteiro, cortes, thumbnails e efeitos especiais.",
@@ -130,6 +116,42 @@ const ROLE_FLAG_TEXTS = {
   curriculo: "Formação e experiência em Social Media, Design Gráfico e Edição de Vídeos. Baixe o currículo em PDF ou confira o perfil no LinkedIn nos links de contato.",
   experiencia: "Já atuei com produção de conteúdo, gestão de redes sociais e edição de vídeo para criadores e marcas — os projetos e clientes estão no portfólio abaixo.",
 };
+
+let revelacaoAberta = null; // "bio" | data-role do badge | null
+
+function fecharBio(){
+  if (!bioClampWrap || !heroSubtitleEl || !bioMostrarMais) return;
+  bioClampWrap.classList.remove("is-expanded");
+  heroSubtitleEl.style.maxHeight = "";
+  bioMostrarMais.textContent = "Mostrar mais";
+}
+function abrirBio(){
+  if (!bioClampWrap || !heroSubtitleEl || !bioMostrarMais) return;
+  bioClampWrap.classList.add("is-expanded");
+  heroSubtitleEl.style.maxHeight = heroSubtitleEl.scrollHeight + "px";
+  bioMostrarMais.textContent = "Mostrar menos";
+}
+function fecharRoleFlagText(){
+  if (!roleFlagTextEl) return;
+  roleFlagTextEl.style.maxHeight = "";
+  roleFlagTextEl.classList.remove("is-open");
+  roleFlagButtons.forEach(b => b.classList.remove("is-active"));
+}
+function fecharTudo(){
+  fecharBio();
+  fecharRoleFlagText();
+  revelacaoAberta = null;
+}
+
+if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
+  bioMostrarMais.addEventListener("click", () => {
+    if (revelacaoAberta === "bio") { fecharTudo(); return; }
+    fecharTudo();
+    abrirBio();
+    revelacaoAberta = "bio";
+  });
+}
+
 const roleFlagHintEl = document.getElementById("roleFlagHint");
 if (roleFlagHintEl) {
   function esconderRoleFlagHint(e) {
@@ -140,28 +162,17 @@ if (roleFlagHintEl) {
   document.addEventListener("click", esconderRoleFlagHint);
 }
 
-const roleFlagButtons = document.querySelectorAll(".role-flag");
-const roleFlagTextEl  = document.getElementById("roleFlagText");
 if (roleFlagButtons.length && roleFlagTextEl) {
-  let roleFlagAtivo = null;
-
-  function fecharRoleFlagText(){
-    roleFlagTextEl.style.maxHeight = "";
-    roleFlagTextEl.classList.remove("is-open");
-    roleFlagButtons.forEach(b => b.classList.remove("is-active"));
-    roleFlagAtivo = null;
-  }
-
   roleFlagButtons.forEach(btn => {
     btn.addEventListener("click", () => {
       const role = btn.dataset.role;
-      if (roleFlagAtivo === role) { fecharRoleFlagText(); return; }
-      roleFlagButtons.forEach(b => b.classList.remove("is-active"));
+      if (revelacaoAberta === role) { fecharTudo(); return; }
+      fecharTudo();
       btn.classList.add("is-active");
       roleFlagTextEl.textContent = ROLE_FLAG_TEXTS[role] || "";
       roleFlagTextEl.classList.add("is-open");
       roleFlagTextEl.style.maxHeight = roleFlagTextEl.scrollHeight + "px";
-      roleFlagAtivo = role;
+      revelacaoAberta = role;
     });
   });
 }

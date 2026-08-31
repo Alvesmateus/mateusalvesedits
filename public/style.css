@@ -2051,16 +2051,37 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   font-size:.7rem;
   font-weight:700;
   line-height:1.2;
-  color:#60cdff;
-  background:rgba(96,205,255,.12);
-  border:1px solid rgba(96,205,255,.35);
+  color:var(--flag-clr, #60cdff);
+  background:var(--flag-bg, rgba(96,205,255,.12));
+  border:1px solid var(--flag-border, rgba(96,205,255,.35));
   white-space:nowrap;
   cursor:pointer;
   transition:background .15s ease, border-color .15s ease;
 }
 .role-flag.is-active{
-  background:rgba(96,205,255,.28);
-  border-color:#60cdff;
+  background:var(--flag-bg-active, rgba(96,205,255,.28));
+  border-color:var(--flag-clr, #60cdff);
+}
+.role-flag[data-role="grafico"]{
+  --flag-clr:#60cdff; --flag-bg:rgba(96,205,255,.12); --flag-border:rgba(96,205,255,.35); --flag-bg-active:rgba(96,205,255,.28);
+}
+.role-flag[data-role="video"]{
+  --flag-clr:#fb923c; --flag-bg:rgba(251,146,60,.12); --flag-border:rgba(251,146,60,.35); --flag-bg-active:rgba(251,146,60,.28);
+}
+.role-flag[data-role="social"]{
+  --flag-clr:#ec4899; --flag-bg:rgba(236,72,153,.12); --flag-border:rgba(236,72,153,.35); --flag-bg-active:rgba(236,72,153,.28);
+}
+.role-flag[data-role="quemsou"]{
+  --flag-clr:#34d399; --flag-bg:rgba(52,211,153,.12); --flag-border:rgba(52,211,153,.35); --flag-bg-active:rgba(52,211,153,.28);
+}
+.role-flag[data-role="contato"]{
+  --flag-clr:#fbbf24; --flag-bg:rgba(251,191,36,.12); --flag-border:rgba(251,191,36,.35); --flag-bg-active:rgba(251,191,36,.28);
+}
+.role-flag[data-role="curriculo"]{
+  --flag-clr:#818cf8; --flag-bg:rgba(129,140,248,.12); --flag-border:rgba(129,140,248,.35); --flag-bg-active:rgba(129,140,248,.28);
+}
+.role-flag[data-role="experiencia"]{
+  --flag-clr:#22d3ee; --flag-bg:rgba(34,211,238,.12); --flag-border:rgba(34,211,238,.35); --flag-bg-active:rgba(34,211,238,.28);
 }
 .role-flag-hint{
   position:absolute;
@@ -2101,8 +2122,8 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   max-height:0;
   overflow:hidden;
   color:rgba(255,255,255,.7);
-  font-size:.76rem;
-  line-height:1.4;
+  font-size:.875rem;
+  line-height:1.375;
   transition:max-height .35s ease, margin-top .35s ease;
 }
 .role-flag-text.is-open{
