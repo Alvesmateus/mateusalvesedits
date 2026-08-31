@@ -2230,6 +2230,10 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   background:#FF0000;
   border-color:#FF0000;
 }
+#headerSopapiroBtn .ver-mais-icon{
+  background:#0891b2;
+  border-color:#0891b2;
+}
 #headerExperienciaBtn .ver-mais-icon{
   background:#0b0b0f;
   border-color:rgba(255,255,255,.2);
