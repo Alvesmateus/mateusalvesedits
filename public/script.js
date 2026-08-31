@@ -125,6 +125,10 @@ const ROLE_FLAG_TEXTS = {
   grafico: "Crio artes, thumbnails, banners e materiais gráficos no Photoshop e Canva — de posts a produtos como camisas e canecas.",
   video: "Edito vídeos horizontais e verticais no Capcut, Premiere e After Effects — roteiro, cortes, thumbnails e efeitos especiais.",
   social: "Cuido da gestão de Instagram e YouTube: calendário editorial, criação de posts, carrosséis, reels e agendamento das publicações.",
+  quemsou: "Mateus Alves, 27 anos, atuo de forma integrada em Social Media, Produção Audiovisual e Programação, unindo criatividade e automação no dia a dia dos projetos.",
+  contato: "Fale comigo pelo WhatsApp (21) 97304-2881, Instagram @mateusalvesdzn ou e-mail mateusalves.flu@gmail.com — respondo rápido.",
+  curriculo: "Formação e experiência em Social Media, Design Gráfico e Edição de Vídeos. Baixe o currículo em PDF ou confira o perfil no LinkedIn nos links de contato.",
+  experiencia: "Já atuei com produção de conteúdo, gestão de redes sociais e edição de vídeo para criadores e marcas — os projetos e clientes estão no portfólio abaixo.",
 };
 const roleFlagButtons = document.querySelectorAll(".role-flag");
 const roleFlagTextEl  = document.getElementById("roleFlagText");
@@ -138,22 +142,8 @@ if (roleFlagButtons.length && roleFlagTextEl) {
     roleFlagAtivo = null;
   }
 
-  // atalhos "Quem sou eu / Contato / Currículo / Experiência" no mesmo
-  // estilo de badge, mas só disparam os botões de sempre no topo
-  const ROLE_FLAG_ACTIONS = {
-    quemsou: "headerQuemSouBtn",
-    contato: "headerContatoBtn",
-    curriculo: "headerCurriculoBtn",
-    experiencia: "headerExperienciaBtn",
-  };
-
   roleFlagButtons.forEach(btn => {
     btn.addEventListener("click", () => {
-      const action = btn.dataset.action;
-      if (action) {
-        document.getElementById(ROLE_FLAG_ACTIONS[action])?.click();
-        return;
-      }
       const role = btn.dataset.role;
       if (roleFlagAtivo === role) { fecharRoleFlagText(); return; }
       roleFlagButtons.forEach(b => b.classList.remove("is-active"));
