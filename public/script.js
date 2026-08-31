@@ -135,7 +135,10 @@ function fecharRoleFlagText(){
   if (!roleFlagTextEl) return;
   roleFlagTextEl.style.maxHeight = "";
   roleFlagTextEl.classList.remove("is-open");
-  roleFlagButtons.forEach(b => b.classList.remove("is-active"));
+  roleFlagButtons.forEach(b => {
+    b.classList.remove("is-active");
+    if (b.dataset.label) b.textContent = b.dataset.label;
+  });
 }
 function fecharTudo(){
   fecharBio();
@@ -164,11 +167,13 @@ if (roleFlagHintEl) {
 
 if (roleFlagButtons.length && roleFlagTextEl) {
   roleFlagButtons.forEach(btn => {
+    btn.dataset.label = btn.textContent;
     btn.addEventListener("click", () => {
       const role = btn.dataset.role;
       if (revelacaoAberta === role) { fecharTudo(); return; }
       fecharTudo();
       btn.classList.add("is-active");
+      btn.textContent = "Mostrar menos";
       roleFlagTextEl.textContent = ROLE_FLAG_TEXTS[role] || "";
       roleFlagTextEl.classList.add("is-open");
       roleFlagTextEl.style.maxHeight = roleFlagTextEl.scrollHeight + "px";

@@ -2126,7 +2126,7 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   text-shadow:0 2px 12px rgba(0,0,0,.7), 0 1px 3px rgba(0,0,0,.9);
   font-size:.875rem;
   line-height:1.375;
-  transition:max-height .35s ease, margin-top .35s ease;
+  transition:max-height .45s ease, margin-top .45s ease;
 }
 .role-flag-text.is-open{
   margin-top:6px;
