@@ -2056,7 +2056,12 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   transition:background .15s ease, border-color .15s ease, color .15s ease;
 }
 .role-flag i{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:1em;
   font-size:.9em;
+  line-height:1;
 }
 /* selecionado: sem stroke novo, só fundo claro e texto escuro (igual pros 7 botões) */
 .role-flag.is-active{
