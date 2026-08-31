@@ -2062,42 +2062,35 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   border-color:#60cdff;
 }
 .role-flag-hint{
-  display:flex;
+  position:relative;
+  display:inline-flex;
   align-items:center;
-  gap:5px;
-  margin:6px 0 0;
-  padding:3px 10px;
-  border-radius:999px;
   width:fit-content;
+  margin:12px 0 0;
+  padding:5px 12px;
+  border-radius:9px;
   font-size:.72rem;
-  font-weight:800;
-  color:#60cdff;
-  background:rgba(96,205,255,.14);
-  border:1px solid rgba(96,205,255,.4);
-  transition:opacity .3s ease, max-height .3s ease, margin-top .3s ease;
-  max-height:26px;
-  overflow:hidden;
-  animation:roleFlagHintGlow 1.6s ease-in-out infinite;
+  font-weight:700;
+  color:#111;
+  background:#fff;
+  box-shadow:0 3px 10px rgba(0,0,0,.25);
+  transition:opacity .3s ease, transform .3s ease;
+  pointer-events:none;
+}
+.role-flag-hint::before{
+  content:"";
+  position:absolute;
+  top:-7px;
+  left:16px;
+  width:0;
+  height:0;
+  border-left:6px solid transparent;
+  border-right:6px solid transparent;
+  border-bottom:7px solid #fff;
 }
 .role-flag-hint.is-hidden{
   opacity:0;
-  max-height:0;
-  margin-top:0;
-  padding-top:0;
-  padding-bottom:0;
-  border-width:0;
-}
-.role-flag-hint-arrow{
-  display:inline-block;
-  animation:roleFlagHintPoint 1s ease-in-out infinite;
-}
-@keyframes roleFlagHintPoint{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-4px);}
-}
-@keyframes roleFlagHintGlow{
-  0%,100%{box-shadow:0 0 0 rgba(96,205,255,0); border-color:rgba(96,205,255,.4);}
-  50%{box-shadow:0 0 10px rgba(96,205,255,.5); border-color:#60cdff;}
+  transform:translateY(-4px);
 }
 .role-flag-text{
   max-height:0;
