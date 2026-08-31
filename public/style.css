@@ -2062,23 +2062,42 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   border-color:#60cdff;
 }
 .role-flag-hint{
-  margin:4px 0 0;
-  font-size:.7rem;
-  color:rgba(255,255,255,.5);
-  font-style:italic;
-  animation:roleFlagHintPulse 1.8s ease-in-out infinite;
-  transition:opacity .3s ease, max-height .3s ease;
-  max-height:20px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  margin:6px 0 0;
+  padding:3px 10px;
+  border-radius:999px;
+  width:fit-content;
+  font-size:.72rem;
+  font-weight:800;
+  color:#60cdff;
+  background:rgba(96,205,255,.14);
+  border:1px solid rgba(96,205,255,.4);
+  transition:opacity .3s ease, max-height .3s ease, margin-top .3s ease;
+  max-height:26px;
   overflow:hidden;
+  animation:roleFlagHintGlow 1.6s ease-in-out infinite;
 }
 .role-flag-hint.is-hidden{
   opacity:0;
   max-height:0;
   margin-top:0;
+  padding-top:0;
+  padding-bottom:0;
+  border-width:0;
 }
-@keyframes roleFlagHintPulse{
-  0%,100%{opacity:.5;}
-  50%{opacity:1;}
+.role-flag-hint-arrow{
+  display:inline-block;
+  animation:roleFlagHintPoint 1s ease-in-out infinite;
+}
+@keyframes roleFlagHintPoint{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-4px);}
+}
+@keyframes roleFlagHintGlow{
+  0%,100%{box-shadow:0 0 0 rgba(96,205,255,0); border-color:rgba(96,205,255,.4);}
+  50%{box-shadow:0 0 10px rgba(96,205,255,.5); border-color:#60cdff;}
 }
 .role-flag-text{
   max-height:0;
