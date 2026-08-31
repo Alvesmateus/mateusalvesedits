@@ -17,6 +17,9 @@
 
 <body class="min-h-screen bg-[#0b0b0f] text-white font-sans">
 
+  <!-- fundo escurecido enquanto alguma dica (balão) estiver visível -->
+  <div id="hintBackdrop" class="hint-backdrop"></div>
+
   <!-- SPLASH SCREEN — cobre a tela enquanto o site carrega -->
   <div id="splashScreen">
     <div class="splash-inner">
@@ -47,14 +50,14 @@
               <span id="heroTitleLine1">Mateus Alves,</span> <span id="heroTitleLine2">27 anos.</span>
             </h2>
             <div class="role-flags" id="heroRoleFlags">
-              <button type="button" class="role-flag" data-role="grafico">Designer Gráfico</button>
-              <button type="button" class="role-flag" data-role="video">Editor de Vídeos</button>
-              <button type="button" class="role-flag" data-role="social">Social Media</button>
-              <button type="button" class="role-flag" data-role="quemsou">Quem sou eu</button>
-              <button type="button" class="role-flag" data-role="contato">Contato</button>
-              <button type="button" class="role-flag" data-role="curriculo">Currículo</button>
-              <button type="button" class="role-flag" data-role="experiencia">Experiência</button>
-              <button type="button" id="bioMostrarMaisBtn" class="bio-mostrar-mais-btn">Mostrar mais</button>
+              <button type="button" class="role-flag" data-role="grafico"><i class="fa-solid fa-palette"></i><span class="role-flag-label">Designer Gráfico</span></button>
+              <button type="button" class="role-flag" data-role="video"><i class="fa-solid fa-film"></i><span class="role-flag-label">Editor de Vídeos</span></button>
+              <button type="button" class="role-flag" data-role="social"><i class="fa-solid fa-share-nodes"></i><span class="role-flag-label">Social Media</span></button>
+              <button type="button" class="role-flag" data-role="quemsou"><i class="fa-solid fa-user"></i><span class="role-flag-label">Quem sou eu</span></button>
+              <button type="button" class="role-flag" data-role="contato"><i class="fa-solid fa-envelope"></i><span class="role-flag-label">Contato</span></button>
+              <button type="button" class="role-flag" data-role="curriculo"><i class="fa-solid fa-file-lines"></i><span class="role-flag-label">Currículo</span></button>
+              <button type="button" class="role-flag" data-role="experiencia"><i class="fa-solid fa-briefcase"></i><span class="role-flag-label">Experiência</span></button>
+              <button type="button" id="bioMostrarMaisBtn" class="bio-mostrar-mais-btn"><i class="fa-solid fa-chevron-down"></i><span class="bio-mostrar-mais-label">Mostrar mais</span></button>
               <p id="roleFlagHint" class="role-flag-hint">Clique nos botões acima para ver mais informações</p>
             </div>
             <p id="roleFlagText" class="role-flag-text"></p>

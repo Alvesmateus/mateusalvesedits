@@ -2054,6 +2054,7 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 .role-flag{
   display:inline-flex;
   align-items:center;
+  gap:6px;
   padding:3px 10px;
   border-radius:999px;
   font-size:.7rem;
@@ -2064,11 +2065,16 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   border:1px solid var(--flag-border, rgba(96,205,255,.35));
   white-space:nowrap;
   cursor:pointer;
-  transition:background .15s ease, border-color .15s ease;
+  transition:background .15s ease, border-color .15s ease, color .15s ease;
 }
+.role-flag i{
+  font-size:.9em;
+}
+/* selecionado: sem stroke novo, só fundo claro e texto escuro (igual pros 7 botões) */
 .role-flag.is-active{
-  background:var(--flag-bg-active, rgba(96,205,255,.28));
-  border-color:var(--flag-clr, #60cdff);
+  background:#fff;
+  border-color:#fff;
+  color:#111;
 }
 .role-flag[data-role="grafico"]{
   --flag-clr:#60cdff; --flag-bg:rgba(96,205,255,.12); --flag-border:rgba(96,205,255,.35); --flag-bg-active:rgba(96,205,255,.28);
@@ -2143,6 +2149,7 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 .bio-mostrar-mais-btn{
   display:inline-flex;
   align-items:center;
+  gap:6px;
   padding:3px 10px;
   border-radius:999px;
   font-size:.7rem;
@@ -2153,6 +2160,36 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   border:1px solid rgba(167,139,250,.35);
   white-space:nowrap;
   cursor:pointer;
+}
+.bio-mostrar-mais-btn i{
+  font-size:.9em;
+}
+
+/* fundo escurecido atrás das dicas (balões flutuantes) */
+.hint-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:25;
+  background:rgba(0,0,0,.4);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .3s ease;
+}
+.hint-backdrop.is-visible{
+  opacity:1;
+}
+
+/* botões de atuação maiores no mobile (Designer Gráfico, Mostrar mais, etc.) */
+@media(max-width:639px){
+  .role-flag,
+  .bio-mostrar-mais-btn{
+    padding:6px 13px;
+    font-size:.8rem;
+    gap:7px;
+  }
+  .role-flags{
+    gap:8px;
+  }
 }
 
 /* "Quem sou eu?" — ícone circular com brilho, texto abaixo */

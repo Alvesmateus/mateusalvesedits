@@ -103,9 +103,11 @@ if (headerExperienciaBtn) {
 // todos revelam texto em linha, no mesmo estilo, e só um fica aberto por vez
 const bioClampWrap   = document.getElementById("bioClampWrap");
 const bioMostrarMais = document.getElementById("bioMostrarMaisBtn");
+const bioMostrarMaisLabel = bioMostrarMais ? bioMostrarMais.querySelector(".bio-mostrar-mais-label") : null;
 const heroSubtitleEl = document.getElementById("heroSubtitle");
 const roleFlagButtons = document.querySelectorAll(".role-flag");
 const roleFlagTextEl  = document.getElementById("roleFlagText");
+const hintBackdropEl  = document.getElementById("hintBackdrop");
 
 const ROLE_FLAG_TEXTS = {
   grafico: "Crio artes, thumbnails, banners e materiais gráficos no Photoshop e Canva — de posts a produtos como camisas e canecas.",
@@ -123,13 +125,17 @@ function fecharBio(){
   if (!bioClampWrap || !heroSubtitleEl || !bioMostrarMais) return;
   bioClampWrap.classList.remove("is-expanded");
   heroSubtitleEl.style.maxHeight = "";
-  bioMostrarMais.textContent = "Mostrar mais";
+  if (bioMostrarMaisLabel) bioMostrarMaisLabel.textContent = "Mostrar mais";
 }
 function abrirBio(){
   if (!bioClampWrap || !heroSubtitleEl || !bioMostrarMais) return;
+  // reflow forçado para a animação de slide up reiniciar mesmo trocando
+  // direto de um badge de atuação para a bio (ou vice-versa)
+  bioClampWrap.classList.remove("is-expanded");
+  void bioClampWrap.offsetWidth;
   bioClampWrap.classList.add("is-expanded");
   heroSubtitleEl.style.maxHeight = heroSubtitleEl.scrollHeight + "px";
-  bioMostrarMais.textContent = "Mostrar menos";
+  if (bioMostrarMaisLabel) bioMostrarMaisLabel.textContent = "Mostrar menos";
 }
 function fecharRoleFlagText(){
   if (!roleFlagTextEl) return;
@@ -137,7 +143,8 @@ function fecharRoleFlagText(){
   roleFlagTextEl.classList.remove("is-open");
   roleFlagButtons.forEach(b => {
     b.classList.remove("is-active");
-    if (b.dataset.label) b.textContent = b.dataset.label;
+    const label = b.querySelector(".role-flag-label");
+    if (label && b.dataset.label) label.textContent = b.dataset.label;
   });
 }
 function fecharTudo(){
@@ -155,11 +162,21 @@ if (bioClampWrap && bioMostrarMais && heroSubtitleEl) {
   });
 }
 
+// fundo escurecido atrás das dicas (balões) enquanto pelo menos uma estiver visível
+function atualizarHintBackdrop() {
+  if (!hintBackdropEl) return;
+  const algumaVisivel = [roleFlagHintEl, filtroAtalhoHintEl].some(
+    el => el && !el.classList.contains("is-hidden")
+  );
+  hintBackdropEl.classList.toggle("is-visible", algumaVisivel);
+}
+
 const roleFlagHintEl = document.getElementById("roleFlagHint");
 if (roleFlagHintEl) {
   function esconderRoleFlagHint(e) {
     if (e.target.closest("#precisaModal")) return;
     roleFlagHintEl.classList.add("is-hidden");
+    atualizarHintBackdrop();
     document.removeEventListener("click", esconderRoleFlagHint);
   }
   document.addEventListener("click", esconderRoleFlagHint);
@@ -170,21 +187,29 @@ if (filtroAtalhoHintEl) {
   function esconderFiltroAtalhoHint(e) {
     if (e.target.closest("#precisaModal")) return;
     filtroAtalhoHintEl.classList.add("is-hidden");
+    atualizarHintBackdrop();
     document.removeEventListener("click", esconderFiltroAtalhoHint);
   }
   document.addEventListener("click", esconderFiltroAtalhoHint);
 }
 
+atualizarHintBackdrop();
+
 if (roleFlagButtons.length && roleFlagTextEl) {
   roleFlagButtons.forEach(btn => {
-    btn.dataset.label = btn.textContent;
+    const label = btn.querySelector(".role-flag-label");
+    btn.dataset.label = label ? label.textContent : btn.textContent;
     btn.addEventListener("click", () => {
       const role = btn.dataset.role;
       if (revelacaoAberta === role) { fecharTudo(); return; }
       fecharTudo();
       btn.classList.add("is-active");
-      btn.textContent = "Mostrar menos";
+      if (label) label.textContent = "Mostrar menos";
       roleFlagTextEl.textContent = ROLE_FLAG_TEXTS[role] || "";
+      // reflow forçado: garante que a animação de slide up rode de novo
+      // mesmo trocando direto de um badge pro outro (sem passar por "fechado")
+      roleFlagTextEl.classList.remove("is-open");
+      void roleFlagTextEl.offsetWidth;
       roleFlagTextEl.classList.add("is-open");
       roleFlagTextEl.style.maxHeight = roleFlagTextEl.scrollHeight + "px";
       revelacaoAberta = role;
