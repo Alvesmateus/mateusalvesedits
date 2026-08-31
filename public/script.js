@@ -976,6 +976,14 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Banner Youtube" },
     { img: "icons/softwares/photshop.png", label: "Photoshop" },
   ],
+  "artes/img45.png": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Banner Youtube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
+  "artes/img46.png": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Banner Youtube" },
+    { img: "icons/softwares/photshop.png", label: "Photoshop" },
+  ],
   "artes/img41.png": [BADGE_VETOR, BADGE_IMPRESSAO_3D],
   "artes/img42.png": [BADGE_VETOR],
   "artes/img43.png": [BADGE_VETOR],
