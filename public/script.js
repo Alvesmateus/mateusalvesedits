@@ -621,7 +621,10 @@ const BLOCOS = {
   imagens: v => {
     const arr = Array.isArray(v) ? v : [v];
     return `<div class="panel-media-grid">${
-      arr.map(src => `<img class="panel-media-img" src="${src}" loading="lazy" alt="">`).join("")
+      arr.map(src => `<div class="panel-media-item is-loading">
+        <div class="media-skeleton"></div>
+        <img class="panel-media-img" src="${src}" loading="lazy" alt="">
+      </div>`).join("")
     }</div>`;
   },
 
@@ -743,6 +746,16 @@ function abrirPasta(item, clickedWrapper){
   // Lightbox ao clicar nas imagens do painel
   folderPanel.querySelectorAll(".panel-media-img").forEach(img => {
     img.addEventListener("click", () => abrirLightbox(img.src));
+  });
+
+  // fade-in + remove o skeleton de cada imagem do painel quando ela terminar de carregar
+  folderPanel.querySelectorAll(".panel-media-item.is-loading .panel-media-img").forEach(img => {
+    const revelar = () => {
+      img.classList.add("is-loaded");
+      img.closest(".panel-media-item").classList.remove("is-loading");
+    };
+    if (img.complete) revelar();
+    else img.addEventListener("load", revelar, { once: true });
   });
 
   // remove o skeleton de "carregando" de cada vídeo do YouTube quando ele terminar de carregar
