@@ -1494,6 +1494,7 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 }
 
 .filtro-atalhos{
+  position:relative;
   display:flex;
   flex-wrap:wrap;
   gap:6px;
@@ -2035,6 +2036,13 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   overflow:hidden;
   transition:max-height .45s ease;
 }
+@keyframes textRevealSlideUp{
+  from{ opacity:0; transform:translateY(10px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+.bio-clamp-wrap.is-expanded #heroSubtitle{
+  animation:textRevealSlideUp .45s ease;
+}
 /* flags de atuação (Designer Gráfico, Editor de Vídeos, Social Media...) */
 .role-flags{
   position:relative;
@@ -2130,6 +2138,7 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 }
 .role-flag-text.is-open{
   margin-top:6px;
+  animation:textRevealSlideUp .45s ease;
 }
 .bio-mostrar-mais-btn{
   display:inline-flex;

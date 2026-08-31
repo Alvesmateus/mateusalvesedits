@@ -165,6 +165,16 @@ if (roleFlagHintEl) {
   document.addEventListener("click", esconderRoleFlagHint);
 }
 
+const filtroAtalhoHintEl = document.getElementById("filtroAtalhoHint");
+if (filtroAtalhoHintEl) {
+  function esconderFiltroAtalhoHint(e) {
+    if (e.target.closest("#precisaModal")) return;
+    filtroAtalhoHintEl.classList.add("is-hidden");
+    document.removeEventListener("click", esconderFiltroAtalhoHint);
+  }
+  document.addEventListener("click", esconderFiltroAtalhoHint);
+}
+
 if (roleFlagButtons.length && roleFlagTextEl) {
   roleFlagButtons.forEach(btn => {
     btn.dataset.label = btn.textContent;
