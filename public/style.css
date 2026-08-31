@@ -2216,6 +2216,13 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   font-weight:700;
   text-align:center;
 }
+.ver-mais-tag{
+  font-size:.6rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+  color:rgba(255,255,255,.4);
+}
 .ver-mais-link:hover{
   color:#fff;
   transform:translateY(-1px);
@@ -2233,10 +2240,6 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 #headerSopapiroBtn .ver-mais-icon{
   background:#0891b2;
   border-color:#0891b2;
-}
-#headerFuzileiroStoreBtn .ver-mais-icon{
-  background:#16a34a;
-  border-color:#16a34a;
 }
 #headerExperienciaBtn .ver-mais-icon{
   background:#0b0b0f;
