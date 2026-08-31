@@ -2226,6 +2226,10 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   color:#0b0b0f;
   border-color:rgba(0,0,0,.1);
 }
+#headerFuzileiroBtn .ver-mais-icon{
+  background:#FF0000;
+  border-color:#FF0000;
+}
 #headerExperienciaBtn .ver-mais-icon{
   background:#0b0b0f;
   border-color:rgba(255,255,255,.2);
