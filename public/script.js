@@ -132,9 +132,12 @@ const ROLE_FLAG_TEXTS = {
 };
 const roleFlagHintEl = document.getElementById("roleFlagHint");
 if (roleFlagHintEl) {
-  document.addEventListener("click", () => {
+  function esconderRoleFlagHint(e) {
+    if (e.target.closest("#precisaModal")) return;
     roleFlagHintEl.classList.add("is-hidden");
-  }, { once: true });
+    document.removeEventListener("click", esconderRoleFlagHint);
+  }
+  document.addEventListener("click", esconderRoleFlagHint);
 }
 
 const roleFlagButtons = document.querySelectorAll(".role-flag");
