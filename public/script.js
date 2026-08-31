@@ -1261,6 +1261,11 @@ const BADGES_EXTRAS_POR_ARQUIVO = {
     { img: "icons/softwares/premire.png", label: "Premiere" },
     { img: "icons/softwares/aftereffects.png", label: "After Effects" },
   ],
+  "youtube-videos/video16.mp4": [
+    { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "YouTube" },
+    { img: "icons/softwares/premire.png", label: "Premiere" },
+    { img: "icons/softwares/aftereffects.png", label: "After Effects" },
+  ],
   "youtube-shorts/O BLINDADO QUE FICOU PRESO NO COMPLEXO DO ALEMÃO.mp4": [
     { icone: "fa-brands fa-youtube", cor: "#FF0000", label: "Shorts" },
     { img: "icons/softwares/capcut.png", label: "Capcut" },
