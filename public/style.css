@@ -2183,6 +2183,7 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
 
 /* "Quem sou eu?" — ícone circular com brilho, texto abaixo */
 .ver-mais-link{
+  position:relative;
   display:inline-flex;
   flex-direction:column;
   align-items:center;
@@ -2227,11 +2228,25 @@ a.grid-tag:hover{ background:rgba(0,0,0,.8); }
   text-align:center;
 }
 .ver-mais-tag{
-  font-size:.6rem;
-  font-weight:700;
+  position:absolute;
+  top:-4px;
+  right:2px;
+  z-index:2;
+  padding:2px 7px;
+  border-radius:999px;
+  font-size:.55rem;
+  font-weight:800;
   text-transform:uppercase;
   letter-spacing:.02em;
-  color:rgba(255,255,255,.4);
+  color:#fff;
+  background:#dc2626;
+  white-space:nowrap;
+  pointer-events:none;
+  animation:verMaisTagGlow 1.8s ease-in-out infinite;
+}
+@keyframes verMaisTagGlow{
+  0%,100%{ box-shadow:0 2px 8px rgba(220,38,38,.55); }
+  50%{ box-shadow:0 2px 14px rgba(220,38,38,.95); }
 }
 .ver-mais-link:hover{
   color:#fff;
