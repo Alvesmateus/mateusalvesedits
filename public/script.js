@@ -1894,8 +1894,9 @@ if (filtrarPostsBtn && filtroModal) {
 }
 
 // ── ATALHOS "SOMENTE X" (Photoshop/Canva/Capcut/After) ao lado de "Filtrar posts" ──
-// cada atalho alterna (liga/desliga) seu valor no mesmo conjunto usado pelo
-// popup "Filtrar posts" — dá pra combinar vários atalhos, ou atalho + popup.
+// clicar num atalho seleciona só ele (limpa qualquer outro filtro ativo) —
+// escolha manual única. O popup "Filtrar posts" continua permitindo combinar
+// vários filtros via checkbox.
 const filtroAtalhosEl = document.getElementById("filtroAtalhos");
 
 function sincronizarAtalhosFiltro() {
@@ -1909,9 +1910,11 @@ if (filtroAtalhosEl) {
   filtroAtalhosEl.querySelectorAll(".filtro-atalho-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       const valor = btn.dataset.valor;
-      if (filtrosSelecionados.has(valor)) filtrosSelecionados.delete(valor);
-      else filtrosSelecionados.add(valor);
+      const jaSelecionado = filtrosSelecionados.has(valor);
+      filtrosSelecionados.clear();
+      if (!jaSelecionado) filtrosSelecionados.add(valor);
       renderFiltroChips();
+      renderFiltroModalBody();
       sincronizarAtalhosFiltro();
       atualizarGradeComAnimacao();
     });
