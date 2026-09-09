@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompts</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #0b0b0f;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+  }
+
+  a.back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #9a9aa5;
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+  a.back:hover { color: #fff; }
+
+  h1 {
+    font-size: 22px;
+    margin: 0 0 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h1 i { color: #962fbf; }
+
+  .subtitle {
+    color: #9a9aa5;
+    font-size: 13px;
+    margin: 0 0 22px;
+  }
+
+  .card {
+    background: #131318;
+    border: 1px solid #22222b;
+    border-radius: 14px;
+    padding: 16px;
+  }
+
+  .add-card {
+    margin-bottom: 20px;
+  }
+
+  .add-card input[type="text"] {
+    width: 100%;
+    background: #0b0b0f;
+    border: 1px solid #22222b;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .add-card textarea {
+    width: 100%;
+    min-height: 100px;
+    background: #0b0b0f;
+    border: 1px solid #22222b;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+    resize: vertical;
+    font-family: inherit;
+    margin-bottom: 10px;
+  }
+
+  .add-card input:focus,
+  .add-card textarea:focus {
+    outline: none;
+    border-color: #962fbf;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    border-radius: 999px;
+    padding: 10px 18px;
+    transition: transform .15s ease, opacity .15s ease;
+  }
+  .btn:active { transform: scale(0.97); }
+
+  .btn-primary {
+    background: linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);
+    color: #fff;
+  }
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #131318;
+    border: 1px solid #22222b;
+    border-radius: 999px;
+    padding: 10px 16px;
+    margin-bottom: 18px;
+  }
+  .search-box i { color: #9a9aa5; }
+  .search-box input {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+  }
+  .search-box input:focus { outline: none; }
+
+  .prompt-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .prompt-card {
+    background: #131318;
+    border: 1px solid #22222b;
+    border-radius: 14px;
+    padding: 14px 16px;
+  }
+
+  .prompt-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+
+  .prompt-text {
+    font-size: 13px;
+    color: #c8c8d0;
+    white-space: pre-wrap;
+    line-height: 1.5;
+    margin: 0 0 12px;
+    max-height: 140px;
+    overflow-y: auto;
+  }
+
+  .prompt-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .icon-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #1c1c24;
+    border: 1px solid #2a2a34;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 8px;
+    padding: 7px 12px;
+    cursor: pointer;
+  }
+  .icon-btn:hover { background: #24242e; }
+  .icon-btn.copied { background: #1f7a4d; border-color: #1f7a4d; }
+  .icon-btn.danger:hover { background: #5a1f24; border-color: #5a1f24; }
+
+  .prompt-date {
+    margin-left: auto;
+    font-size: 11px;
+    color: #6f6f78;
+  }
+
+  .empty {
+    text-align: center;
+    color: #6f6f78;
+    font-size: 13px;
+    padding: 40px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="back" href="/">
+    <i class="fa-solid fa-arrow-left"></i> Voltar ao site
+  </a>
+
+  <h1><i class="fa-solid fa-wand-magic-sparkles"></i> Prompts</h1>
+  <p class="subtitle">Salve, pesquise e copie seus prompts rapidamente.</p>
+
+  <div class="card add-card">
+    <input type="text" id="promptTitle" placeholder="Título (opcional)">
+    <textarea id="promptText" placeholder="Escreva o prompt aqui..."></textarea>
+    <button class="btn btn-primary" id="addBtn">
+      <i class="fa-solid fa-plus"></i> Adicionar prompt
+    </button>
+  </div>
+
+  <div class="search-box">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" id="searchInput" placeholder="Pesquisar prompts...">
+  </div>
+
+  <div class="prompt-list" id="promptList"></div>
+  <div class="empty" id="emptyState" hidden>Nenhum prompt encontrado.</div>
+</div>
+
+<script>
+  (function () {
+    const STORAGE_KEY = 'mtsAlvesPrompts';
+
+    const titleInput = document.getElementById('promptTitle');
+    const textInput = document.getElementById('promptText');
+    const addBtn = document.getElementById('addBtn');
+    const searchInput = document.getElementById('searchInput');
+    const listEl = document.getElementById('promptList');
+    const emptyState = document.getElementById('emptyState');
+
+    function loadPrompts() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      } catch {
+        return [];
+      }
+    }
+
+    function savePrompts(prompts) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(prompts));
+    }
+
+    function formatDate(ts) {
+      const d = new Date(ts);
+      return d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' }) +
+        ' ' + d.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    }
+
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    function render() {
+      const prompts = loadPrompts().sort((a, b) => b.createdAt - a.createdAt);
+      const query = searchInput.value.trim().toLowerCase();
+      const filtered = query
+        ? prompts.filter(p =>
+            p.title.toLowerCase().includes(query) ||
+            p.text.toLowerCase().includes(query))
+        : prompts;
+
+      listEl.innerHTML = '';
+      emptyState.hidden = filtered.length > 0;
+
+      filtered.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'prompt-card';
+        card.innerHTML = `
+          ${p.title ? `<div class="prompt-title">${escapeHtml(p.title)}</div>` : ''}
+          <div class="prompt-text">${escapeHtml(p.text)}</div>
+          <div class="prompt-actions">
+            <button class="icon-btn copy-btn"><i class="fa-regular fa-copy"></i> Copiar</button>
+            <button class="icon-btn danger delete-btn"><i class="fa-solid fa-trash"></i></button>
+            <span class="prompt-date">${formatDate(p.createdAt)}</span>
+          </div>
+        `;
+
+        card.querySelector('.copy-btn').addEventListener('click', async (e) => {
+          const btn = e.currentTarget;
+          try {
+            await navigator.clipboard.writeText(p.text);
+          } catch {
+            const ta = document.createElement('textarea');
+            ta.value = p.text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          }
+          const original = btn.innerHTML;
+          btn.classList.add('copied');
+          btn.innerHTML = '<i class="fa-solid fa-check"></i> Copiado!';
+          setTimeout(() => {
+            btn.classList.remove('copied');
+            btn.innerHTML = original;
+          }, 1500);
+        });
+
+        card.querySelector('.delete-btn').addEventListener('click', () => {
+          const remaining = loadPrompts().filter(item => item.id !== p.id);
+          savePrompts(remaining);
+          render();
+        });
+
+        listEl.appendChild(card);
+      });
+    }
+
+    addBtn.addEventListener('click', () => {
+      const text = textInput.value.trim();
+      if (!text) {
+        textInput.focus();
+        return;
+      }
+      const prompts = loadPrompts();
+      prompts.push({
+        id: Date.now().toString(36) + Math.random().toString(36).slice(2),
+        title: titleInput.value.trim(),
+        text,
+        createdAt: Date.now()
+      });
+      savePrompts(prompts);
+      titleInput.value = '';
+      textInput.value = '';
+      render();
+    });
+
+    searchInput.addEventListener('input', render);
+
+    render();
+  })();
+</script>
+
+</body>
+</html>
