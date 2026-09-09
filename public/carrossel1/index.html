@@ -133,6 +133,27 @@
   .nav-arrow svg { width: 16px; height: 16px; }
   .nav-arrow:disabled { opacity: 0; pointer-events: none; }
 
+  .dl-toast {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+    z-index: 5;
+    white-space: nowrap;
+  }
+  .dl-toast.show {
+    opacity: 1;
+  }
+
   .dots {
     position: absolute;
     bottom: 10px;
@@ -446,6 +467,48 @@
         return slides[index].querySelector('img');
       }
 
+      const LONG_PRESS_MS = 550;
+      let longPressTimer = null;
+      let pressMoved = false;
+
+      function showToast(text) {
+        const toast = document.createElement('div');
+        toast.className = 'dl-toast';
+        toast.textContent = text;
+        media.appendChild(toast);
+        requestAnimationFrame(() => toast.classList.add('show'));
+        setTimeout(() => {
+          toast.classList.remove('show');
+          setTimeout(() => toast.remove(), 300);
+        }, 1200);
+      }
+
+      function downloadImage(img) {
+        if (!img) return;
+        const filename = img.src.split('/').pop().split('?')[0];
+        const a = document.createElement('a');
+        a.href = img.src;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        showToast('Imagem salva');
+      }
+
+      function startLongPress() {
+        pressMoved = false;
+        clearTimeout(longPressTimer);
+        const img = currentImg();
+        if (!img) return;
+        longPressTimer = setTimeout(() => {
+          if (!pressMoved) downloadImage(img);
+        }, LONG_PRESS_MS);
+      }
+
+      function cancelLongPress() {
+        clearTimeout(longPressTimer);
+      }
+
       function distance(a, b) {
         return Math.hypot(a.x - b.x, a.y - b.y);
       }
@@ -489,7 +552,14 @@
           dragOffset = 0;
           startX = e.clientX;
           media.classList.add('dragging');
+          if (e.pointerType !== 'mouse') startLongPress();
         }
+      });
+
+      media.addEventListener('contextmenu', (e) => {
+        if (e.target.closest('.nav-arrow')) return;
+        e.preventDefault();
+        downloadImage(currentImg());
       });
 
       media.addEventListener('pointermove', (e) => {
@@ -497,6 +567,7 @@
         activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
 
         if (isPinching && activePointers.size === 2) {
+          cancelLongPress();
           const pts = Array.from(activePointers.values());
           const dist = distance(pts[0], pts[1]);
           let scale = dist / pinchStartDist;
@@ -507,6 +578,10 @@
 
         if (isDragging && !isPinching) {
           dragOffset = e.clientX - startX;
+          if (Math.abs(dragOffset) > 10) {
+            pressMoved = true;
+            cancelLongPress();
+          }
           setTransform(-index * media.clientWidth + dragOffset, false);
         }
       });
@@ -522,6 +597,7 @@
       }
 
       function releasePointer(e) {
+        cancelLongPress();
         activePointers.delete(e.pointerId);
         if (isPinching && activePointers.size < 2) {
           endPinch();
